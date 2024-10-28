@@ -1,0 +1,32 @@
+{
+    "Adam": {
+        "money": 200,
+        "kills": 29,
+        "deaths": 17,
+        "assists": 7
+    },
+    "Rage": {
+        "money": 28,
+        "kills": 10,
+        "deaths": 9,
+        "assists": 20
+    },
+    "Kaylia": {
+        "money": 71,
+        "kills": 15,
+        "deaths": 11,
+        "assists": 19
+    },
+    "Jon": {
+        "money": 172,
+        "kills": 19,
+        "deaths": 18,
+        "assists": 17
+    },
+    "Irisu": {
+        "money": 217,
+        "kills": 32,
+        "deaths": 10,
+        "assists": 14
+    }
+}
