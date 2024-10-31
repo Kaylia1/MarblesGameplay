@@ -3,32 +3,18 @@ import os
 import time
 import copy
 import webtools
+import globals
+import rules
 
 KILLVALUE = 4
 DEATHVALUE = 3
 ASSISTVALUE = 1
 
-class Summoner:
-    def __init__(self, name, gameName):
-        self.name = name
-        self.gameName = gameName
-        self.money = 0
-        self.kills = 0
-        self.deaths = 0
-        self.assists = 0
 
-# Initialize summoners
-summoners = {
-    "Adam": Summoner("Adam", "lnanity"),
-    "Rage": Summoner("Rage", "reverie"),
-    "Kaylia": Summoner("Kaylia", "KayFish66"),
-    "Jon": Summoner("Jon", "Jonpachiro"),
-    "Irisu": Summoner("Irisu", "Nobunagaa"),
-}
 
 def close():
     print()
-    for summoner in summoners.values():
+    for summoner in globals.summoners.values():
         print(f"{summoner.name}'s stats:")
         print(f"Money: ${summoner.money}")
         print(f"Kills: {summoner.kills}")
@@ -37,7 +23,7 @@ def close():
         print()
 
 def print_money():
-    for summoner in summoners.values():
+    for summoner in globals.summoners.values():
         print(f"{summoner.name}'s money is: ${summoner.money}")
     print()
 
@@ -49,8 +35,8 @@ def summoner_to_json(summoner):
         "assists": summoner.assists
     }
 
-def map_to_json(summoners):
-    return {name: summoner_to_json(summoner) for name, summoner in summoners.items()}
+def map_to_json(local_summoners):
+    return {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
 
 def save_state(json_data):
     print("Writing to file")
@@ -68,8 +54,8 @@ def load_state():
         json_data = json.load(file)
 
     for name, data in json_data.items():
-        if name in summoners:
-            summoner = summoners[name]
+        if name in globals.summoners:
+            summoner = globals.summoners[name]
             summoner.money = data["money"]
             summoner.kills = data["kills"]
             summoner.deaths = data["deaths"]
@@ -82,18 +68,20 @@ def main():
     print()
 
     load_state()
+    
+    rules.assignMarbles()
 
     while True:
         win = input("Win? (Y/N): ").strip().lower()
 
         if win == 'y':
-            for summoner in summoners.values():
+            for summoner in globals.summoners.values():
                 summoner.money += 30
 
         webtools.updateOPGG()
         playerData = webtools.getRiotData()
         ok = input("Ok? Y=continue, N=cancel riot data, manually input match data instead").strip().lower()
-        for summoner in summoners.values():
+        for summoner in globals.summoners.values():
             if(ok):
                 kills = playerData[summoner.gameName]["kills"]
                 deaths = playerData[summoner.gameName]["deaths"]
@@ -135,12 +123,12 @@ def main():
                 name, name2, amount = input("From who? To who? How much? ").split()
                 amount = int(amount)
 
-                if name not in summoners or name2 not in summoners:
+                if name not in globals.summoners or name2 not in globals.summoners:
                     print("Dumbass. Enter someone's name. Type it correctly. (name) (name) (amount)")
                     continue
 
-                send = summoners[name]
-                receive = summoners[name2]
+                send = globals.summoners[name]
+                receive = globals.summoners[name2]
 
                 send.money -= amount
                 receive.money += amount
@@ -150,11 +138,11 @@ def main():
                 print()
             elif(action == "w"):
                 name = input("Who? ").strip()
-                if name not in summoners:
+                if name not in globals.summoners:
                     print("Dumbass. Enter someone's name. Type it correctly.")
                     continue
 
-                summoner = summoners[name]
+                summoner = globals.summoners[name]
                 if summoner.money >= 100:
                     summoner.money -= 100
                     print(f"{summoner.name} now has: ${summoner.money}")
@@ -163,7 +151,7 @@ def main():
                 print()
 
         # Save state at end of each game
-        output = map_to_json(summoners)
+        output = map_to_json(globals.summoners)
         save_state(output)
 
 if __name__ == "__main__":
