@@ -4,7 +4,7 @@ import time
 import math
 
 WHEEL_OPTIONS_PATH = "./data/Wheel.txt"
-wheelResult = "Top lane trades marble with Kay"
+wheelResult = ""
 
 class WheelOfFortune:
     def __init__(self, root, options):

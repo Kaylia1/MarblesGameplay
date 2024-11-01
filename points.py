@@ -7,6 +7,7 @@ import globals
 import rules
 import wheelMap
 import tkWheel
+# import parseChampStats
 
 KILLVALUE = 4
 DEATHVALUE = 3
@@ -42,7 +43,7 @@ def map_to_json(local_summoners):
     return {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
 
 def save_state(json_data):
-    print("Writing to file")
+    # print("Writing to file")
     with open("saved_points.json", "w") as file:
         json.dump(json_data, file, indent=4)
     print("Points written to saved_points.json")
@@ -67,8 +68,7 @@ def load_state():
     print("Loaded from file.")
 
 def main():
-    print("Enter negative number to quit and display stats.")
-    print()
+    # parseChampStats.constructWinrates()
 
     load_state()
     
@@ -118,11 +118,14 @@ def main():
                     print(f"{name} cannot afford to spin the wheel.")
                 print()
                 
-                # tkWheel.startApp()
+                tkWheel.startApp()
                 print("Wheel Result: "+str(tkWheel.wheelResult))
                 wheelMap.lastSpinner = name
                 wheelMap.wheel_map[tkWheel.wheelResult]()
                 rules.currentMarbleAssignments()
+        
+        output = map_to_json(globals.summoners)
+        save_state(output)
         
         # ============== game finished state ============
         while True:

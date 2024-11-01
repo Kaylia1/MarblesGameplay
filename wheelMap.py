@@ -110,7 +110,7 @@ def freedomRoleSteal():
     role = ""
     while True:
         role = input("Role to steal?").lower()
-        if not role in rules.ROLES:
+        if not role in globals.ROLES:
             print("That's not a valid role, try again")
             continue
         break
@@ -147,7 +147,6 @@ def marbleLargeInc():
 def nop():
     pass
 
-# TODO set lastSpinner, print spin results, do spin computations, print new assignments
 wheel_map = {
     "Adam swaps with support and plays bard": adamSuppBard, # ok
     "Bankrupt someone of your choice": bankruptPerson,
@@ -165,5 +164,5 @@ wheel_map = {
     "SCRAP MARBLES THE HOMIES NEED HELP": nop, # todo role placeholders
     "Swap the money of two people": swapMoney,
     "Take $50 away from someone and keep it (can put them negative)": take50Dollars, # ok
-    "Top lane trades marble with Kay": kayTop
+    "Top lane trades marble with Kay": kayTop #ok
 }

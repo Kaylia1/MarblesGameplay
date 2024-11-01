@@ -6,11 +6,9 @@ MARBLES_OUTPUT = "./data/marbles_output.txt"
 MARBLES_OPTIONS = "./data/MoneyMarbles.txt"
 
 marbles = []
-ROLES = ["jungle", "support", "top", "mid", "bot"]
 
 GREEN_TXT_START = "\033[1;32;40m "
 DEF_TXT_END = " \033[0m"
-
 RED_TXT_START = "\033[31m"
 
 class MarbleAssignment:
@@ -88,7 +86,7 @@ def debugCurrentMarbleAssignments(unpickedSummoners=list(globals.summoners.keys(
         print(message)
     print("======")
 
-def getBestMarble(summonerName, level="-1", startPoint=0, unpickedRoles=ROLES):
+def getBestMarble(summonerName, level="-1", startPoint=0, unpickedRoles=globals.ROLES):
     for i in range(startPoint, len(marbles)):
         if(marbles[i].name == summonerName and (level=="-1" or level==marbles[i].level) and (marbles[i].position in unpickedRoles or marbles[i].position == "")):
             # assign this marble to this person
@@ -259,7 +257,7 @@ def assignMarbles():
             return
     
     unpickedSummoners = list(globals.summoners.keys())
-    unpickedRoles = list(ROLES)
+    unpickedRoles = list(globals.ROLES)
     currentMarbleAssignments(unpickedSummoners)
     
     top1Swap()

@@ -18,6 +18,7 @@ summoners = {
 }
 
 allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"]
+ROLES = ["jungle", "support", "top", "mid", "bot"]
 
 def inputSummoner(validSummoners=allSummoners):
     while True:
