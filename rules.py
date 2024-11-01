@@ -9,7 +9,9 @@ marbles = []
 ROLES = ["jungle", "support", "top", "mid", "bot"]
 
 GREEN_TXT_START = "\033[1;32;40m "
-GREEN_TXT_END = " \033[0m"
+DEF_TXT_END = " \033[0m"
+
+RED_TXT_START = "\033[31m"
 
 class MarbleAssignment:
     def __init__(self, name, marbleDesc, level="", placement=-1, letter="", position=""):
@@ -73,7 +75,7 @@ def currentMarbleAssignments(unpickedSummoners=list(globals.summoners.keys())):
     for summoner in globals.summoners.values():
         message = summoner.name + ": position: "+marbles[summoner.curMarble].position+" letter: "+marbles[summoner.curMarble].letter+" level: "+marbles[summoner.curMarble].level
         if(not summoner.name in unpickedSummoners):
-            message = GREEN_TXT_START+message+GREEN_TXT_END
+            message = GREEN_TXT_START+message+DEF_TXT_END
         print(message)
     print("======")
 
@@ -82,7 +84,7 @@ def debugCurrentMarbleAssignments(unpickedSummoners=list(globals.summoners.keys(
     for summoner in globals.summoners.values():
         message = summoner.name + ": position: "+marbles[summoner.curMarble].position+" letter: "+marbles[summoner.curMarble].letter+" level: "+marbles[summoner.curMarble].level+" original_descriptor: "+marbles[summoner.curMarble].marbleDesc+" original_placement: "+str(marbles[summoner.curMarble].placement)
         if(not summoner.name in unpickedSummoners):
-            message = GREEN_TXT_START+message+GREEN_TXT_END
+            message = GREEN_TXT_START+message+DEF_TXT_END
         print(message)
     print("======")
 
@@ -319,6 +321,7 @@ def changeRole(i, role):
 
 def forceTakeRole(summonerName, role):
     # boot someone off of role to next marble of same marble lvl
+    # if person is already in role, do nothing
     oldRole = marbles[globals.summoners[summonerName].curMarble].position
     victim = getRole(role)
     

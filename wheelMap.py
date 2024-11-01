@@ -18,8 +18,8 @@ def adamSuppBard():
     globals.summoners["Adam"].curMarble = rules.addSuppBard("Adam")
 
 def kayTop():
-    print("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-    print("sad ;;")
+    print(rules.RED_TXT_START+"NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    print("sad ;;"+rules.DEF_TXT_END)
     prevTop = rules.getRole("top")
     print("Swapping Kay to top, swapping "+prevTop+" to Kay's old assignment")
     temp = globals.summoners[prevTop].curMarble
@@ -114,7 +114,12 @@ def freedomRoleSteal():
             print("That's not a valid role, try again")
             continue
         break
-    rules.forceTakeRole(lastSpinner, role)
+    # take role
+    if(role != rules.marbles[globals.summoners[lastSpinner].curMarble].position):
+        rules.forceTakeRole(lastSpinner, role)
+    
+    # lose letter restriction
+    rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
 
 def marbleDec():
     victims = rules.getNoLetters()
@@ -133,7 +138,7 @@ def marbleInc():
         marbleLargeInc()
     elif(oldLvl == "3" or oldLvl == "4"):
         message = lastSpinner+" has become MARBLE GOD!"
-        print(rules.GREEN_TXT_START+message+rules.GREEN_TXT_END) # TODO might cause issues with further wheel spins?
+        print(rules.GREEN_TXT_START+message+rules.DEF_TXT_END) # TODO might cause issues with further wheel spins?
         rules.assignMarblePlaceholders(message)
         
 def marbleLargeInc():
@@ -147,9 +152,9 @@ wheel_map = {
     "Adam swaps with support and plays bard": adamSuppBard, # ok
     "Bankrupt someone of your choice": bankruptPerson,
     "Change the letter for someone's Lvl1 Marble": changeLvl1Letter, # ok
-    "Force two people with letters to trade letters (roles stay the same)": changeLetters,
+    "Force two people with letters to trade letters (roles stay the same)": changeLetters, # ok
     "Force two people to trade roles (letters stay the same)": changeRoles,
-    "Freedom (can boot someone off role and they take next same lvl marble for available role.)": freedomRoleSteal,
+    "Freedom (can boot someone off role and they take next same lvl marble for available role.)": freedomRoleSteal, # ok
     "JON & ADAM SHOT NOW": nop,
     "MARBLE GOD": nop, # todo role placeholders
     "Marble - add random letter restriction to someone without one": marbleDec,

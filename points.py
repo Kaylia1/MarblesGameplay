@@ -119,7 +119,7 @@ def main():
                 print()
                 
                 # tkWheel.startApp()
-                print("read result of wheel: "+str(tkWheel.wheelResult))
+                print("Wheel Result: "+str(tkWheel.wheelResult))
                 wheelMap.lastSpinner = name
                 wheelMap.wheel_map[tkWheel.wheelResult]()
                 rules.currentMarbleAssignments()
