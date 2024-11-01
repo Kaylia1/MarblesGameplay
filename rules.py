@@ -99,7 +99,7 @@ def updateBestMarble(unpickedSummoners, unpickedRoles):
     for summonerName in unpickedSummoners:
         if(not marbles[globals.summoners[summonerName].curMarble].position in unpickedRoles and not marbles[globals.summoners[summonerName].curMarble].position == ""):
             # taken role
-            newMarble = getBestMarble(summonerName, marbles[globals.summoners[summonerName].curMarble].level, marbles[globals.summoners[summonerName].curMarble].placement+1)
+            newMarble = getBestMarble(summonerName, marbles[globals.summoners[summonerName].curMarble].level, marbles[globals.summoners[summonerName].curMarble].placement+1, unpickedRoles)
             globals.summoners[summonerName].curMarble = newMarble
 
 def sortByPlacement(item):
@@ -228,8 +228,10 @@ def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles):
     # print current state
     currentMarbleAssignments(unpickedSummoners)
     
-    print("picker:"+picker)
+    # check if current role assignment is ok, else get new marble
+    updateBestMarble(unpickedSummoners, unpickedRoles)
     
+    print("picker:"+picker)
     # if paralyzed, print next 5 lvl1 marbles of that person with avail roles
     top5 = []
     if isParalyzed:
@@ -239,7 +241,7 @@ def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles):
     pickedRole = pickRole(picker, unpickedRoles)
     
     updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole)
-    updateBestMarble(unpickedSummoners, unpickedRoles)
+    
 
 def assignMarbles():
     # Get the top marble for ea of 5 ppl.
@@ -267,6 +269,7 @@ def assignMarbles():
     while(len(unpickedSummoners)>0):
         nextPickers, isParalyzed = getNextPicker(unpickedSummoners)
         for picker in nextPickers:
+            print(unpickedRoles)
             pick(picker, isParalyzed, unpickedSummoners, unpickedRoles)
             
     print("All positions are assigned:")
@@ -277,15 +280,19 @@ def assignMarbles():
 def getRole(role): # return summonerName
     for summoner in globals.summoners.values():
         if marbles[summoner.curMarble].position == role:
-            return summoner
+            return summoner.name
     return ""
 
 def getNoLetters():
     noletters = []
     for summoner in globals.summoners.values():
         if marbles[summoner.curMarble].letter == "":
-            noletters.append(summoner)
+            noletters.append(summoner.name)
     return noletters
+
+def getHasLetters():
+    noLetters = getNoLetters()
+    return list(set(globals.allSummoners) - set(noLetters))
 
 def addSuppBard(summonerName):
     global marbles
@@ -301,7 +308,7 @@ def getLvl1s(): # return array of names
     lvl1s = []
     for summoner in globals.summoners.values():
         if marbles[summoner.curMarble].level == "1":
-            lvl1s.append(summoner)
+            lvl1s.append(summoner.name)
     return lvl1s
 
 def changeLetter(i, letter):

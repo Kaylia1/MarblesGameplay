@@ -2,8 +2,8 @@ Adam swaps with support and plays bard
 Bankrupt someone of your choice
 Change the letter for someone's Lvl1 Marble
 Change the letter for someone's Lvl1 Marble
-Force two people to trade letters (roles stay the same)
-Force two people to trade letters (roles stay the same)
+Force two people with letters to trade letters (roles stay the same)
+Force two people with letters to trade letters (roles stay the same)
 Force two people to trade roles (letters stay the same)
 Force two people to trade roles (letters stay the same)
 Freedom (can boot someone off role and they take next same lvl marble for available role.)
@@ -17,8 +17,8 @@ Marble - add random letter restriction to someone without one
 Marble - add random letter restriction to someone without one
 Marble -- force someone onto their next lvl1 marble of current role
 Marble -- force someone onto their next lvl1 marble of current role
-Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3->MARBLE GOD)
-Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3->MARBLE GOD)
+Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3 or 4->MARBLE GOD, 0->nothing)
+Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3 or 4->MARBLE GOD, 0->nothing)
 Marble ++ (LETTER FREEDOM, roles don't change)
 Marble ++ (LETTER FREEDOM, roles don't change)
 raguyamotha swaps marbles with bot and has to play an actual ADC

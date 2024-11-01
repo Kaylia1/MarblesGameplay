@@ -17,7 +17,9 @@ summoners = {
     "Irisu": Summoner("Irisu", "Nobunagaa"),
 }
 
-def inputSummoner(validSummoners=["Adam", "Rage", "Kaylia", "Jon", "Irisu"]):
+allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"]
+
+def inputSummoner(validSummoners=allSummoners):
     while True:
         name = input("Who? ").strip()
         if name not in validSummoners:

@@ -6,6 +6,7 @@ import webtools
 import globals
 import rules
 import wheelMap
+import tkWheel
 
 KILLVALUE = 4
 DEATHVALUE = 3
@@ -116,6 +117,12 @@ def main():
                 else:
                     print(f"{name} cannot afford to spin the wheel.")
                 print()
+                
+                # tkWheel.startApp()
+                print("read result of wheel: "+str(tkWheel.wheelResult))
+                wheelMap.lastSpinner = name
+                wheelMap.wheel_map[tkWheel.wheelResult]()
+                rules.currentMarbleAssignments()
         
         # ============== game finished state ============
         while True:

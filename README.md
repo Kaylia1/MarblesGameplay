@@ -2,6 +2,7 @@
 # Dependencies
 - python3
 - selenium `pip3 install selenium`
+- tkinter `pip3 install tk`
 
 # Run Instructions 
 cd into marbles top folder

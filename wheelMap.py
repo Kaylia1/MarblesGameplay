@@ -85,8 +85,14 @@ def changeLetter(victims, isRandom=False):
 
 # Note: if you change letter to "" then it gives them freedom
 def changeLetters():
-    name1 = globals.inputSummoner()
-    name2 = globals.inputSummoner()
+    victims = rules.getHasLetters()
+    if(len(victims)<2):
+        print("Not enough people with letters.")
+        return
+    
+    # todo add prints
+    name1 = globals.inputSummoner(victims)
+    name2 = globals.inputSummoner(victims)
     letter1 = rules.marbles[globals.summoners[name1].curMarble].letter
     letter2 = rules.marbles[globals.summoners[name2].curMarble].letter
     rules.changeLetter(globals.summoners[name2].curMarble, letter1)
@@ -127,32 +133,32 @@ def marbleInc():
         marbleLargeInc()
     elif(oldLvl == "3" or oldLvl == "4"):
         message = lastSpinner+" has become MARBLE GOD!"
-        print(message) # TODO might cause issues with further wheel spins?
+        print(rules.GREEN_TXT_START+message+rules.GREEN_TXT_END) # TODO might cause issues with further wheel spins?
         rules.assignMarblePlaceholders(message)
         
 def marbleLargeInc():
-    rules.changeLetter(lastSpinner, "")
+    rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
 
 def nop():
     pass
 
 # TODO set lastSpinner, print spin results, do spin computations, print new assignments
 wheel_map = {
-    "Adam swaps with support and plays bard": adamSuppBard,
+    "Adam swaps with support and plays bard": adamSuppBard, # ok
     "Bankrupt someone of your choice": bankruptPerson,
-    "Change the letter for someone's Lvl1 Marble": changeLvl1Letter,
-    "Force two people to trade letters (roles stay the same)": changeLetters,
+    "Change the letter for someone's Lvl1 Marble": changeLvl1Letter, # ok
+    "Force two people with letters to trade letters (roles stay the same)": changeLetters,
     "Force two people to trade roles (letters stay the same)": changeRoles,
     "Freedom (can boot someone off role and they take next same lvl marble for available role.)": freedomRoleSteal,
     "JON & ADAM SHOT NOW": nop,
-    "MARBLE GOD": nop,
+    "MARBLE GOD": nop, # todo role placeholders
     "Marble - add random letter restriction to someone without one": marbleDec,
-    "Marble -- force someone onto their next lvl1 marble of current role": marbleLargeDec,
-    "Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3 or 4->MARBLE GOD, 0->nothing)": marbleInc,
-    "Marble ++ (LETTER FREEDOM, roles don't change)": marbleLargeInc,
-    "raguyamotha swaps marbles with bot and has to play an actual ADC": rageBot,
-    "SCRAP MARBLES THE HOMIES NEED HELP": nop,
+    "Marble -- force someone onto their next lvl1 marble of current role": marbleLargeDec, # ok
+    "Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3 or 4->MARBLE GOD, 0->nothing)": marbleInc, # ok
+    "Marble ++ (LETTER FREEDOM, roles don't change)": marbleLargeInc, # ok
+    "raguyamotha swaps marbles with bot and has to play an actual ADC": rageBot, # ok
+    "SCRAP MARBLES THE HOMIES NEED HELP": nop, # todo role placeholders
     "Swap the money of two people": swapMoney,
-    "Take $50 away from someone and keep it (can put them negative)": take50Dollars,
+    "Take $50 away from someone and keep it (can put them negative)": take50Dollars, # ok
     "Top lane trades marble with Kay": kayTop
 }
