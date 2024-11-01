@@ -86,7 +86,7 @@ def main():
             
             action = input("Action? B=bribe, W=wheel, C=continue").strip().lower()
             if(action == "."):
-                tkChampStats.start_app(rules.marbleChampStats())
+                tkChampStats.update_app(rules.marbleChampStats())
             elif(action == "c"):
                 break
             elif(action == "b"):

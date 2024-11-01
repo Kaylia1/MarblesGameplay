@@ -17,7 +17,7 @@ RED_TXT_START = "\033[31m"
 def myinput(prompt):
     res = input(prompt)
     if res == ".":
-        tkChampStats.start_app(marbleChampStats())
+        tkChampStats.update_app(marbleChampStats())
     return res
 
 # =============== marble logic ==========================
