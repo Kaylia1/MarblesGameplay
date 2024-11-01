@@ -16,3 +16,11 @@ summoners = {
     "Jon": Summoner("Jon", "Jonpachiro"),
     "Irisu": Summoner("Irisu", "Nobunagaa"),
 }
+
+def inputSummoner(validSummoners=["Adam", "Rage", "Kaylia", "Jon", "Irisu"]):
+    while True:
+        name = input("Who? ").strip()
+        if name not in validSummoners:
+            print("Dumbass. Enter someone's name. Type it correctly.")
+            continue
+        return name

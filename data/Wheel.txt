@@ -4,30 +4,30 @@ Change the letter for someone's Lvl1 Marble
 Change the letter for someone's Lvl1 Marble
 Force two people to trade letters (roles stay the same)
 Force two people to trade letters (roles stay the same)
-Force two people to trade roles (letters stay the same if they have any))
 Force two people to trade roles (letters stay the same)
-Freedom (can boot someone off role and they take next same lvl marble for available role.
-Freedom (can boot someone off role and they take their closest same lvl marble for available role.
+Force two people to trade roles (letters stay the same)
+Freedom (can boot someone off role and they take next same lvl marble for available role.)
+Freedom (can boot someone off role and they take next same lvl marble for available role.)
 JON & ADAM SHOT NOW
 JON & ADAM SHOT NOW
 JON & ADAM SHOT NOW
 JON & ADAM SHOT NOW
 MARBLE GOD
-Marble level -1 to someone of your choice
-Marble level -1 to someone of your choice
-Marble level -2 to someone of your choice
-Marble level -2 to someone of your choice
-Marble level +1 (if 4 BECOME MARBLE GOD) (can boot someone off role and they take next same lvl marble for available role.
-Marble level +1 (if 4 BECOME MARBLE GOD) (can boot someone off role and they take next same lvl marble for available role.
-Marble level +2 (cannot become marble god) (can boot someone off role and they take next same lvl marble for available role.
-Marble level +2 (cannot become marble god) (can boot someone off role and they take next same lvl marble for available role.)
+Marble - add random letter restriction to someone without one
+Marble - add random letter restriction to someone without one
+Marble -- force someone onto their next lvl1 marble of current role
+Marble -- force someone onto their next lvl1 marble of current role
+Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3->MARBLE GOD)
+Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3->MARBLE GOD)
+Marble ++ (LETTER FREEDOM, roles don't change)
+Marble ++ (LETTER FREEDOM, roles don't change)
 raguyamotha swaps marbles with bot and has to play an actual ADC
 raguyamotha swaps marbles with bot and has to play an actual ADC
 SCRAP MARBLES THE HOMIES NEED HELP
 Swap the money of two people
 Swap the money of two people
 Swap the money of two people
-Take $50 away from someone and keep it( (can put them negative)
-Take $50 away from someone and keep it( (can put them negative)
+Take $50 away from someone and keep it (can put them negative)
+Take $50 away from someone and keep it (can put them negative)
 Top lane trades marble with Kay
 Top lane trades marble with Kay

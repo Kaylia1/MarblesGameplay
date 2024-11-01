@@ -1,3 +1,4 @@
+Adam PARALYZED Lvl0	0	106.419334
 Jon A Lvl2  	0	22.356127
 Irisu V Jungle Lvl1	0	106.381416
 Adam FREEDOM Lvl4	0	81.41468
@@ -38,7 +39,6 @@ Adam Mid Lvl3	0	93.275009
 Rage L Bot Lvl1	0	102.13102
 Jon K Lvl2  	0	77.754097
 Irisu A Mid Lvl1	0	99.256561
-Adam PARALYZED Lvl0	0	106.419334
 Kaylia Y Jungle Lvl1	0	75.465294
 Jon V Mid Lvl1	0	106.494576
 Irisu K Jungle Lvl1	0	94.439995

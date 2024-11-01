@@ -47,7 +47,6 @@ class Marble(MarbleAssignment):
 def isLevelAssignedPosition(level):
     return level == "1" or level == "3"
 
-# Don't need to read every marble, optimize by only reading assignments
 def readMarbles():    
     lines = []
     with open(MARBLES_OUTPUT, 'r') as file:
@@ -87,9 +86,9 @@ def debugCurrentMarbleAssignments(unpickedSummoners=list(globals.summoners.keys(
         print(message)
     print("======")
 
-def getBestMarble(summonerName, level="-1", startPoint=0):
+def getBestMarble(summonerName, level="-1", startPoint=0, unpickedRoles=ROLES):
     for i in range(startPoint, len(marbles)):
-        if(marbles[i].name == summonerName and (level=="-1" or level==marbles[i].level)):
+        if(marbles[i].name == summonerName and (level=="-1" or level==marbles[i].level) and (marbles[i].position in unpickedRoles or marbles[i].position == "")):
             # assign this marble to this person
             return i
     print("Failed to get top marble for "+summonerName+" starting from "+startPoint+" lvl"+level)
@@ -106,7 +105,7 @@ def updateBestMarble(unpickedSummoners, unpickedRoles):
 def sortByPlacement(item):
     return marbles[globals.summoners[item].curMarble].placement
 
-# TODO can add optimizations here of finding pick order all at once and only needing to reorganize if a role is taken (lvl1 or lvl3)
+# note: this naturally makes paralyzed players pick last
 def getNextPicker(validSummoners):
     # based on highest marble level that isn't god marble, tiebreak with marble ranking
     highestLevel = 0
@@ -122,16 +121,40 @@ def getNextPicker(validSummoners):
             highLvlSummoners.append(summonerName)
     highLvlSummoners = sorted(highLvlSummoners, key=sortByPlacement)
     
+    isParalyzed = highestLevel == 0
     if(not isLevelAssignedPosition(str(highestLevel))):
-        return highLvlSummoners
+        return highLvlSummoners, isParalyzed
     else:
-        return [highLvlSummoners[0]] # can only assign one role
+        return [highLvlSummoners[0]], isParalyzed
     
 def assignMarblePlaceholders(message):
     global marbles
     for summoner in globals.summoners.values():
         marbles.append(MarbleAssignment(summoner.name, message))
         summoner.curMarble = len(marbles)-1
+
+# for paralyzed states
+# input startPoint as the i of the current marble to find new marbles after it
+def getTop5Marbles(summonerName, startPoint, unpickedRoles):
+    nextPossibleMarble = startPoint
+    possibleMarbles = []
+    for i in range(5):
+        nextPossibleMarble = getBestMarble(summonerName, "1", nextPossibleMarble+1, unpickedRoles)
+        possibleMarbles.append(nextPossibleMarble)
+    return possibleMarbles
+
+def pickFromTop5Marbles(summonerName, top5marbles):
+    while True:
+        marbleNum = input("Choose a marble 0-4 from the list")
+        if(not marbleNum.isdigit() or int(marbleNum) < 0 or int(marbleNum) > 4):
+            print("Invalid input, needs to be numeric value 0-4")
+            continue
+        globals.summoners[summonerName].curMarble = top5marbles[int(marbleNum)]
+        break
+
+def printMarbles(marbleList):
+    for i in range(len(marbleList)):
+        print(str(i)+": "+marbles[marbleList[i]].marbleDesc)
 
 def printTop10Marbles():
     print("Top 10 marbles:")
@@ -201,6 +224,23 @@ def updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole):
     if(pickedRole in unpickedRoles):
         unpickedRoles.remove(pickedRole)
 
+def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles):
+    # print current state
+    currentMarbleAssignments(unpickedSummoners)
+    
+    print("picker:"+picker)
+    
+    # if paralyzed, print next 5 lvl1 marbles of that person with avail roles
+    top5 = []
+    if isParalyzed:
+        top5 = getTop5Marbles(picker, globals.summoners[picker].curMarble, unpickedRoles)
+        printMarbles(top5)
+        pickFromTop5Marbles(picker, top5)
+    pickedRole = pickRole(picker, unpickedRoles)
+    
+    updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole)
+    updateBestMarble(unpickedSummoners, unpickedRoles)
+
 def assignMarbles():
     # Get the top marble for ea of 5 ppl.
     # Check if any person's top 1 is marble god
@@ -221,28 +261,67 @@ def assignMarbles():
     top1Swap()
     
     # assign marbles via marble level and picking
-    pickedRole = pickRole(marbles[0].name, unpickedRoles)
-    updatePickList(unpickedSummoners, marbles[0].name, unpickedRoles, pickedRole)
-    updateBestMarble(unpickedSummoners, unpickedRoles)
+    # note: top 1 doesn't pick first ONLY if paralyzed
+    if(not marbles[0].level == "0"):
+        pick(marbles[0].name, False, unpickedSummoners, unpickedRoles)
     while(len(unpickedSummoners)>0):
-        nextPickers = getNextPicker(unpickedSummoners)
+        nextPickers, isParalyzed = getNextPicker(unpickedSummoners)
         for picker in nextPickers:
-            # print current state
-            currentMarbleAssignments(unpickedSummoners)
-            
-            print("picker:"+picker)
-            # if role is not assigned, choose a role
-            pickedRole = pickRole(picker, unpickedRoles)
-            updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole)
-            updateBestMarble(unpickedSummoners, unpickedRoles)
+            pick(picker, isParalyzed, unpickedSummoners, unpickedRoles)
             
     print("All positions are assigned:")
     currentMarbleAssignments(unpickedSummoners)
     
     
-        
-    
-    
-    
+# ====== wheel helper functions ======
+def getRole(role): # return summonerName
+    for summoner in globals.summoners.values():
+        if marbles[summoner.curMarble].position == role:
+            return summoner
+    return ""
 
+def getNoLetters():
+    noletters = []
+    for summoner in globals.summoners.values():
+        if marbles[summoner.curMarble].letter == "":
+            noletters.append(summoner)
+    return noletters
+
+def addSuppBard(summonerName):
+    global marbles
+    marbles.append(MarbleAssignment(name=summonerName, marbleDesc="wheel support bard", letter="BARD", position="support"))
+    return len(marbles) - 1
+
+def addADCBot(summonerName):
+    global marbles
+    marbles.append(MarbleAssignment(name=summonerName, marbleDesc="wheel adc adc", letter="ADC", position="bot"))
+    return len(marbles) - 1
+
+def getLvl1s(): # return array of names
+    lvl1s = []
+    for summoner in globals.summoners.values():
+        if marbles[summoner.curMarble].level == "1":
+            lvl1s.append(summoner)
+    return lvl1s
+
+def changeLetter(i, letter):
+    marbles[i].letter = letter 
+
+def changeRole(i, role):
+    marbles[i].position = role
+
+def forceTakeRole(summonerName, role):
+    # boot someone off of role to next marble of same marble lvl
+    oldRole = marbles[globals.summoners[summonerName].curMarble].position
+    victim = getRole(role)
     
+    nextMarble = getBestMarble(victim, marbles[globals.summoners[victim].curMarble].level, globals.summoners[victim].curMarble + 1, [oldRole])
+    changeRole(nextMarble, oldRole)
+    globals.summoners[victim].curMarble = nextMarble
+    
+    changeRole(globals.summoners[summonerName].curMarble, role)
+
+def forceNextLvl1(summonerName):
+    role = marbles[globals.summoners[summonerName].curMarble].position
+    nextMarble = getBestMarble(summonerName, "1", globals.summoners[summonerName].curMarble + 1, [role])
+    globals.summoners[summonerName].curMarble = nextMarble

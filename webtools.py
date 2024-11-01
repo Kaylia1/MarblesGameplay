@@ -84,6 +84,11 @@ def getRiotData():
                 "vision": summoner["stats"]["vision_score"],
                 "position": summoner["position"]
             }
+    
+    team = gameData["myData"]["team_key"] # either RED or BLUE
+    firstTeam = gameData["teams"][0]["key"]
+    firstTeamWin = gameData["teams"][0]["game_stat"]["is_win"]
+    ourWin = firstTeamWin if firstTeam == team else not firstTeamWin
 
     print("finish with status code "+str(failed))
-    return playerData
+    return playerData, ourWin

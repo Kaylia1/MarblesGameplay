@@ -5,6 +5,7 @@ import copy
 import webtools
 import globals
 import rules
+import wheelMap
 
 KILLVALUE = 4
 DEATHVALUE = 3
@@ -23,6 +24,7 @@ def close():
         print()
 
 def print_money():
+    print()
     for summoner in globals.summoners.values():
         print(f"{summoner.name}'s money is: ${summoner.money}")
     print()
@@ -69,51 +71,16 @@ def main():
 
     load_state()
     
-    rules.assignMarbles()
-
     while True:
-        win = input("Win? (Y/N): ").strip().lower()
-
-        if win == 'y':
-            for summoner in globals.summoners.values():
-                summoner.money += 30
-
-        webtools.updateOPGG()
-        playerData = webtools.getRiotData()
-        ok = input("Ok? Y=continue, N=cancel riot data, manually input match data instead").strip().lower()
-        for summoner in globals.summoners.values():
-            if(ok):
-                kills = playerData[summoner.gameName]["kills"]
-                deaths = playerData[summoner.gameName]["deaths"]
-                assists = playerData[summoner.gameName]["assists"]
-                vision = playerData[summoner.gameName]["vision"]
-                isSupp = playerData[summoner.gameName]["position"] == "SUPPORT"
-            else: 
-                while True:
-                    try:
-                        kills, deaths, assists, isSupp, vision = map(int, input(f"Enter {summoner.name}'s kills, deaths, assists, isSupport, vision: ").split())
-                        if kills < 0 or deaths < 0 or assists < 0 or (isSupp not in (0, 1)) or vision < 0:
-                            close()
-                            return
-                        break
-                    except ValueError:
-                        print("Dumbass. Enter integers please.")
-                        print()
-
-            if(isSupp):
-                kills, assists = assists, kills
-            summoner.kills += kills
-            summoner.deaths += deaths
-            summoner.assists += assists
-            summoner.money += kills * KILLVALUE - deaths * DEATHVALUE + assists * ASSISTVALUE
-            if(vision < 15):
-                summoner.money -= 15
-            elif(vision > 20):
-                summoner.money += vision - 20
-            
-        
+        # ============ assigning roles state ============
         while True:
-            print()
+            start = input("Did you copy Marbles output into ./data/marbles_output.txt? (Y/N): ").strip().lower()
+            if start == 'y':
+                break
+        rules.assignMarbles()
+        
+        # ============== wheel state ====================
+        while True:
             print_money()
             
             action = input("Action? B=bribe, W=wheel, C=continue").strip().lower()
@@ -149,6 +116,53 @@ def main():
                 else:
                     print(f"{name} cannot afford to spin the wheel.")
                 print()
+        
+        # ============== game finished state ============
+        while True:
+            start = input("Did the game finish yet? (Y/N): ").strip().lower()
+            if start == 'y':
+                break
+        
+        webtools.updateOPGG()
+        playerData, isWin = webtools.getRiotData()
+        
+        ok = input("Ok? Y=continue, N=cancel riot data, manually input match data instead").strip().lower() == "y"
+        if not ok:
+            isWin = input("Win? (Y/N): ").strip().lower() == "y"
+            
+        for summoner in globals.summoners.values():
+            if ok:
+                kills = playerData[summoner.gameName]["kills"]
+                deaths = playerData[summoner.gameName]["deaths"]
+                assists = playerData[summoner.gameName]["assists"]
+                vision = playerData[summoner.gameName]["vision"]
+                isSupp = playerData[summoner.gameName]["position"] == "SUPPORT"
+            else: 
+                while True:
+                    try:
+                        kills, deaths, assists, isSupp, vision = map(int, input(f"Enter {summoner.name}'s kills, deaths, assists, isSupport, vision: ").split())
+                        if kills < 0 or deaths < 0 or assists < 0 or (isSupp not in (0, 1)) or vision < 0:
+                            close()
+                            return
+                        break
+                    except ValueError:
+                        print("Dumbass. Enter integers please.")
+                        print()
+            if isWin:
+                summoner.money += 30
+
+            if(isSupp):
+                kills, assists = assists, kills
+            summoner.kills += kills
+            summoner.deaths += deaths
+            summoner.assists += assists
+            summoner.money += kills * KILLVALUE - deaths * DEATHVALUE + assists * ASSISTVALUE
+            if(vision < 15):
+                summoner.money -= 15
+            elif(vision > 20):
+                summoner.money += vision - 20
+        
+        print_money()
 
         # Save state at end of each game
         output = map_to_json(globals.summoners)

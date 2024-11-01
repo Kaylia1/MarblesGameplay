@@ -49,7 +49,17 @@ The rules for role assignments are as follows:
 6. n number of Wheel spin(s) adjustments
 
 # TODO
+- PARALYZED, test freedom
 - make wheel spin after picking rather than after winning
-  - wheel spin updates are manual currently, make this a function
+  - wheel spin updates are manual currently, make this a map to functions so that it is scalable
 - print champions by letter!
   - if not enough champs under a letter (ie all 5 people get V), add option to go to next marble. Leave margin of error=1
+- EOD game stats?
+  - winrate, kda, $ change, percentage of times assigned position
+
+- UI
+  - crying emoji everytime Kaylia gets top
+
+# edge cases:
+- top 1 no longer picks first if they pick into paralysis
+- "next marble of same marble level" is a marble in a placement larger than the current marble assignment, ie if after paralysis you get assigned your 3rd lvl1 marble, your next lvl1 marble would be your 4th lvl1 marble
