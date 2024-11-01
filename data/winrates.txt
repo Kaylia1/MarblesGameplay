@@ -458,21 +458,11 @@ nocturne support 41.86% 43
 nocturne top 49.68% 1,250
 nocturne mid 45.88% 473
 nocturne bot 51.17% 75,753
-nunu_amp_willump jungle 
-          </html html lang="en">
-            
-nunu_amp_willump support 
-          </html html lang="en">
-            
-nunu_amp_willump top 
-          </html html lang="en">
-            
-nunu_amp_willump mid 
-          </html html lang="en">
-            
-nunu_amp_willump bot 
-          </html html lang="en">
-            
+nunu jungle 50.72% 33,324
+nunu support 37.55% 964            
+nunu top 37.05% 421
+nunu mid 51.97% 4,712
+nunu bot 50.72% 33,324
 olaf jungle 50.42% 2,156
 olaf support 34.09% 44
 olaf top 51.31% 16,475
@@ -533,21 +523,11 @@ rell support 50.57% 83,014
 rell top 41.51% 53
 rell mid 16.67% 18
 rell bot 50.57% 83,014
-renata_glasc jungle 
-          </html html lang="en">
-            
-renata_glasc support 
-          </html html lang="en">
-            
-renata_glasc top 
-          </html html lang="en">
-            
-renata_glasc mid 
-          </html html lang="en">
-            
-renata_glasc bot 
-          </html html lang="en">
-            
+renata jungle 0% 3
+renata support 48.27% 24,032
+renata top 37.04% 27
+renata mid 28.57% 14
+renata bot 48.27% 24,032
 renekton jungle 35.14% 37
 renekton support 36.36% 55
 renekton top 49.83% 64,287

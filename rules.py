@@ -1,6 +1,7 @@
 import os
 import globals
 import re
+import tkChampStats
 
 MARBLES_OUTPUT = "./data/marbles_output.txt"
 MARBLES_OPTIONS = "./data/MoneyMarbles.txt"
@@ -11,6 +12,15 @@ GREEN_TXT_START = "\033[1;32;40m "
 DEF_TXT_END = " \033[0m"
 RED_TXT_START = "\033[31m"
 
+# =============== custom QOL for this file ===============
+
+def myinput(prompt):
+    res = input(prompt)
+    if res == ".":
+        tkChampStats.start_app(marbleChampStats())
+    return res
+
+# =============== marble logic ==========================
 class MarbleAssignment:
     def __init__(self, name, marbleDesc, level="", placement=-1, letter="", position=""):
         self.name = name
@@ -67,6 +77,14 @@ def readMarbles():
         values = splitted[0].split(" ")
         name = values[0]
         marbles.append(Marble(name, line, level, i, values))
+
+def marbleChampStats():
+    appData = []
+    for summonerName in globals.allSummoners:
+        letter = marbles[globals.summoners[summonerName].curMarble].letter
+        role = marbles[globals.summoners[summonerName].curMarble].position
+        appData.append((letter, role))
+    return appData
 
 def currentMarbleAssignments(unpickedSummoners=list(globals.summoners.keys())):
     print("======")
@@ -145,7 +163,7 @@ def getTop5Marbles(summonerName, startPoint, unpickedRoles):
 
 def pickFromTop5Marbles(summonerName, top5marbles):
     while True:
-        marbleNum = input("Choose a marble 0-4 from the list")
+        marbleNum = myinput("Choose a marble 0-4 from the list")
         if(not marbleNum.isdigit() or int(marbleNum) < 0 or int(marbleNum) > 4):
             print("Invalid input, needs to be numeric value 0-4")
             continue
@@ -167,7 +185,7 @@ def top1Swap():
     printTop10Marbles()
     swapNum = 0
     while True:
-        swapNum = input(marbles[0].name + " is top 1, enter the number 0-9 of the marble to swap with.")
+        swapNum = myinput(marbles[0].name + " is top 1, enter the number 0-9 of the marble to swap with.")
         try:
             swapNum = int(swapNum)
             if(swapNum > 9 or swapNum < 0):
@@ -209,7 +227,7 @@ def pickRole(summonerName, unpickedRoles):
         while True:
             print("Remaining roles:")
             print(unpickedRoles) # TODO make this print nicer
-            role = input("Role for "+summonerName+"?").lower()
+            role = myinput("Role for "+summonerName+"?").lower()
             if not role in unpickedRoles:
                 print("That's not a valid role, try again")
             else:

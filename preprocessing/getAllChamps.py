@@ -42,6 +42,12 @@ with open("../data/champList.txt", "w") as f:
     for i, item in enumerate(results):
         # Remove non-alphabetic characters, make lowercase, and replace spaces with underscores
         processed_item = re.sub(r'[^a-zA-Z\s]', '', item.replace('&#x27;', "")).lower().replace(' ', '_')
+        
+        if processed_item == "nunu_amp_willump":
+            processed_item = "nunu"
+        elif processed_item == "renata_glasc":
+            processed_item = "renata"
+        
         if(i==len(results)-1):
             f.write(processed_item)
         else:

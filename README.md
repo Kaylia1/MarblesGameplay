@@ -64,3 +64,4 @@ The rules for role assignments are as follows:
 # edge cases:
 - top 1 no longer picks first if they pick into paralysis
 - "next marble of same marble level" is a marble in a placement larger than the current marble assignment, ie if after paralysis you get assigned your 3rd lvl1 marble, your next lvl1 marble would be your 4th lvl1 marble
+- marbles currently only supports 1 letter prefixes due to winrate logic

@@ -52,3 +52,6 @@ with open("../data/winrates.txt", 'w+') as file:
         for role in globals.ROLES:
             winRateStr, matches = getWinRate(champ, role)
             file.write(champ+" "+role+" "+winRateStr+" "+matches+"\n")
+
+# for role in globals.ROLES:
+#     print(getWinRate("renata", role))

@@ -7,7 +7,7 @@ import globals
 import rules
 import wheelMap
 import tkWheel
-# import parseChampStats
+import tkChampStats
 
 KILLVALUE = 4
 DEATHVALUE = 3
@@ -68,7 +68,7 @@ def load_state():
     print("Loaded from file.")
 
 def main():
-    # parseChampStats.constructWinrates()
+    tkChampStats.init_app()
 
     load_state()
     
@@ -85,7 +85,9 @@ def main():
             print_money()
             
             action = input("Action? B=bribe, W=wheel, C=continue").strip().lower()
-            if(action == "c"):
+            if(action == "."):
+                tkChampStats.start_app(rules.marbleChampStats())
+            elif(action == "c"):
                 break
             elif(action == "b"):
                 name, name2, amount = input("From who? To who? How much? ").split()
