@@ -18,8 +18,9 @@ class DataApp(tk.Tk):
         self.geometry("1400x400")
         self.headers = headers
         self.frames = []
+        self.elements = []
         
-        # self.protocol("WM_DELETE_WINDOW", self.hide_window)
+        self.protocol("WM_DELETE_WINDOW", self.hide_window)
         
         self.create_table_grids(data)
 
@@ -42,11 +43,18 @@ class DataApp(tk.Tk):
             self.grid_columnconfigure(col, weight=1)
 
     def create_table(self, frame, data):
+        
+        for element in self.elements:
+            if not element == None:
+                element.destroy()
+        self.elements = []
+        
         # Create header
         headers = ["Champion", "Role", "Winrate", "Matches"]
         for col, header in enumerate(headers):
             lbl = tk.Label(frame, text=header, font=('Arial', 10, 'bold'), borderwidth=1, relief="solid")
             lbl.grid(row=1, column=col, sticky="nsew")
+            # self.elements.append(lbl)
 
         # Insert data into grid
         for row, (champ, role) in enumerate(data, start=2):
@@ -57,10 +65,21 @@ class DataApp(tk.Tk):
                 continue
             
             obj = parseChampStats.winrates[key]
-            tk.Label(frame, text=champ, borderwidth=1, relief="solid").grid(row=row, column=0, sticky="nsew")
-            tk.Label(frame, text=role, borderwidth=1, relief="solid").grid(row=row, column=1, sticky="nsew")
-            tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid").grid(row=row, column=2, sticky="nsew")
-            tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid").grid(row=row, column=3, sticky="nsew")
+            lbl1 = tk.Label(frame, text=champ, borderwidth=1, relief="solid")
+            lbl1.grid(row=row, column=0, sticky="nsew")
+            # self.elements.append(lbl1)
+            
+            lbl2 = tk.Label(frame, text=role, borderwidth=1, relief="solid")
+            lbl2.grid(row=row, column=1, sticky="nsew")
+            # self.elements.append(lbl2)
+            
+            lbl3 = tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid")
+            lbl3.grid(row=row, column=2, sticky="nsew")
+            # self.elements.append(lbl3)
+            
+            lbl4 = tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid")
+            lbl4.grid(row=row, column=3, sticky="nsew")
+            # self.elements.append(lbl4)
 
         # Make the grid cells expand with the window
         for col in range(4):
@@ -74,14 +93,14 @@ class DataApp(tk.Tk):
         for i, frame in enumerate(self.frames):
             self.create_table(frame, new_data_list[i])  # Update data in each frame
 
-    # def hide_window(self):
-    #     """Hide the window instead of closing it."""
-    #     self.withdraw()
+    def hide_window(self):
+        """Hide the window instead of closing it."""
+        self.withdraw()
 
-    # def show_window(self, new_data):
-    #     """Show window again and update data."""
-    #     self.after(0, self.update_data, new_data)
-    #     self.deiconify()
+    def show_window(self, new_data):
+        """Show window again and update data."""
+        self.after(0, self.update_data, new_data)
+        self.deiconify()
 
 def init_app():
     parseChampStats.constructWinrates()
@@ -104,16 +123,16 @@ def start_app(marbleData):
     app_thread.start()
 
 def update_app(marbleData):
-    # if(dataApp == None):
-    start_app(marbleData)
+    if(dataApp == None):
+        start_app(marbleData)
     
-    import time
-    time.sleep(0.1)
-    # else:
-    #     appData = []
-    #     for data in marbleData:
-    #         keys = parseChampStats.getChamps(data[0], data[1])
-    #         appData.append(keys)
-    #     dataApp.show_window(appData)
+    # import time
+    # time.sleep(0.1)
+    else:
+        appData = []
+        for data in marbleData:
+            keys = parseChampStats.getChamps(data[0], data[1])
+            appData.append(keys)
+        dataApp.show_window(appData)
         
     

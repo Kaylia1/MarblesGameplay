@@ -27,6 +27,8 @@ class WheelOfFortune:
         self.spin_button = tk.Button(root, text="Spin the Wheel", command=self.spin_wheel, font=("Times", 16))
         self.spin_button.pack(pady=20)
         
+        self.original_close_protocol = root.protocol("WM_DELETE_WINDOW")
+        
         self.draw_wheel()  # Initial drawing of the wheel
         self.draw_pointer()  # Draw the fixed pointer
 
@@ -92,6 +94,7 @@ class WheelOfFortune:
         return f"#{random.randint(100, 255):02x}{random.randint(100, 255):02x}{random.randint(100, 255):02x}"
     
     def spin_wheel(self):
+        self.disable_close()
         self.spin_button.config(state="disabled")
         self.selected_option.set("Spinning...")
         
@@ -123,10 +126,21 @@ class WheelOfFortune:
         
         global wheelResult
         wheelResult = final_choice
+        self.enable_close()
         
         # Enable the button again after spinning
         # for now remove this since we don't have a comprehensive UI
         # self.spin_button.config(state="normal")
+    
+    # note auto gets destroyed when app gets destroyed
+    def disable_close(self):
+        # Disable the window close button
+        self.root.protocol("WM_DELETE_WINDOW", lambda: None)
+
+    def enable_close(self):
+        # Restore the original close protocol
+        self.root.protocol("WM_DELETE_WINDOW", self.original_close_protocol)
+        
 
 def readWheelOptions():
     # Open the file in read mode
