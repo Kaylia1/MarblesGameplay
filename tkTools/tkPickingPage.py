@@ -165,15 +165,15 @@ class PickingPage(tkUtil.Page):
             self.prompt.config(text="Paralyzed! Pick a marble 0-4")
             for i in range(10):
                 if i < 5:
-                    self.top10Labels[i].config(text=rules.marbles[i].marbleDesc)
+                    self.top10Labels[i].config(text=str(i)+":"+rules.marbles[top5[i]].marbleDesc)
                 else:
                     self.top10Labels[i].config(text="")
 
             # input 0-4
             while True:
                 self.submit_button.wait_variable(self.button_pressed)
-                if(self.entered_text.isdigit() and int(self.entered_text) >= 0 and int(self.entered_text < 5)):
-                    rules.setCurMarble(picker, top5[self.entered_text])
+                if(self.entered_text.isdigit() and int(self.entered_text) >= 0 and int(self.entered_text) < 5):
+                    rules.setCurMarble(picker, top5[int(self.entered_text)])
                     break
         
         # input valid 

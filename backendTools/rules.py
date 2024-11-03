@@ -111,7 +111,7 @@ def getBestMarble(summonerName, level="-1", startPoint=0, unpickedRoles=globals.
         if(marbles[i].name == summonerName and (level=="-1" or level==marbles[i].level) and (marbles[i].position in unpickedRoles or marbles[i].position == "")):
             # assign this marble to this person
             return i
-    print("Failed to get top marble for "+summonerName+" starting from "+startPoint+" lvl"+level)
+    print("Failed to get top marble for "+summonerName+" starting from "+str(startPoint)+" lvl"+level)
     return -1
 
 def updateBestMarble(unpickedSummoners, unpickedRoles):

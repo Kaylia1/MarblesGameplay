@@ -1,1000 +1,1000 @@
-Jon FREEDOM Lvl4	0	45.972061
-Irisu H Mid Lvl1	0	48.205921
-Jon Z Jungle Lvl1	0	52.267971
-Jon FREEDOM Lvl4	0	50.831593
-Adam H Jungle Lvl1	0	47.816284
-Irisu E Lvl2  	0	57.405975
-Kaylia D Top Lvl1	0	43.44379
-Jon Support Lvl3	0	47.583679
-Rage L Bot Lvl1	0	63.518559
-Jon G Mid Lvl1	0	49.469547
-Irisu FREEDOM Lvl4	0	53.289932
-Rage I Lvl2  	0	60.102699
-Irisu FREEDOM Lvl4	0	41.786434
-Jon T Bot Lvl1	0	61.552914
-Irisu V Jungle Lvl1	0	50.297661
-Jon Top Lvl3	0	60.877674
-Adam P Jungle Lvl1	0	42.029095
-Irisu J Support Lvl1	0	41.751797
-Kaylia T Mid Lvl1	0	52.730064
-Jon FREEDOM Lvl4	0	56.752689
-Kaylia D Lvl2  	0	41.351505
-Kaylia N Bot Lvl1	0	42.965153
-Adam Z Jungle Lvl1	0	53.888733
-Rage X Support Lvl1	0	63.331535
-Rage FREEDOM Lvl4	0	53.783329
-Irisu P Support Lvl1	0	44.8297
-Kaylia Y Jungle Lvl1	0	50.046272
-Rage V Jungle Lvl1	0	48.907856
-Kaylia U Lvl2  	0	62.50539
-Irisu M Jungle Lvl1	0	75.194176
-Adam X Lvl2  	0	62.211498
-Kaylia E Lvl2  	0	43.248291
-Irisu M Mid Lvl1	0	42.029095
-Jon F Lvl2  	0	54.492645
-Rage A Jungle Lvl1	0	58.535835
-Rage J Jungle Lvl1	0	29.30987
-Irisu S Support Lvl1	0	84.336273
-Kaylia D Mid Lvl1	0	51.197044
-Jon CHOOSES ALL LvlMARBLE GOD	0	61.908566
-Kaylia D Support Lvl1	0	49.292477
-Adam C Lvl2  	0	52.957195
-Adam T Top Lvl1	0	47.74297
-Adam R Support Lvl1	0	47.886669
-Rage M Jungle Lvl1	0	43.41013
-Rage Bot Lvl3	0	70.522606
-Rage C Lvl2  	0	55.131905
-Jon K Bot Lvl1	0	49.922935
-Jon K Jungle Lvl1	0	63.216007
-Rage P Bot Lvl1	0	47.708256
-Kaylia J Bot Lvl1	0	41.612411
-Rage O Lvl2  	0	28.346075
-Adam Support Lvl3	0	45.187706
-Jon FREEDOM Lvl4	0	65.522034
-Irisu CHOOSES ALL LvlMARBLE GOD	0	56.969978
-Rage FREEDOM Lvl4	0	43.757862
-Jon I Top Lvl1	0	53.69125
-Jon X Bot Lvl1	0	48.950188
-Adam Mid Lvl3	0	30.331812
-Rage S Lvl2  	0	43.560383
-Rage I Mid Lvl1	0	48.806377
-Adam J Jungle Lvl1	0	50.253006
-Adam X Mid Lvl1	0	40.345772
-Jon J Top Lvl1	0	44.240177
-Jon Bot Lvl3	0	47.926201
-Irisu C Lvl2  	0	42.090439
-Adam Support Lvl3	0	43.985443
-Rage Bot Lvl3	0	61.761166
-Adam P Support Lvl1	0	44.641926
-Kaylia Z Mid Lvl1	0	48.002506
-Rage PARALYZED Lvl0	0	24.722651
-Jon K Support Lvl1	0	43.373577
-Rage Support Lvl3	0	47.471603
-Irisu I Mid Lvl1	0	60.00177
-Irisu Z Lvl2  	0	43.519676
-Adam V Lvl2  	0	47.583679
-Adam X Jungle Lvl1	0	40.871437
-Jon W Support Lvl1	0	43.483616
-Rage Y Top Lvl1	0	60.147675
-Irisu P Mid Lvl1	0	50.345428
-Kaylia Top Lvl3	0	66.761909
-Kaylia C Mid Lvl1	0	72.815155
-Jon CHOOSES ALL LvlMARBLE GOD	0	50.131447
-Rage T Jungle Lvl1	0	43.716999
-Irisu F Jungle Lvl1	0	47.357643
-Kaylia PARALYZED Lvl0	0	68.247589
-Jon E Bot Lvl1	0	41.159264
-Irisu Q Top Lvl1	0	42.929939
-Jon C Lvl2  	0	40.556145
-Kaylia Top Lvl3	0	50.831593
-Rage FREEDOM Lvl4	0	62.211498
-Adam V Jungle Lvl1	0	41.193043
-Irisu Bot Lvl3	0	48.765129
-Irisu W Jungle Lvl1	0	62.50539
-Jon W Top Lvl1	0	45.932896
-Kaylia Mid Lvl3	0	56.709343
-Kaylia B Mid Lvl1	0	50.087914
-Adam B Lvl2  	0	62.602966
-Adam C Mid Lvl1	0	60.61182
-Kaylia G Mid Lvl1	0	64.665901
-Kaylia G Jungle Lvl1	0	49.79562
-Jon E Mid Lvl1	0	60.200779
-Adam R Bot Lvl1	0	45.972061
-Rage E Lvl2  	0	43.716999
-Jon Z Mid Lvl1	0	24.871893
-Kaylia O Top Lvl1	0	37.511955
-Adam Jungle Lvl3	0	54.344357
-Rage D Jungle Lvl1	0	60.780605
-Rage R Top Lvl1	0	37.951904
-Kaylia Support Lvl3	0	48.292351
-Rage O Top Lvl1	0	48.253025
-Kaylia P Lvl2  	0	79.970863
-Irisu CHOOSES ALL LvlMARBLE GOD	0	42.412777
-Adam L Bot Lvl1	0	44.869381
-Irisu W Lvl2  	0	64.258156
-Rage V Mid Lvl1	0	67.80838
-Rage H Top Lvl1	0	44.570217
-Kaylia FREEDOM Lvl4	0	48.253025
-Rage M Lvl2  	0	48.856178
-Kaylia G Support Lvl1	0	49.758335
-Adam FREEDOM Lvl4	0	46.367214
-Jon B Bot Lvl1	0	65.676567
-Irisu A Lvl2  	0	49.598816
-Irisu F Lvl2  	0	39.087421
-Adam N Bot Lvl1	0	43.299492
-Adam S Mid Lvl1	0	41.820896
-Irisu C Top Lvl1	0	49.469547
-Irisu U Top Lvl1	0	53.69125
-Kaylia F Lvl2  	0	70.230339
-Kaylia T Jungle Lvl1	0	59.351707
-Irisu T Top Lvl1	0	53.888733
-Kaylia K Jungle Lvl1	0	29.778667
-Adam O Top Lvl1	0	54.948265
-Jon A Mid Lvl1	0	51.101986
-Kaylia Bot Lvl3	0	56.49968
-Jon M Top Lvl1	0	49.376175
-Irisu Y Lvl2  	0	48.950188
-Rage Z Top Lvl1	0	44.941723
-Kaylia V Jungle Lvl1	0	49.516788
-Irisu D Support Lvl1	0	68.332291
-Irisu B Mid Lvl1	0	49.516788
-Adam K Support Lvl1	0	57.405975
-Kaylia Mid Lvl3	0	23.075384
-Irisu FREEDOM Lvl4	0	42.187771
-Adam C Jungle Lvl1	0	23.024527
-Kaylia Z Lvl2  	0	49.33382
-Jon O Lvl2  	0	59.251541
-Jon Support Lvl3	0	40.978325
-Adam S Support Lvl1	0	40.978325
-Irisu FREEDOM Lvl4	0	60.342213
-Jon U Jungle Lvl1	0	64.319298
-Irisu C Bot Lvl1	0	50.253006
-Rage R Mid Lvl1	0	45.265102
-Irisu Top Lvl3	0	75.499886
-Kaylia O Support Lvl1	0	48.686909
-Irisu T Bot Lvl1	0	52.388969
-Irisu Jungle Lvl3	0	49.256298
-Irisu P Jungle Lvl1	0	49.420902
-Irisu Mid Lvl3	0	55.30381
-Irisu X Bot Lvl1	0	48.562637
-Adam L Jungle Lvl1	0	55.131905
-Jon D Mid Lvl1	0	50.297661
-Jon R Jungle Lvl1	0	43.127628
-Adam Bot Lvl3	0	54.873955
-Kaylia K Mid Lvl1	0	41.751797
-Rage E Bot Lvl1	0	41.193043
-Rage F Bot Lvl1	0	49.185772
-Jon Bot Lvl3	0	64.450043
-Adam O Mid Lvl1	0	44.312763
-Adam Q Lvl2  	0	51.437149
-Adam CHOOSES ALL LvlMARBLE GOD	0	48.292351
-Irisu Y Support Lvl1	0	49.719532
-Irisu PARALYZED Lvl0	0	56.135937
-Kaylia S Top Lvl1	0	63.068211
-Irisu A Bot Lvl1	0	39.71843
-Irisu L Bot Lvl1	0	49.376175
-Jon G Lvl2  	0	51.197044
-Kaylia Q Top Lvl1	0	77.001152
-Kaylia CHOOSES ALL LvlMARBLE GOD	0	47.505722
-Rage X Jungle Lvl1	0	56.835949
-Adam I Lvl2  	0	51.754013
-Kaylia I Mid Lvl1	0	26.401548
-Rage FREEDOM Lvl4	0	70.04377
-Irisu C Jungle Lvl1	0	72.215973
-Irisu K Lvl2  	0	51.527588
-Rage FREEDOM Lvl4	0	62.362629
-Irisu Mid Lvl3	0	68.961357
-Jon FREEDOM Lvl4	0	48.806377
-Kaylia Bot Lvl3	0	49.639484
-Kaylia H Lvl2  	0	51.197044
-Rage PARALYZED Lvl0	0	60.147675
-Rage C Support Lvl1	0	49.33382
-Kaylia PARALYZED Lvl0	0	64.729897
-Jon Y Top Lvl1	0	40.448273
-Rage FREEDOM Lvl4	0	52.676517
-Jon N Bot Lvl1	0	63.163723
-Adam S Top Lvl1	0	60.200779
-Rage F Mid Lvl1	0	47.162365
-Kaylia B Jungle Lvl1	0	66.761909
-Rage Bot Lvl3	0	54.492645
-Jon Top Lvl3	0	41.89323
-Irisu Jungle Lvl3	0	49.106632
-Rage PARALYZED Lvl0	0	63.635612
-Kaylia B Bot Lvl1	0	48.292351
-Rage V Bot Lvl1	0	73.72319
-Kaylia L Lvl2  	0	52.538471
-Kaylia V Top Lvl1	0	56.135937
-Adam Bot Lvl3	0	66.612274
-Kaylia D Bot Lvl1	0	51.527588
-Jon L Jungle Lvl1	0	52.822186
-Adam T Jungle Lvl1	0	49.469547
-Irisu Z Top Lvl1	0	54.873955
-Kaylia N Top Lvl1	0	40.926479
-Rage G Jungle Lvl1	0	48.205921
-Jon Y Bot Lvl1	0	47.816284
-Rage X Bot Lvl1	0	51.280411
-Irisu O Top Lvl1	0	41.820896
-Irisu J Lvl2  	0	46.613277
-Adam Q Top Lvl1	0	49.598816
-Adam N Mid Lvl1	0	55.68943
-Adam FREEDOM Lvl4	0	54.948265
-Jon C Bot Lvl1	0	27.743103
-Irisu R Mid Lvl1	0	54.046089
-Irisu L Mid Lvl1	0	42.852818
-Irisu PARALYZED Lvl0	0	40.448273
-Jon FREEDOM Lvl4	0	57.615952
-Rage Jungle Lvl3	0	64.729897
-Adam Jungle Lvl3	0	44.941723
-Adam W Bot Lvl1	0	64.84433
-Rage D Top Lvl1	0	23.075384
-Kaylia J Lvl2  	0	41.712646
-Adam X Bot Lvl1	0	32.102562
-Jon C Mid Lvl1	0	56.353577
-Rage M Support Lvl1	0	54.249958
-Rage Jungle Lvl3	0	48.562637
-Rage Y Support Lvl1	0	53.243633
-Kaylia FREEDOM Lvl4	0	48.525093
-Kaylia Q Mid Lvl1	0	49.14941
-Rage H Mid Lvl1	0	60.054623
-Irisu S Mid Lvl1	0	20.147583
-Irisu B Top Lvl1	0	31.143843
-Irisu G Jungle Lvl1	0	47.505722
-Adam CHOOSES ALL LvlMARBLE GOD	0	45.15057
-Rage G Lvl2  	0	20.308167
-Irisu Y Top Lvl1	0	59.504742
-Rage L Mid Lvl1	0	41.017334
-Irisu R Bot Lvl1	0	43.41013
-Rage J Lvl2  	0	43.947411
-Adam Top Lvl3	0	50.831593
-Jon FREEDOM Lvl4	0	45.932896
-Irisu S Bot Lvl1	0	24.820765
-Kaylia PARALYZED Lvl0	0	25.154209
-Rage Bot Lvl3	0	53.101868
-Adam A Mid Lvl1	0	55.30381
-Jon FREEDOM Lvl4	0	49.106632
-Irisu FREEDOM Lvl4	0	61.274002
-Jon L Support Lvl1	0	49.55901
-Jon T Jungle Lvl1	0	49.967659
-Irisu Bot Lvl3	0	45.105114
-Adam FREEDOM Lvl4	0	48.292351
-Jon M Lvl2  	0	50.965096
-Jon FREEDOM Lvl4	0	43.913239
-Jon L Bot Lvl1	0	52.150166
-Jon M Bot Lvl1	0	59.455734
-Kaylia FREEDOM Lvl4	0	27.01441
-Irisu N Bot Lvl1	0	57.229145
-Irisu Top Lvl3	0	69.542244
-Adam V Top Lvl1	0	48.950188
-Irisu Mid Lvl3	0	44.641926
-Kaylia K Lvl2  	0	55.904625
-Jon Mid Lvl3|	0	52.778557
-Jon FREEDOM Lvl4	0	47.505722
-Rage FREEDOM Lvl4	0	70.304527
-Rage S Top Lvl1	0	77.141083
-Rage Q Mid Lvl1	0	24.612915
-Adam O Lvl2  	0	53.783329
-Rage Top Lvl3	0	53.940971
-Irisu L Support Lvl1	0	43.046566
-Kaylia O Mid Lvl1	0	51.817192
-Irisu I Top Lvl1	0	48.161549
-Adam FREEDOM Lvl4	0	51.914501
-Adam Mid Lvl3	0	51.39257
-Jon CHOOSES ALL LvlMARBLE GOD	0	43.337807
-Rage R Support Lvl1	0	48.646385
-Irisu V Mid Lvl1	0	49.681007
-Rage A Bot Lvl1	0	42.54026
-Jon Jungle Lvl3	0	51.240753
-Jon W Bot Lvl1	0	54.249958
-Rage C Mid Lvl1	0	45.821823
-Adam R Mid Lvl1	0	42.588837
-Rage Bot Lvl3	0	55.803673
-Jon Top Lvl3	0	43.41013
-Irisu FREEDOM Lvl4	0	48.604752
-Kaylia M Mid Lvl1	0	60.293991
-Rage U Top Lvl1	0	75.898949
-Adam S Lvl2  	0	42.124977
-Irisu F Mid Lvl1	0	46.334435
-Kaylia Jungle Lvl3	0	53.888733
-Adam J Mid Lvl1	0	56.878193
-Rage Mid Lvl3	0	49.681007
-Kaylia W Jungle Lvl1	0	23.764246
-Rage V Top Lvl1	0	30.096066
-Irisu FREEDOM Lvl4	0	34.16394
-Kaylia Support Lvl3	0	42.54026
-Kaylia A Top Lvl1	0	39.75864
-Rage Z Bot Lvl1	0	49.256298
-Adam Support Lvl3	0	51.653641
-Irisu Mid Lvl3	0	50.174442
-Kaylia S Support Lvl1	0	47.926201
-Rage O Jungle Lvl1	0	65.597946
-Jon O Top Lvl1	0	44.8297
-Adam Q Mid Lvl1	0	45.691063
-Adam Z Support Lvl1	0	78.455696
-Adam B Support Lvl1	0	44.570217
-Jon V Mid Lvl1	0	45.187706
-Irisu A Jungle Lvl1	0	61.662479
-Rage Top Lvl3	0	74.12513
-Kaylia J Top Lvl1	0	72.392494
-Adam W Lvl2  	0	68.247589
-Rage Z Jungle Lvl1	0	70.112381
-Adam FREEDOM Lvl4	0	47.669586
-Kaylia W Top Lvl1	0	54.39579
-Kaylia U Jungle Lvl1	0	65.762054
-Irisu FREEDOM Lvl4	0	32.609688
-Rage S Support Lvl1	0	47.392342
-Jon R Lvl2  	0	49.922935
-Rage Mid Lvl3	0	51.954124
-Adam S Jungle Lvl1	0	43.63789
-Kaylia FREEDOM Lvl4	0	35.959099
-Adam W Jungle Lvl1	0	47.281357
-Irisu U Jungle Lvl1	0	47.708256
-Kaylia L Support Lvl1	0	44.979572
-Kaylia Top Lvl3	0	47.122589
-Jon FREEDOM Lvl4	0	49.639484
-Irisu G Lvl2  	0	47.669586
-Rage N Lvl2  	0	38.196842
-Rage Support Lvl3	0	50.399296
-Irisu FREEDOM Lvl4	0	42.811844
-Kaylia R Bot Lvl1	0	57.659843
-Irisu A Top Lvl1	0	36.806801
-Jon PARALYZED Lvl0	0	53.152943
-Jon N Support Lvl1	0	49.067204
-Rage X Mid Lvl1	0	57.700577
-Rage N Mid Lvl1	0	50.131447
-Kaylia J Jungle Lvl1	0	40.087242
-Irisu FREEDOM Lvl4	0	40.871437
-Kaylia U Mid Lvl1	0	56.588543
-Kaylia S Bot Lvl1	0	52.230206
-Rage Support Lvl3	0	47.852417
-Adam Z Bot Lvl1	0	46.725414
-Irisu W Top Lvl1	0	63.397022
-Irisu D Lvl2  	0	72.496941
-Irisu B Support Lvl1	0	65.31469
-Adam Y Mid Lvl1	0	48.407146
-Rage F Lvl2  	0	49.376175
-Irisu Mid Lvl3	0	63.816586
-Kaylia Jungle Lvl3	0	42.929939
-Irisu W Mid Lvl1	0	44.454361
-Adam X Top Lvl1	0	87.018661
-Irisu E Jungle Lvl1	0	47.816284
-Irisu N Top Lvl1	0	42.483303
-Jon G Jungle Lvl1	0	29.401205
-Jon W Lvl2  	0	58.777176
-Kaylia X Lvl2  	0	47.392342
-Jon V Lvl2  	0	48.604752
-Kaylia FREEDOM Lvl4	0	49.420902
-Rage T Support Lvl1	0	42.852818
-Jon A Support Lvl1	0	43.985443
-Irisu W Support Lvl1	0	40.448273
-Irisu P Bot Lvl1	0	50.741901
-Jon T Top Lvl1	0	28.848387
-Adam T Bot Lvl1	0	57.659843
-Kaylia T Support Lvl1	0	48.856178
-Jon I Lvl2  	0	35.666626
-Rage CHOOSES ALL LvlMARBLE GOD	0	45.890919
-Jon PARALYZED Lvl0	0	44.679722
-Jon FREEDOM Lvl4	0	38.94236
-Rage A Lvl2  	0	43.878784
-Irisu Y Bot Lvl1	0	87.500648
-Kaylia Jungle Lvl3	0	61.908566
-Irisu H Top Lvl1	0	62.456093
-Adam P Top Lvl1	0	37.912071
-Jon Z Support Lvl1	0	68.247589
-Kaylia FREEDOM Lvl4	0	50.495747
-Irisu Jungle Lvl3	0	50.215294
-Adam D Bot Lvl1	0	64.964355
-Kaylia E Jungle Lvl1	0	63.457775
-Kaylia PARALYZED Lvl0	0	49.420902
-Jon Q Bot Lvl1	0	56.135937
-Jon FREEDOM Lvl4	0	56.447289
-Irisu V Support Lvl1	0	61.60844
-Kaylia B Lvl2  	0	52.071953
-Adam Top Lvl3	0	45.932896
-Irisu B Lvl2  	0	44.491982
-Rage P Mid Lvl1	0	42.890884
-Adam U Jungle Lvl1	0	52.778557
-Irisu J Bot Lvl1	0	44.941723
-Rage E Mid Lvl1	0	63.272163
-Jon O Jungle Lvl1	0	50.131447
-Irisu G Support Lvl1	0	58.337944
-Irisu Mid Lvl3	0	51.057396
-Rage Q Lvl2  	0	44.752506
-Jon J Jungle Lvl1	0	43.299492
-Rage M Bot Lvl1	0	45.49585
-Irisu FREEDOM Lvl4	0	60.977913
-Rage L Jungle Lvl1	0	34.011177
-Jon H Top Lvl1	0	43.843266
-Adam H Mid Lvl1	0	74.754211
-Irisu Q Mid Lvl1	0	63.116844
-Adam Jungle Lvl3	0	27.515623
-Irisu PARALYZED Lvl0	0	47.816284
-Irisu G Mid Lvl1	0	51.240753
-Jon Support Lvl3	0	50.297661
-Kaylia X Top Lvl1	0	41.437233
-Irisu O Mid Lvl1	0	59.902737
-Jon Mid Lvl3	0	50.297661
-Jon Bot Lvl3	0	40.501335
-Adam A Bot Lvl1	0	43.165833
-Kaylia Bot Lvl3	0	57.024086
-Irisu Jungle Lvl3	0	40.606541
-Kaylia FREEDOM Lvl4	0	78.799026
-Jon Bot Lvl3	0	50.253006
-Irisu T Mid Lvl1	0	51.694981
-Jon Q Mid Lvl1	0	63.331535
-Adam B Bot Lvl1	0	54.249958
-Jon S Mid Lvl1	0	39.535069
-Kaylia Top Lvl3	0	41.712646
-Kaylia FREEDOM Lvl4	0	50.831593
-Kaylia B Top Lvl1	0	65.676567
-Adam M Mid Lvl1	0	41.483158
-Kaylia I Top Lvl1	0	67.129158
-Jon I Jungle Lvl1	0	52.188427
-Rage X Top Lvl1	0	68.754402
-Jon Bot Lvl3	0	47.471603
-Irisu Bot Lvl3	0	51.101986
-Jon Mid Lvl3	0	48.205921
-Jon B Top Lvl1	0	59.552883
-Jon R Support Lvl1	0	45.932896
-Kaylia Jungle Lvl3	0	49.967659
-Adam G Mid Lvl1	0	54.249958
-Kaylia C Jungle Lvl1	0	56.792633
-Irisu Support Lvl3	0	45.854755
-Irisu X Support Lvl1	0	49.639484
-Jon P Bot Lvl1	0	41.393585
-Rage K Mid Lvl1	0	60.102699
-Adam J Top Lvl1	0	56.669712
-Kaylia Top Lvl3	0	49.516788
-Rage FREEDOM Lvl4	0	43.337807
-Rage Top Lvl3	0	47.544621
-Kaylia C Lvl2  	0	56.631107
-Kaylia Mid Lvl3	0	53.888733
-Adam K Mid Lvl1	0	51.871521
-Kaylia A Lvl2  	0	38.506149
-Rage FREEDOM Lvl4	0	62.556984
-Kaylia Top Lvl3	0	48.487068
-Adam L Mid Lvl1	0	89.759499
-Rage FREEDOM Lvl4	0	45.222977
-Adam O Support Lvl1	0	47.816284
-Kaylia J Support Lvl1	0	69.474312
-Adam N Support Lvl1	0	29.815144
-Jon G Top Lvl1	0	66.942619
-Kaylia M Bot Lvl1	0	52.349697
-Kaylia Y Top Lvl1	0	49.185772
-Jon S Top Lvl1	0	48.161549
-Adam Top Lvl3	0	49.758335
-Jon O Support Lvl1	0	22.375298
-Rage T Bot Lvl1	0	27.37776
-Kaylia S Jungle Lvl1	0	41.786434
-Adam FREEDOM Lvl4	0	42.852818
-Kaylia M Top Lvl1	0	70.797089
-Jon Y Support Lvl1	0	57.825893
-Jon K Mid Lvl1	0	27.860914
-Jon X Jungle Lvl1	0	52.676517
-Irisu R Top Lvl1	0	47.505722
-Adam B Mid Lvl1	0	21.095798
-Jon E Lvl2  	0	40.448273
-Adam T Mid Lvl1	0	52.349697
-Rage Top Lvl3	0	42.588837
-Irisu O Support Lvl1	0	50.297661
-Jon A Bot Lvl1	0	47.816284
-Irisu FREEDOM Lvl4	0	57.448105
-Irisu N Support Lvl1	0	53.445747
-Rage E Jungle Lvl1	0	43.676361
-Adam FREEDOM Lvl4	0	47.429996
-Kaylia P Support Lvl1	0	50.540077
-Adam R Top Lvl1	0	41.89323
-Adam M Jungle Lvl1	0	47.628193
-Irisu E Mid Lvl1	0	50.215294
-Rage Z Lvl2  	0	50.788925
-Jon D Lvl2  	0	53.590088
-Adam Z Mid Lvl1	0	48.806377
-Irisu D Mid Lvl1	0	44.100887
-Kaylia Mid Lvl3	0	60.501884
-Kaylia CHOOSES ALL LvlMARBLE GOD	0	72.296494
-Rage FREEDOM Lvl4	0	45.531067
-Adam E Lvl2  	0	49.922935
-Irisu FREEDOM Lvl4	0	40.926479
-Irisu FREEDOM Lvl4	0	80.178246
-Rage R Lvl2  	0	64.84433
-Jon PARALYZED Lvl0	0	41.786434
-Jon H Jungle Lvl1	0	59.351707
-Jon P Mid Lvl1	0	50.918808
-Rage R Jungle Lvl1	0	59.455734
-Jon FREEDOM Lvl4	0	46.797714
-Adam FREEDOM Lvl4	0	41.9674
-Kaylia P Top Lvl1	0	65.522034
-Kaylia FREEDOM Lvl4	0	42.000732
-Kaylia Y Lvl2  	0	48.562637
-Jon A Top Lvl1	0	44.312763
-Adam Mid Lvl3	0	50.831593
-Irisu K Top Lvl1	0	50.253006
-Jon U Lvl2  	0	37.344971
-Irisu Z Bot Lvl1	0	49.292477
-Jon X Top Lvl1	0	47.357643
-Irisu Q Lvl2  	0	43.757862
-Rage Support Lvl3	0	54.097759
-Jon Support Lvl3	0	49.922935
-Adam C Support Lvl1	0	49.719532
-Kaylia H Mid Lvl1	0	63.216007
-Irisu Top Lvl3	0	44.641926
-Irisu H Lvl2  	0	49.185772
-Irisu Z Jungle Lvl1	0	57.280762
-Irisu F Bot Lvl1	0	43.337807
-Rage B Mid Lvl1	0	45.890919
-Irisu J Jungle Lvl1	0	52.188427
-Rage Mid Lvl3	0	43.985443
-Irisu FREEDOM Lvl4	0	44.135208
-Rage B Lvl2  	0	50.741901
-Adam I Mid Lvl1	0	40.978325
-Rage N Bot Lvl1	0	43.598972
-Adam D Lvl2  	0	42.890884
-Adam Y Top Lvl1	0	57.024086
-Adam D Jungle Lvl1	0	68.415253
-Irisu T Support Lvl1	0	46.466633
-Adam P Mid Lvl1	0	65.597946
-Jon FREEDOM Lvl4	0	48.562637
-Adam CHOOSES ALL LvlMARBLE GOD	0	76.188896
-Adam F Jungle Lvl1	0	54.873955
-Kaylia Support Lvl3	0	47.583679
-Irisu L Jungle Lvl1	0	50.788925
-Adam Y Bot Lvl1	0	63.021942
-Irisu P Lvl2  	0	45.265102
-Rage S Bot Lvl1	0	56.969978
-Rage Support Lvl3	0	26.774136
-Rage M Mid Lvl1	0	68.486588
-Irisu S Lvl2  	0	50.831593
-Jon N Mid Lvl1	0	47.926201
-Jon F Bot Lvl1	0	32.909184
-Rage B Bot Lvl1	0	50.656948
-Adam FREEDOM Lvl4	0	17.756559
-Irisu FREEDOM Lvl4	0	86.692093
-Rage Support Lvl3	0	50.297661
-Rage C Top Lvl1	0	49.79562
-Rage FREEDOM Lvl4	0	57.405975
-Adam FREEDOM Lvl4	0	44.135208
-Adam B Jungle Lvl1	0	40.871437
-Kaylia K Bot Lvl1	0	27.860914
-Rage I Jungle Lvl1	0	54.873955
-Kaylia FREEDOM Lvl4	0	43.127628
-Jon C Support Lvl1	0	46.760715
-Adam A Jungle Lvl1	0	46.265411
-Irisu FREEDOM Lvl4	0	68.486588
-Jon D Support Lvl1	0	49.967659
-Rage K Lvl2  	0	51.871521
-Kaylia K Top Lvl1	0	47.429996
-Adam FREEDOM Lvl4	0	42.852818
-Jon PARALYZED Lvl0	0	43.203011
-Kaylia FREEDOM Lvl4	0	66.185799
-Adam FREEDOM Lvl4	0	50.918808
-Adam U Top Lvl1	0	65.850662
-Jon FREEDOM Lvl4	0	74.12513
-Kaylia I Lvl2  	0	56.545273
-Jon U Top Lvl1	0	38.463337
-Adam FREEDOM Lvl4	0	47.505722
-Adam PARALYZED Lvl0	0	42.852818
-Jon R Mid Lvl1	0	41.820896
-Rage T Mid Lvl1	0	79.817139
-Jon M Support Lvl1	0	42.260826
-Adam Bot Lvl3	0	49.516788
-Kaylia R Support Lvl1	0	48.407146
-Jon J Lvl2  	0	50.578335
-Adam C Bot Lvl1	0	46.83297
-Rage FREEDOM Lvl4	0	57.615952
-Adam J Lvl2  	0	33.520126
-Irisu W Bot Lvl1	0	42.811844
-Rage PARALYZED Lvl0	0	48.562637
-Kaylia T Bot Lvl1	0	45.972061
-Rage C Jungle Lvl1	0	47.357643
-Rage A Support Lvl1	0	42.772163
-Jon G Bot Lvl1	0	46.334435
-Adam Z Lvl2  	0	48.725872
-Rage Z Mid Lvl1	0	50.345428
-Kaylia Z Jungle Lvl1	0	74.675781
-Adam D Top Lvl1	0	58.233868
-Irisu Y Mid Lvl1	0	44.8297
-Irisu Top Lvl3	0	24.871893
-Rage N Jungle Lvl1	0	40.006931
-Irisu FREEDOM Lvl4	0	55.223843
-Adam FREEDOM Lvl4	0	51.994904
-Adam T Lvl2  	0	51.197044
-Rage C Bot Lvl1	0	41.437233
-Rage T Lvl2  	0	74.43689
-Adam X Support Lvl1	0	47.044983
-Rage X Lvl2  	0	48.080845
-Irisu G Bot Lvl1	0	64.903786
-Adam M Support Lvl1	0	44.715725
-Irisu T Jungle Lvl1	0	18.315741
-Rage Top Lvl3	0	23.764246
-Rage FREEDOM Lvl4	0	53.445747
-Jon P Support Lvl1	0	30.287388
-Adam I Top Lvl1	0	44.869381
-Adam C Top Lvl1	0	51.694981
-Adam L Support Lvl1	0	50.253006
-Jon J Support Lvl1	0	44.641926
-Adam F Lvl2  	0	63.635612
-Jon M Jungle Lvl1	0	50.399296
-Rage Jungle Lvl3	0	41.928364
-Adam Bot Lvl3	0	45.49585
-Jon L Lvl2  	0	58.835922
-Kaylia W Lvl2  	0	50.495747
-Rage H Jungle Lvl1	0	54.39579
-Kaylia W Support Lvl1	0	38.05946
-Kaylia A Mid Lvl1	0	26.458183
-Kaylia V Lvl2  	0	42.890884
-Adam E Bot Lvl1	0	37.749668
-Kaylia W Bot Lvl1	0	57.909065
-Adam A Top Lvl1	0	73.306595
-Rage G Bot Lvl1	0	41.525215
-Adam D Mid Lvl1	0	40.926479
-Kaylia L Mid Lvl1	0	45.360958
-Irisu J Mid Lvl1	0	45.05735
-Kaylia N Mid Lvl1	0	48.080845
-Kaylia A Bot Lvl1	0	49.516788
-Jon Mid Lvl3	0	47.669586
-Rage Z Support Lvl1	0	64.384102
-Irisu K Support Lvl1	0	41.751797
-Kaylia D Jungle Lvl1	0	66.71476
-Adam H Lvl2  	0	59.303444
-Rage U Jungle Lvl1	0	51.011116
-Kaylia Mid Lvl3	0	54.600895
-Rage W Bot Lvl1	0	52.071953
-Adam A Lvl2  	0	41.193043
-Rage W Lvl2  	0	47.240932
-Rage J Mid Lvl1	0	36.6451
-Rage D Support Lvl1	0	48.525093
-Kaylia Y Support Lvl1	0	50.448856
-Kaylia M Jungle Lvl1	0	45.791748
-Kaylia C Bot Lvl1	0	44.979572
-Jon N Jungle Lvl1	0	55.377033
-Kaylia R Mid Lvl1	0	40.871437
-Kaylia E Bot Lvl1	0	28.730841
-Jon B Support Lvl1	0	45.05735
-Adam E Jungle Lvl1	0	44.532249
-Irisu E Bot Lvl1	0	56.835949
-Adam P Lvl2  	0	48.002506
-Kaylia L Top Lvl1	0	72.141884
-Adam U Lvl2  	0	47.74297
-Rage Y Bot Lvl1	0	62.556984
-Irisu Support Lvl3	0	23.714518
-Jon R Top Lvl1	0	29.563776
-Kaylia L Jungle Lvl1	0	74.12513
-Jon V Top Lvl1	0	55.30381
-Jon N Lvl2  	0	48.856178
-Rage W Jungle Lvl1	0	62.111202
-Rage Y Mid Lvl1	0	44.8297
-Rage F Jungle Lvl1	0	55.377033
-Jon W Mid Lvl1	0	61.385361
-Jon Jungle Lvl3	0	37.511955
-Kaylia J Mid Lvl1	0	55.546028
-Rage FREEDOM Lvl4	0	66.814377
-Adam FREEDOM Lvl4	0	42.336914
-Kaylia Mid Lvl3	0	63.635612
-Kaylia FREEDOM Lvl4	0	50.131447
-Kaylia E Mid Lvl1	0	48.407146
-Rage B Support Lvl1	0	47.669586
-Irisu Support Lvl3	0	48.525093
-Adam F Mid Lvl1	0	54.672813
-Kaylia X Jungle Lvl1	0	59.303444
-Jon Top Lvl3	0	67.198318
-Rage N Top Lvl1	0	53.002476
-Kaylia FREEDOM Lvl4	0	65.597946
-Rage FREEDOM Lvl4	0	48.950188
-Jon L Top Lvl1	0	26.913294
-Rage R Bot Lvl1	0	49.067204
-Kaylia Y Bot Lvl1	0	83.417618
-Kaylia R Lvl2  	0	58.488609
-Irisu N Jungle Lvl1	0	68.486588
-Kaylia Z Top Lvl1	0	46.613277
-Jon J Bot Lvl1	0	51.057396
-Irisu F Top Lvl1	0	80.773277
-Jon CHOOSES ALL LvlMARBLE GOD	0	50.871223
-Kaylia FREEDOM Lvl4	0	70.112381
-Jon A Lvl2  	0	59.504742
-Irisu S Jungle Lvl1	0	31.748383
-Kaylia Bot Lvl3	0	75.067421
-Adam A Support Lvl1	0	49.967659
-Irisu Z Support Lvl1	0	51.871521
-Rage B Jungle Lvl1	0	44.679722
-Rage Jungle Lvl3	0	43.165833
-Rage D Lvl2  	0	35.959099
-Rage W Mid Lvl1	0	73.083237
-Irisu Q Bot Lvl1	0	28.54875
-Irisu V Top Lvl1	0	59.407249
-Jon Support Lvl3	0	53.391865
-Kaylia F Mid Lvl1	0	43.676361
-Kaylia T Top Lvl1	0	33.633423
-Irisu K Mid Lvl1	0	52.349697
-Adam PARALYZED Lvl0	0	42.124977
-Adam Mid Lvl3	0	42.336914
-Kaylia F Bot Lvl1	0	44.792595
-Jon FREEDOM Lvl4	0	37.010048
-Adam N Lvl2  	0	69.829727
-Irisu V Bot Lvl1	0	49.14941
-Irisu B Bot Lvl1	0	44.376026
-Irisu C Mid Lvl1	0	30.715385
-Jon V Jungle Lvl1	0	30.449732
-Rage O Mid Lvl1	0	15.684822
-Adam Top Lvl3	0	51.817192
-Adam PARALYZED Lvl0	0	60.669548
-Kaylia X Mid Lvl1	0	40.70742
-Rage FREEDOM Lvl4	0	71.160065
-Kaylia R Jungle Lvl1	0	50.131447
-Adam H Top Lvl1	0	24.293673
-Irisu X Lvl2  	0	48.002506
-Jon FREEDOM Lvl4	0	59.853508
-Kaylia FREEDOM Lvl4	0	55.752605
-Irisu U Lvl2  	0	60.147675
-Kaylia CHOOSES ALL LvlMARBLE GOD	0	45.016842
-Adam D Support Lvl1	0	48.988064
-Adam K Bot Lvl1	0	51.694981
-Adam G Top Lvl1	0	40.261047
-Kaylia FREEDOM Lvl4	0	70.660355
-Adam Y Support Lvl1	0	48.487068
-Jon PARALYZED Lvl0	0	72.215973
-Rage FREEDOM Lvl4	0	44.135208
-Kaylia K Support Lvl1	0	54.249958
-Kaylia FREEDOM Lvl4	0	43.001659
-Kaylia P Jungle Lvl1	0	51.653641
-Rage P Lvl2  	0	52.0326
-Rage Mid Lvl3	0	40.926479
-Rage Y Lvl2  	0	35.594936
-Rage U Lvl2  	0	71.214638
-Rage S Mid Lvl1	0	38.23209
-Rage J Support Lvl1	0	65.522034
-Rage Jungle Lvl3	0	66.664566
-Rage A Top Lvl1	0	56.792633
-Jon C Jungle Lvl1	0	49.185772
-Kaylia Q Bot Lvl1	0	61.954426
-Adam W Mid Lvl1	0	51.613018
-Irisu CHOOSES ALL LvlMARBLE GOD	0	59.407249
-Adam Top Lvl3	0	51.197044
-Kaylia X Support Lvl1	0	51.914501
-Rage J Top Lvl1	0	28.309181
-Irisu Jungle Lvl3	0	51.653641
-Irisu J Top Lvl1	0	49.79562
-Rage FREEDOM Lvl4	0	48.37022
-Irisu X Jungle Lvl1	0	51.817192
-Kaylia G Bot Lvl1	0	45.854755
-Rage Q Top Lvl1	0	38.161781
-Adam K Jungle Lvl1	0	47.963543
-Adam G Jungle Lvl1	0	54.741356
-Jon K Lvl2  	0	84.812912
-Jon R Bot Lvl1	0	59.142063
-Irisu R Support Lvl1	0	42.811844
-Kaylia H Top Lvl1	0	40.70742
-Jon Jungle Lvl3	0	47.011105
-Adam J Support Lvl1	0	45.431648
-Kaylia N Lvl2  	0	48.161549
-Irisu S Top Lvl1	0	40.926479
-Rage N Support Lvl1	0	52.0326
-Adam Z Top Lvl1	0	64.000481
-Kaylia G Lvl2  	0	56.669712
-Kaylia C Support Lvl1	0	50.656948
-Rage F Top Lvl1	0	66.942619
-Jon T Mid Lvl1	0	25.440189
-Kaylia H Jungle Lvl1	0	44.100887
-Irisu R Jungle Lvl1	0	43.087551
-Kaylia F Top Lvl1	0	50.788925
-Adam FREEDOM Lvl4	0	42.260826
-Rage Q Bot Lvl1	0	57.127968
-Kaylia S Lvl2  	0	40.261047
-Kaylia Bot Lvl3	0	61.861977
-Rage S Jungle Lvl1	0	47.429996
-Kaylia FREEDOM Lvl4	0	42.124977
-Adam R Jungle Lvl1	0	24.436405
-Adam M Bot Lvl1	0	60.61182
-Irisu K Bot Lvl1	0	52.822186
-Adam Q Bot Lvl1	0	49.719532
-Rage V Lvl2  	0	56.669712
-Adam L Lvl2  	0	46.367214
-Jon Z Lvl2  	0	54.948265
-Jon T Support Lvl1	0	44.025112
-Adam FREEDOM Lvl4	0	79.330559
-Rage PARALYZED Lvl0	0	49.14941
-Jon P Jungle Lvl1	0	41.393585
-Kaylia I Jungle Lvl1	0	45.265102
-Adam G Lvl2  	0	43.716999
-Adam Jungle Lvl3	0	47.74297
-Jon Q Top Lvl1	0	42.683712
-Kaylia V Support Lvl1	0	49.420902
-Rage G Support Lvl1	0	56.709343
-Kaylia R Top Lvl1	0	56.308907
-Rage I Top Lvl1	0	60.054623
-Irisu I Jungle Lvl1	0	37.156357
-Kaylia Q Lvl2  	0	67.745193
-Kaylia L Bot Lvl1	0	54.672813
-Adam Support Lvl3	0	51.101986
-Kaylia V Bot Lvl1	0	53.994076
-Kaylia P Mid Lvl1	0	50.131447
-Irisu D Top Lvl1	0	38.09465
-Kaylia FREEDOM Lvl4	0	58.13686
-Rage O Support Lvl1	0	61.49498
-Rage P Top Lvl1	0	41.525215
-Kaylia FREEDOM Lvl4	0	27.904669
-Jon D Bot Lvl1	0	57.947578
-Irisu A Support Lvl1	0	52.188427
-Irisu Support Lvl3	0	26.024685
-Kaylia N Support Lvl1	0	46.300072
-Rage P Support Lvl1	0	47.544621
-Rage H Lvl2  	0	60.877674
-Irisu O Lvl2  	0	21.527712
-Jon Jungle Lvl3	0	42.965153
-Rage CHOOSES ALL LvlMARBLE GOD	0	47.240932
-Rage L Lvl2  	0	40.556145
-Adam J Bot Lvl1	0	57.323536
-Adam N Jungle Lvl1	0	30.677757
-Rage L Support Lvl1	0	62.312092
-Rage J Bot Lvl1	0	67.745193
-Jon H Lvl2  	0	36.924786
-Rage CHOOSES ALL LvlMARBLE GOD	0	54.046089
-Jon Y Mid Lvl1	0	49.639484
-Jon E Jungle Lvl1	0	59.504742
-Rage M Top Lvl1	0	59.036671
-Rage D Mid Lvl1	0	50.215294
-Jon P Lvl2  	0	74.044632
-Rage CHOOSES ALL LvlMARBLE GOD	0	22.621618
-Adam Y Lvl2  	0	44.679722
-Jon S Jungle Lvl1	0	63.457775
-Kaylia CHOOSES ALL LvlMARBLE GOD	0	26.564991
-Irisu L Top Lvl1	0	62.755623
-Kaylia B Support Lvl1	0	44.869381
-Kaylia O Lvl2  	0	58.13686
-Adam F Bot Lvl1	0	45.791748
-Kaylia Support Lvl3	0	40.871437
-Adam Support Lvl3	0	44.025112
-Adam PARALYZED Lvl0	0	55.803673
-Kaylia C Top Lvl1	0	71.527649
-Irisu N Mid Lvl1	0	45.531067
-Rage W Support Lvl1	0	49.681007
-Rage Jungle Lvl3	0	49.719532
-Adam E Mid Lvl1	0	51.527588
-Jon L Mid Lvl1	0	50.345428
-Jon FREEDOM Lvl4	0	50.965096
-Jon B Lvl2  	0	47.926201
-Kaylia A Support Lvl1	0	48.487068
-Irisu Support Lvl3	0	53.834518
-Irisu K Jungle Lvl1	0	49.598816
-Kaylia FREEDOM Lvl4	0	42.260826
-Irisu P Top Lvl1	0	76.044159
-Jon N Top Lvl1	0	57.127968
-Jon Mid Lvl3	0	40.70742
-Adam W Support Lvl1	0	74.754211
-Irisu CHOOSES ALL LvlMARBLE GOD	0	40.501335
-Irisu Z Mid Lvl1	0	51.954124
-Adam G Support Lvl1	0	67.068298
-Adam N Top Lvl1	0	49.681007
-Adam K Top Lvl1	0	44.204803
-Jon D Jungle Lvl1	0	61.809448
-Jon S Bot Lvl1	0	57.405975
-Adam M Lvl2  	0	60.054623
-Irisu T Lvl2  	0	40.556145
-Jon H Mid Lvl1	0	41.224426
-Jon Y Lvl2  	0	50.008549
-Jon B Jungle Lvl1	0	70.660355
-Adam L Top Lvl1	0	42.588837
-Irisu Support Lvl3	0	59.251541
-Rage B Top Lvl1	0	49.14941
-Adam M Top Lvl1	0	41.786434
-Jon F Top Lvl1	0	50.871223
-Jon G Support Lvl1	0	60.054623
-Irisu M Top Lvl1	0	57.659843
-Adam P Bot Lvl1	0	41.224426
-Jon P Top Lvl1	0	47.505722
-Rage L Top Lvl1	0	52.610901
-Jon Z Bot Lvl1	0	40.556145
-Adam I Jungle Lvl1	0	41.751797
-Jon J Mid Lvl1	0	19.944574
-Kaylia Top Lvl3	0	41.017334
-Rage PARALYZED Lvl0	0	57.448105
-Irisu A Mid Lvl1	0	49.681007
-Irisu H Jungle Lvl1	0	49.067204
-Kaylia U Top Lvl1	0	41.351505
-Adam B Top Lvl1	0	82.851074
-Jon X Support Lvl1	0	51.871521
-Jon M Mid Lvl1	0	43.248291
-Kaylia O Jungle Lvl1	0	75.824608
-Adam V Mid Lvl1	0	63.816586
-Adam FREEDOM Lvl4	0	45.649265
-Irisu D Jungle Lvl1	0	54.249958
-Irisu Top Lvl3	0	46.975441
-Kaylia FREEDOM Lvl4	0	69.542244
-Adam G Bot Lvl1	0	51.240753
-Irisu FREEDOM Lvl4	0	61.662479
-Jon V Bot Lvl1	0	64.105049
-Adam Top Lvl3	0	27.135969
-Adam F Top Lvl1	0	48.253025
-Rage G Mid Lvl1	0	59.552883
-Jon F Jungle Lvl1	0	39.87088
-Jon X Lvl2  	0	75.067421
-Jon Jungle Lvl3	0	55.223843
-Jon C Top Lvl1	0	58.635712
-Jon V Support Lvl1	0	63.116844
-Adam CHOOSES ALL LvlMARBLE GOD	0	45.890919
-Adam FREEDOM Lvl4	0	52.730064
-Kaylia T Lvl2  	0	37.540543
-Jon Top Lvl3	0	45.649265
-Jon T Lvl2  	0	60.245548
-Kaylia N Jungle Lvl1	0	53.445747
-Rage G Top Lvl1	0	46.689243
-Irisu X Top Lvl1	0	48.37022
-Rage Mid Lvl3	0	65.386879
-Adam Jungle Lvl3	0	70.946022
-Irisu FREEDOM Lvl4	0	38.94236
-Kaylia X Bot Lvl1	0	67.520805
-Adam K Lvl2  	0	45.728031
-Irisu I Lvl2  	0	48.253025
-Kaylia S Mid Lvl1	0	45.728031
-Adam W Top Lvl1	0	60.61182
-Rage P Jungle Lvl1	0	23.939737
-Rage FREEDOM Lvl4	0	24.555971
-Rage FREEDOM Lvl4	0	37.511955
-Rage D Bot Lvl1	0	64.597916
-Rage V Support Lvl1	0	47.471603
-Adam Mid Lvl3	0	52.957195
-Irisu Top Lvl3	0	68.90583
-Irisu B Jungle Lvl1	0	52.475391
-Kaylia M Support Lvl1	0	48.562637
-Irisu V Lvl2  	0	59.953648
-Jon W Jungle Lvl1	0	39.967335
-Jon Support Lvl3	0	40.556145
-Rage A Mid Lvl1	0	71.728554
-Adam FREEDOM Lvl4	0	39.793385
-Kaylia Z Support Lvl1	0	50.297661
-Adam V Bot Lvl1	0	72.906731
-Adam V Support Lvl1	0	45.972061
-Jon X Mid Lvl1	0	49.14941
-Rage K Top Lvl1	0	75.653572
-Irisu PARALYZED Lvl0	0	89.582764
-Irisu G Top Lvl1	0	37.987717
-Adam PARALYZED Lvl0	0	27.37776
-Adam S Bot Lvl1	0	51.39257
-Kaylia G Top Lvl1	0	73.959167
-Irisu L Lvl2  	0	48.806377
-Kaylia PARALYZED Lvl0	0	44.376026
-Adam T Support Lvl1	0	54.344357
-Irisu R Lvl2  	0	68.051979
-Jon S Lvl2  	0	76.93972
-Rage T Top Lvl1	0	60.780605
-Irisu PARALYZED Lvl0	0	47.886669
-Irisu FREEDOM Lvl4	0	28.113804
-Jon K Top Lvl1	0	46.086185
-Irisu FREEDOM Lvl4	0	48.604752
-Irisu N Lvl2  	0	41.224426
-Irisu C Support Lvl1	0	43.913239
-Kaylia M Lvl2  	0	27.860914
-Irisu O Jungle Lvl1	0	51.817192
-Jon A Jungle Lvl1	0	42.929939
-Adam FREEDOM Lvl4	0	49.292477
-Adam R Lvl2  	0	49.922935
-Kaylia Support Lvl3	0	54.545269
-Adam O Jungle Lvl1	0	76.606232
-Rage FREEDOM Lvl4	0	42.728062
-Jon F Mid Lvl1	0	49.14941
-Jon Z Top Lvl1	0	60.293991
-Irisu M Support Lvl1	0	44.204803
-Jon B Mid Lvl1	0	27.052168
-Irisu M Lvl2  	0	48.950188
-Kaylia W Mid Lvl1	0	53.888733
-Jon O Mid Lvl1	0	42.336914
-Adam Bot Lvl3	0	27.860914
-Irisu X Mid Lvl1	0	56.752689
-Rage K Bot Lvl1	0	20.431444
-Jon S Support Lvl1	0	47.044983
-Kaylia F Jungle Lvl1	0	52.0326
-Kaylia Jungle Lvl3	0	64.788338
-Kaylia Y Mid Lvl1	0	45.016842
-Irisu M Bot Lvl1	0	62.456093
-Jon I Mid Lvl1	0	65.597946
-Rage K Jungle Lvl1	0	50.540077
-Jon Q Lvl2  	0	22.772125
-Rage W Top Lvl1	0	47.74297
-Jon D Top Lvl1	0	45.890919
-Kaylia A Jungle Lvl1	0	48.562637
-Kaylia Z Bot Lvl1	0	40.659893
-Jon Top Lvl3	0	28.906139
-Irisu D Bot Lvl1	0	59.036671
-Kaylia P Bot Lvl1	0	50.008549
-Jon FREEDOM Lvl4	0	52.071953
-Jon FREEDOM Lvl4	0	56.199471
-Rage K Support Lvl1	0	54.545269
-Adam FREEDOM Lvl4	0	67.932785
+Adam PARALYZED Lvl0	0	65.749077
+Kaylia C Bot Lvl1	0	30.179129
+Jon FREEDOM Lvl4	0	34.581501
+Jon T Lvl2  	0	35.416569
+Irisu Y Lvl2  	0	35.474606
+Kaylia Y Mid Lvl1	0	36.936455
+Adam E Jungle Lvl1	0	37.234798
+Adam P Support Lvl1	0	37.408913
+Rage D Bot Lvl1	0	37.666283
+Adam P Mid Lvl1	0	37.693451
+Rage FREEDOM Lvl4	0	37.849072
+Adam M Lvl2  	0	38.233051
+Kaylia B Jungle Lvl1	0	38.344131
+Rage G Mid Lvl1	0	38.791534
+Jon X Jungle Lvl1	0	39.064758
+Irisu FREEDOM Lvl4	0	39.334377
+Adam I Top Lvl1	0	39.334377
+Jon S Bot Lvl1	0	39.660446
+Jon Y Lvl2  	0	40.039783
+Irisu PARALYZED Lvl0	0	40.143341
+Jon Bot Lvl3	0	40.249714
+Kaylia FREEDOM Lvl4	0	40.274914
+Adam FREEDOM Lvl4	0	40.300262
+Rage Q Mid Lvl1	0	40.325508
+Rage X Support Lvl1	0	40.403717
+Jon V Mid Lvl1	0	40.403717
+Rage V Support Lvl1	0	40.429615
+Jon CHOOSES ALL LvlMARBLE GOD	0	40.429615
+Irisu K Mid Lvl1	0	40.456524
+Rage V Mid Lvl1	0	40.456524
+Irisu C Jungle Lvl1	0	40.48283
+Rage PARALYZED Lvl0	0	40.56406
+Kaylia E Mid Lvl1	0	40.754173
+Kaylia X Support Lvl1	0	40.857536
+Irisu S Jungle Lvl1	0	40.882957
+Jon Jungle Lvl3	0	40.908787
+Rage W Lvl2  	0	40.933956
+Adam N Top Lvl1	0	40.959114
+Irisu X Top Lvl1	0	40.989872
+Kaylia FREEDOM Lvl4	0	40.989872
+Adam FREEDOM Lvl4	0	41.018585
+Adam C Jungle Lvl1	0	41.070923
+Jon F Lvl2  	0	41.121361
+Rage X Mid Lvl1	0	41.146408
+Rage Jungle Lvl3	0	41.146408
+Kaylia PARALYZED Lvl0	0	41.225891
+Kaylia Support Lvl3	0	41.225891
+Adam K Support Lvl1	0	41.327888
+Jon W Support Lvl1	0	41.327888
+Jon V Top Lvl1	0	41.457138
+Adam W Top Lvl1	0	41.48444
+Adam M Mid Lvl1	0	41.588791
+Rage FREEDOM Lvl4	0	41.588791
+Jon U Top Lvl1	0	41.61533
+Rage P Bot Lvl1	0	41.666031
+Rage Bot Lvl3	0	41.666031
+Rage FREEDOM Lvl4	0	41.666031
+Kaylia L Bot Lvl1	0	41.691727
+Kaylia CHOOSES ALL LvlMARBLE GOD	0	41.743069
+Jon FREEDOM Lvl4	0	41.768166
+Jon A Lvl2  	0	41.768166
+Rage W Bot Lvl1	0	41.768166
+Adam L Top Lvl1	0	41.768166
+Jon FREEDOM Lvl4	0	41.871048
+Jon L Top Lvl1	0	41.896976
+Kaylia PARALYZED Lvl0	0	41.896976
+Jon J Top Lvl1	0	41.896976
+Adam T Mid Lvl1	0	41.973637
+Jon S Top Lvl1	0	42.023979
+Adam Support Lvl3	0	42.051689
+Jon M Mid Lvl1	0	42.106915
+Irisu F Lvl2  	0	42.106915
+Jon X Mid Lvl1	0	42.132629
+Irisu FREEDOM Lvl4	0	42.211346
+Rage Mid Lvl3	0	42.237484
+Rage D Lvl2  	0	42.237484
+Rage H Mid Lvl1	0	42.237484
+Adam D Top Lvl1	0	42.263363
+Rage U Top Lvl1	0	42.263363
+Irisu G Lvl2  	0	42.288891
+Irisu V Lvl2  	0	42.338387
+Irisu Q Lvl2  	0	42.620327
+Rage Q Bot Lvl1	0	42.723576
+Kaylia P Mid Lvl1	0	42.971268
+Jon A Support Lvl1	0	43.077389
+Kaylia F Bot Lvl1	0	43.102139
+Adam B Support Lvl1	0	43.102139
+Adam Bot Lvl3	0	43.284824
+Jon W Jungle Lvl1	0	43.309204
+Rage M Top Lvl1	0	43.309204
+Adam A Jungle Lvl1	0	43.409508
+Adam Y Lvl2  	0	43.434158
+Adam H Top Lvl1	0	43.434158
+Irisu FREEDOM Lvl4	0	43.458817
+Adam Z Top Lvl1	0	43.508133
+Irisu O Jungle Lvl1	0	43.535175
+Rage Top Lvl3	0	43.589249
+Jon S Mid Lvl1	0	43.589249
+Adam C Lvl2  	0	43.589249
+Kaylia C Support Lvl1	0	43.589249
+Irisu FREEDOM Lvl4	0	43.589249
+Adam W Mid Lvl1	0	43.614445
+Irisu O Mid Lvl1	0	43.747673
+Adam FREEDOM Lvl4	0	43.772186
+Jon Jungle Lvl3	0	43.772186
+Adam Y Mid Lvl1	0	43.772186
+Adam P Jungle Lvl1	0	43.797894
+Kaylia FREEDOM Lvl4	0	43.797894
+Jon C Support Lvl1	0	43.797894
+Rage N Lvl2  	0	43.797894
+Irisu S Support Lvl1	0	43.824665
+Kaylia Z Support Lvl1	0	43.824665
+Adam G Lvl2  	0	43.824665
+Jon H Mid Lvl1	0	43.852314
+Kaylia J Support Lvl1	0	43.877506
+Adam Z Support Lvl1	0	43.877506
+Irisu T Mid Lvl1	0	43.902412
+Irisu D Support Lvl1	0	43.952232
+Irisu Z Jungle Lvl1	0	44.028442
+Irisu A Jungle Lvl1	0	44.028442
+Adam F Top Lvl1	0	44.130814
+Adam FREEDOM Lvl4	0	44.180965
+Adam FREEDOM Lvl4	0	44.21077
+Irisu Mid Lvl3	0	44.239197
+Adam T Top Lvl1	0	44.266075
+Kaylia Jungle Lvl3	0	44.266075
+Adam Z Mid Lvl1	0	44.292858
+Kaylia FREEDOM Lvl4	0	44.292858
+Irisu Jungle Lvl3	0	44.318047
+Jon G Lvl2  	0	44.343987
+Irisu A Top Lvl1	0	44.368717
+Jon D Lvl2  	0	44.368717
+Rage Bot Lvl3	0	44.368717
+Irisu Top Lvl3	0	44.394085
+Adam Jungle Lvl3	0	44.394085
+Jon G Support Lvl1	0	44.394085
+Adam Q Bot Lvl1	0	44.394085
+Kaylia Top Lvl3	0	44.394085
+Adam D Jungle Lvl1	0	44.418678
+Adam B Top Lvl1	0	44.418678
+Jon Support Lvl3	0	44.445271
+Adam Mid Lvl3	0	44.445271
+Rage Top Lvl3	0	44.471004
+Rage Mid Lvl3	0	44.496685
+Adam A Top Lvl1	0	44.496685
+Rage S Bot Lvl1	0	44.496685
+Irisu B Top Lvl1	0	44.573425
+Irisu S Lvl2  	0	44.599411
+Jon Top Lvl3	0	44.599411
+Rage FREEDOM Lvl4	0	44.651974
+Jon A Jungle Lvl1	0	44.651974
+Adam X Lvl2  	0	44.677998
+Jon Jungle Lvl3	0	44.703857
+Adam N Mid Lvl1	0	44.729156
+Irisu R Mid Lvl1	0	44.729156
+Rage T Support Lvl1	0	44.75555
+Adam Top Lvl3	0	44.75555
+Kaylia Bot Lvl3	0	44.806877
+Irisu A Support Lvl1	0	44.857025
+Kaylia W Top Lvl1	0	44.857025
+Kaylia G Bot Lvl1	0	44.88184
+Kaylia L Support Lvl1	0	44.965031
+Irisu Support Lvl3	0	44.990299
+Kaylia C Lvl2  	0	45.094231
+Kaylia Y Jungle Lvl1	0	45.119854
+Jon E Lvl2  	0	45.144932
+Rage FREEDOM Lvl4	0	45.195122
+Irisu B Support Lvl1	0	45.245068
+Irisu H Lvl2  	0	45.245068
+Adam J Bot Lvl1	0	45.245068
+Kaylia Jungle Lvl3	0	45.245068
+Irisu CHOOSES ALL LvlMARBLE GOD	0	45.270569
+Irisu FREEDOM Lvl4	0	45.270569
+Kaylia K Bot Lvl1	0	45.29607
+Jon Q Bot Lvl1	0	45.29607
+Irisu Q Top Lvl1	0	45.345631
+Adam Top Lvl3	0	45.371685
+Adam FREEDOM Lvl4	0	45.420467
+Kaylia S Support Lvl1	0	45.420467
+Adam R Support Lvl1	0	45.44455
+Adam FREEDOM Lvl4	0	45.44455
+Irisu G Mid Lvl1	0	45.44455
+Irisu B Lvl2  	0	45.44455
+Rage Q Lvl2  	0	45.494869
+Irisu M Mid Lvl1	0	45.520119
+Adam X Top Lvl1	0	45.59544
+Irisu Top Lvl3	0	45.59544
+Rage N Bot Lvl1	0	45.697739
+Jon O Mid Lvl1	0	45.697739
+Adam PARALYZED Lvl0	0	45.697739
+Rage Support Lvl3	0	45.697739
+Kaylia Support Lvl3	0	45.722248
+Irisu FREEDOM Lvl4	0	45.746864
+Rage P Mid Lvl1	0	45.746864
+Kaylia T Bot Lvl1	0	45.771996
+Adam Y Top Lvl1	0	45.771996
+Irisu Jungle Lvl3	0	45.820221
+Adam K Mid Lvl1	0	45.820221
+Irisu X Bot Lvl1	0	45.820221
+Adam A Mid Lvl1	0	45.871113
+Jon FREEDOM Lvl4	0	45.918953
+Kaylia A Support Lvl1	0	45.94405
+Rage S Jungle Lvl1	0	45.968433
+Rage Support Lvl3	0	46.041645
+Rage V Jungle Lvl1	0	46.140766
+Adam X Support Lvl1	0	46.189804
+Adam PARALYZED Lvl0	0	46.21508
+Irisu K Top Lvl1	0	46.21508
+Jon D Support Lvl1	0	46.21508
+Kaylia Top Lvl3	0	46.24057
+Jon I Top Lvl1	0	46.24057
+Rage R Mid Lvl1	0	46.266308
+Jon V Jungle Lvl1	0	46.291187
+Adam X Jungle Lvl1	0	46.316185
+Jon PARALYZED Lvl0	0	46.316185
+Irisu S Mid Lvl1	0	46.340275
+Adam Mid Lvl3	0	46.366707
+Irisu Y Support Lvl1	0	46.366707
+Kaylia J Lvl2  	0	46.396587
+Irisu U Jungle Lvl1	0	46.396587
+Irisu V Top Lvl1	0	46.423027
+Irisu V Support Lvl1	0	46.498901
+Jon D Mid Lvl1	0	46.524437
+Irisu W Top Lvl1	0	46.524437
+Irisu FREEDOM Lvl4	0	46.57354
+Jon I Lvl2  	0	46.649029
+Adam S Lvl2  	0	46.649029
+Rage Jungle Lvl3	0	46.649029
+Kaylia H Mid Lvl1	0	46.701855
+Adam P Lvl2  	0	46.701855
+Adam FREEDOM Lvl4	0	46.726006
+Rage C Top Lvl1	0	46.750946
+Irisu D Top Lvl1	0	46.80225
+Irisu C Support Lvl1	0	46.851849
+Irisu Jungle Lvl3	0	46.950962
+Adam V Bot Lvl1	0	47.078964
+Jon S Support Lvl1	0	47.107624
+Jon B Jungle Lvl1	0	47.134907
+Rage U Jungle Lvl1	0	47.186802
+Kaylia Q Bot Lvl1	0	47.186802
+Jon Top Lvl3	0	47.262917
+Adam J Jungle Lvl1	0	47.262917
+Jon Support Lvl3	0	47.287296
+Jon G Top Lvl1	0	47.287296
+Rage FREEDOM Lvl4	0	47.312405
+Jon L Mid Lvl1	0	47.362961
+Adam Support Lvl3	0	47.362961
+Kaylia H Lvl2  	0	47.387447
+Jon Z Bot Lvl1	0	47.387447
+Kaylia N Bot Lvl1	0	47.413509
+Rage B Top Lvl1	0	47.413509
+Adam Jungle Lvl3	0	47.413509
+Kaylia A Lvl2  	0	47.413509
+Jon R Jungle Lvl1	0	47.438698
+Kaylia F Lvl2  	0	47.438698
+Rage PARALYZED Lvl0	0	47.438698
+Irisu PARALYZED Lvl0	0	47.616894
+Irisu FREEDOM Lvl4	0	47.641987
+Kaylia M Lvl2  	0	47.641987
+Jon H Lvl2  	0	47.667992
+Jon R Lvl2  	0	47.667992
+Rage FREEDOM Lvl4	0	47.7215
+Jon K Bot Lvl1	0	47.822414
+Rage FREEDOM Lvl4	0	47.848751
+Adam V Support Lvl1	0	47.848751
+Jon PARALYZED Lvl0	0	47.848751
+Jon E Mid Lvl1	0	47.873447
+Jon C Lvl2  	0	47.89917
+Rage Z Top Lvl1	0	47.924728
+Adam Z Jungle Lvl1	0	47.924728
+Jon PARALYZED Lvl0	0	47.924728
+Jon Mid Lvl3	0	47.924728
+Irisu C Bot Lvl1	0	47.924728
+Irisu B Jungle Lvl1	0	48.001846
+Kaylia C Mid Lvl1	0	48.001846
+Rage P Jungle Lvl1	0	48.001846
+Irisu C Mid Lvl1	0	48.02737
+Rage Y Bot Lvl1	0	48.078808
+Kaylia A Bot Lvl1	0	48.132622
+Kaylia FREEDOM Lvl4	0	48.210575
+Adam O Top Lvl1	0	48.236
+Irisu W Bot Lvl1	0	48.262138
+Adam Bot Lvl3	0	48.311947
+Adam FREEDOM Lvl4	0	48.337223
+Irisu Bot Lvl3	0	48.337223
+Adam M Top Lvl1	0	48.361736
+Jon FREEDOM Lvl4	0	48.412563
+Kaylia L Jungle Lvl1	0	48.412563
+Kaylia B Bot Lvl1	0	48.571278
+Adam FREEDOM Lvl4	0	48.649689
+Kaylia CHOOSES ALL LvlMARBLE GOD	0	48.675777
+Jon CHOOSES ALL LvlMARBLE GOD	0	48.700974
+Adam V Lvl2  	0	48.727936
+Kaylia Bot Lvl3	0	48.727936
+Adam T Support Lvl1	0	48.856171
+Irisu V Jungle Lvl1	0	48.881729
+Rage N Support Lvl1	0	48.908314
+Jon H Top Lvl1	0	48.959126
+Kaylia Mid Lvl3	0	48.985149
+Irisu M Jungle Lvl1	0	49.036354
+Jon P Jungle Lvl1	0	49.086975
+Irisu W Support Lvl1	0	49.086975
+Kaylia CHOOSES ALL LvlMARBLE GOD	0	49.114933
+Rage Y Mid Lvl1	0	49.141487
+Adam G Support Lvl1	0	49.141487
+Kaylia A Jungle Lvl1	0	49.247887
+Jon FREEDOM Lvl4	0	49.276657
+Adam Y Bot Lvl1	0	49.304386
+Kaylia Z Lvl2  	0	49.304386
+Adam M Bot Lvl1	0	49.304386
+Irisu O Top Lvl1	0	49.385105
+Rage Bot Lvl3	0	49.435806
+Adam Q Lvl2  	0	49.512104
+Irisu E Lvl2  	0	49.536949
+Rage V Top Lvl1	0	49.562515
+Rage D Support Lvl1	0	49.587566
+Rage B Mid Lvl1	0	49.587566
+Irisu Support Lvl3	0	49.696301
+Kaylia W Lvl2  	0	49.696301
+Adam E Bot Lvl1	0	49.72646
+Kaylia FREEDOM Lvl4	0	49.72646
+Rage G Lvl2  	0	49.72646
+Jon Jungle Lvl3	0	49.854965
+Jon K Lvl2  	0	49.854965
+Jon FREEDOM Lvl4	0	49.854965
+Kaylia Top Lvl3	0	49.881058
+Jon W Bot Lvl1	0	49.933533
+Rage PARALYZED Lvl0	0	50.0093
+Jon A Mid Lvl1	0	50.034206
+Adam E Mid Lvl1	0	50.034206
+Kaylia M Top Lvl1	0	50.134621
+Rage B Jungle Lvl1	0	50.134621
+Jon Bot Lvl3	0	50.134621
+Kaylia Y Bot Lvl1	0	50.213848
+Irisu E Mid Lvl1	0	50.239971
+Adam R Mid Lvl1	0	50.239971
+Adam O Jungle Lvl1	0	50.265099
+Adam K Bot Lvl1	0	50.290714
+Irisu T Top Lvl1	0	50.317162
+Jon J Bot Lvl1	0	50.369995
+Jon O Support Lvl1	0	50.397686
+Irisu Top Lvl3	0	50.449368
+Adam N Jungle Lvl1	0	50.526894
+Kaylia G Mid Lvl1	0	50.552647
+Rage P Top Lvl1	0	50.552647
+Irisu A Bot Lvl1	0	50.604343
+Jon S Jungle Lvl1	0	50.604343
+Jon Top Lvl3	0	50.604343
+Kaylia K Top Lvl1	0	50.630005
+Kaylia R Jungle Lvl1	0	50.682983
+Rage C Jungle Lvl1	0	50.712166
+Irisu D Lvl2  	0	50.765854
+Irisu R Top Lvl1	0	50.765854
+Jon U Lvl2  	0	50.791878
+Kaylia Q Top Lvl1	0	50.818295
+Jon FREEDOM Lvl4	0	50.871643
+Rage N Top Lvl1	0	50.897465
+Kaylia V Bot Lvl1	0	50.92524
+Jon R Support Lvl1	0	50.92524
+Adam U Jungle Lvl1	0	50.951466
+Adam Jungle Lvl3	0	50.951466
+Irisu F Mid Lvl1	0	50.951466
+Kaylia FREEDOM Lvl4	0	50.951466
+Irisu R Jungle Lvl1	0	50.977409
+Kaylia Jungle Lvl3	0	51.003666
+Rage E Jungle Lvl1	0	51.003666
+Kaylia Z Top Lvl1	0	51.031261
+Rage FREEDOM Lvl4	0	51.031261
+Kaylia T Support Lvl1	0	51.059708
+Kaylia Bot Lvl3	0	51.085812
+Kaylia X Top Lvl1	0	51.085812
+Kaylia D Mid Lvl1	0	51.112091
+Kaylia FREEDOM Lvl4	0	51.112091
+Adam L Support Lvl1	0	51.138702
+Rage FREEDOM Lvl4	0	51.164585
+Kaylia Mid Lvl3	0	51.164585
+Rage Jungle Lvl3	0	51.164585
+Rage O Lvl2  	0	51.164585
+Jon J Jungle Lvl1	0	51.19191
+Irisu FREEDOM Lvl4	0	51.19191
+Irisu FREEDOM Lvl4	0	51.218544
+Irisu Q Bot Lvl1	0	51.246006
+Rage Z Mid Lvl1	0	51.272018
+Irisu R Lvl2  	0	51.272018
+Rage FREEDOM Lvl4	0	51.272018
+Rage K Mid Lvl1	0	51.298332
+Irisu K Lvl2  	0	51.324875
+Rage L Mid Lvl1	0	51.324875
+Jon E Bot Lvl1	0	51.324875
+Adam B Jungle Lvl1	0	51.324875
+Irisu X Mid Lvl1	0	51.350906
+Adam H Lvl2  	0	51.377056
+Adam S Top Lvl1	0	51.435135
+Adam B Mid Lvl1	0	51.492039
+Irisu W Jungle Lvl1	0	51.492039
+Adam E Lvl2  	0	51.520039
+Rage R Jungle Lvl1	0	51.546669
+Irisu E Jungle Lvl1	0	51.599266
+Jon L Jungle Lvl1	0	51.652519
+Kaylia Jungle Lvl3	0	51.652519
+Kaylia D Bot Lvl1	0	51.678593
+Jon R Top Lvl1	0	51.678593
+Rage G Support Lvl1	0	51.70472
+Kaylia U Lvl2  	0	51.73143
+Rage X Jungle Lvl1	0	51.757191
+Kaylia K Lvl2  	0	51.784134
+Jon T Mid Lvl1	0	51.809433
+Kaylia S Top Lvl1	0	51.809433
+Kaylia FREEDOM Lvl4	0	51.809433
+Rage Z Jungle Lvl1	0	51.835136
+Rage Support Lvl3	0	51.835136
+Irisu Z Support Lvl1	0	51.912922
+Rage Support Lvl3	0	51.939224
+Kaylia V Support Lvl1	0	51.96558
+Adam H Mid Lvl1	0	51.992847
+Rage Jungle Lvl3	0	52.019051
+Jon C Jungle Lvl1	0	52.124504
+Rage CHOOSES ALL LvlMARBLE GOD	0	52.124504
+Rage Mid Lvl3	0	52.151253
+Kaylia E Lvl2  	0	52.177364
+Irisu L Lvl2  	0	52.177364
+Jon T Top Lvl1	0	52.230991
+Adam FREEDOM Lvl4	0	52.257206
+Irisu I Jungle Lvl1	0	52.338135
+Jon Z Support Lvl1	0	52.338135
+Kaylia C Jungle Lvl1	0	52.44313
+Jon FREEDOM Lvl4	0	52.496227
+Kaylia FREEDOM Lvl4	0	52.496227
+Rage O Jungle Lvl1	0	52.521927
+Irisu M Bot Lvl1	0	52.521927
+Kaylia S Bot Lvl1	0	52.521927
+Rage FREEDOM Lvl4	0	52.548119
+Rage T Lvl2  	0	52.548119
+Kaylia P Lvl2  	0	52.575153
+Irisu Jungle Lvl3	0	52.628998
+Irisu M Lvl2  	0	52.655041
+Irisu Support Lvl3	0	52.655041
+Irisu L Top Lvl1	0	52.680874
+Irisu FREEDOM Lvl4	0	52.680874
+Kaylia S Mid Lvl1	0	52.733906
+Irisu X Support Lvl1	0	52.789398
+Irisu Z Bot Lvl1	0	52.900829
+Kaylia O Top Lvl1	0	52.900829
+Adam L Jungle Lvl1	0	52.900829
+Jon M Jungle Lvl1	0	52.900829
+Jon Bot Lvl3	0	52.928898
+Adam T Bot Lvl1	0	52.928898
+Jon D Jungle Lvl1	0	52.928898
+Kaylia F Jungle Lvl1	0	52.928898
+Irisu M Support Lvl1	0	52.958164
+Kaylia L Mid Lvl1	0	52.958164
+Irisu G Jungle Lvl1	0	52.958164
+Adam T Jungle Lvl1	0	52.984272
+Adam U Top Lvl1	0	52.984272
+Irisu Support Lvl3	0	53.037132
+Rage M Jungle Lvl1	0	53.090195
+Kaylia W Bot Lvl1	0	53.117668
+Rage M Lvl2  	0	53.117668
+Rage F Lvl2  	0	53.117668
+Adam G Jungle Lvl1	0	53.117668
+Irisu CHOOSES ALL LvlMARBLE GOD	0	53.146091
+Kaylia P Bot Lvl1	0	53.172752
+Irisu Top Lvl3	0	53.172752
+Kaylia Q Lvl2  	0	53.20108
+Rage Jungle Lvl3	0	53.20108
+Rage X Lvl2  	0	53.255432
+Rage S Top Lvl1	0	53.282902
+Irisu N Support Lvl1	0	53.282902
+Irisu FREEDOM Lvl4	0	53.310219
+Jon J Mid Lvl1	0	53.310219
+Adam CHOOSES ALL LvlMARBLE GOD	0	53.310219
+Adam K Top Lvl1	0	53.339138
+Adam C Bot Lvl1	0	53.339138
+Jon Top Lvl3	0	53.365726
+Kaylia W Jungle Lvl1	0	53.365726
+Rage P Support Lvl1	0	53.392315
+Kaylia R Lvl2  	0	53.392315
+Rage F Bot Lvl1	0	53.392315
+Jon FREEDOM Lvl4	0	53.419025
+Kaylia U Jungle Lvl1	0	53.419025
+Irisu I Lvl2  	0	53.419025
+Irisu S Top Lvl1	0	53.44558
+Adam J Mid Lvl1	0	53.44558
+Jon P Mid Lvl1	0	53.471848
+Rage Z Support Lvl1	0	53.471848
+Adam D Lvl2  	0	53.527115
+Rage FREEDOM Lvl4	0	53.582623
+Adam O Lvl2  	0	53.614197
+Kaylia FREEDOM Lvl4	0	53.642639
+Irisu B Mid Lvl1	0	53.671402
+Irisu T Support Lvl1	0	53.727413
+Adam PARALYZED Lvl0	0	53.861797
+Jon O Lvl2  	0	53.861797
+Rage C Mid Lvl1	0	53.888405
+Irisu Y Top Lvl1	0	53.888405
+Adam CHOOSES ALL LvlMARBLE GOD	0	53.916416
+Irisu Support Lvl3	0	53.945324
+Adam Support Lvl3	0	54.004364
+Jon Bot Lvl3	0	54.004364
+Adam FREEDOM Lvl4	0	54.117428
+Rage S Mid Lvl1	0	54.172222
+Jon N Lvl2  	0	54.172222
+Kaylia U Mid Lvl1	0	54.229393
+Kaylia X Jungle Lvl1	0	54.285183
+Irisu F Jungle Lvl1	0	54.339146
+Irisu I Mid Lvl1	0	54.392761
+Adam V Mid Lvl1	0	54.419994
+Adam F Bot Lvl1	0	54.475048
+Jon Top Lvl3	0	54.532543
+Adam D Mid Lvl1	0	54.595005
+Rage G Top Lvl1	0	54.595005
+Irisu K Support Lvl1	0	54.595005
+Adam A Support Lvl1	0	54.713654
+Kaylia FREEDOM Lvl4	0	54.965439
+Kaylia K Mid Lvl1	0	55.02409
+Irisu CHOOSES ALL LvlMARBLE GOD	0	55.053848
+Adam K Lvl2  	0	55.053848
+Adam Q Mid Lvl1	0	55.081268
+Irisu FREEDOM Lvl4	0	55.081268
+Irisu Bot Lvl3	0	55.10981
+Kaylia L Lvl2  	0	55.165482
+Adam Bot Lvl3	0	55.165482
+Kaylia FREEDOM Lvl4	0	55.223515
+Rage R Top Lvl1	0	55.303535
+Jon Z Lvl2  	0	55.35754
+Rage M Support Lvl1	0	55.384277
+Rage L Bot Lvl1	0	55.411121
+Kaylia P Jungle Lvl1	0	55.43718
+Irisu A Mid Lvl1	0	55.463894
+Jon C Top Lvl1	0	55.463894
+Adam FREEDOM Lvl4	0	55.491024
+Kaylia PARALYZED Lvl0	0	55.546722
+Rage X Top Lvl1	0	55.601101
+Jon E Jungle Lvl1	0	55.629196
+Irisu FREEDOM Lvl4	0	55.684895
+Rage U Lvl2  	0	55.712265
+Irisu W Lvl2  	0	55.834255
+Kaylia W Support Lvl1	0	55.861732
+Adam Top Lvl3	0	55.889389
+Jon C Bot Lvl1	0	55.889389
+Irisu Top Lvl3	0	56.083912
+Jon H Jungle Lvl1	0	56.137608
+Jon Support Lvl3	0	56.164925
+Kaylia Z Mid Lvl1	0	56.164925
+Jon G Jungle Lvl1	0	56.164925
+Kaylia H Jungle Lvl1	0	56.164925
+Kaylia E Jungle Lvl1	0	56.164925
+Adam Y Support Lvl1	0	56.193333
+Jon F Bot Lvl1	0	56.193333
+Kaylia O Support Lvl1	0	56.250088
+Jon V Support Lvl1	0	56.250088
+Kaylia H Top Lvl1	0	56.334549
+Rage O Support Lvl1	0	56.444294
+Adam T Lvl2  	0	56.497498
+Adam D Support Lvl1	0	56.497498
+Rage A Lvl2  	0	56.497498
+Rage FREEDOM Lvl4	0	56.497498
+Jon Z Jungle Lvl1	0	56.524014
+Irisu PARALYZED Lvl0	0	56.605736
+Jon Z Mid Lvl1	0	56.659576
+Irisu G Top Lvl1	0	56.741337
+Irisu H Jungle Lvl1	0	56.768822
+Rage B Support Lvl1	0	56.795822
+Jon N Bot Lvl1	0	56.795822
+Irisu O Lvl2  	0	57.014046
+Kaylia O Mid Lvl1	0	57.06847
+Rage J Top Lvl1	0	57.097115
+Jon X Lvl2  	0	57.097115
+Rage Jungle Lvl3	0	57.152634
+Kaylia Bot Lvl3	0	57.182171
+Adam Jungle Lvl3	0	57.211605
+Adam W Bot Lvl1	0	57.211605
+Adam S Bot Lvl1	0	57.239628
+Rage W Support Lvl1	0	57.267998
+Irisu S Bot Lvl1	0	57.323593
+Jon Y Bot Lvl1	0	57.323593
+Rage Top Lvl3	0	57.406464
+Kaylia M Bot Lvl1	0	57.433155
+Irisu FREEDOM Lvl4	0	57.541721
+Jon I Jungle Lvl1	0	57.569489
+Jon Bot Lvl3	0	57.732151
+Irisu K Bot Lvl1	0	57.759815
+Rage Z Lvl2  	0	57.78664
+Jon M Support Lvl1	0	57.904251
+Rage Support Lvl3	0	57.935017
+Adam R Lvl2  	0	58.051418
+Jon F Top Lvl1	0	58.051418
+Adam L Lvl2  	0	58.08057
+Rage B Bot Lvl1	0	58.139839
+Adam Top Lvl3	0	58.139839
+Jon C Mid Lvl1	0	58.287758
+Irisu J Jungle Lvl1	0	58.287758
+Rage T Top Lvl1	0	58.31461
+Kaylia U Top Lvl1	0	58.629704
+Jon Support Lvl3	0	58.68721
+Kaylia V Jungle Lvl1	0	58.883484
+Adam Bot Lvl3	0	58.910625
+Kaylia FREEDOM Lvl4	0	58.910625
+Jon Mid Lvl3|	0	58.992794
+Rage V Lvl2  	0	59.020351
+Irisu P Bot Lvl1	0	59.020351
+Adam W Jungle Lvl1	0	59.020351
+Rage I Jungle Lvl1	0	59.080631
+Adam R Jungle Lvl1	0	59.110168
+Jon M Top Lvl1	0	59.354202
+Kaylia Top Lvl3	0	59.354202
+Rage D Mid Lvl1	0	59.410625
+Adam J Support Lvl1	0	59.439968
+Jon Q Mid Lvl1	0	59.524246
+Kaylia Q Mid Lvl1	0	59.524246
+Irisu FREEDOM Lvl4	0	59.55085
+Rage Mid Lvl3	0	59.577377
+Jon W Mid Lvl1	0	59.605534
+Adam V Jungle Lvl1	0	59.632874
+Adam Jungle Lvl3	0	59.686836
+Kaylia R Mid Lvl1	0	59.714851
+Kaylia J Jungle Lvl1	0	59.741829
+Rage B Lvl2  	0	59.741829
+Kaylia D Lvl2  	0	59.934597
+Rage FREEDOM Lvl4	0	59.934597
+Rage I Lvl2  	0	59.987831
+Kaylia S Jungle Lvl1	0	60.014626
+Jon Q Lvl2  	0	60.014626
+Kaylia FREEDOM Lvl4	0	60.041382
+Adam S Support Lvl1	0	60.041382
+Kaylia B Mid Lvl1	0	60.041382
+Jon FREEDOM Lvl4	0	60.041382
+Rage G Bot Lvl1	0	60.072483
+Irisu Mid Lvl3	0	60.072483
+Kaylia D Support Lvl1	0	60.103558
+Kaylia E Bot Lvl1	0	60.133904
+Jon Q Top Lvl1	0	60.133904
+Adam J Lvl2  	0	60.166397
+Jon B Top Lvl1	0	60.234493
+Rage Top Lvl3	0	60.234493
+Kaylia Mid Lvl3	0	60.310646
+Irisu FREEDOM Lvl4	0	60.310646
+Adam N Lvl2  	0	60.423599
+Adam I Jungle Lvl1	0	60.423599
+Jon CHOOSES ALL LvlMARBLE GOD	0	60.423599
+Jon U Jungle Lvl1	0	60.458969
+Kaylia Y Lvl2  	0	60.458969
+Rage M Bot Lvl1	0	60.49778
+Kaylia T Mid Lvl1	0	60.533257
+Irisu FREEDOM Lvl4	0	60.599701
+Adam V Top Lvl1	0	60.627831
+Adam FREEDOM Lvl4	0	60.655735
+Rage H Top Lvl1	0	60.713024
+Irisu N Top Lvl1	0	60.740723
+Kaylia K Support Lvl1	0	60.740723
+Irisu M Top Lvl1	0	60.96719
+Jon P Top Lvl1	0	61.025925
+Irisu J Mid Lvl1	0	61.054722
+Kaylia X Bot Lvl1	0	61.08334
+Jon B Support Lvl1	0	61.113457
+Kaylia R Support Lvl1	0	61.200642
+Kaylia Jungle Lvl3	0	61.200642
+Kaylia I Top Lvl1	0	61.405746
+Rage R Lvl2  	0	61.467308
+Kaylia B Top Lvl1	0	61.503117
+Rage N Jungle Lvl1	0	61.503117
+Rage S Support Lvl1	0	61.503117
+Adam M Jungle Lvl1	0	61.539745
+Kaylia N Top Lvl1	0	61.539745
+Kaylia O Lvl2  	0	61.539745
+Irisu L Support Lvl1	0	61.575615
+Rage Support Lvl3	0	61.575615
+Jon PARALYZED Lvl0	0	61.611473
+Adam X Mid Lvl1	0	61.708817
+Adam FREEDOM Lvl4	0	61.708817
+Kaylia S Lvl2  	0	61.765995
+Jon T Bot Lvl1	0	61.910667
+Irisu Support Lvl3	0	61.938869
+Jon A Bot Lvl1	0	62.110703
+Kaylia K Jungle Lvl1	0	62.166794
+Rage H Lvl2  	0	62.195301
+Rage D Jungle Lvl1	0	62.195301
+Kaylia Y Support Lvl1	0	62.256107
+Jon A Top Lvl1	0	62.284977
+Adam U Lvl2  	0	62.315754
+Kaylia FREEDOM Lvl4	0	62.315754
+Irisu J Top Lvl1	0	62.315754
+Irisu P Mid Lvl1	0	62.37104
+Kaylia B Support Lvl1	0	62.37104
+Irisu L Jungle Lvl1	0	62.399693
+Rage FREEDOM Lvl4	0	62.399693
+Adam Support Lvl3	0	62.399693
+Jon I Mid Lvl1	0	62.427063
+Rage A Top Lvl1	0	62.455013
+Kaylia I Lvl2  	0	62.455013
+Rage J Bot Lvl1	0	62.455013
+Rage W Jungle Lvl1	0	62.619576
+Irisu O Support Lvl1	0	62.648903
+Irisu J Bot Lvl1	0	62.705379
+Jon Mid Lvl3	0	62.733456
+Irisu FREEDOM Lvl4	0	62.761902
+Adam PARALYZED Lvl0	0	62.761902
+Kaylia Y Top Lvl1	0	62.789707
+Adam H Jungle Lvl1	0	62.789707
+Kaylia FREEDOM Lvl4	0	62.789707
+Jon X Top Lvl1	0	62.817333
+Irisu D Jungle Lvl1	0	62.87463
+Jon K Support Lvl1	0	62.933826
+Kaylia FREEDOM Lvl4	0	62.988453
+Kaylia PARALYZED Lvl0	0	63.044243
+Rage W Top Lvl1	0	63.099876
+Kaylia R Bot Lvl1	0	63.128662
+Kaylia F Mid Lvl1	0	63.241596
+Rage P Lvl2  	0	63.298271
+Kaylia T Jungle Lvl1	0	63.32579
+Adam C Top Lvl1	0	63.440315
+Adam K Jungle Lvl1	0	63.498032
+Irisu G Bot Lvl1	0	63.52808
+Irisu W Mid Lvl1	0	63.612354
+Adam FREEDOM Lvl4	0	63.76123
+Adam W Support Lvl1	0	63.818573
+Kaylia P Support Lvl1	0	63.846149
+Irisu N Bot Lvl1	0	63.903214
+Rage E Mid Lvl1	0	64.015732
+Jon Y Mid Lvl1	0	64.0438
+Adam F Mid Lvl1	0	64.07122
+Rage J Mid Lvl1	0	64.156334
+Irisu D Bot Lvl1	0	64.36515
+Kaylia Support Lvl3	0	64.400703
+Rage Q Top Lvl1	0	64.43898
+Kaylia V Top Lvl1	0	64.43898
+Kaylia N Jungle Lvl1	0	64.506905
+Rage O Mid Lvl1	0	64.506905
+Rage FREEDOM Lvl4	0	64.540749
+Kaylia N Mid Lvl1	0	64.540749
+Irisu Mid Lvl3	0	64.600182
+Jon FREEDOM Lvl4	0	64.628304
+Irisu G Support Lvl1	0	64.628304
+Irisu P Jungle Lvl1	0	64.824982
+Irisu Y Mid Lvl1	0	64.881561
+Kaylia X Lvl2  	0	64.881561
+Kaylia F Top Lvl1	0	64.910782
+Rage T Bot Lvl1	0	64.941063
+Adam FREEDOM Lvl4	0	64.941063
+Rage I Top Lvl1	0	64.997574
+Irisu Z Mid Lvl1	0	65.02681
+Adam Z Bot Lvl1	0	65.02681
+Jon Top Lvl3	0	65.058357
+Jon B Lvl2  	0	65.058357
+Irisu F Bot Lvl1	0	65.058357
+Jon O Top Lvl1	0	65.116158
+Jon FREEDOM Lvl4	0	65.203255
+Kaylia PARALYZED Lvl0	0	65.203255
+Kaylia Mid Lvl3	0	65.203255
+Jon FREEDOM Lvl4	0	65.259224
+Irisu I Top Lvl1	0	65.287186
+Rage R Support Lvl1	0	65.34417
+Adam N Support Lvl1	0	65.372734
+Irisu T Jungle Lvl1	0	65.372734
+Kaylia A Mid Lvl1	0	65.401932
+Kaylia G Jungle Lvl1	0	65.401932
+Jon Jungle Lvl3	0	65.431297
+Irisu P Top Lvl1	0	65.690514
+Jon D Top Lvl1	0	65.777954
+Jon M Lvl2  	0	65.838852
+Jon T Jungle Lvl1	0	65.927605
+Jon B Bot Lvl1	0	65.927605
+Rage J Support Lvl1	0	65.958633
+Adam CHOOSES ALL LvlMARBLE GOD	0	66.506981
+Rage CHOOSES ALL LvlMARBLE GOD	0	66.566673
+Jon F Jungle Lvl1	0	66.627129
+Jon X Support Lvl1	0	66.657257
+Rage K Bot Lvl1	0	66.949677
+Jon G Bot Lvl1	0	67.036667
+Jon N Top Lvl1	0	67.065636
+Adam G Mid Lvl1	0	67.122894
+Irisu V Bot Lvl1	0	67.151917
+Rage F Jungle Lvl1	0	67.181259
+Jon G Mid Lvl1	0	67.209358
+Jon T Support Lvl1	0	67.209358
+Rage Y Top Lvl1	0	67.26722
+Kaylia O Jungle Lvl1	0	67.321533
+Jon L Lvl2  	0	67.321533
+Rage T Jungle Lvl1	0	67.350128
+Jon V Lvl2  	0	67.377968
+Adam L Mid Lvl1	0	67.434441
+Adam C Support Lvl1	0	67.46389
+Rage FREEDOM Lvl4	0	67.549858
+Jon CHOOSES ALL LvlMARBLE GOD	0	67.723343
+Rage L Jungle Lvl1	0	67.752983
+Irisu FREEDOM Lvl4	0	67.782066
+Rage A Jungle Lvl1	0	68.044128
+Kaylia G Top Lvl1	0	68.044128
+Jon F Mid Lvl1	0	68.399536
+Kaylia P Top Lvl1	0	68.684662
+Irisu N Jungle Lvl1	0	68.746315
+Kaylia J Top Lvl1	0	68.746315
+Rage L Support Lvl1	0	68.804443
+Adam A Lvl2  	0	68.804443
+Jon Y Top Lvl1	0	68.834251
+Jon Support Lvl3	0	69.290306
+Kaylia M Jungle Lvl1	0	69.379333
+Kaylia J Bot Lvl1	0	69.580017
+Kaylia D Jungle Lvl1	0	70.035095
+Rage Top Lvl3	0	70.15303
+Kaylia B Lvl2  	0	70.213455
+Adam FREEDOM Lvl4	0	70.272614
+Adam W Lvl2  	0	70.330032
+Jon X Bot Lvl1	0	70.416786
+Rage I Mid Lvl1	0	70.70089
+Jon Y Support Lvl1	0	70.786415
+Kaylia X Mid Lvl1	0	70.844666
+Adam Support Lvl3	0	71.314514
+Rage K Jungle Lvl1	0	71.866982
+Irisu E Bot Lvl1	0	71.924759
+Kaylia R Top Lvl1	0	72.732704
+Irisu T Lvl2  	0	72.878204
+Irisu N Mid Lvl1	0	72.995186
+Jon V Bot Lvl1	0	73.060669
+Rage J Jungle Lvl1	0	73.132591
+Adam Top Lvl3	0	73.577118
+Adam R Top Lvl1	0	73.613403
+Irisu Jungle Lvl3	0	73.720169
+Kaylia N Support Lvl1	0	73.922836
+Rage CHOOSES ALL LvlMARBLE GOD	0	75.330048
+Kaylia Top Lvl3	0	76.051277
+Irisu J Support Lvl1	0	76.578934
+Kaylia V Lvl2  	0	78.148201
+Rage H Jungle Lvl1	0	78.148201
+Rage L Top Lvl1	0	78.972939
+Kaylia Top Lvl3	0	79.366943
+Adam FREEDOM Lvl4	0	81.28804
+Rage O Top Lvl1	0	81.28804
+Rage A Mid Lvl1	0	83.207489
+Adam M Support Lvl1	0	83.267113
+Jon Support Lvl3	0	84.103859
+Rage C Support Lvl1	0	86.697502
+Rage Y Support Lvl1	0	88.125854
+Jon P Support Lvl1	0	77.546051
+Irisu FREEDOM Lvl4	0	71.518318
+Irisu B Bot Lvl1	0	71.372856
+Jon FREEDOM Lvl4	0	64.302231
+Rage R Bot Lvl1	0	61.736816
+Irisu Top Lvl3	0	61.575615
+Adam Mid Lvl3	0	61.43441
+Irisu R Support Lvl1	0	60.655735
+Jon Z Top Lvl1	0	60.423599
+Irisu F Top Lvl1	0	60.272388
+Kaylia W Mid Lvl1	0	57.816177
+Rage C Lvl2  	0	57.78664
+Adam S Jungle Lvl1	0	57.677826
+Jon N Mid Lvl1	0	57.323593
+Adam P Top Lvl1	0	57.295643
+Irisu C Top Lvl1	0	57.124973
+Rage T Mid Lvl1	0	56.713181
+Kaylia I Jungle Lvl1	0	56.30571
+Rage K Top Lvl1	0	56.164925
+Jon Mid Lvl3	0	55.774342
+Irisu Y Bot Lvl1	0	55.774342
+Jon R Bot Lvl1	0	55.601101
+Rage CHOOSES ALL LvlMARBLE GOD	0	55.165482
+Kaylia A Top Lvl1	0	55.165482
+Rage Bot Lvl3	0	55.10981
+Adam S Mid Lvl1	0	54.713654
+Adam Mid Lvl3	0	54.475048
+Kaylia Z Bot Lvl1	0	54.229393
+Adam C Mid Lvl1	0	54.172222
+Kaylia M Support Lvl1	0	53.945324
+Jon FREEDOM Lvl4	0	53.78075
+Rage Mid Lvl3	0	53.642639
+Rage F Mid Lvl1	0	53.582623
+Adam FREEDOM Lvl4	0	53.255432
+Adam R Bot Lvl1	0	52.706398
+Irisu A Lvl2  	0	52.602192
+Irisu D Mid Lvl1	0	52.575153
+Kaylia I Mid Lvl1	0	52.548119
+Adam Top Lvl3	0	52.389946
+Rage K Lvl2  	0	52.124504
+Irisu X Lvl2  	0	51.96558
+Adam A Bot Lvl1	0	51.625443
+Jon Mid Lvl3	0	51.218544
+Irisu P Lvl2  	0	50.422722
+Kaylia J Mid Lvl1	0	49.933533
+Kaylia FREEDOM Lvl4	0	49.854965
+Kaylia T Top Lvl1	0	49.114933
+Irisu H Top Lvl1	0	49.086975
+Kaylia T Lvl2  	0	48.700974
+Irisu X Jungle Lvl1	0	48.700974
+Kaylia Support Lvl3	0	48.106106
+Jon J Lvl2  	0	48.053043
+Kaylia G Lvl2  	0	47.822414
+Adam X Bot Lvl1	0	47.514816
+Adam FREEDOM Lvl4	0	47.489563
+Kaylia Mid Lvl3	0	47.186802
+Rage L Lvl2  	0	46.24057
+Jon FREEDOM Lvl4	0	45.345631
+Jon O Jungle Lvl1	0	45.345631
+Rage FREEDOM Lvl4	0	45.094231
+Adam Z Lvl2  	0	45.067802
+Adam Bot Lvl3	0	44.907349
+Rage Z Bot Lvl1	0	44.831215
+Irisu Mid Lvl3	0	44.781349
+Rage Y Lvl2  	0	44.625092
+Jon K Mid Lvl1	0	44.471004
+Irisu L Bot Lvl1	0	44.445271
+Irisu P Support Lvl1	0	44.368717
+Irisu Bot Lvl3	0	44.180965
+Irisu PARALYZED Lvl0	0	44.028442
+Adam J Top Lvl1	0	43.824665
+Irisu U Top Lvl1	0	43.508133
+Rage FREEDOM Lvl4	0	43.259148
+Jon W Top Lvl1	0	43.102139
+Jon S Lvl2  	0	43.050049
+Rage PARALYZED Lvl0	0	42.996807
+Kaylia FREEDOM Lvl4	0	42.805779
+Irisu FREEDOM Lvl4	0	42.805779
+Rage X Bot Lvl1	0	42.592144
+Jon N Support Lvl1	0	42.237484
+Adam I Mid Lvl1	0	42.132629
+Jon R Mid Lvl1	0	41.896976
+Rage A Bot Lvl1	0	41.8452
+Rage C Bot Lvl1	0	41.48444
+Jon PARALYZED Lvl0	0	41.457138
+Rage Bot Lvl3	0	41.302158
+Jon W Lvl2  	0	41.146408
+Rage G Jungle Lvl1	0	40.959114
+Jon K Jungle Lvl1	0	40.754173
+Adam B Bot Lvl1	0	40.509083
+Rage M Mid Lvl1	0	40.429615
+Adam I Lvl2  	0	40.325508
+Rage J Lvl2  	0	40.325508
+Irisu J Lvl2  	0	40.196426
+Jon FREEDOM Lvl4	0	40.091251
+Kaylia Z Jungle Lvl1	0	40.065426
+Irisu PARALYZED Lvl0	0	39.902142
+Kaylia G Support Lvl1	0	39.580475
+Adam F Jungle Lvl1	0	39.553879
+Irisu C Lvl2  	0	39.443417
+Rage E Bot Lvl1	0	39.064758
+Jon P Bot Lvl1	0	39.038258
+Adam CHOOSES ALL LvlMARBLE GOD	0	38.902954
+Irisu K Jungle Lvl1	0	38.518597
+Kaylia FREEDOM Lvl4	0	36.019386
+Kaylia M Mid Lvl1	0	35.780354
+Irisu N Lvl2  	0	35.701073
+Adam P Bot Lvl1	0	34.899467
+Kaylia L Top Lvl1	0	34.581501
+Kaylia Bot Lvl3	0	34.29594
+Rage V Bot Lvl1	0	33.206821
+Adam Mid Lvl3	0	32.311832
+Kaylia CHOOSES ALL LvlMARBLE GOD	0	32.141132
+Adam L Bot Lvl1	0	31.793825
+Jon M Bot Lvl1	0	31.709082
+Kaylia FREEDOM Lvl4	0	31.709082
+Rage A Support Lvl1	0	31.656107
+Kaylia N Lvl2  	0	31.629803
+Irisu Mid Lvl3	0	31.263988
+Kaylia D Top Lvl1	0	30.876522
+Adam Q Top Lvl1	0	30.850355
+Jon B Mid Lvl1	0	30.798939
+Rage FREEDOM Lvl4	0	30.768379
+Kaylia C Top Lvl1	0	30.694216
+Jon K Top Lvl1	0	29.92028
+Jon P Lvl2  	0	29.866831
+Jon J Support Lvl1	0	29.449886
+Adam N Bot Lvl1	0	29.23917
+Rage PARALYZED Lvl0	0	29.101202
+Rage N Mid Lvl1	0	29.072056
+Irisu Mid Lvl3	0	28.963963
+Adam FREEDOM Lvl4	0	28.90892
+Jon FREEDOM Lvl4	0	28.7509
+Irisu L Mid Lvl1	0	28.724398
+Jon L Support Lvl1	0	28.484234
+Rage D Top Lvl1	0	28.428955
+Irisu R Bot Lvl1	0	28.054626
+Jon L Bot Lvl1	0	27.916676
+Rage S Lvl2  	0	27.861506
+Irisu Q Mid Lvl1	0	27.831837
+Irisu Z Lvl2  	0	27.717527
+Irisu V Mid Lvl1	0	27.661673
+Jon N Jungle Lvl1	0	27.633671
+Rage FREEDOM Lvl4	0	27.57485
+Adam B Lvl2  	0	27.38464
+Adam G Top Lvl1	0	26.971506
+Rage E Lvl2  	0	26.897409
+Rage F Top Lvl1	0	26.56144
+Adam O Support Lvl1	0	26.46475
+Irisu T Bot Lvl1	0	26.445005
+Kaylia Top Lvl3	0	25.335791
+Irisu H Mid Lvl1	0	25.264755
+Adam F Lvl2  	0	24.46237
+Rage PARALYZED Lvl0	0	24.437574
+Jon FREEDOM Lvl4	0	24.41165
+Adam G Bot Lvl1	0	24.339617
+Rage W Mid Lvl1	0	24.199976
+Adam D Bot Lvl1	0	23.864103
+Kaylia Mid Lvl3	0	23.319139
+Irisu CHOOSES ALL LvlMARBLE GOD	0	23.025501
+Irisu U Lvl2  	0	22.340364
+Jon FREEDOM Lvl4	0	22.265535
+Irisu Z Top Lvl1	0	21.896793
+Rage K Support Lvl1	0	21.871847
+Adam O Mid Lvl1	0	21.701893
+Jon D Bot Lvl1	0	20.869783
+Kaylia Support Lvl3	0	16.578463
