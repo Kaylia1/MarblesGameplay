@@ -2,12 +2,12 @@ import json
 import os
 import time
 import copy
-import webtools
-import globals
-import rules
-import wheelMap
-import tkWheel
-import tkChampStats
+import backendTools.webtools as webtools
+import backendTools.globals as globals
+import backendTools.rules as rules
+import backendTools.wheelMap as wheelMap
+# import tkWheel
+# import tkChampStats
 
 KILLVALUE = 4
 DEATHVALUE = 3
@@ -67,8 +67,9 @@ def load_state():
 
     print("Loaded from file.")
 
-def main():
-    tkChampStats.init_app()
+def mainProgram():
+    # globals.initApp()
+    # tkChampStats.init_app() # TODO ui
 
     load_state()
     
@@ -85,9 +86,9 @@ def main():
             print_money()
             
             action = input("Action? B=bribe, W=wheel, C=continue").strip().lower()
-            if(action == "."):
-                tkChampStats.update_app(rules.marbleChampStats())
-            elif(action == "c"):
+            # if(action == "."): # TODO UI
+            #     tkChampStats.update_app(rules.marbleChampStats())
+            if(action == "c"):
                 break
             elif(action == "b"):
                 name, name2, amount = input("From who? To who? How much? ").split()
@@ -108,7 +109,9 @@ def main():
                 print()
             elif(action == "w"):
                 name = input("Who? ").strip()
-                if name not in globals.summoners:
+                if len(name) > 0 and name[0] == "c":
+                    print("Cancelling request.")
+                elif name not in globals.summoners:
                     print("Dumbass. Enter someone's name. Type it correctly.")
                     continue
 
@@ -118,13 +121,15 @@ def main():
                     print(f"{summoner.name} now has: ${summoner.money}")
                 else:
                     print(f"{name} cannot afford to spin the wheel.")
+                    continue
                 print()
                 
-                tkWheel.startApp()
-                print("Wheel Result: "+str(tkWheel.wheelResult))
-                wheelMap.lastSpinner = name
-                wheelMap.wheel_map[tkWheel.wheelResult]()
-                rules.currentMarbleAssignments()
+                # tkWheel.startApp()
+                # print("Wheel Result: "+str(tkWheel.wheelResult))
+                # wheelMap.lastSpinner = name
+                # wheelMap.wheel_map[tkWheel.wheelResult]()
+                # rules.currentMarbleAssignments()
+                # TODO ui
         
         output = map_to_json(globals.summoners)
         save_state(output)
@@ -180,5 +185,5 @@ def main():
         output = map_to_json(globals.summoners)
         save_state(output)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

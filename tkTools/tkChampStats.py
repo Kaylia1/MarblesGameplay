@@ -8,12 +8,14 @@ import threading
 # TODO:
 # - sort by winrate and only include data with > 100 matches, statistic analysis for highlighting
 
+# THEORETICALLY NOT USED ANYMORE
+
 dataApp = None
 
 # Tkinter App
-class DataApp(tk.Tk):
-    def __init__(self, data, headers): # assume same number of headers as data
-        super().__init__()
+class DataApp():
+    def __init__(self, root, data, headers): # assume same number of headers as data
+        self.root = root
         self.title("Data Table")
         self.geometry("1400x400")
         self.headers = headers

@@ -2,11 +2,12 @@ import tkinter as tk
 import random
 import time
 import math
+import globals
 
 WHEEL_OPTIONS_PATH = "./data/Wheel.txt"
 wheelResult = ""
 
-class WheelOfFortune:
+class WheelOfFortune: # TODO I think this should extend tk.Tk
     def __init__(self, root, options):
         self.root = root
         self.options = options
@@ -20,6 +21,7 @@ class WheelOfFortune:
         self.canvas.pack(pady=20)
         
         # Label to display the selected option
+        # print("CREATING NEW LABEL")
         self.label = tk.Label(root, textvariable=self.selected_option, font=("Times", 12))
         self.label.pack(pady=10)
         
@@ -28,6 +30,7 @@ class WheelOfFortune:
         self.spin_button.pack(pady=20)
         
         self.original_close_protocol = root.protocol("WM_DELETE_WINDOW")
+        root.protocol("WM_DELETE_WINDOW", self.on_close)
         
         self.draw_wheel()  # Initial drawing of the wheel
         self.draw_pointer()  # Draw the fixed pointer
@@ -140,6 +143,11 @@ class WheelOfFortune:
     def enable_close(self):
         # Restore the original close protocol
         self.root.protocol("WM_DELETE_WINDOW", self.original_close_protocol)
+    
+    def on_close(self):
+        """Handle the close event by destroying the window and exiting mainloop."""
+        self.root.destroy()
+
         
 
 def readWheelOptions():
@@ -150,13 +158,12 @@ def readWheelOptions():
         return lines
     return []
 
-
 def startApp():
-    root = tk.Tk()
+    root = tk.Toplevel() # root instance remains active in background
     root.title("Wheel of Fortune Spinner")
     options = readWheelOptions()#["Option A", "Option B", "Option C", "Option D", "Option E", "Option F"]
     app = WheelOfFortune(root, options)
-    root.mainloop()
+    root.wait_window()
     
     print("Finished Wheel spin!")
 

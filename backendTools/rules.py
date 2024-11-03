@@ -1,12 +1,14 @@
 import os
-import globals
+import backendTools.globals as globals
 import re
-import tkChampStats
+# import tkChampStats
 
 MARBLES_OUTPUT = "./data/marbles_output.txt"
 MARBLES_OPTIONS = "./data/MoneyMarbles.txt"
 
 marbles = []
+
+godScenario = False
 
 GREEN_TXT_START = "\033[1;32;40m "
 DEF_TXT_END = " \033[0m"
@@ -16,8 +18,8 @@ RED_TXT_START = "\033[31m"
 
 def myinput(prompt):
     res = input(prompt)
-    if res == ".":
-        tkChampStats.update_app(marbleChampStats())
+    # if res == ".": # TODO UI
+    #     tkChampStats.update_app(marbleChampStats())
     return res
 
 # =============== marble logic ==========================
@@ -147,6 +149,8 @@ def getNextPicker(validSummoners):
     
 def assignMarblePlaceholders(message):
     global marbles
+    global godScenario
+    godScenario = True
     for summoner in globals.summoners.values():
         marbles.append(MarbleAssignment(summoner.name, message))
         summoner.curMarble = len(marbles)-1
@@ -161,14 +165,21 @@ def getTop5Marbles(summonerName, startPoint, unpickedRoles):
         possibleMarbles.append(nextPossibleMarble)
     return possibleMarbles
 
-def pickFromTop5Marbles(summonerName, top5marbles):
+def pickFromTop5Marbles(summonerName, top5marbles, ui=False):
     while True:
         marbleNum = myinput("Choose a marble 0-4 from the list")
         if(not marbleNum.isdigit() or int(marbleNum) < 0 or int(marbleNum) > 4):
             print("Invalid input, needs to be numeric value 0-4")
             continue
-        globals.summoners[summonerName].curMarble = top5marbles[int(marbleNum)]
+        setCurMarble(summonerName, top5marbles[int(marbleNum)])
         break
+
+def setCurMarble(summonerName, marbleNum):
+    globals.summoners[summonerName].curMarble = marbleNum
+
+def setRole(marble, newRole):
+    global marbles
+    marbles[marble].position = newRole
 
 def printMarbles(marbleList):
     for i in range(len(marbleList)):
@@ -197,7 +208,9 @@ def top1Swap():
             break
         except ValueError:
             print("That's not a valid integer, try again")
-    
+    top1Swaper(swapNum) # TODO messy naming
+
+def top1Swaper(swapNum):
     # swap marble positions in ranking
     temp = marbles[swapNum]
     marbles[swapNum] = marbles[0]
@@ -212,7 +225,7 @@ def top1Swap():
     marbles[0].placement = tempPlacement
 
 # if no role assigned, user picks a role
-def pickRole(summonerName, unpickedRoles):
+def pickRole(summonerName, unpickedRoles, ui=False):
     global marbles
     
     # force assign this role
@@ -242,37 +255,44 @@ def updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole):
     if(pickedRole in unpickedRoles):
         unpickedRoles.remove(pickedRole)
 
-def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles):
+def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles, ui=False):
     # print current state
-    currentMarbleAssignments(unpickedSummoners)
+    if not ui:
+        currentMarbleAssignments(unpickedSummoners)
     
     # check if current role assignment is ok, else get new marble
     updateBestMarble(unpickedSummoners, unpickedRoles)
     
-    print("picker:"+picker)
+    print("picker:"+picker) # TODO UI THIS
     # if paralyzed, print next 5 lvl1 marbles of that person with avail roles
     top5 = []
     if isParalyzed:
         top5 = getTop5Marbles(picker, globals.summoners[picker].curMarble, unpickedRoles)
-        printMarbles(top5)
-        pickFromTop5Marbles(picker, top5)
-    pickedRole = pickRole(picker, unpickedRoles)
+        printMarbles(top5) # TODO UI THIS
+        pickFromTop5Marbles(picker, top5, ui)
+    pickedRole = pickRole(picker, unpickedRoles, ui)
     
     updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole)
     
 
-def assignMarbles():
-    # Get the top marble for ea of 5 ppl.
-    # Check if any person's top 1 is marble god
-    readMarbles()
-    
-    # clear old assignments and get toppmost marble
+def initGetBestMarbles():
     for summoner in globals.summoners.values():
         summoner.curMarble = getBestMarble(summoner.name)
         if(marbles[summoner.curMarble].isMarbleGod()):
             print(summoner.name + " has won marble god!")
             assignMarblePlaceholders(summoner.name + " is the marble god")
             return
+
+def assignMarbles():
+    
+    global godScenario
+    godScenario = False
+    # Get the top marble for ea of 5 ppl.
+    # Check if any person's top 1 is marble god
+    readMarbles()
+    
+    # clear old assignments and get toppmost marble
+    initGetBestMarbles()
     
     unpickedSummoners = list(globals.summoners.keys())
     unpickedRoles = list(globals.ROLES)

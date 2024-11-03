@@ -1,3 +1,4 @@
+import tkinter as tk
 class Summoner:
     def __init__(self, name, gameName):
         self.name = name
@@ -27,3 +28,9 @@ def inputSummoner(validSummoners=allSummoners):
             print("Dumbass. Enter someone's name. Type it correctly.")
             continue
         return name
+
+globalRoot = None
+def initApp():
+    global globalRoot
+    globalRoot = tk.Tk()
+    globalRoot.withdraw()

@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 
-WIDTH = 600
-HEIGHT = 600
+WIDTH = 1500
+HEIGHT = 800
 
 root = None
 curPage = 0
@@ -71,8 +71,9 @@ def next_page():
 
 def show_page(page_num):
     # Hide all pages
-    for frame in pages:
-        frame.hide()
+    for i, page in enumerate(pages):
+        if not i == page_num:
+            page.hide()
     
     # Show the selected page
     pages[page_num].show()
