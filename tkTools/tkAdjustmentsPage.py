@@ -15,6 +15,7 @@ import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
+import tkTools.tkWheelPage as tkWheelPage
 
 class AdjustmentsPage(tkUtil.Page):
     def __init__(self, root):
@@ -267,6 +268,9 @@ class AdjustmentsPage(tkUtil.Page):
         # run main assignments program
         self.updateAssignments() # get data that pickingpage set
         self.show_stat_frames()
+        
+        self.setMessageLabel("last wheel result:\n"+tkWheelPage.wheel_result)
+        
 
 def createAdjustmentsPage(root):
     return AdjustmentsPage(root)
