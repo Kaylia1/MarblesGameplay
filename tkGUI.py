@@ -6,7 +6,6 @@ import backendTools.parseChampStats as parseChampStats
 import tkTools.tkWheelPage as tkWheelPage
 import tkTools.tkWheelResultPage as tkWheelResultPage
 import tkTools.tkMidgamePage as tkMidgamePage
-
 def init_tk():
     tkUtil.root = tk.Tk()
     tkUtil.root.title("ITS MARBLIN TIME")

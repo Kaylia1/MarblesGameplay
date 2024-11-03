@@ -51,6 +51,9 @@ class AdjustmentsPage(tkUtil.Page):
         # Money
         self.moneyLabels = []
         self.initSummonerMoney()
+        
+        # bribery
+        self.initBribery()
     
     def initSummonerMarbles(self):
         self.gridframe = tk.Frame(self.root)
@@ -194,6 +197,59 @@ class AdjustmentsPage(tkUtil.Page):
             else:
                 self.moneyLabels[i].config(text="$"+str(globals.summoners[name].money))
     
+    # =================== BRIBE BUTTON ==========================
+    def initBribery(self):
+        # List of valid inputs
+        # valid_inputs = globals.allSummoners  # Replace with your valid inputs
+        self.bribeFrame = tk.Frame(self.root)
+
+        self.bribePrompt = tk.Label(self.bribeFrame, text="Bribery\n from, to, amount")
+        self.bribePrompt.pack(pady=5)
+
+        # Create text entry boxes
+        self.name1 = tk.Entry(self.bribeFrame)
+        self.name1.pack(pady=5)
+
+        self.name2 = tk.Entry(self.bribeFrame)
+        self.name2.pack(pady=5)
+
+        self.money = tk.Entry(self.bribeFrame)
+        self.money.pack(pady=5)
+        
+        # Create submit button
+        self.bribe_button = tk.Button(self.bribeFrame, text="Bribe", command=self.submit_inputs)
+        self.bribe_button.pack(pady=20)
+    
+    # TODO NEED TO RENAME THESE
+    def submit_inputs(self):
+        lowercase_summoners = [summoner.lower() for summoner in globals.allSummoners]  # Convert all to lowercase
+
+        input1 = self.name1.get().strip().lower()  # Get input and convert to lowercase
+        input2 = self.name2.get().strip().lower()  # Get input and convert to lowercase
+        input3 = self.money.get().strip()  # Get the third input without changing case for number check
+
+        self.name1.delete(0, tk.END)
+        self.name2.delete(0, tk.END)
+        self.money.delete(0, tk.END)
+
+        if input1 in lowercase_summoners and input2 in lowercase_summoners:
+            try:
+                number = int(input3)
+                if number >= 0:
+                    print(f"Inputs are valid: {input1}, {input2}, {input3}")
+                    # self.bribe_button.config(state=tk.DISABLED)  # Disable the submit button
+                    
+                    globals.summoners[input1[0].upper() + input1[1:].lower()].money -= int(input3)
+                    globals.summoners[input2[0].upper() + input2[1:].lower()].money += int(input3)
+                    self.message_label.config(text="Bribery accepted")
+                    self.updateSummonerMoney()
+                else:
+                    self.message_label.config(text="The third input must be a non-negative number.")
+            except ValueError:
+                self.message_label.config(text="The third input must be a number.")
+        else:
+            self.message_label.config(text="The first two inputs must summoner names.")
+    
     # =================== CONTROL ==========================
     
     def hide(self):
@@ -201,12 +257,14 @@ class AdjustmentsPage(tkUtil.Page):
         self.frame.place_forget()
         self.gridframe.place_forget()
         self.moneyFrame.place_forget()
+        self.bribeFrame.place_forget()
         self.hide_stat_frames()
         
     def show(self):
         super().show()
         self.gridframe.place(x=0, y=200.0, anchor="w")
         self.moneyFrame.place(x=0, y=600.0, anchor="w")
+        self.bribeFrame.place(x=800, y=600.0, anchor="w")
         
         self.updateSummonerMoney()
         

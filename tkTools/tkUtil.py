@@ -98,9 +98,7 @@ def trigger_wheel_page():
     wheelPage.show()
 
 def trigger_wheel_res_page():
-    print("TRIGGERING WHEEL")
     for i, page in enumerate(pages):
         page.hide()
     wheelPage.hide()
     wheelResPage.show()
-    
