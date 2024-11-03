@@ -8,6 +8,9 @@ root = None
 curPage = 0
 pages = []
 
+wheelPage = None
+wheelResPage = None
+
 
 def popup(title, msg):
     messagebox.showinfo(title, msg)
@@ -32,7 +35,7 @@ class Page:
 
         # Next button in the bottom-right corner
         self.next_button = tk.Button(self.frame, text="Ok", font=("Arial", 12), 
-                                    command=next_page)
+                                    command=self.handleNext)
         self.next_button.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)
 
     def init_animations(self):
@@ -63,14 +66,20 @@ class Page:
     
     def hide(self):
         self.frame.pack_forget()
+    
+    def handleNext(self):
+        next_page()
 
 def next_page():
     global curPage
     curPage = (curPage + 1)%len(pages)
     show_page(curPage)
 
+# note: adjustments page is page 2
 def show_page(page_num):
     # Hide all pages
+    wheelPage.hide()
+    wheelResPage.hide()
     for i, page in enumerate(pages):
         if not i == page_num:
             page.hide()
@@ -80,3 +89,18 @@ def show_page(page_num):
     
     # animate any new messages
     pages[page_num].animate_message(pages[page_num].message_label)
+
+def trigger_wheel_page():
+    print("TRIGGERING WHEEL")
+    for i, page in enumerate(pages):
+        page.hide()
+    wheelResPage.hide()
+    wheelPage.show()
+
+def trigger_wheel_res_page():
+    print("TRIGGERING WHEEL")
+    for i, page in enumerate(pages):
+        page.hide()
+    wheelPage.hide()
+    wheelResPage.show()
+    

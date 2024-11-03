@@ -40,6 +40,7 @@ class PickingPage(tkUtil.Page):
         
         self.top10Labels = []
         
+        self.done = False
         rules.readMarbles()
         rules.initGetBestMarbles()
         
@@ -117,6 +118,10 @@ class PickingPage(tkUtil.Page):
         # initial visualization of data
         self.updateAssignments()
         
+        if rules.godScenario:
+            self.message_label.config(text="Someone is God, further picking actions disallowed.")
+            return
+        
         self.unpickedSummoners = list(globals.summoners.keys())
         self.unpickedRoles = list(globals.ROLES)
         
@@ -142,6 +147,8 @@ class PickingPage(tkUtil.Page):
                 self.pick(picker, isParalyzed)
         
         self.message_label.config(text="All positions are assigned!")
+        self.done = True
+        self.next_button.config(state="active")
         self.clearPrompts()
         
     def pick(self, picker, isParalyzed):
@@ -173,7 +180,7 @@ class PickingPage(tkUtil.Page):
         pickedRole = ""
         if(len(self.unpickedRoles)==1):
             print("One role remaining. Forcibly assigning "+picker+" to "+self.unpickedRoles[0])
-            rules.setRole(picker, self.unpickedRoles[0])
+            rules.setRole(globals.summoners[picker].curMarble, self.unpickedRoles[0])
             pickedRole = self.unpickedRoles[0]
         
         if(rules.marbles[globals.summoners[picker].curMarble].position==""):
@@ -186,8 +193,13 @@ class PickingPage(tkUtil.Page):
                     self.top10Labels[i].config(text="")
             pickedRole = self.getRole(picker)
             rules.setRole(globals.summoners[picker].curMarble, pickedRole)
+        else:
+            pickedRole = rules.marbles[globals.summoners[picker].curMarble].position
         
+        print("picked role: "+pickedRole)
         rules.updatePickList(self.unpickedSummoners, picker, self.unpickedRoles, pickedRole)
+        # print("REMAINING ROLES:")
+        # print(self.unpickedRoles)
         
         # update display with new assignments
         self.updateAssignments(self.unpickedSummoners)
@@ -291,6 +303,8 @@ class PickingPage(tkUtil.Page):
         super().show()
         self.gridframe.place(x=0, y=200.0, anchor="w")
         self.top10gridframe.place(x=0, y=350.0)
+        self.done = False
+        self.next_button.config(state="disabled")
         
         # run main assignments program
         self.updateTop10Marbles()

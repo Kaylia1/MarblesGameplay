@@ -1,45 +1,48 @@
-import tkinter as tk
+import tkTools.tkUtil as tkUtil
 import random
+import tkinter as tk
 import time
 import math
-import backendTools.globals as globals
+import backendTools.wheelMap as wheelMap
 
-WHEEL_OPTIONS_PATH = "./data/Wheel.txt"
-wheelResult = ""
+# wheel page is responsible for making marble adjustments due to wheel
+wheel_result = ""
 
-class WheelOfFortune: # TODO I think this should extend tk.Tk
-    def __init__(self, root, options):
-        self.root = root
-        self.options = options
-        self.num_options = len(options)
+class WheelPage(tkUtil.Page):
+
+    def __init__(self, root):
+        super().__init__(root, "Wheel of fortune", "pray kaylia doesn't get top")
+        self.options = readWheelOptions()
+        self.num_options = len(self.options)
         self.angle_per_option = 360 / self.num_options
         self.selected_option = tk.StringVar()
         self.selected_option.set("Click to Spin")
         
         # Canvas for the wheel
-        self.canvas = tk.Canvas(root, width=700, height=700, bg="white")
+        self.canvas = tk.Canvas(self.frame, width=600, height=600)
         self.canvas.pack(pady=20)
         
         # Label to display the selected option
         # print("CREATING NEW LABEL")
-        self.label = tk.Label(root, textvariable=self.selected_option, font=("Times", 12))
+        self.label = tk.Label(self.frame, textvariable=self.selected_option, font=("Times", 12))
         self.label.pack(pady=10)
         
         # Button to spin the wheel
-        self.spin_button = tk.Button(root, text="Spin the Wheel", command=self.spin_wheel, font=("Times", 16))
+        self.spin_button = tk.Button(self.frame, text="Spin the Wheel", command=self.spin_wheel, font=("Times", 16))
         self.spin_button.pack(pady=20)
         
-        self.original_close_protocol = root.protocol("WM_DELETE_WINDOW")
-        root.protocol("WM_DELETE_WINDOW", self.on_close)
-        
         self.draw_wheel()  # Initial drawing of the wheel
-        self.draw_pointer()  # Draw the fixed pointer
+        self.draw_pointer()  # Draw the fixed 
+        self.wheelResult = ""
+        global wheel_result
+        wheel_result = ""
+    
 
     def draw_wheel(self, offset_angle=0, highlight_index=None):
         """Draws the wheel with each option displayed in a sector."""
         self.canvas.delete("wheel")  # Clear only the wheel, not the pointer
-        center_x, center_y = 350, 350  # Center of the canvas
-        radius = 300
+        center_x, center_y = 300, 300  # Center of the canvas
+        radius = 250
         
         for i, option in enumerate(self.options):
             # Calculate the start and end angles for each sector
@@ -82,7 +85,7 @@ class WheelOfFortune: # TODO I think this should extend tk.Tk
 
     def draw_pointer(self):
         """Draw a fixed pointer on the right side of the wheel."""
-        center_x, center_y = 350, 350  # Center of the canvas
+        center_x, center_y = 300, 300  # Center of the canvas
         pointer_x = center_x + 300
         pointer_y_top = center_y - 20
         pointer_y_bottom = center_y + 20
@@ -97,7 +100,6 @@ class WheelOfFortune: # TODO I think this should extend tk.Tk
         return f"#{random.randint(100, 255):02x}{random.randint(100, 255):02x}{random.randint(100, 255):02x}"
     
     def spin_wheel(self):
-        self.disable_close()
         self.spin_button.config(state="disabled")
         self.selected_option.set("Spinning...")
         
@@ -116,7 +118,7 @@ class WheelOfFortune: # TODO I think this should extend tk.Tk
             
             # Redraw the wheel with the highlighted sector
             self.draw_wheel(offset_angle, highlight_index=selected_index)
-            self.root.update()
+            self.frame.update()
             time.sleep(delay)
             
             angle_change *= 0.99
@@ -127,28 +129,44 @@ class WheelOfFortune: # TODO I think this should extend tk.Tk
         final_choice = self.options[selected_index]
         self.selected_option.set(f"Result: {final_choice}")
         
-        global wheelResult
-        wheelResult = final_choice
-        self.enable_close()
+        print("Result: "+final_choice)
         
-        # Enable the button again after spinning
-        # for now remove this since we don't have a comprehensive UI
-        # self.spin_button.config(state="normal")
+        self.wheelResult = final_choice
+        global wheel_result
+        wheel_result = final_choice
+        # print("I SET WHEEL RESULT"+final_choice)
+        # self.handleWheelResult()
     
-    # note auto gets destroyed when app gets destroyed
-    def disable_close(self):
-        # Disable the window close button
-        self.root.protocol("WM_DELETE_WINDOW", lambda: None)
-
-    def enable_close(self):
-        # Restore the original close protocol
-        self.root.protocol("WM_DELETE_WINDOW", self.original_close_protocol)
+    # def handleWheelResult(self):
+        # print("handling wheel result")
+        # dependency check: tkAdjustments page already set lastSpinner at this point
+        # wheelMap.wheel_map[self.wheelResult]()
     
     def on_close(self):
         """Handle the close event by destroying the window and exiting mainloop."""
-        self.root.destroy()
+        self.frame.destroy()
 
-        
+    def hide(self):
+        super().hide()
+        self.frame.place_forget()
+    
+    def show(self):
+        super().show()
+        self.spin_button.config(state="active")
+        self.wheelResult = ""
+        global wheel_result
+        wheel_result = ""
+        print("clearing")
+    
+    def handleNext(self):
+        tkUtil.trigger_wheel_res_page()
+
+def createWheelPage(root):
+    wheelpage = WheelPage(root)
+    return wheelpage
+
+
+WHEEL_OPTIONS_PATH = "./data/Wheel.txt"
 
 def readWheelOptions():
     # Open the file in read mode
@@ -157,16 +175,3 @@ def readWheelOptions():
         lines = [line.strip() for line in lines]
         return lines
     return []
-
-def startApp():
-    root = tk.Toplevel() # root instance remains active in background
-    root.title("Wheel of Fortune Spinner")
-    options = readWheelOptions()#["Option A", "Option B", "Option C", "Option D", "Option E", "Option F"]
-    app = WheelOfFortune(root, options)
-    root.wait_window()
-    
-    print("Finished Wheel spin!")
-
-# Main code to run the application
-# if __name__ == "__main__":
-#     startApp()

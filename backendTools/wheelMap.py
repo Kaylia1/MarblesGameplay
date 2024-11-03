@@ -11,168 +11,470 @@ import string
 
 lastSpinner = ""
 
-def adamSuppBard():
-    if(rules.godScenario):
+# def adamSuppBard():
+#     if(rules.godScenario):
+#         return
+#     prevSupp = rules.getRole("support")
+#     print("Swapping Adam to support bard, swapping "+prevSupp+" to Adam's old assignment")
+#     globals.summoners[prevSupp].curMarble = globals.summoners["Adam"].curMarble
+#     globals.summoners["Adam"].curMarble = rules.addSuppBard("Adam")
+
+# def kayTop():
+#     if(rules.godScenario):
+#         return
+#     print(rules.RED_TXT_START+"NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+#     print("sad ;;"+rules.DEF_TXT_END)
+#     prevTop = rules.getRole("top")
+#     print("Swapping Kay to top, swapping "+prevTop+" to Kay's old assignment")
+#     temp = globals.summoners[prevTop].curMarble
+#     globals.summoners[prevTop].curMarble = globals.summoners["Kaylia"].curMarble
+#     globals.summoners["Kaylia"].curMarble = temp
+
+# def rageBot(): # TODO error if marble god
+#     if(rules.godScenario):
+#         return
+#     prevBot = rules.getRole("bot")
+#     print("Swapping Rage to ADC bot, swapping "+prevBot+" to Rage's old assignment")
+#     globals.summoners[prevBot].curMarble = globals.summoners["Rage"].curMarble
+#     globals.summoners["Rage"].curMarble = rules.addADCBot("Rage")
+
+# def bankruptPerson():
+#     name = globals.inputSummoner()
+#     globals.summoners[name].money = 0
+
+# def swapMoney():
+#     name1 = globals.inputSummoner()
+#     name2 = globals.inputSummoner()
+#     temp = globals.summoners[name1].money
+#     globals.summoners[name1].money = globals.summoners[name2].money
+#     globals.summoners[name2].money = temp
+
+# def take50Dollars():
+#     name = globals.inputSummoner()
+#     globals.summoners[name].money -= 50
+#     globals.summoners[lastSpinner].money += 50
+
+# def printChoosable(victims):
+#     if(rules.godScenario):
+#         return
+#     print()
+#     print("Choosable people: ")
+#     print(victims)
+    
+#     for victim in victims:
+#         rules.printMarbles([globals.summoners[victim].curMarble])
+
+# def changeLvl1Letter():
+#     if(rules.godScenario):
+#         return
+#     victims = rules.getLvl1s()
+#     changeLetter(victims)
+
+# def changeLetter(victims, isRandom=False):
+#     if(rules.godScenario):
+#         return
+#     victim = ""
+#     if(len(victims) == 0):
+#         print("No one has a lvl 1 marble")
+#         return
+#     elif(len(victims) == 1):
+#         victim = victims[0]
+#     else:
+#         printChoosable(victims)
+#         victim = globals.inputSummoner(victims)
+    
+#     letter = ""
+#     if(isRandom):
+#         letter = random.choice(string.ascii_uppercase)
+#     else:
+#         while True:
+#             letter = input("Pick a letter: ").strip()
+#             if not (len(letter) == 1 and letter.isalpha()):
+#                 print("Dumbass. Enter a letter.")
+#                 continue
+#             break
+#     rules.changeLetter(globals.summoners[victim].curMarble, letter)
+
+# # Note: if you change letter to "" then it gives them freedom
+# # TODO disallow people to trade with themselves
+# def changeLetters():
+#     if(rules.godScenario):
+#         return
+#     victims = rules.getHasLetters()
+#     if(len(victims)<2):
+#         print("Not enough people with letters.")
+#         return
+    
+#     # todo add prints
+#     name1 = globals.inputSummoner(victims)
+#     name2 = globals.inputSummoner(victims)
+#     letter1 = rules.marbles[globals.summoners[name1].curMarble].letter
+#     letter2 = rules.marbles[globals.summoners[name2].curMarble].letter
+#     rules.changeLetter(globals.summoners[name2].curMarble, letter1)
+#     rules.changeLetter(globals.summoners[name1].curMarble, letter2)
+
+# def changeRoles():
+#     if(rules.godScenario):
+#         return
+#     name1 = globals.inputSummoner()
+#     name2 = globals.inputSummoner()
+#     role1 = rules.marbles[globals.summoners[name1].curMarble].position
+#     role2 = rules.marbles[globals.summoners[name2].curMarble].position
+#     rules.changeRole(globals.summoners[name2].curMarble, role1)
+#     rules.changeRole(globals.summoners[name1].curMarble, role2)
+
+# def freedomRoleSteal():
+#     if(rules.godScenario):
+#         return
+#     role = ""
+#     while True:
+#         role = input("Role to steal?").lower()
+#         if not role in globals.ROLES:
+#             print("That's not a valid role, try again")
+#             continue
+#         break
+#     # take role
+#     if(role != rules.marbles[globals.summoners[lastSpinner].curMarble].position):
+#         rules.forceTakeRole(lastSpinner, role)
+    
+#     # lose letter restriction
+#     rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
+
+# def marbleDec():
+#     if(rules.godScenario):
+#         return
+#     victims = rules.getNoLetters()
+#     changeLetter(victims, isRandom=True) # TODO double declared this due to wrapper which is bad
+
+# def marbleLargeDec():
+#     if(rules.godScenario):
+#         return
+#     name = globals.inputSummoner()
+#     rules.forceNextLvl1(name)
+
+# def marbleInc():
+#     if(rules.godScenario):
+#         return
+#     oldLvl = rules.marbles[globals.summoners[lastSpinner].curMarble].level
+#     print("Previous marble level: "+oldLvl)
+#     if(oldLvl == "1"):
+#         freedomRoleSteal()
+#     elif(oldLvl == "2"):
+#         marbleLargeInc()
+#     elif(oldLvl == "3" or oldLvl == "4"):
+#         message = lastSpinner+" has become MARBLE GOD!"
+#         print(rules.GREEN_TXT_START+message+rules.DEF_TXT_END) # TODO might cause issues with further wheel spins?
+#         rules.assignMarblePlaceholders(message)
+#         rules.godScenario = True
+        
+# def marbleLargeInc():
+#     if(rules.godScenario):
+#         return
+#     rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
+
+# def nop():
+#     pass
+
+
+# ========================== TAKES 2 INPUTS ===========================================
+def adamSuppBard(args):
+    if rules.godScenario:
         return
+    a = args[0] if len(args) > 0 else None
+    b = args[1] if len(args) > 1 else None
+    
     prevSupp = rules.getRole("support")
-    print("Swapping Adam to support bard, swapping "+prevSupp+" to Adam's old assignment")
+    print("Swapping Adam to support bard, swapping " + prevSupp + " to Adam's old assignment")
     globals.summoners[prevSupp].curMarble = globals.summoners["Adam"].curMarble
     globals.summoners["Adam"].curMarble = rules.addSuppBard("Adam")
 
-def kayTop():
-    if(rules.godScenario):
+def kayTop(args):
+    if rules.godScenario:
         return
-    print(rules.RED_TXT_START+"NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
-    print("sad ;;"+rules.DEF_TXT_END)
+    print(rules.RED_TXT_START + "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+    print("sad ;;" + rules.DEF_TXT_END)
     prevTop = rules.getRole("top")
-    print("Swapping Kay to top, swapping "+prevTop+" to Kay's old assignment")
+    print("Swapping Kay to top, swapping " + prevTop + " to Kay's old assignment")
     temp = globals.summoners[prevTop].curMarble
     globals.summoners[prevTop].curMarble = globals.summoners["Kaylia"].curMarble
     globals.summoners["Kaylia"].curMarble = temp
 
-def rageBot(): # TODO error if marble god
-    if(rules.godScenario):
+def rageBot(args):
+    if rules.godScenario:
         return
     prevBot = rules.getRole("bot")
-    print("Swapping Rage to ADC bot, swapping "+prevBot+" to Rage's old assignment")
+    print("Swapping Rage to ADC bot, swapping " + prevBot + " to Rage's old assignment")
     globals.summoners[prevBot].curMarble = globals.summoners["Rage"].curMarble
     globals.summoners["Rage"].curMarble = rules.addADCBot("Rage")
 
-def bankruptPerson():
-    name = globals.inputSummoner()
-    globals.summoners[name].money = 0
+def bankruptPerson(args):
+    a = args[0] if len(args) > 0 else None
+    a = a[0].upper() + a[1:].lower()
+    globals.summoners[a].money = 0
 
-def swapMoney():
-    name1 = globals.inputSummoner()
-    name2 = globals.inputSummoner()
-    temp = globals.summoners[name1].money
-    globals.summoners[name1].money = globals.summoners[name2].money
-    globals.summoners[name2].money = temp
+def swapMoney(args):
+    a = args[0] if len(args) > 0 else None
+    b = args[1] if len(args) > 1 else None
+    a = a[0].upper() + a[1:].lower()
+    b = b[0].upper() + b[1:].lower()
+    temp = globals.summoners[a].money
+    globals.summoners[a].money = globals.summoners[b].money
+    globals.summoners[b].money = temp
 
-def take50Dollars():
-    name = globals.inputSummoner()
-    globals.summoners[name].money -= 50
+def take50Dollars(args):
+    a = args[0] if len(args) > 0 else None
+    a = a[0].upper() + a[1:].lower()
+    globals.summoners[a].money -= 50
     globals.summoners[lastSpinner].money += 50
 
-def printChoosable(victims):
-    if(rules.godScenario):
+def changeLvl1Letter(args):
+    if rules.godScenario:
         return
-    print()
-    print("Choosable people: ")
-    print(victims)
-    
-    for victim in victims:
-        rules.printMarbles([globals.summoners[victim].curMarble])
-
-def changeLvl1Letter():
-    if(rules.godScenario):
-        return
+    a = args[0] if len(args) > 0 else None
+    b = args[1] if len(args) > 1 else None
     victims = rules.getLvl1s()
-    changeLetter(victims)
+    changeLetter(victims, a, b)
 
-def changeLetter(victims, isRandom=False):
-    if(rules.godScenario):
+def changeLetter(victims, a=None, b=None, isRandom=False):
+    if rules.godScenario:
         return
     victim = ""
-    if(len(victims) == 0):
+    if len(victims) == 0:
         print("No one has a lvl 1 marble")
         return
-    elif(len(victims) == 1):
+    elif len(victims) == 1:
         victim = victims[0]
     else:
-        printChoosable(victims)
-        victim = globals.inputSummoner(victims)
+        # printChoosable(victims)
+        victim = a[0].upper() + a[1:].lower()
     
-    letter = ""
-    if(isRandom):
-        letter = random.choice(string.ascii_uppercase)
-    else:
-        while True:
-            letter = input("Pick a letter: ").strip()
-            if not (len(letter) == 1 and letter.isalpha()):
-                print("Dumbass. Enter a letter.")
-                continue
-            break
+    letter = random.choice(string.ascii_uppercase) if isRandom else b.upper()
     rules.changeLetter(globals.summoners[victim].curMarble, letter)
 
-# Note: if you change letter to "" then it gives them freedom
-# TODO disallow people to trade with themselves
-def changeLetters():
-    if(rules.godScenario):
+def changeLetters(args):
+    if rules.godScenario:
         return
+    a = args[0] if len(args) > 0 else None
+    b = args[1] if len(args) > 1 else None
+    a = a[0].upper() + a[1:].lower()
+    b = b[0].upper() + b[1:].lower()
     victims = rules.getHasLetters()
-    if(len(victims)<2):
+    if len(victims) < 2:
         print("Not enough people with letters.")
         return
-    
-    # todo add prints
-    name1 = globals.inputSummoner(victims)
-    name2 = globals.inputSummoner(victims)
-    letter1 = rules.marbles[globals.summoners[name1].curMarble].letter
-    letter2 = rules.marbles[globals.summoners[name2].curMarble].letter
-    rules.changeLetter(globals.summoners[name2].curMarble, letter1)
-    rules.changeLetter(globals.summoners[name1].curMarble, letter2)
 
-def changeRoles():
-    if(rules.godScenario):
-        return
-    name1 = globals.inputSummoner()
-    name2 = globals.inputSummoner()
-    role1 = rules.marbles[globals.summoners[name1].curMarble].position
-    role2 = rules.marbles[globals.summoners[name2].curMarble].position
-    rules.changeRole(globals.summoners[name2].curMarble, role1)
-    rules.changeRole(globals.summoners[name1].curMarble, role2)
-
-def freedomRoleSteal():
-    if(rules.godScenario):
-        return
-    role = ""
-    while True:
-        role = input("Role to steal?").lower()
-        if not role in globals.ROLES:
-            print("That's not a valid role, try again")
-            continue
-        break
-    # take role
-    if(role != rules.marbles[globals.summoners[lastSpinner].curMarble].position):
-        rules.forceTakeRole(lastSpinner, role)
+    letter1 = rules.marbles[globals.summoners[a].curMarble].letter
+    letter2 = rules.marbles[globals.summoners[b].curMarble].letter
+    rules.changeLetter(globals.summoners[b].curMarble, letter1)
+    rules.changeLetter(globals.summoners[a].curMarble, letter2)
     
-    # lose letter restriction
+    # if unknown level ie "" for freedom or "INF" for special cases, swap level too
+    if len(letter1) != 1 or len(letter2) != 1:
+        temp = rules.marbles[globals.summoners[b].curMarble].level
+        rules.setLvl(globals.summoners[b].curMarble, rules.marbles[globals.summoners[a].curMarble].level)
+        rules.setLvl(globals.summoners[a].curMarble, temp)
+
+def changeRoles(args):
+    if rules.godScenario:
+        return
+    a = args[0] if len(args) > 0 else None
+    b = args[1] if len(args) > 1 else None
+    a = a[0].upper() + a[1:].lower()
+    b = b[0].upper() + b[1:].lower()
+    role1 = rules.marbles[globals.summoners[a].curMarble].position
+    role2 = rules.marbles[globals.summoners[b].curMarble].position
+    rules.changeRole(globals.summoners[b].curMarble, role1)
+    rules.changeRole(globals.summoners[a].curMarble, role2)
+
+def freedomRoleSteal(args):
+    if rules.godScenario:
+        return
+    a = args[0] if len(args) > 0 else None
+    if a != rules.marbles[globals.summoners[lastSpinner].curMarble].position:
+        rules.forceTakeRole(lastSpinner, a)
+    
     rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
 
-def marbleDec():
-    if(rules.godScenario):
+def marbleDec(args):
+    if rules.godScenario:
         return
     victims = rules.getNoLetters()
-    changeLetter(victims, True)
+    changeLetter(victims, isRandom=True)
 
-def marbleLargeDec():
-    if(rules.godScenario):
+def marbleLargeDec(args):
+    if rules.godScenario:
         return
-    name = globals.inputSummoner()
-    rules.forceNextLvl1(name)
+    a = args[0] if len(args) > 0 else None
+    a = a[0].upper() + a[1:].lower()
+    rules.forceNextLvl1(a)
 
-def marbleInc():
-    if(rules.godScenario):
+def marbleInc(args):
+    if rules.godScenario:
         return
+    # a = args[0] if len(args) > 0 else None
+    # b = args[1] if len(args) > 1 else None
     oldLvl = rules.marbles[globals.summoners[lastSpinner].curMarble].level
-    print("Previous marble level: "+oldLvl)
-    if(oldLvl == "1"):
-        freedomRoleSteal()
-    elif(oldLvl == "2"):
-        marbleLargeInc()
-    elif(oldLvl == "3" or oldLvl == "4"):
-        message = lastSpinner+" has become MARBLE GOD!"
-        print(rules.GREEN_TXT_START+message+rules.DEF_TXT_END) # TODO might cause issues with further wheel spins?
+    print("Previous marble level: " + oldLvl)
+    if oldLvl == "1":
+        rules.setLvl(globals.summoners[lastSpinner].curMarble, "2")
+        freedomRoleSteal(args)
+    elif oldLvl == "2":
+        rules.setLvl(globals.summoners[lastSpinner].curMarble, "3")
+        marbleLargeInc(args)
+    elif oldLvl == "3" or oldLvl == "4":
+        message = lastSpinner + " has become MARBLE GOD!"
+        print(rules.GREEN_TXT_START + message + rules.DEF_TXT_END)
         rules.assignMarblePlaceholders(message)
-        
-def marbleLargeInc():
-    if(rules.godScenario):
+        rules.godScenario = True
+
+def marbleLargeInc(args):
+    if rules.godScenario:
         return
     rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
 
-def nop():
+def nop(args):
     pass
+
+# def adamSuppBard(a, b):
+#     if rules.godScenario:
+#         return
+#     prevSupp = rules.getRole("support")
+#     print("Swapping Adam to support bard, swapping " + prevSupp + " to Adam's old assignment")
+#     globals.summoners[prevSupp].curMarble = globals.summoners["Adam"].curMarble
+#     globals.summoners["Adam"].curMarble = rules.addSuppBard("Adam")
+
+# def kayTop(a, b):
+#     if rules.godScenario:
+#         return
+#     print(rules.RED_TXT_START + "NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO")
+#     print("sad ;;" + rules.DEF_TXT_END)
+#     prevTop = rules.getRole("top")
+#     print("Swapping Kay to top, swapping " + prevTop + " to Kay's old assignment")
+#     temp = globals.summoners[prevTop].curMarble
+#     globals.summoners[prevTop].curMarble = globals.summoners["Kaylia"].curMarble
+#     globals.summoners["Kaylia"].curMarble = temp
+
+# def rageBot(a, b):
+#     if rules.godScenario:
+#         return
+#     prevBot = rules.getRole("bot")
+#     print("Swapping Rage to ADC bot, swapping " + prevBot + " to Rage's old assignment")
+#     globals.summoners[prevBot].curMarble = globals.summoners["Rage"].curMarble
+#     globals.summoners["Rage"].curMarble = rules.addADCBot("Rage")
+
+# def bankruptPerson(a, b):
+#     name = a  # Expecting 'a' to be the summoner name
+#     globals.summoners[name].money = 0
+
+# def swapMoney(a, b):
+#     name1 = a
+#     name2 = b
+#     temp = globals.summoners[name1].money
+#     globals.summoners[name1].money = globals.summoners[name2].money
+#     globals.summoners[name2].money = temp
+
+# def take50Dollars(a, b):
+#     name = a  # Expecting 'a' to be the summoner name
+#     globals.summoners[name].money -= 50
+#     globals.summoners[lastSpinner].money += 50
+
+# def changeLvl1Letter(a, b): # TODO don't require inputs if only 1 possibility
+#     if rules.godScenario:
+#         return
+#     victims = rules.getLvl1s()
+#     changeLetter(victims, a, b)
+
+# def changeLetter(victims, a=None, b=None, isRandom=False):
+#     if rules.godScenario:
+#         return
+#     victim = ""
+#     if len(victims) == 0:
+#         print("No one has a lvl 1 marble")
+#         return
+#     elif len(victims) == 1:
+#         victim = victims[0]
+#     else:
+#         printChoosable(victims)
+#         victim = a
+    
+#     letter = ""
+#     if isRandom:
+#         letter = random.choice(string.ascii_uppercase)
+#     else:
+#         letter = b
+#     rules.changeLetter(globals.summoners[victim].curMarble, letter)
+
+# def changeLetters(a, b):
+#     if rules.godScenario:
+#         return
+#     victims = rules.getHasLetters()
+#     if len(victims) < 2:
+#         print("Not enough people with letters.")
+#         return
+
+#     name1 = a  # Expecting 'a' to be the first summoner name
+#     name2 = b  # Expecting 'b' to be the second summoner name
+#     letter1 = rules.marbles[globals.summoners[name1].curMarble].letter
+#     letter2 = rules.marbles[globals.summoners[name2].curMarble].letter
+#     rules.changeLetter(globals.summoners[name2].curMarble, letter1)
+#     rules.changeLetter(globals.summoners[name1].curMarble, letter2)
+
+# def changeRoles(a, b):
+#     if rules.godScenario:
+#         return
+#     name1 = a
+#     name2 = b
+#     role1 = rules.marbles[globals.summoners[name1].curMarble].position
+#     role2 = rules.marbles[globals.summoners[name2].curMarble].position
+#     rules.changeRole(globals.summoners[name2].curMarble, role1)
+#     rules.changeRole(globals.summoners[name1].curMarble, role2)
+
+# def freedomRoleSteal(a, b):
+#     if rules.godScenario:
+#         return
+#     role = a
+#     if role != rules.marbles[globals.summoners[lastSpinner].curMarble].position:
+#         rules.forceTakeRole(lastSpinner, role)
+    
+#     # lose letter restriction
+#     rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
+
+# def marbleDec(a, b):
+#     if rules.godScenario:
+#         return
+#     victims = rules.getNoLetters()
+#     changeLetter(victims, None, True)
+
+# def marbleLargeDec(a, b):
+#     if rules.godScenario:
+#         return
+#     name = a  # Expecting 'a' to be the summoner name
+#     rules.forceNextLvl1(name)
+
+# def marbleInc(a, b):
+#     if rules.godScenario:
+#         return
+#     oldLvl = rules.marbles[globals.summoners[lastSpinner].curMarble].level
+#     print("Previous marble level: " + oldLvl)
+#     if oldLvl == "1":
+#         freedomRoleSteal(a, b)
+#     elif oldLvl == "2":
+#         marbleLargeInc(a, b)
+#     elif oldLvl == "3" or oldLvl == "4":
+#         message = lastSpinner + " has become MARBLE GOD!"
+#         print(rules.GREEN_TXT_START + message + rules.DEF_TXT_END)  # TODO might cause issues with further wheel spins?
+#         rules.assignMarblePlaceholders(message)
+#         rules.godScenario = True
+
+# def marbleLargeInc(a, b):
+#     if rules.godScenario:
+#         return
+#     rules.changeLetter(globals.summoners[lastSpinner].curMarble, "")
+
+# def nop(a, b):
+#     pass
+
+# ========================================== end of wrappers =====================================
 
 wheel_map = {
     "Adam swaps with support and plays bard": adamSuppBard, # ok
@@ -182,14 +484,35 @@ wheel_map = {
     "Force two people to trade roles (letters stay the same)": changeRoles,
     "Freedom (can boot someone off role and they take next same lvl marble for available role.)": freedomRoleSteal, # ok
     "JON & ADAM SHOT NOW": nop,
-    "MARBLE GOD": nop, # todo role placeholders
+    "MARBLE GOD": nop, # TODO role placeholders
     "Marble - add random letter restriction to someone without one": marbleDec,
     "Marble -- force someone onto their next lvl1 marble of current role": marbleLargeDec, # ok
     "Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3 or 4->MARBLE GOD, 0->nothing)": marbleInc, # ok
     "Marble ++ (LETTER FREEDOM, roles don't change)": marbleLargeInc, # ok
     "raguyamotha swaps marbles with bot and has to play an actual ADC": rageBot, # ok
-    "SCRAP MARBLES THE HOMIES NEED HELP": nop, # todo role placeholders
+    "SCRAP MARBLES THE HOMIES NEED HELP": nop, # TODO role placeholders
     "Swap the money of two people": swapMoney,
     "Take $50 away from someone and keep it (can put them negative)": take50Dollars, # ok
     "Top lane trades marble with Kay": kayTop #ok
+}
+
+# max 2 inputs, possibility being summoner, letter, or role
+wheel_map_inputs = {
+    "Adam swaps with support and plays bard": ("", ""),
+    "Bankrupt someone of your choice": ("summoner", ""),
+    "Change the letter for someone's Lvl1 Marble": ("summonerLvl1", "letter"),
+    "Force two people with letters to trade letters (roles stay the same)": ("summonerLetter", "summonerLetter"),
+    "Force two people to trade roles (letters stay the same)": ("summoner", "summoner"),
+    "Freedom (can boot someone off role and they take next same lvl marble for available role.)": ("role", ""),
+    "JON & ADAM SHOT NOW": ("", ""),
+    "MARBLE GOD": ("", ""),
+    "Marble - add random letter restriction to someone without one": ("summonerNoLetter", ""),
+    "Marble -- force someone onto their next lvl1 marble of current role": ("summoner", ""),
+    "Marble + (1->2 can boot people off of role, 2->LETTER FREEDOM, 3 or 4->MARBLE GOD, 0->nothing)": ("role+", ""),
+    "Marble ++ (LETTER FREEDOM, roles don't change)": ("", ""),
+    "raguyamotha swaps marbles with bot and has to play an actual ADC": ("", ""),
+    "SCRAP MARBLES THE HOMIES NEED HELP": ("", ""),
+    "Swap the money of two people": ("summoner", "summoner"),
+    "Take $50 away from someone and keep it (can put them negative)": ("summoner", ""),
+    "Top lane trades marble with Kay": ("", "")
 }

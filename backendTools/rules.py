@@ -152,7 +152,7 @@ def assignMarblePlaceholders(message):
     global godScenario
     godScenario = True
     for summoner in globals.summoners.values():
-        marbles.append(MarbleAssignment(summoner.name, message))
+        marbles.append(MarbleAssignment(summoner.name, message, level="INF"))
         summoner.curMarble = len(marbles)-1
 
 # for paralyzed states
@@ -180,6 +180,10 @@ def setCurMarble(summonerName, marbleNum):
 def setRole(marble, newRole):
     global marbles
     marbles[marble].position = newRole
+
+def setLvl(marble, lvl):
+    global marbles
+    marbles[marble].level = lvl
 
 def printMarbles(marbleList):
     for i in range(len(marbleList)):
@@ -276,10 +280,13 @@ def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles, ui=False):
     
 
 def initGetBestMarbles():
+    global godScenario
+    godScenario = False
     for summoner in globals.summoners.values():
         summoner.curMarble = getBestMarble(summoner.name)
         if(marbles[summoner.curMarble].isMarbleGod()):
             print(summoner.name + " has won marble god!")
+            godScenario = True
             assignMarblePlaceholders(summoner.name + " is the marble god")
             return
 
@@ -334,12 +341,12 @@ def getHasLetters():
 
 def addSuppBard(summonerName):
     global marbles
-    marbles.append(MarbleAssignment(name=summonerName, marbleDesc="wheel support bard", letter="BARD", position="support"))
+    marbles.append(MarbleAssignment(name=summonerName, marbleDesc="wheel support bard", letter="BARD", position="support", level="INF"))
     return len(marbles) - 1
 
 def addADCBot(summonerName):
     global marbles
-    marbles.append(MarbleAssignment(name=summonerName, marbleDesc="wheel adc adc", letter="ADC", position="bot"))
+    marbles.append(MarbleAssignment(name=summonerName, marbleDesc="wheel adc adc", letter="ADC", position="bot", level="INF"))
     return len(marbles) - 1
 
 def getLvl1s(): # return array of names
