@@ -163,6 +163,7 @@ class PickingPage(tkUtil.Page):
             
             # show top 5 marbles as prompt
             self.prompt.config(text="Paralyzed! Pick a marble 0-4")
+            self.message_label.config(text=picker+" is paralyzed.")
             for i in range(10):
                 if i < 5:
                     self.top10Labels[i].config(text=str(i)+":"+rules.marbles[top5[i]].marbleDesc)

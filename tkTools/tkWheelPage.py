@@ -86,7 +86,7 @@ class WheelPage(tkUtil.Page):
     def draw_pointer(self):
         """Draw a fixed pointer on the right side of the wheel."""
         center_x, center_y = 300, 300  # Center of the canvas
-        pointer_x = center_x + 300
+        pointer_x = center_x + 250
         pointer_y_top = center_y - 20
         pointer_y_bottom = center_y + 20
         self.canvas.create_polygon(

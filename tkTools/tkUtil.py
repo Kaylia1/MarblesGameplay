@@ -42,6 +42,10 @@ class Page:
         if(not getLabelTxt(self.message_label) == ""):
             self.animate_message(self.message_label)
 
+    def setMessageLabel(self, newTxt):
+        self.message_label.config(text=newTxt)
+        self.animate_message(self.message_label)
+
     # slide westwards
     def animate_message(self, label):
         start_x = WIDTH + 100
