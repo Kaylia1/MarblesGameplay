@@ -119,7 +119,7 @@ class PickingPage(tkUtil.Page):
         self.updateAssignments()
         
         if rules.godScenario:
-            self.message_label.config(text="Someone is God, further picking actions disallowed.")
+            self.setMessageLabel("Someone is God, further picking actions disallowed.")
             return
         
         self.unpickedSummoners = list(globals.summoners.keys())
@@ -127,7 +127,7 @@ class PickingPage(tkUtil.Page):
         
         self.entered_text = ""
         self.button_clicked = False
-        self.message_label.config(text="Enter a number 0-9")
+        self.setMessageLabel("Enter a number 0-9")
         
         while True:
             self.submit_button.wait_variable(self.button_pressed)
@@ -146,7 +146,7 @@ class PickingPage(tkUtil.Page):
             for picker in nextPickers:
                 self.pick(picker, isParalyzed)
         
-        self.message_label.config(text="All positions are assigned!")
+        self.setMessageLabel("All positions are assigned!")
         self.done = True
         self.next_button.config(state="active")
         self.clearPrompts()
@@ -163,7 +163,7 @@ class PickingPage(tkUtil.Page):
             
             # show top 5 marbles as prompt
             self.prompt.config(text="Paralyzed! Pick a marble 0-4")
-            self.message_label.config(text=picker+" is paralyzed.")
+            self.setMessageLabel(picker+" is paralyzed.")
             for i in range(10):
                 if i < 5:
                     self.top10Labels[i].config(text=str(i)+":"+rules.marbles[top5[i]].marbleDesc)
@@ -207,7 +207,7 @@ class PickingPage(tkUtil.Page):
         # rules.currentMarbleAssignments(self.unpickedSummoners)
     
     def getRole(self, picker):
-        self.message_label.config(text="Pick a role "+picker)
+        self.setMessageLabel("Pick a role "+picker)
         while True:
             self.submit_button.wait_variable(self.button_pressed)
             if(self.entered_text.lower() in self.unpickedRoles):
@@ -217,10 +217,10 @@ class PickingPage(tkUtil.Page):
         self.button_clicked = False
         if self.entered_text.isdigit() and int(self.entered_text) >= 0 and int(self.entered_text) <= 9:
             if rules.marbles[int(self.entered_text)].level != "MARBLE GOD":
-                self.message_label.config(text=DEFAULT_MSG)
+                self.setMessageLabel(DEFAULT_MSG)
                 return True
-            self.message_label.config(text="Cannot swap with God!")
-        self.message_label.config(text="Enter a number 0-9")
+            self.setMessageLabel("Cannot swap with God!")
+        self.setMessageLabel("Enter a number 0-9")
         self.animate_message(self.message_label)
         return False
     

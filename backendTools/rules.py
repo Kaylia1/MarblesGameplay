@@ -147,12 +147,13 @@ def getNextPicker(validSummoners):
     else:
         return [highLvlSummoners[0]], isParalyzed
     
+# TODO note this messes up letter, so it can no longer be used as letter
 def assignMarblePlaceholders(message):
     global marbles
     global godScenario
     godScenario = True
     for summoner in globals.summoners.values():
-        marbles.append(MarbleAssignment(summoner.name, message, level="INF"))
+        marbles.append(MarbleAssignment(summoner.name, message, letter=message, level="INF"))
         summoner.curMarble = len(marbles)-1
 
 # for paralyzed states

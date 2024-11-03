@@ -239,12 +239,12 @@ class AdjustmentsPage(tkUtil.Page):
                 
                 globals.summoners[input1[0].upper() + input1[1:].lower()].money -= int(input3)
                 globals.summoners[input2[0].upper() + input2[1:].lower()].money += int(input3)
-                self.message_label.config(text="Bribery accepted")
+                self.setMessageLabel("Bribery accepted")
                 self.updateSummonerMoney()
             else:
-                self.message_label.config(text="The third input must be a non-negative number.")
+                self.setMessageLabel("The third input must be a non-negative number.")
         else:
-            self.message_label.config(text="The first two inputs must summoner names.")
+            self.setMessageLabel("The first two inputs must summoner names.")
     
     # =================== CONTROL ==========================
     

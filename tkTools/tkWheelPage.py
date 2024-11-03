@@ -11,7 +11,7 @@ wheel_result = ""
 class WheelPage(tkUtil.Page):
 
     def __init__(self, root):
-        super().__init__(root, "Wheel of fortune", "pray kaylia doesn't get top")
+        super().__init__(root, "Wheel of fortune", "")
         self.options = readWheelOptions()
         self.num_options = len(self.options)
         self.angle_per_option = 360 / self.num_options
@@ -134,14 +134,9 @@ class WheelPage(tkUtil.Page):
         self.wheelResult = final_choice
         global wheel_result
         wheel_result = final_choice
-        # print("I SET WHEEL RESULT"+final_choice)
-        # self.handleWheelResult()
-    
-    # def handleWheelResult(self):
-        # print("handling wheel result")
-        # dependency check: tkAdjustments page already set lastSpinner at this point
-        # wheelMap.wheel_map[self.wheelResult]()
-    
+        
+        self.next_button.config(state="active")
+
     def on_close(self):
         """Handle the close event by destroying the window and exiting mainloop."""
         self.frame.destroy()
@@ -156,7 +151,8 @@ class WheelPage(tkUtil.Page):
         self.wheelResult = ""
         global wheel_result
         wheel_result = ""
-        print("clearing")
+        self.setMessageLabel("spinner: "+wheelMap.lastSpinner)
+        self.next_button.config(state="disabled")
     
     def handleNext(self):
         tkUtil.trigger_wheel_res_page()

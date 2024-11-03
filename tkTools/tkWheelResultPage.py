@@ -8,7 +8,7 @@ import tkTools.tkWheelPage as tkWheelPage # import wheel_result
 
 class WheelResultPage(tkUtil.Page):
     def __init__(self, root):
-        super().__init__(root, "Wheel Result Page", "huh")
+        super().__init__(root, "Wheel Result Page", "")
         
         self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 12))
         self.curAssignments.place(x=0, y=90.0, anchor="w")
@@ -79,8 +79,9 @@ class WheelResultPage(tkUtil.Page):
         super().show()
         self.gridframe.place(x=0, y=200.0, anchor="w")
         self.updateAssignments()
-        
         self.gen_from_inputs()
+        self.setMessageLabel(tkWheelPage.wheel_result)
+        self.next_button.config(state="disabled")
     
     def hide(self):
         super().hide()
@@ -122,7 +123,7 @@ class WheelResultPage(tkUtil.Page):
             self.inputs[label_name]["poss"] = self.get_possible_input(key_str)
             poss_inputs_str = ", ".join(self.inputs[label_name]["poss"])
             print(poss_inputs_str)
-            self.inputs[label_name]["label"].config(text=key_str + "Possible inputs: "+ poss_inputs_str)
+            self.inputs[label_name]["label"].config(text=key_str + " Possible inputs: "+ poss_inputs_str)
             self.inputs[label_name]["val"] = ""
             if len(self.inputs[label_name]["poss"]) == 1:
                 print("autofilling")
@@ -167,7 +168,7 @@ class WheelResultPage(tkUtil.Page):
             
             if totalOk:
                 self.submit_button.config(state="disabled") # prevent excess submissions for a bit(?)
-            
+                self.next_button.config(state="active")
                 # TODO wheel map call
                 # construct params
                 if not rules.godScenario:
@@ -175,6 +176,10 @@ class WheelResultPage(tkUtil.Page):
                     for label_name in self.label_names:
                         wheel_params.append(self.inputs[label_name]["val"])
                     wheelMap.wheel_map[tkWheelPage.wheel_result](wheel_params)
+                
+                # once valid input, go next immediately
+                self.handleNext()
+
             # if inputs not ok then don't do anything
             
 
