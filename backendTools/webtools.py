@@ -20,21 +20,35 @@ def updateOPGG():
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--disable-gpu') # otherwise skia issues
+    
+    # I don't think these flags do anything btw
+    options.add_argument('--disable-web-security')  # Disables web security
+    options.add_argument('--allow-file-access-from-files')  # Allows access to files
 
+
+    start_time = time.time()
     while True:
+        elapsed_time = time.time() - start_time  # Calculate elapsed time
+
+        if elapsed_time > 40:  # Check if over 15 seconds passed
+            print("Timeout exceeded, assumed you pushed it manually, exiting the loop.")
+            break
+        
         driver = webdriver.Chrome(options=options)
+        driver.set_page_load_timeout(5) # bruh idk why this works
+        
         try:
             driver.get('https://www.op.gg/summoners/na/KayFish66-3435')
-
-            button = driver.find_element(By.XPATH, "//button[span/span[text()='Update']]")
+            button = WebDriverWait(driver, 30).until(
+                EC.element_to_be_clickable((By.XPATH, "//button[span/span[text()='Update']]"))
+            )
             button.click()
 
             # Close the browser
             break
-        except:
-            # sometimes SSL cert doesn't like me ;; j gotta try again ig
-            print("failed to push Update button, possibly due to slow internet, retrying")
-            time.sleep(1)
+        except Exception as e:
+                print(f"Failed to push Update button: {str(e)}. Retrying...")
+                time.sleep(1)
         finally:
             driver.quit()
 

@@ -5,6 +5,7 @@ import tkTools.tkPickingPage as tkPickingPage, tkTools.tkAdjustmentsPage as tkAd
 import backendTools.parseChampStats as parseChampStats
 import tkTools.tkWheelPage as tkWheelPage
 import tkTools.tkWheelResultPage as tkWheelResultPage
+import tkTools.tkMidgamePage as tkMidgamePage
 
 def init_tk():
     tkUtil.root = tk.Tk()
@@ -19,9 +20,9 @@ def init_tk():
     tkUtil.wheelPage = tkWheelPage.createWheelPage(tkUtil.root) #tkUtil.Page(tkUtil.root, "Wheel of Fortune", "")
     tkUtil.wheelResPage = tkWheelResultPage.createWheelResultPage(tkUtil.root) #tkUtil.Page(tkUtil.root, "Wheel of Fortune", "")
     
-    
+    midGamePage = tkMidgamePage.createMidgamePage(tkUtil.root)
     postGamePage = tkPostgamePage.createPostgamePage(tkUtil.root)
-    tkUtil.pages = [homePage, pickingPage, adjustmentsPage, postGamePage]
+    tkUtil.pages = [homePage, pickingPage, adjustmentsPage, midGamePage, postGamePage]
     tkUtil.curPage = 0
 
 

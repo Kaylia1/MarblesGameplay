@@ -21,6 +21,12 @@ summoners = {
 allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"]
 ROLES = ["jungle", "support", "top", "mid", "bot"]
 
+def get_summoner_name_by_game_name(game_name):
+    for summoner in summoners.values():
+        if summoner.gameName == game_name:
+            return summoner.name
+    return None  # Return None if no matching gameName is found
+
 def inputSummoner(validSummoners=allSummoners):
     while True:
         name = input("Who? ").strip()
