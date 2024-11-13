@@ -1,31 +1,16 @@
 import tkinter as tk
 import tkTools.tkUtil as tkUtil
+import tkTools.tkMoney as tkMoney
 import backendTools.rules as rules
 import backendTools.globals as globals
 import backendTools.wheelMap as wheelMap
 
 import tkTools.tkWheelPage as tkWheelPage # import wheel_result
 
-class WheelResultPage(tkUtil.Page):
+class WheelResultPage(tkMoney.MoneyPage):
     def __init__(self, root):
         super().__init__(root, "Wheel Result Page", "")
         
-        self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 12))
-        self.curAssignments.place(x=0, y=90.0, anchor="w")
-        
-        self.gridframe = None # assignments grid
-        
-        self.headers = []
-        self.assignmentHeadLabels = []
-        self.assignmentLabels = {}
-        
-        # points.load_state() # TODO should we be able to dynamically load at runtime?
-        self.initSummonerMarbles()
-        
-        # entries for widgets
-        # self.entries = {}
-        # self.labels = {}
-        # self.poss = {}
         self.submit_button = None
         self.label_names = ['a', 'b']
         self.inputs = {} # contains entry, label, poss
@@ -41,52 +26,14 @@ class WheelResultPage(tkUtil.Page):
             self.inputs[label_name]["poss"] = []
             self.inputs[label_name]["val"] = ""
         self.init_submit_button()
-        
-        
-    def initSummonerMarbles(self):
-        self.gridframe = tk.Frame(self.root)
-        self.headers = ["Name", "Position", "Letter", "Level"]
-        for col, header in enumerate(self.headers):
-            self.assignmentHeadLabels.append(tk.Label(self.gridframe, text=header, font=("Arial", 10, "bold"), anchor="w").grid(row=0, column=col, padx=5, pady=5, sticky="w"))
-
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # Display each attribute of the Summoner object in a new column
-            self.assignmentLabels[key] = {}
-            self.assignmentLabels[key][self.headers[0]] = tk.Label(self.gridframe, text=key)
-            self.assignmentLabels[key][self.headers[0]].grid(row=row, column=0, padx=5, pady=5)
-            
-            self.assignmentLabels[key][self.headers[1]] = tk.Label(self.gridframe, text="")
-            self.assignmentLabels[key][self.headers[1]].grid(row=row, column=1, padx=5, pady=5)
-            
-            self.assignmentLabels[key][self.headers[2]] = tk.Label(self.gridframe, text="")
-            self.assignmentLabels[key][self.headers[2]].grid(row=row, column=2, padx=5, pady=5)
-
-            self.assignmentLabels[key][self.headers[3]] = tk.Label(self.gridframe, text="")
-            self.assignmentLabels[key][self.headers[3]].grid(row=row, column=3, padx=5, pady=5)
-
-    def updateAssignments(self, unpickedSummoners=globals.allSummoners):
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # Update each attribute of the Summoner object
-            bgd = "SystemButtonFace"
-            if not key in unpickedSummoners:
-                bgd = "#90EE90"
-            self.assignmentLabels[key][self.headers[0]].config(bg=bgd)
-            self.assignmentLabels[key][self.headers[1]].config(text=rules.marbles[summoner.curMarble].position, bg=bgd)
-            self.assignmentLabels[key][self.headers[2]].config(text=rules.marbles[summoner.curMarble].letter, bg=bgd)
-            self.assignmentLabels[key][self.headers[3]].config(text=rules.marbles[summoner.curMarble].level, bg=bgd)
 
     def show(self):
         super().show()
-        self.gridframe.place(x=0, y=200.0, anchor="w")
-        self.updateAssignments()
         self.gen_from_inputs()
         self.setMessageLabel(tkWheelPage.wheel_result)
         self.next_button.config(state="disabled")
     
-    def hide(self):
-        super().hide()
-        self.frame.place_forget()
-        self.gridframe.place_forget()
+    # def hide(self):
     
     
     def get_possible_input(self, code): # TODO this should be a map tbh
@@ -140,52 +87,50 @@ class WheelResultPage(tkUtil.Page):
             else:
                 self.inputs[label_name]["label"].pack_forget()
                 self.inputs[label_name]["entry"].pack_forget()
+                self.on_submit()
         self.submit_button.config(state="active")
 
     def init_submit_button(self):
-        # internal function to handle submit button click
-        def on_submit():
-            # Print the values and validate them
-            
-            totalOk = True
-            for label_name in self.label_names:
-                read_input = self.inputs[label_name]["entry"].get()
-                print(label_name+":"+read_input)
-                
-                # only validate inputs with text boxes
-                if len(self.inputs[label_name]["poss"]) > 1:
-                    self.inputs[label_name]["val"] = read_input
-                    ok = False
-                    loweredVal = self.inputs[label_name]["val"].lower()
-                    for possVal in self.inputs[label_name]["poss"]:
-                        if(loweredVal == possVal.lower()):
-                            ok = True
-                            break
-                    if not ok:
-                        totalOk = False
-                        print("BAD INPUT probably")
-                        break
-            
-            if totalOk:
-                self.submit_button.config(state="disabled") # prevent excess submissions for a bit(?)
-                self.next_button.config(state="active")
-                # TODO wheel map call
-                # construct params
-                if not rules.godScenario:
-                    wheel_params = []
-                    for label_name in self.label_names:
-                        wheel_params.append(self.inputs[label_name]["val"])
-                    wheelMap.wheel_map[tkWheelPage.wheel_result](wheel_params)
-                
-                # once valid input, go next immediately
-                self.handleNext()
-
-            # if inputs not ok then don't do anything
-            
-
         # Submit button
-        self.submit_button = tk.Button(self.frame, text="Submit", command=on_submit)
+        self.submit_button = tk.Button(self.frame, text="Submit", command=self.on_submit)
         self.submit_button.pack()
+        
+    # internal function to handle submit button click
+    def on_submit(self):
+        # Print the values and validate them
+        
+        totalOk = True
+        for label_name in self.label_names:
+            read_input = self.inputs[label_name]["entry"].get()
+            print(label_name+":"+read_input)
+            
+            # only validate inputs with text boxes
+            if len(self.inputs[label_name]["poss"]) > 1:
+                self.inputs[label_name]["val"] = read_input
+                ok = False
+                loweredVal = self.inputs[label_name]["val"].lower()
+                for possVal in self.inputs[label_name]["poss"]:
+                    if(loweredVal == possVal.lower()):
+                        ok = True
+                        break
+                if not ok:
+                    totalOk = False
+                    print("BAD INPUT probably")
+                    break
+        
+        if totalOk:
+            self.submit_button.config(state="disabled") # prevent excess submissions for a bit(?)
+            self.next_button.config(state="active")
+            # TODO wheel map call
+            # construct params
+            if not rules.godScenario:
+                wheel_params = []
+                for label_name in self.label_names:
+                    wheel_params.append(self.inputs[label_name]["val"])
+                wheelMap.wheel_map[tkWheelPage.wheel_result](wheel_params)
+            
+            # once valid input, go next immediately
+            self.handleNext()
         
     def handleNext(self):
         tkUtil.show_page(2)

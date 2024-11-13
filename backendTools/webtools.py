@@ -24,13 +24,14 @@ def updateOPGG():
     # I don't think these flags do anything btw
     options.add_argument('--disable-web-security')  # Disables web security
     options.add_argument('--allow-file-access-from-files')  # Allows access to files
+    options.add_argument('--start-maximized') # focuses window so that selenium can find button
 
 
     start_time = time.time()
     while True:
         elapsed_time = time.time() - start_time  # Calculate elapsed time
 
-        if elapsed_time > 40:  # Check if over 15 seconds passed
+        if elapsed_time > 60:  # Check if over 1 min passed
             print("Timeout exceeded, assumed you pushed it manually, exiting the loop.")
             break
         
