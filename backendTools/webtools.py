@@ -15,17 +15,25 @@ import time
 def updateOPGG():
     options = Options()
     options.headless = False
-    options.add_argument('--ignore-certificate-errors') # not sure why this doesn't make the warning disappear but it loads now
-    options.add_argument('--allow-insecure-localhost')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--disable-gpu') # otherwise skia issues
-    
-    # I don't think these flags do anything btw
-    options.add_argument('--disable-web-security')  # Disables web security
-    options.add_argument('--allow-file-access-from-files')  # Allows access to files
-    options.add_argument('--start-maximized') # focuses window so that selenium can find button
+    # ChromeDriver is just AWFUL because every version or two it breaks unless you pass cryptic arguments
+    # AGRESSIVE: options.setPageLoadStrategy(PageLoadStrategy.NONE) # https://www.skptricks.com/2018/08/timed-out-receiving-message-from-renderer-selenium.html
+    options.add_argument("start-maximized") # https://stackoverflow.com/a/26283818/1689770
+    options.add_argument("enable-automation") # https://stackoverflow.com/a/43840128/1689770
+    options.add_argument("--no-sandbox") #https://stackoverflow.com/a/50725918/1689770
+    options.add_argument("--disable-dev-shm-usage") #https://stackoverflow.com/a/50725918/1689770
+    options.add_argument("--disable-browser-side-navigation") #https://stackoverflow.com/a/49123152/1689770
+    options.add_argument("--disable-gpu") #https://stackoverflow.com/questions/51959986/how-to-solve-selenium-chromedriver-timed-out-receiving-message-from-renderer-exc
 
+    # er my own research which may be less accurate:
+    # options.add_argument('--ignore-certificate-errors') # not sure why this doesn't make the warning disappear but it loads now
+    # options.add_argument('--allow-insecure-localhost')
+    # options.add_argument('--no-sandbox')
+    # options.add_argument('--disable-dev-shm-usage')
+    # options.add_argument('--disable-gpu') # otherwise skia issues
+    # # I don't think these flags do anything btw
+    # options.add_argument('--disable-web-security')  # Disables web security
+    # options.add_argument('--allow-file-access-from-files')  # Allows access to files
+    # options.add_argument('--start-maximized') # focuses window so that selenium can find button
 
     start_time = time.time()
     while True:
@@ -40,6 +48,10 @@ def updateOPGG():
         
         try:
             driver.get('https://www.op.gg/summoners/na/KayFish66-3435')
+            
+            # Bring the window to focus, idk if this does anything
+            # driver.switch_to.window(driver.current_window_handle)
+            
             button = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, "//button[span/span[text()='Update']]"))
             )
