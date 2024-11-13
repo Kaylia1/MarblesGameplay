@@ -63,6 +63,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
         super().updateAssignments(unpickedSummoners)
         
+        # champion winrate statistics
         keys = rules.marbleChampStats()
         appData = []
         for key in keys:

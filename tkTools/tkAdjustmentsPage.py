@@ -10,6 +10,7 @@ import tkTools.tkPickingPage as tkPickingPage
 
 import backendTools.wheelMap as wheelMap
 import tkTools.tkUtil as tkUtil
+import tkTools.tkMoney as tkMoney
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
@@ -17,13 +18,9 @@ import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
 import tkTools.tkWheelPage as tkWheelPage
 
-class AdjustmentsPage(tkUtil.Page):
+class AdjustmentsPage(tkMoney.MoneyPage):
     def __init__(self, root):
         super().__init__(root, "Wheel / Bribe Page", "huh")
-        
-        self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 12))
-        self.curAssignments.place(x=0, y=90.0, anchor="w")
-        
         self.entry = tk.Entry(self.frame, width=30)
         self.entry.place(x=300, y=540.0, anchor="w")
         
@@ -32,16 +29,6 @@ class AdjustmentsPage(tkUtil.Page):
         self.button_pressed = tk.StringVar()
         self.entered_text = ""
         
-        self.gridframe = None # assignments grid
-        self.moneyFrame = None
-        
-        self.headers = []
-        self.assignmentHeadLabels = []
-        self.assignmentLabels = {}
-        
-        # points.load_state() # TODO should we be able to dynamically load at runtime?
-        self.initSummonerMarbles()
-        
         # Champ stats
         self.stat_frames = []
         self.stats_data_labels = {}
@@ -49,46 +36,11 @@ class AdjustmentsPage(tkUtil.Page):
         self.stats_col_title_labels = []
         self.create_table_grids()
         
-        # Money
-        self.moneyLabels = []
-        self.initSummonerMoney()
-        
         # bribery
         self.initBribery()
-    
-    def initSummonerMarbles(self):
-        self.gridframe = tk.Frame(self.root)
-        # self.gridframe.place(x=0, y=200.0, anchor="w")
-        
-        self.headers = ["Name", "Position", "Letter", "Level"]
-        for col, header in enumerate(self.headers):
-            self.assignmentHeadLabels.append(tk.Label(self.gridframe, text=header, font=("Arial", 10, "bold"), anchor="w").grid(row=0, column=col, padx=5, pady=5, sticky="w"))
-
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # Display each attribute of the Summoner object in a new column
-            self.assignmentLabels[key] = {}
-            self.assignmentLabels[key][self.headers[0]] = tk.Label(self.gridframe, text=key)
-            self.assignmentLabels[key][self.headers[0]].grid(row=row, column=0, padx=5, pady=5)
-            
-            self.assignmentLabels[key][self.headers[1]] = tk.Label(self.gridframe, text="")
-            self.assignmentLabels[key][self.headers[1]].grid(row=row, column=1, padx=5, pady=5)
-            
-            self.assignmentLabels[key][self.headers[2]] = tk.Label(self.gridframe, text="")
-            self.assignmentLabels[key][self.headers[2]].grid(row=row, column=2, padx=5, pady=5)
-
-            self.assignmentLabels[key][self.headers[3]] = tk.Label(self.gridframe, text="")
-            self.assignmentLabels[key][self.headers[3]].grid(row=row, column=3, padx=5, pady=5)
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # Update each attribute of the Summoner object
-            bgd = "SystemButtonFace"
-            if not key in unpickedSummoners:
-                bgd = "#90EE90"
-            self.assignmentLabels[key][self.headers[0]].config(bg=bgd)
-            self.assignmentLabels[key][self.headers[1]].config(text=rules.marbles[summoner.curMarble].position, bg=bgd)
-            self.assignmentLabels[key][self.headers[2]].config(text=rules.marbles[summoner.curMarble].letter, bg=bgd)
-            self.assignmentLabels[key][self.headers[3]].config(text=rules.marbles[summoner.curMarble].level, bg=bgd)
+        super().updateAssignments(unpickedSummoners)
         
         keys = rules.marbleChampStats()
         appData = []
@@ -172,32 +124,6 @@ class AdjustmentsPage(tkUtil.Page):
             lbl4.grid(row=row, column=3, sticky="nsew")
             self.stats_data_labels[frame].append(lbl4)
     
-    # =================== MONEY ============================
-    
-    def initSummonerMoney(self):
-        self.moneyFrame = tk.Frame(self.root)
-        
-        headers = ["Name", "Money"]
-        for col, header in enumerate(headers):
-            self.moneyLabels.append(tk.Label(self.moneyFrame, text=header, font=("Arial", 10, "bold"), anchor="w"))
-            self.moneyLabels[-1].grid(row=0, column=col, padx=5, pady=5, sticky="w")
-
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # key is summoner name
-            # Display each attribute of the Summoner object in a new column
-            self.moneyLabels.append(tk.Label(self.moneyFrame, text=key))
-            self.moneyLabels[-1].grid(row=row, column=0, padx=5, pady=5)
-            self.moneyLabels.append(tk.Label(self.moneyFrame, text="$"+str(summoner.money)))
-            self.moneyLabels[-1].grid(row=row, column=1, padx=5, pady=5)
-    
-    def updateSummonerMoney(self):
-        name = ""
-        for i in range(2, len(self.moneyLabels)):
-            if(i%2==0):
-                name = tkUtil.getLabelTxt(self.moneyLabels[i])
-            else:
-                self.moneyLabels[i].config(text="$"+str(globals.summoners[name].money))
-    
     # =================== BRIBE BUTTON ==========================
     def initBribery(self):
         # List of valid inputs
@@ -252,21 +178,15 @@ class AdjustmentsPage(tkUtil.Page):
     def hide(self):
         super().hide()
         self.frame.place_forget()
-        self.gridframe.place_forget()
-        self.moneyFrame.place_forget()
         self.bribeFrame.place_forget()
         self.hide_stat_frames()
         
     def show(self):
         super().show()
-        self.gridframe.place(x=0, y=200.0, anchor="w")
-        self.moneyFrame.place(x=0, y=600.0, anchor="w")
         self.bribeFrame.place(x=800, y=600.0, anchor="w")
         
-        self.updateSummonerMoney()
-        
         # run main assignments program
-        self.updateAssignments() # get data that pickingpage set
+        # self.updateAssignments() # get data that pickingpage set
         self.show_stat_frames()
         
         self.setMessageLabel("last wheel result:\n"+tkWheelPage.wheel_result)
