@@ -66,14 +66,20 @@ class PostgamePage(tkUtil.Page):
             self.info_labels[summonerName]["support"].config(text="Yes" if is_supp else "No")
     
     # assume webbot always works lol
-    def getEarnings(self):
+    def updateEarnings(self):
         webtools.updateOPGG()
         playerData, isWin = webtools.getRiotData()
         
         # ok = input("Ok? Y=continue, N=cancel riot data, manually input match data instead").strip().lower() == "y"
         # if not ok:
         #     isWin = input("Win? (Y/N): ").strip().lower() == "y"
-            
+        
+        # Do validity checks before any modifications
+        for summoner in globals.summoners.values():
+            if not summoner.gameName in playerData:
+                print("Summoner "+ summoner.gameName + " not found. Failed to fetch gamedata.")
+                return
+        
         for summoner in globals.summoners.values():
             # if ok:
             kills = playerData[summoner.gameName]["kills"]
@@ -115,7 +121,7 @@ class PostgamePage(tkUtil.Page):
     def show(self):
         super().show()
         self.infoFrame.pack(padx=10, pady=10)
-        self.getEarnings()
+        self.updateEarnings()
 
 def createPostgamePage(root):
     homepage = PostgamePage(root)

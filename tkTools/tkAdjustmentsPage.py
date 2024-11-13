@@ -70,13 +70,13 @@ class AdjustmentsPage(tkUtil.Page):
             self.assignmentLabels[key][self.headers[0]] = tk.Label(self.gridframe, text=key)
             self.assignmentLabels[key][self.headers[0]].grid(row=row, column=0, padx=5, pady=5)
             
-            self.assignmentLabels[key][self.headers[1]] = tk.Label(self.gridframe, text=rules.marbles[summoner.curMarble].position)
+            self.assignmentLabels[key][self.headers[1]] = tk.Label(self.gridframe, text="")
             self.assignmentLabels[key][self.headers[1]].grid(row=row, column=1, padx=5, pady=5)
             
-            self.assignmentLabels[key][self.headers[2]] = tk.Label(self.gridframe, text=rules.marbles[summoner.curMarble].letter)
+            self.assignmentLabels[key][self.headers[2]] = tk.Label(self.gridframe, text="")
             self.assignmentLabels[key][self.headers[2]].grid(row=row, column=2, padx=5, pady=5)
 
-            self.assignmentLabels[key][self.headers[3]] = tk.Label(self.gridframe, text=rules.marbles[summoner.curMarble].level)
+            self.assignmentLabels[key][self.headers[3]] = tk.Label(self.gridframe, text="")
             self.assignmentLabels[key][self.headers[3]].grid(row=row, column=3, padx=5, pady=5)
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):

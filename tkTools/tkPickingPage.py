@@ -1,4 +1,5 @@
 import tkTools.tkUtil as tkUtil
+import tkTools.tkAssignments as tkAssignments
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
@@ -9,7 +10,7 @@ import backendTools.parseChampStats as parseChampStats
 DEFAULT_MSG = "Homies, it's marblin time x2"
 
 
-class PickingPage(tkUtil.Page):
+class PickingPage(tkAssignments.AssignmentsPage):
     def __init__(self, root):
         super().__init__(root, "Picking Page", DEFAULT_MSG)
         
@@ -31,21 +32,9 @@ class PickingPage(tkUtil.Page):
         # self.reminderMsg = tk.Label(self.frame, text="Did you finish copying marbles output to data/marbles_output.txt?", font=("Arial", 12))
         # self.reminderMsg.place(x=tkUtil.WIDTH/2, y=400.0, anchor="center")
         
-        self.gridframe = None
         self.top10gridframe = None
         
-        self.headers = []
-        self.assignmentHeadLabels = []
-        self.assignmentLabels = {}
-        
         self.top10Labels = []
-        
-        self.done = False
-        rules.readMarbles()
-        rules.initGetBestMarbles()
-        
-        # points.load_state() # TODO should we be able to dynamically load at runtime?
-        self.initSummonerMarbles()
         self.initTop10Marbles()
         
         # Champ stats
@@ -54,34 +43,11 @@ class PickingPage(tkUtil.Page):
         self.stats_title_labels = []
         self.stats_col_title_labels = []
         self.create_table_grids()
-    
-    def initSummonerMarbles(self):
-        self.gridframe = tk.Frame(self.root)
-        # self.gridframe.place(x=0, y=200.0, anchor="w")
-        
-        self.headers = ["Name", "Position", "Letter", "Level"]
-        for col, header in enumerate(self.headers):
-            self.assignmentHeadLabels.append(tk.Label(self.gridframe, text=header, font=("Arial", 10, "bold"), anchor="w").grid(row=0, column=col, padx=5, pady=5, sticky="w"))
-
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # Display each attribute of the Summoner object in a new column
-            self.assignmentLabels[key] = {}
-            self.assignmentLabels[key][self.headers[0]] = tk.Label(self.gridframe, text=key)
-            self.assignmentLabels[key][self.headers[0]].grid(row=row, column=0, padx=5, pady=5)
-            
-            self.assignmentLabels[key][self.headers[1]] = tk.Label(self.gridframe, text=rules.marbles[summoner.curMarble].position)
-            self.assignmentLabels[key][self.headers[1]].grid(row=row, column=1, padx=5, pady=5)
-            
-            self.assignmentLabels[key][self.headers[2]] = tk.Label(self.gridframe, text=rules.marbles[summoner.curMarble].letter)
-            self.assignmentLabels[key][self.headers[2]].grid(row=row, column=2, padx=5, pady=5)
-
-            self.assignmentLabels[key][self.headers[3]] = tk.Label(self.gridframe, text=rules.marbles[summoner.curMarble].level)
-            self.assignmentLabels[key][self.headers[3]].grid(row=row, column=3, padx=5, pady=5)
 
     def initTop10Marbles(self):
         self.top10gridframe = tk.Frame(self.root)
         for i in range(10):
-            self.top10Labels.append(tk.Label(self.top10gridframe, text=str(i)+": "+rules.marbles[i].marbleDesc))
+            self.top10Labels.append(tk.Label(self.top10gridframe, text=str(i)+": "))
             self.top10Labels[-1].grid(row=i, column=0, padx=5, pady=5, sticky="w")
 
     def updateTop10Marbles(self):
@@ -95,15 +61,7 @@ class PickingPage(tkUtil.Page):
             self.top10Labels[i].config(text="")
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
-        for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
-            # Update each attribute of the Summoner object
-            bgd = "SystemButtonFace"
-            if not key in unpickedSummoners:
-                bgd = "#90EE90"
-            self.assignmentLabels[key][self.headers[0]].config(bg=bgd)
-            self.assignmentLabels[key][self.headers[1]].config(text=rules.marbles[summoner.curMarble].position, bg=bgd)
-            self.assignmentLabels[key][self.headers[2]].config(text=rules.marbles[summoner.curMarble].letter, bg=bgd)
-            self.assignmentLabels[key][self.headers[3]].config(text=rules.marbles[summoner.curMarble].level, bg=bgd)
+        super().updateAssignments(unpickedSummoners)
         
         keys = rules.marbleChampStats()
         appData = []
@@ -294,23 +252,25 @@ class PickingPage(tkUtil.Page):
     def hide(self):
         super().hide()
         self.frame.place_forget()
-        self.gridframe.place_forget()
         self.top10gridframe.place_forget()
         self.hide_stat_frames()
         
         
     
     def show(self):
-        super().show()
-        self.gridframe.place(x=0, y=200.0, anchor="w")
         self.top10gridframe.place(x=0, y=350.0)
         self.done = False
         self.next_button.config(state="disabled")
         
         # run main assignments program
+        rules.readMarbles()
+        rules.initGetBestMarbles()
+        super().show() # need to initialize marble data before showing assignments
+        
         self.updateTop10Marbles()
         self.show_stat_frames()
         self.updateSummonerMarbles()
+        
 
 def createPickingPage(root):
     return PickingPage(root)
