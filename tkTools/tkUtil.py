@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from PIL import Image, ImageTk, ImageEnhance
 
 WIDTH = 1500
 HEIGHT = 800
@@ -27,6 +28,18 @@ class Page:
         # Title
         self.title_label = tk.Label(self.frame, text=title, font=("Arial", 18, "bold"))
         self.title_label.place(x=5.0, y=5.0, anchor="nw")
+        
+        image = Image.open("marblesreviews.png")
+        enhancer = ImageEnhance.Brightness(image)
+        faded_image = enhancer.enhance(0.5)
+        resize_image = faded_image.resize((1500, 800))
+        img = ImageTk.PhotoImage(resize_image)
+        
+        # create label and add resize image
+        label1 = tk.Label(self.frame, image=img)
+        label1.image = img
+        label1.pack()
+        # self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         # Message
         self.message_label = tk.Label(self.frame, text=message, font=("Arial", 12),

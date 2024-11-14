@@ -3,6 +3,9 @@
 - python3
 - selenium `pip3 install selenium`
 - tkinter `pip3 install tk`
+- requests `pip3 install requests`
+- PIL `pip3 install Pillow`
+
 
 # Run Instructions 
 cd into marbles top folder

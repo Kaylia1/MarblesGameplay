@@ -29,6 +29,9 @@ class MoneyPage(tkAssignments.AssignmentsPage):
             self.moneyLabels[-1].grid(row=row, column=0, padx=5, pady=5)
             self.moneyLabels.append(tk.Label(self.moneyFrame, text="$"+str(summoner.money)))
             self.moneyLabels[-1].grid(row=row, column=1, padx=5, pady=5)
+        
+        # self.canvas2 = tk.Canvas(self.root, width=200, height=200, bd=0, highlightthickness=0)
+        
     
     def updateSummonerMoney(self):
         name = ""
@@ -46,5 +49,7 @@ class MoneyPage(tkAssignments.AssignmentsPage):
         
     def show(self):
         super().show()
+        # self.rect = self.canvas.create_rectangle(0, 600, 300, 200, fill="white", outline="white")
+        # self.canvas2.place(x=0, y=600)  # Same position as the frame
         self.moneyFrame.place(x=0, y=600.0, anchor="w")
         self.updateSummonerMoney()
