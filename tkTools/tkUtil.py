@@ -21,6 +21,10 @@ def getLabelTxt(label):
 
 
 class Page:
+    IMAGE_PATH = "marblesreviews.png"
+    IMAGE_SIZE = (1500, 800)
+    processed_image = None
+    
     def __init__(self, root, title, message):
         self.root = root
         self.frame = tk.Frame(root)
@@ -29,15 +33,10 @@ class Page:
         self.title_label = tk.Label(self.frame, text=title, font=("Arial", 18, "bold"))
         self.title_label.place(x=5.0, y=5.0, anchor="nw")
         
-        image = Image.open("marblesreviews.png")
-        enhancer = ImageEnhance.Brightness(image)
-        faded_image = enhancer.enhance(0.5)
-        resize_image = faded_image.resize((1500, 800))
-        img = ImageTk.PhotoImage(resize_image)
-        
+        self.setup_background_image()
         # create label and add resize image
-        label1 = tk.Label(self.frame, image=img)
-        label1.image = img
+        label1 = tk.Label(self.frame, image=Page.processed_image)
+        label1.image = Page.processed_image
         label1.pack()
         # self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
@@ -50,6 +49,16 @@ class Page:
         self.next_button = tk.Button(self.frame, text="Ok", font=("Arial", 12), 
                                     command=self.handleNext)
         self.next_button.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)
+
+    @staticmethod
+    def setup_background_image():
+        # Process image only once and cache the result
+        if Page.processed_image is None:
+            image = Image.open(Page.IMAGE_PATH)
+            enhancer = ImageEnhance.Brightness(image)
+            faded_image = enhancer.enhance(0.5)
+            resize_image = faded_image.resize(Page.IMAGE_SIZE)
+            Page.processed_image = ImageTk.PhotoImage(resize_image)
 
     def init_animations(self):
         if(not getLabelTxt(self.message_label) == ""):

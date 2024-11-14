@@ -56,9 +56,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
             self.top10Labels[i].config(text=str(i)+": "+rules.marbles[i].marbleDesc)
     
     def clearPrompts(self):
-        self.prompt.config(text="")
-        for i in range(10):
-            self.top10Labels[i].config(text="")
+        self.top10gridframe.place_forget()
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
         super().updateAssignments(unpickedSummoners)
@@ -260,6 +258,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
     
     def show(self):
         self.top10gridframe.place(x=0, y=350.0)
+        self.prompt.place(x=0, y=340.0, anchor="w")
         self.done = False
         self.next_button.config(state="disabled")
         

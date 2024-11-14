@@ -15,6 +15,9 @@ import time
 def updateOPGG():
     options = Options()
     options.headless = False
+    
+    # todo look at this: https://stackoverflow.com/questions/75100754/selenium-common-exceptions-timeoutexception-message-timeout-timed-out-receivi
+    
     # ChromeDriver is just AWFUL because every version or two it breaks unless you pass cryptic arguments
     # AGRESSIVE: options.setPageLoadStrategy(PageLoadStrategy.NONE) # https://www.skptricks.com/2018/08/timed-out-receiving-message-from-renderer-selenium.html
     options.add_argument("start-maximized") # https://stackoverflow.com/a/26283818/1689770
