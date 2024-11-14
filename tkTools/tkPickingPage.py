@@ -74,16 +74,20 @@ class PickingPage(tkAssignments.AssignmentsPage):
             self.create_table(frame, appData[i])
         
 
-    # state starts off as "show"
+    # state machine, this needs to run really fast
     def updateSummonerMarbles(self):
         state_info = self.state_queue[0]
         self.state = state_info[0]
-
-        if self.state != "done":
-            self.frame.after(100, self.updateSummonerMarbles)
         
-        # let pick and done be "stuck" states
-        if self.state != "pick" and self.state != "done":
+        # schedule repeating updates until done
+        if self.state == "done":
+            return
+        self.frame.after(100, self.updateSummonerMarbles)
+        
+        # print(self.state_queue)
+        
+        # pick can only be marked done by itself
+        if self.state != "pick" and self.state != "top10swap":
             self.state_queue.pop(0)
         
         if self.state == "show":
@@ -103,19 +107,18 @@ class PickingPage(tkAssignments.AssignmentsPage):
             self.setMessageLabel("Enter a number 0-9")
             
             self.state_queue.append(["top10swap"])
+        # wait for 0-9 for top 10 swapping
         elif self.state == "top10swap":
             if self.checkSubmitted() and self.getNum09():
                 rules.top1Swaper(int(self.entered_text))
-                self.state_queue.append(["paralyzedFirstCheck"])
-            else: 
-                self.state_queue.append(["top10swap"])
-        elif self.state == "paralyzedFirstCheck": # maybe set state for each picker?
-            # # assign marbles via marble level and picking
-            # # note: top 1 doesn't pick first ONLY if paralyzed
-            if(not rules.marbles[0].level == "0"):
-                self.state_queue.append(["pick", rules.marbles[0].name, False])
-                self.pickState = "pickInit"
-            self.state_queue.append(["mainPicking"])
+                self.state_queue.pop(0) # remove itself (top10swap)
+
+                # Check for paralysis
+                # # note: top 1 doesn't pick first ONLY if paralyzed
+                if(not rules.marbles[0].level == "0"):
+                    self.state_queue.append(["pick", rules.marbles[0].name, False])
+                    self.pickState = "pickInit"
+                self.state_queue.append(["mainPicking"])
         elif self.state == "mainPicking":
             if (len(self.unpickedSummoners)>0):
                 nextPickers, isParalyzed = rules.getNextPicker(self.unpickedSummoners)
@@ -126,12 +129,11 @@ class PickingPage(tkAssignments.AssignmentsPage):
                 self.state_queue.append(["mainPicking"])
             else:
                 # no more pickers, finish
+                self.setMessageLabel("All positions are assigned!")
+                self.done = True
+                self.next_button.config(state="active")
+                self.clearPrompts()
                 self.state_queue.append(["done"])
-        elif self.state == "done":
-            self.setMessageLabel("All positions are assigned!")
-            self.done = True
-            self.next_button.config(state="active")
-            self.clearPrompts()
         
         # run once for each pick
         elif self.state == "pick":
@@ -176,11 +178,11 @@ class PickingPage(tkAssignments.AssignmentsPage):
                     self.pickState = "pickRoleFin"
             # finished picking, exit the picking substate machine
             elif self.pickState == "pickRoleFin":
-                    print("picked role: "+self.pickedRole)
-                    rules.updatePickList(self.unpickedSummoners, picker, self.unpickedRoles, self.pickedRole)
-                    self.updateAssignments(self.unpickedSummoners)
-                    self.pickState = "pickInit" # reset in case another pick call afterwards
-                    self.state_queue.pop(0) # exit the picking substate machine
+                print("picked role: "+self.pickedRole)
+                rules.updatePickList(self.unpickedSummoners, picker, self.unpickedRoles, self.pickedRole)
+                self.updateAssignments(self.unpickedSummoners)
+                self.pickState = "pickInit" # reset in case another pick call afterwards
+                self.state_queue.pop(0) # exit the picking substate machine
     
             # paralyzed, show top 5 marbles prompt
             elif self.pickState == "paralyzedInit":
