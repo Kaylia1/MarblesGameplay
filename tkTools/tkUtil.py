@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import tkTools.Assets.StyledButton as StyledButton
 from PIL import Image, ImageTk, ImageEnhance
 
 WIDTH = 1500
@@ -46,7 +47,7 @@ class Page:
         self.message_label.pack(pady=5)
 
         # Next button in the bottom-right corner
-        self.next_button = tk.Button(self.frame, text="Ok", font=("Arial", 12), 
+        self.next_button = StyledButton.StyledButton(self.frame, text="Ok", font=("Arial", 12), 
                                     command=self.handleNext)
         self.next_button.place(relx=1.0, rely=1.0, anchor="se", x=-10, y=-10)
 
@@ -115,6 +116,8 @@ def show_page(page_num):
     
     # animate any new messages
     pages[page_num].animate_message(pages[page_num].message_label)
+    
+    print("done with show page")
 
 def trigger_wheel_page():
     print("TRIGGERING WHEEL")

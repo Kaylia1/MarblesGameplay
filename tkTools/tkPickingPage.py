@@ -86,6 +86,8 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.button_clicked = False
         self.setMessageLabel("Enter a number 0-9")
         
+        
+        
         while True:
             self.submit_button.wait_variable(self.button_pressed)
             if(self.getNum09()):
@@ -269,7 +271,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
         
         self.updateTop10Marbles()
         self.show_stat_frames()
-        self.updateSummonerMarbles()
+        self.updateSummonerMarbles() # main picking
         
 
 def createPickingPage(root):

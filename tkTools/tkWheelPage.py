@@ -137,10 +137,6 @@ class WheelPage(tkUtil.Page):
         
         self.next_button.config(state="active")
 
-    def on_close(self):
-        """Handle the close event by destroying the window and exiting mainloop."""
-        self.frame.destroy()
-
     def hide(self):
         super().hide()
         self.frame.place_forget()
