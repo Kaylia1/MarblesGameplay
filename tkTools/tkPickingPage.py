@@ -13,6 +13,9 @@ DEFAULT_MSG = "Homies, it's marblin time x2"
 class PickingPage(tkAssignments.AssignmentsPage):
     def __init__(self, root):
         super().__init__(root, "Picking Page", DEFAULT_MSG)
+        self.state_queue = []
+        self.state = "done"
+        self.pickState = "pickInit"
         
         self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 12))
         self.curAssignments.place(x=0, y=90.0, anchor="w")
@@ -23,7 +26,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.submit_button = tk.Button(self.frame, text="Submit", command=self.submit)
         self.submit_button.place(x=500, y=540.0, anchor="w")
         # self.button_clicked = False
-        self.button_pressed = tk.StringVar()
+        self.button_pressed = tk.BooleanVar()
         self.entered_text = ""
         
         # self.reminderMsg = tk.Label(self.frame, text="Did you finish copying marbles output to data/marbles_output.txt?", font=("Arial", 12))
@@ -71,106 +74,130 @@ class PickingPage(tkAssignments.AssignmentsPage):
             self.create_table(frame, appData[i])
         
 
+    # state starts off as "show"
     def updateSummonerMarbles(self):
-        # initial visualization of data
-        self.updateAssignments()
-        
-        if rules.godScenario:
-            self.setMessageLabel("Someone is God, further picking actions disallowed.")
-            return
-        
-        self.unpickedSummoners = list(globals.summoners.keys())
-        self.unpickedRoles = list(globals.ROLES)
-        
-        self.entered_text = ""
-        self.button_clicked = False
-        self.setMessageLabel("Enter a number 0-9")
-        
-        
-        
-        while True:
-            self.submit_button.wait_variable(self.button_pressed)
-            if(self.getNum09()):
-                break
-    
-        rules.top1Swaper(int(self.entered_text))
-        self.updateAssignments()
-        
-        # # assign marbles via marble level and picking
-        # # note: top 1 doesn't pick first ONLY if paralyzed
-        if(not rules.marbles[0].level == "0"):
-            self.pick(rules.marbles[0].name, False)
-        while(len(self.unpickedSummoners)>0):
-            nextPickers, isParalyzed = rules.getNextPicker(self.unpickedSummoners)
-            for picker in nextPickers:
-                self.pick(picker, isParalyzed)
-        
-        self.setMessageLabel("All positions are assigned!")
-        self.done = True
-        self.next_button.config(state="active")
-        self.clearPrompts()
-        
-    def pick(self, picker, isParalyzed):
-        # check if current role assignment is ok, else get new marble
-        rules.updateBestMarble(self.unpickedSummoners, self.unpickedRoles)
-        
-        # print("picker:"+picker) # TODO UI THIS
-        # if paralyzed, print next 5 lvl1 marbles of that person with avail roles
-        top5 = []
-        if isParalyzed:
-            top5 = rules.getTop5Marbles(picker, globals.summoners[picker].curMarble, self.unpickedRoles)
-            
-            # show top 5 marbles as prompt
-            self.prompt.config(text="Paralyzed! Pick a marble 0-4")
-            self.setMessageLabel(picker+" is paralyzed.")
-            for i in range(10):
-                if i < 5:
-                    self.top10Labels[i].config(text=str(i)+":"+rules.marbles[top5[i]].marbleDesc)
-                else:
-                    self.top10Labels[i].config(text="")
+        state_info = self.state_queue[0]
+        self.state = state_info[0]
 
-            # input 0-4
-            while True:
-                self.submit_button.wait_variable(self.button_pressed)
-                if(self.entered_text.isdigit() and int(self.entered_text) >= 0 and int(self.entered_text) < 5):
-                    rules.setCurMarble(picker, top5[int(self.entered_text)])
-                    break
+        if self.state != "done":
+            self.frame.after(100, self.updateSummonerMarbles)
         
-        # input valid 
-        pickedRole = ""
-        if(len(self.unpickedRoles)==1):
-            print("One role remaining. Forcibly assigning "+picker+" to "+self.unpickedRoles[0])
-            rules.setRole(globals.summoners[picker].curMarble, self.unpickedRoles[0])
-            pickedRole = self.unpickedRoles[0]
+        # let pick and done be "stuck" states
+        if self.state != "pick" and self.state != "done":
+            self.state_queue.pop(0)
         
-        if(rules.marbles[globals.summoners[picker].curMarble].position==""):
-            # no role assigned yet, can pick own role, input role
-            self.prompt.config(text="Remaining roles:")
-            for i in range(10):
-                if i < len(self.unpickedRoles):
-                    self.top10Labels[i].config(text=self.unpickedRoles[i])
+        if self.state == "show":
+            # initial visualization of data
+            self.updateAssignments()
+            
+            if rules.godScenario:
+                self.setMessageLabel("Someone is God, further picking actions disallowed.")
+                self.state_queue.append(["done"])
+                return
+            
+            self.unpickedSummoners = list(globals.summoners.keys())
+            self.unpickedRoles = list(globals.ROLES)
+            
+            self.entered_text = ""
+            self.button_clicked = False
+            self.setMessageLabel("Enter a number 0-9")
+            
+            self.state_queue.append(["top10swap"])
+        elif self.state == "top10swap":
+            if self.checkSubmitted() and self.getNum09():
+                rules.top1Swaper(int(self.entered_text))
+                self.state_queue.append(["paralyzedFirstCheck"])
+            else: 
+                self.state_queue.append(["top10swap"])
+        elif self.state == "paralyzedFirstCheck": # maybe set state for each picker?
+            # # assign marbles via marble level and picking
+            # # note: top 1 doesn't pick first ONLY if paralyzed
+            if(not rules.marbles[0].level == "0"):
+                self.state_queue.append(["pick", rules.marbles[0].name, False])
+                self.pickState = "pickInit"
+            self.state_queue.append(["mainPicking"])
+        elif self.state == "mainPicking":
+            if (len(self.unpickedSummoners)>0):
+                nextPickers, isParalyzed = rules.getNextPicker(self.unpickedSummoners)
+                for picker in nextPickers:
+                    self.state_queue.append(["pick", picker, isParalyzed]) # note, this appends multiple pick main calls, need a way to pick picker and paralyzed in queue
+                    self.pickState = "pickInit"
+                # recheck number of unpicked summoners after going through a nextpickers round
+                self.state_queue.append(["mainPicking"])
+            else:
+                # no more pickers, finish
+                self.state_queue.append(["done"])
+        elif self.state == "done":
+            self.setMessageLabel("All positions are assigned!")
+            self.done = True
+            self.next_button.config(state="active")
+            self.clearPrompts()
+        
+        # run once for each pick
+        elif self.state == "pick":
+            # Todo error check
+            picker = state_info[1]
+            isParalyzed = state_info[2]
+            
+            # initial check for if it is paralyzed
+            if self.pickState == "pickInit":
+                rules.updateBestMarble(self.unpickedSummoners, self.unpickedRoles)
+                
+                if isParalyzed:
+                    self.pickState = "paralyzedInit"
                 else:
-                    self.top10Labels[i].config(text="")
-            pickedRole = self.getRole(picker)
-            rules.setRole(globals.summoners[picker].curMarble, pickedRole)
-        else:
-            pickedRole = rules.marbles[globals.summoners[picker].curMarble].position
-        
-        print("picked role: "+pickedRole)
-        rules.updatePickList(self.unpickedSummoners, picker, self.unpickedRoles, pickedRole)
-        # print("REMAINING ROLES:")
-        # print(self.unpickedRoles)
-        
-        # update display with new assignments
-        self.updateAssignments(self.unpickedSummoners)
-        # rules.currentMarbleAssignments(self.unpickedSummoners)
+                    self.pickState = "pickRoleInit"
+            # start picking once paralysis is no longer a factor
+            elif self.pickState == "pickRoleInit":
+                # input is valid 
+                self.pickedRole = ""
+                if(len(self.unpickedRoles)==1):
+                    print("One role remaining. Forcibly assigning "+picker+" to "+self.unpickedRoles[0])
+                    rules.setRole(globals.summoners[picker].curMarble, self.unpickedRoles[0])
+                    self.pickedRole = self.unpickedRoles[0]
+                
+                if(rules.marbles[globals.summoners[picker].curMarble].position==""):
+                    # no role assigned yet, can pick own role, input role
+                    self.prompt.config(text="Remaining roles:")
+                    for i in range(10):
+                        if i < len(self.unpickedRoles):
+                            self.top10Labels[i].config(text=self.unpickedRoles[i])
+                        else:
+                            self.top10Labels[i].config(text="")
+                    self.pickState = "pickRoleUpdate"
+                else:
+                    self.pickedRole = rules.marbles[globals.summoners[picker].curMarble].position
+                    self.pickState = "pickRoleFin"
+            # wait for role input
+            elif self.pickState == "pickRoleUpdate":
+                if self.checkSubmitted() and self.entered_text.lower() in self.unpickedRoles:
+                    self.pickedRole = self.entered_text.lower()
+                    rules.setRole(globals.summoners[picker].curMarble, self.pickedRole)
+                    self.pickState = "pickRoleFin"
+            # finished picking, exit the picking substate machine
+            elif self.pickState == "pickRoleFin":
+                    print("picked role: "+self.pickedRole)
+                    rules.updatePickList(self.unpickedSummoners, picker, self.unpickedRoles, self.pickedRole)
+                    self.updateAssignments(self.unpickedSummoners)
+                    self.pickState = "pickInit" # reset in case another pick call afterwards
+                    self.state_queue.pop(0) # exit the picking substate machine
     
-    def getRole(self, picker):
-        self.setMessageLabel("Pick a role "+picker)
-        while True:
-            self.submit_button.wait_variable(self.button_pressed)
-            if(self.entered_text.lower() in self.unpickedRoles):
-                return self.entered_text
+            # paralyzed, show top 5 marbles prompt
+            elif self.pickState == "paralyzedInit":
+                self.top5 = rules.getTop5Marbles(picker, globals.summoners[picker].curMarble, self.unpickedRoles)
+                self.prompt.config(text="Paralyzed! Pick a marble 0-4")
+                self.setMessageLabel(picker+" is paralyzed.")
+                for i in range(10):
+                    if i < 5:
+                        self.top10Labels[i].config(text=str(i)+":"+rules.marbles[self.top5[i]].marbleDesc)
+                    else:
+                        self.top10Labels[i].config(text="")
+                self.pickState = "paralyzedUpdate"
+            # paralyzed, wait for 0-4 input
+            elif self.pickState == "paralyzedUpdate":
+                if self.checkSubmitted() and self.entered_text.isdigit() and int(self.entered_text) >= 0 and int(self.entered_text) < 5:
+                    rules.setCurMarble(picker, self.top5[int(self.entered_text)])
+                    self.pickState = "pickRoleInit"
     
     def getNum09(self): # TODO rename this to validate
         self.button_clicked = False
@@ -184,10 +211,15 @@ class PickingPage(tkAssignments.AssignmentsPage):
         return False
     
     def submit(self):
-        self.button_pressed.set("button pressed")
+        self.button_pressed.set(True)
         self.entered_text = self.entry.get()  # Get the text from the entry box
         # print("Read input:", self.entered_text)
         self.entry.delete(0, tk.END)
+    
+    def checkSubmitted(self):
+        val = self.button_pressed.get()
+        self.button_pressed.set(False)
+        return val
         
     # =================== STATISTICS ==========================
     
@@ -252,6 +284,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
     
     def hide(self):
         super().hide()
+        self.state_queue = [["done"]]
         self.frame.place_forget()
         self.top10gridframe.place_forget()
         self.hide_stat_frames()
@@ -259,6 +292,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
         
     
     def show(self):
+        self.state_queue = [["show"]]
         self.top10gridframe.place(x=0, y=350.0)
         # self.prompt.place(x=0, y=340.0, anchor="w")
         self.done = False
