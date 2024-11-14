@@ -17,9 +17,6 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 12))
         self.curAssignments.place(x=0, y=90.0, anchor="w")
         
-        self.prompt = tk.Label(self.frame, text="", font=("Arial", 12))
-        self.prompt.place(x=0, y=340.0, anchor="w")
-        
         self.entry = tk.Entry(self.frame, width=30)
         self.entry.place(x=300, y=540.0, anchor="w")
         
@@ -36,6 +33,8 @@ class PickingPage(tkAssignments.AssignmentsPage):
         
         self.top10Labels = []
         self.initTop10Marbles()
+        self.prompt = tk.Label(self.top10gridframe, text="", font=("Arial", 12))
+        self.prompt.grid(row=0, column=0, padx=5, pady=5, sticky="w") #.place(x=0, y=340.0, anchor="w")
         
         # Champ stats
         self.stat_frames = []
@@ -46,7 +45,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
 
     def initTop10Marbles(self):
         self.top10gridframe = tk.Frame(self.root)
-        for i in range(10):
+        for i in range(1, 11):
             self.top10Labels.append(tk.Label(self.top10gridframe, text=str(i)+": "))
             self.top10Labels[-1].grid(row=i, column=0, padx=5, pady=5, sticky="w")
 
@@ -56,6 +55,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
             self.top10Labels[i].config(text=str(i)+": "+rules.marbles[i].marbleDesc)
     
     def clearPrompts(self):
+        # self.prompt.
         self.top10gridframe.place_forget()
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
@@ -258,7 +258,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
     
     def show(self):
         self.top10gridframe.place(x=0, y=350.0)
-        self.prompt.place(x=0, y=340.0, anchor="w")
+        # self.prompt.place(x=0, y=340.0, anchor="w")
         self.done = False
         self.next_button.config(state="disabled")
         
