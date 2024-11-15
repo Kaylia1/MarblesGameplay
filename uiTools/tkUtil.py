@@ -50,6 +50,7 @@ class Page(QWidget):
         self.title_label = QLabel(title, self)
         self.title_label.setAlignment(Qt.AlignLeft)
         self.title_label.setFont(title_font)
+        self.title_label.move(50, 500)
         self.layout.addWidget(self.title_label)
 
         # Setup background image
