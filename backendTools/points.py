@@ -67,6 +67,33 @@ def load_state():
 
     print("Loaded from file.")
 
+def scoreAdjust():
+    playerData, isWin = webtools.getRiotData()
+        
+    for summoner in globals.summoners.values():
+        kills = playerData[summoner.gameName]["kills"]
+        deaths = playerData[summoner.gameName]["deaths"]
+        assists = playerData[summoner.gameName]["assists"]
+        vision = playerData[summoner.gameName]["vision"]
+        isSupp = playerData[summoner.gameName]["position"] == "SUPPORT"
+
+        if isWin:
+            summoner.money += 30
+
+        if(isSupp):
+            kills, assists = assists, kills
+        summoner.kills += kills
+        summoner.deaths += deaths
+        summoner.assists += assists
+        summoner.money += kills * KILLVALUE - deaths * DEATHVALUE + assists * ASSISTVALUE
+        if(vision < 15):
+            summoner.money -= 15
+        elif(vision > 20):
+            summoner.money += vision - 20
+    
+    print_money()
+    return playerData
+
 def mainProgram():
     # globals.initApp()
     # tkChampStats.init_app() # TODO ui
@@ -141,46 +168,9 @@ def mainProgram():
                 break
         
         webtools.updateOPGG()
-        playerData, isWin = webtools.getRiotData()
         
-        ok = input("Ok? Y=continue, N=cancel riot data, manually input match data instead").strip().lower() == "y"
-        if not ok:
-            isWin = input("Win? (Y/N): ").strip().lower() == "y"
-            
-        for summoner in globals.summoners.values():
-            if ok:
-                kills = playerData[summoner.gameName]["kills"]
-                deaths = playerData[summoner.gameName]["deaths"]
-                assists = playerData[summoner.gameName]["assists"]
-                vision = playerData[summoner.gameName]["vision"]
-                isSupp = playerData[summoner.gameName]["position"] == "SUPPORT"
-            else: 
-                while True:
-                    try:
-                        kills, deaths, assists, isSupp, vision = map(int, input(f"Enter {summoner.name}'s kills, deaths, assists, isSupport, vision: ").split())
-                        if kills < 0 or deaths < 0 or assists < 0 or (isSupp not in (0, 1)) or vision < 0:
-                            close()
-                            return
-                        break
-                    except ValueError:
-                        print("Dumbass. Enter integers please.")
-                        print()
-            if isWin:
-                summoner.money += 30
-
-            if(isSupp):
-                kills, assists = assists, kills
-            summoner.kills += kills
-            summoner.deaths += deaths
-            summoner.assists += assists
-            summoner.money += kills * KILLVALUE - deaths * DEATHVALUE + assists * ASSISTVALUE
-            if(vision < 15):
-                summoner.money -= 15
-            elif(vision > 20):
-                summoner.money += vision - 20
+        scoreAdjust()
         
-        print_money()
-
         # Save state at end of each game
         output = map_to_json(globals.summoners)
         save_state(output)

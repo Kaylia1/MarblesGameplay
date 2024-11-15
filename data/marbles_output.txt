@@ -1,4 +1,5 @@
 Kaylia Y Mid Lvl1	0	36.936455
+Rage FREEDOM Lvl4	0	37.849072
 Adam E Jungle Lvl1	0	37.
 Adam I Top Lvl1	0	39.334377
 Adam K Support Lvl1	0	41.327888
@@ -13,7 +14,6 @@ Jon T Lvl2  	0	35.416569
 Irisu Y Lvl2  	0	35.474606
 Adam P Support Lvl1	0	37.408913
 Adam P Mid Lvl1	0	37.693451
-Rage FREEDOM Lvl4	0	37.849072
 Adam M Lvl2  	0	38.233051
 Kaylia B Jungle Lvl1	0	38.344131
 Rage G Mid Lvl1	0	38.791534

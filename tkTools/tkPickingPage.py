@@ -82,8 +82,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
         # schedule repeating updates until done
         if self.state == "done":
             return
-        self.frame.after(100, self.updateSummonerMarbles)
-        
+
         # print(self.state_queue)
         
         # pick can only be marked done by itself
@@ -200,6 +199,13 @@ class PickingPage(tkAssignments.AssignmentsPage):
                 if self.checkSubmitted() and self.entered_text.isdigit() and int(self.entered_text) >= 0 and int(self.entered_text) < 5:
                     rules.setCurMarble(picker, self.top5[int(self.entered_text)])
                     self.pickState = "pickRoleInit"
+        
+        # if it needs input, update slowly
+        if self.state == "top10swap" or self.state == "pick" and (self.pickState == "pickRoleUpdate" or self.pickState == "paralyzedUpdate"):
+            self.frame.after(100, self.updateSummonerMarbles)
+        else:
+            self.updateSummonerMarbles()
+        
     
     def getNum09(self): # TODO rename this to validate
         self.button_clicked = False

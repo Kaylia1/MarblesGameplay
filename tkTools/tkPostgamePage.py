@@ -68,49 +68,7 @@ class PostgamePage(tkUtil.Page):
     # assume webbot always works lol
     def updateEarnings(self):
         webtools.updateOPGG()
-        playerData, isWin = webtools.getRiotData()
-        
-        # ok = input("Ok? Y=continue, N=cancel riot data, manually input match data instead").strip().lower() == "y"
-        # if not ok:
-        #     isWin = input("Win? (Y/N): ").strip().lower() == "y"
-        
-        # Do validity checks before any modifications
-        for summoner in globals.summoners.values():
-            if not summoner.gameName in playerData:
-                print("Summoner "+ summoner.gameName + " not found. Failed to fetch gamedata.")
-                return
-        
-        for summoner in globals.summoners.values():
-            # if ok:
-            kills = playerData[summoner.gameName]["kills"]
-            deaths = playerData[summoner.gameName]["deaths"]
-            assists = playerData[summoner.gameName]["assists"]
-            vision = playerData[summoner.gameName]["vision"]
-            isSupp = playerData[summoner.gameName]["position"] == "SUPPORT"
-            # else: 
-            #     while True:
-            #         try:
-            #             kills, deaths, assists, isSupp, vision = map(int, input(f"Enter {summoner.name}'s kills, deaths, assists, isSupport, vision: ").split())
-            #             if kills < 0 or deaths < 0 or assists < 0 or (isSupp not in (0, 1)) or vision < 0:
-            #                 close()
-            #                 return
-            #             break
-            #         except ValueError:
-            #             print("Dumbass. Enter integers please.")
-            #             print()
-            if isWin:
-                summoner.money += 30
-
-            if(isSupp):
-                kills, assists = assists, kills
-            summoner.kills += kills
-            summoner.deaths += deaths
-            summoner.assists += assists
-            summoner.money += kills * points.KILLVALUE - deaths * points.DEATHVALUE + assists * points.ASSISTVALUE
-            if(vision < 15):
-                summoner.money -= 15
-            elif(vision > 20):
-                summoner.money += vision - 20
+        playerData = points.scoreAdjust() # don't write to file until accepted by next button (homepage)
         self.update_data(playerData) 
         
     def hide(self):
