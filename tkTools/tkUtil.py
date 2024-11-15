@@ -34,13 +34,13 @@ class Page:
         self.title_label = tk.Label(self.frame, text=title, font=("Arial", 18, "bold"))
         self.title_label.place(x=5.0, y=5.0, anchor="nw")
         
+        # this messes up the wheel for some reason
         self.setup_background_image()
         # create label and add resize image
-        label1 = tk.Label(self.frame, image=Page.processed_image)
-        label1.image = Page.processed_image
-        label1.pack()
-        # self.background_label.place(x=0, y=0, relwidth=1, relheight=1)
-
+        self.label1 = tk.Label(self.frame, image=Page.processed_image)
+        self.label1.image = Page.processed_image
+        self.label1.pack()
+        
         # Message
         self.message_label = tk.Label(self.frame, text=message, font=("Arial", 12),
                                 bg="lightblue", wraplength=200)

@@ -19,9 +19,9 @@ class WheelResultPage(tkMoney.MoneyPage):
         for label_name in self.label_names:
             self.inputs[label_name] = {}
             self.inputs[label_name]["label"] = tk.Label(self.frame, text="Input "+label_name+":")
-            self.inputs[label_name]["label"].pack()
+            # self.inputs[label_name]["label"].pack()
             self.inputs[label_name]["entry"] = tk.Entry(self.frame)  # Store entry widget for 'a'
-            self.inputs[label_name]["entry"].pack()
+            # self.inputs[label_name]["entry"].pack()
             
             self.inputs[label_name]["poss"] = []
             self.inputs[label_name]["val"] = ""
@@ -33,8 +33,8 @@ class WheelResultPage(tkMoney.MoneyPage):
         self.setMessageLabel(tkWheelPage.wheel_result)
         self.next_button.config(state="disabled")
     
+    # don't need to implement this since we are using the parent's frame
     # def hide(self):
-    
     
     def get_possible_input(self, code): # TODO this should be a map tbh
         if code == "letter":
@@ -79,21 +79,21 @@ class WheelResultPage(tkMoney.MoneyPage):
 
     def create_gui(self):
         # Show a text box for `a` if `a_options` is not empty
-        for label_name in self.label_names:
+        for i, label_name in enumerate(self.label_names):
             options = self.inputs[label_name]["poss"]
             if options and len(options) > 1:
-                self.inputs[label_name]["label"].pack()
-                self.inputs[label_name]["entry"].pack()
+                self.inputs[label_name]["label"].place(x=550, y=250+100*i)
+                self.inputs[label_name]["entry"].place(x=550, y=280+100*i)
             else:
-                self.inputs[label_name]["label"].pack_forget()
-                self.inputs[label_name]["entry"].pack_forget()
+                self.inputs[label_name]["label"].place_forget()
+                self.inputs[label_name]["entry"].place_forget()
                 self.on_submit()
         self.submit_button.config(state="active")
 
     def init_submit_button(self):
         # Submit button
         self.submit_button = tk.Button(self.frame, text="Submit", command=self.on_submit)
-        self.submit_button.pack()
+        self.submit_button.place(x=550, y=500)
         
     # internal function to handle submit button click
     def on_submit(self):

@@ -1,12 +1,17 @@
+Kaylia Y Mid Lvl1	0	36.936455
+Adam E Jungle Lvl1	0	37.
+Adam I Top Lvl1	0	39.334377
+Adam K Support Lvl1	0	41.327888
+Jon W Support Lvl1	0	41.327888
+Irisu X Top Lvl1	0	40.989872
+Rage D Bot Lvl1	0	37.666283
+Jon S Bot Lvl1	0	39.660446
 Adam PARALYZED Lvl0	0	65.749077
 Kaylia C Bot Lvl1	0	30.179129
 Jon FREEDOM Lvl4	0	34.581501
 Jon T Lvl2  	0	35.416569
 Irisu Y Lvl2  	0	35.474606
-Kaylia Y Mid Lvl1	0	36.936455
-Adam E Jungle Lvl1	0	37.234798
 Adam P Support Lvl1	0	37.408913
-Rage D Bot Lvl1	0	37.666283
 Adam P Mid Lvl1	0	37.693451
 Rage FREEDOM Lvl4	0	37.849072
 Adam M Lvl2  	0	38.233051
@@ -14,8 +19,6 @@ Kaylia B Jungle Lvl1	0	38.344131
 Rage G Mid Lvl1	0	38.791534
 Jon X Jungle Lvl1	0	39.064758
 Irisu FREEDOM Lvl4	0	39.334377
-Adam I Top Lvl1	0	39.334377
-Jon S Bot Lvl1	0	39.660446
 Jon Y Lvl2  	0	40.039783
 Irisu PARALYZED Lvl0	0	40.143341
 Jon Bot Lvl3	0	40.249714
@@ -36,7 +39,6 @@ Irisu S Jungle Lvl1	0	40.882957
 Jon Jungle Lvl3	0	40.908787
 Rage W Lvl2  	0	40.933956
 Adam N Top Lvl1	0	40.959114
-Irisu X Top Lvl1	0	40.989872
 Kaylia FREEDOM Lvl4	0	40.989872
 Adam FREEDOM Lvl4	0	41.018585
 Adam C Jungle Lvl1	0	41.070923
@@ -45,8 +47,6 @@ Rage X Mid Lvl1	0	41.146408
 Rage Jungle Lvl3	0	41.146408
 Kaylia PARALYZED Lvl0	0	41.225891
 Kaylia Support Lvl3	0	41.225891
-Adam K Support Lvl1	0	41.327888
-Jon W Support Lvl1	0	41.327888
 Jon V Top Lvl1	0	41.457138
 Adam W Top Lvl1	0	41.48444
 Adam M Mid Lvl1	0	41.588791
