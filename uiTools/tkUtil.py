@@ -32,11 +32,7 @@ class Page(QWidget):
         super().__init__(parent)
         self.setWindowTitle(title)
         self.setGeometry(0, 0, uiGlobals.width, uiGlobals.height)
-
-        # Main layout for the page
-        self.layout = QVBoxLayout(self)
-        self.banner_layout = QVBoxLayout()
-
+        
         # Title label
         # Load the custom font (Choii.otf)
         font_id = QFontDatabase.addApplicationFont('uiTools/Fonts/ChokoMilky-gx8gR.otf')
@@ -48,26 +44,19 @@ class Page(QWidget):
 
         # Title label with custom font
         self.title_label = QLabel(title, self)
-        self.title_label.setAlignment(Qt.AlignLeft)
+        self.title_label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
         self.title_label.setFont(title_font)
         self.title_label.setStyleSheet("color: #FFFFFF;")
         self.title_label.resize(200, 50)
         self.title_label.move(10, 10)
 
-        # Initializing the banner's properties
-        self.banner = QWidget(self)
-        self.banner.setStyleSheet("background-color: #3498db;")  # Set banner color
-        self.banner.setFixedHeight(0)  # Initial height set to zero (rolled up)
-        self.banner.setFixedWidth(uiGlobals.width)
-        self.banner_layout.addWidget(self.banner)
-        
-        # title for banner
         self.banner_label = QLabel("Hello World", self)
-        self.banner_label.setAlignment(Qt.AlignCenter)
+        self.banner_label.setStyleSheet("background-color: #3498db; padding: 12px;")
         self.banner_label.setFont(title_font)
-        self.banner_label.setStyleSheet("color: #FFFFFF;")
-        self.banner_label.resize(200, 50)
-        self.banner_label.move(int((uiGlobals.width-self.banner_label.width())/2), uiGlobals.height-990)
+        self.banner_label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+        self.banner_label.setFixedWidth(uiGlobals.width)
+        self.banner_label.setFixedHeight(120)
+
 
         # Message label
         self.message_label = QLabel(message, self)
@@ -76,18 +65,11 @@ class Page(QWidget):
         self.message_label.setAlignment(Qt.AlignLeft | Qt.AlignVCenter)
         self.message_label.setFixedWidth(400)
         self.message_label.setFixedHeight(80)
-        # don't add to layout so that we can manually position
 
         # Next button
         self.next_button = QPushButton("Ok", self)
         self.next_button.clicked.connect(self.handle_next)
         self.next_button.move(uiGlobals.width-150, uiGlobals.height-150)
-
-        # this is very jank, I use whitespace to position teh layout
-        self.banner_layout.setContentsMargins(0, 0, 0, 850)  # Margin on top (y=100), left and right (50), bottom (50)
-        
-        self.layout.addLayout(self.banner_layout)
-        self.setLayout(self.layout)
 
     @staticmethod
     def setup_background_image():
@@ -104,44 +86,36 @@ class Page(QWidget):
         """Initialize animations for the message."""
         if self.message_label.text():
             self.animate_message(self.message_label)
+        if self.banner_label.text():
+            self.animate_message(self.banner_label, y=80, speed=25)
 
     def set_message_label(self, new_txt):
         """Update the message and re-animate."""
         self.message_label.setText(new_txt)
         self.animate_message(self.message_label)
 
-    def animate_message(self, label):
+    def animate_message(self, label, y=50, speed=3):
         """Animate the message sliding from right to left."""
         start_x = uiGlobals.width
-        target_x = uiGlobals.width-self.message_label.width() # slide all the way to the left
-        y_position = 50
+        target_x = uiGlobals.width-label.width() # slide all the way to the left
+        y_position = y
 
         print("started sliding")
         def slide():
             nonlocal start_x
             if start_x > target_x:
-                start_x -= 3
+                start_x -= speed
                 label.move(start_x, y_position)
                 QTimer.singleShot(10, slide)
             else:
                 label.move(target_x, y_position)
 
         slide()
-    
-    def unroll_banner(self):
-        # Create the animation for the banner height
-        self.animation = QPropertyAnimation(self.banner, b"maximumHeight")
-        self.animation.setDuration(800)  # Duration of the animation in milliseconds
-        self.animation.setStartValue(0)  # Start height at 0
-        self.animation.setEndValue(100)  # End height at full size
-        self.animation.start()
 
     def show_page(self):
         """Show the page and animate the message."""
         self.show()
-        self.animate_message(self.message_label)
-        self.unroll_banner()
-        # self.banner1.show()#unroll_banner()
+        self.init_animations()
 
     def hide_page(self):
         """Hide the page."""

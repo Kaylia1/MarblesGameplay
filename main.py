@@ -16,6 +16,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from PIL import Image, ImageEnhance
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtGui import QBrush
+from PyQt5.QtWidgets import QSpacerItem, QSizePolicy
+
 
 def enhance_image(image_path, enhancement_factor=0.5):
     """Enhance the image using PIL and return a QPixmap."""
@@ -42,7 +44,8 @@ class MainWindow(QMainWindow):
         self.get_screen_size()
 
         # Main layout for the window
-        self.main_layout = QVBoxLayout()
+        
+
         
         # set background image
         enhanced_pixmap = enhance_image("./marblesreviews.png", enhancement_factor=0.3)  # Adjust factor here
@@ -51,7 +54,8 @@ class MainWindow(QMainWindow):
         self.setPalette(palette)
 
         # Initialize pages here
-        self.homePage = Page.Page(self, "HIHI", "hello world")#HomePage.createHomePage(self)
+        # self.homePage = Page.Page(self, "Hello World", "alskdjfalskdjfklasjd")#HomePage.createHomePage(self)
+        self.homePage = HomePage.createHomePage(self)
         # self.pickingPage = tkPickingPage.createPickingPage(self)
         # self.adjustmentsPage = tkAdjustmentsPage.createAdjustmentsPage(self)
         # self.wheelPage = tkWheelPage.createWheelPage(self)
@@ -66,9 +70,11 @@ class MainWindow(QMainWindow):
         self.show_page(self.curPage)
 
         # Set central widget and layout
-        central_widget = QWidget()
-        central_widget.setLayout(self.main_layout)
-        self.setCentralWidget(central_widget)
+        # central_widget = QWidget()
+        # central_widget.setLayout(self.main_layout)
+        # self.setCentralWidget(central_widget)
+        
+        # self.setContentsMargins(0, 200, 0, 0) # avoid flag at top
         
 
     def get_screen_size(self):
