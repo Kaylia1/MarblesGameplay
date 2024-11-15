@@ -67,7 +67,7 @@ class PostgamePage(tkUtil.Page):
     
     # assume webbot always works lol
     def updateEarnings(self):
-        webtools.updateOPGG()
+        # webtools.updateOPGG() # api does not rely on op gg
         playerData = points.scoreAdjust() # don't write to file until accepted by next button (homepage)
         self.update_data(playerData) 
         

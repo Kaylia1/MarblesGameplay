@@ -122,3 +122,38 @@ def getRiotData():
 
     print("finish with status code "+str(failed))
     return playerData, ourWin
+
+def getRiotAPIData():
+    print("Getting data from Riot api")
+
+    # Kaylia's personal product key, do not use publicly
+    key = "?api_key=RGAPI-7c8bbb45-bfb5-4866-bfdc-3b70725a5ecd"
+
+    # get user id
+    r = requests.get("https://americas.api.riotgames.com/riot/account/v1/accounts/by-riot-id/KayFish66/3435"+key)
+    accountData = r.json()
+    puuid = accountData["puuid"]
+
+    # get match ids
+    r = requests.get(f"https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids"+key)
+    lastMatch = r.json()[0]
+
+    r = requests.get(f"https://americas.api.riotgames.com/lol/match/v5/matches/{lastMatch}"+key)
+    gameData = r.json()
+    
+    playerData = {}
+    isWin = False
+    for summoner in gameData["info"]["participants"]:
+        # this is hardcoded, should use summoners variable tbh
+        if summoner["riotIdGameName"] == "Nobunagaa" or summoner["riotIdGameName"] == "KayFish66" or summoner["riotIdGameName"] == "reverie" or summoner["riotIdGameName"] == "lnanity" or summoner["riotIdGameName"] == "Jonpachiro":
+            print("found "+summoner["riotIdGameName"]+"'s kda "+str(summoner["kills"])+" "+str(summoner["deaths"])+" "+str(summoner["assists"])+" "+str(summoner["lane"])+" vision:"+str(summoner["visionScore"]))
+            playerData[summoner["riotIdGameName"]] = {
+                "kills": summoner["kills"],
+                "deaths": summoner["deaths"],
+                "assists": summoner["assists"],
+                "vision": summoner["visionScore"],
+                "position": summoner["lane"]
+            }
+            isWin = summoner["win"]
+    return playerData, isWin
+    
