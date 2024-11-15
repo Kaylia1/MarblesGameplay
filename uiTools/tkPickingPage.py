@@ -151,6 +151,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
             # start picking once paralysis is no longer a factor
             elif self.pickState == "pickRoleInit":
                 # input is valid 
+                self.setMessageLabel("Pick a role "+picker)
                 self.pickedRole = ""
                 if(len(self.unpickedRoles)==1):
                     print("One role remaining. Forcibly assigning "+picker+" to "+self.unpickedRoles[0])

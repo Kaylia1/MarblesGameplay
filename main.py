@@ -10,17 +10,45 @@ import uiTools.tkAdjustmentsPage as tkAdjustmentsPage
 import uiTools.tkWheelPage as tkWheelPage
 import uiTools.tkWheelResultPage as tkWheelResultPage
 import uiTools.tkMidgamePage as tkMidgamePage
+import uiTools.uiGlobals as uiGlobals
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from PIL import Image, ImageEnhance
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtGui import QBrush
 
+def enhance_image(image_path, enhancement_factor=0.5):
+    """Enhance the image using PIL and return a QPixmap."""
+    # Load image using Pillow
+    image = Image.open(image_path)
+    
+    # Enhance brightness (you can also apply contrast, sharpness, etc.)
+    enhancer = ImageEnhance.Brightness(image)
+    image = enhancer.enhance(enhancement_factor)  # Adjust the factor as needed
+    
+    # Convert the enhanced image to QPixmap
+    image = image.convert("RGBA")
+    data = image.tobytes()
+    pixmap = QPixmap.fromImage(QImage(data, image.width, image.height, image.width * 4, QImage.Format_RGBA8888))
+    
+    return pixmap
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
         self.setWindowTitle("ITS MARBLIN TIME")
-        self.setGeometry(100, 100, 1500, 800)  # Width and height
+        self.showMaximized()
+        self.get_screen_size()
 
         # Main layout for the window
         self.main_layout = QVBoxLayout()
+        
+        # set background image
+        enhanced_pixmap = enhance_image("./marblesreviews.png", enhancement_factor=0.3)  # Adjust factor here
+        palette = self.palette()
+        palette.setBrush(self.backgroundRole(), QBrush(enhanced_pixmap))
+        self.setPalette(palette)
 
         # Initialize pages here
         self.homePage = Page.Page(self, "HIHI", "hello world")#HomePage.createHomePage(self)
@@ -41,6 +69,21 @@ class MainWindow(QMainWindow):
         central_widget = QWidget()
         central_widget.setLayout(self.main_layout)
         self.setCentralWidget(central_widget)
+        
+
+    def get_screen_size(self):
+        """Get the screen size in pixels after full screen."""
+        screen = QApplication.primaryScreen()
+        size = screen.size()
+        uiGlobals.width = size.width()
+        uiGlobals.height = size.height()
+        print(f"Screen size: {uiGlobals.width}x{uiGlobals.height} pixels")
+
+    # assumes that it is a numerical page
+    def show_next_page(self):
+        """Show next page and hide others."""
+        self.curPage = (self.curPage+1)%len(self.pages)
+        self.show_page(self.curPage)
 
     def show_page(self, page_num):
         """Show a specific page and hide others."""
@@ -50,12 +93,14 @@ class MainWindow(QMainWindow):
 
         print("animating!")
         self.pages[page_num].show_page()
-        # pages[page_num].animate_message(pages[page_num].message_label)
+
+window = None
 
 def main():
     app = QApplication(sys.argv)
     
     # Create the main window and start the event loop
+    global window
     window = MainWindow()
     window.show()
 
