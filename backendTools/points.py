@@ -68,7 +68,7 @@ def load_state():
     print("Loaded from file.")
 
 def scoreAdjust():
-    playerData, isWin = webtools.getRiotData()
+    playerData, isWin = webtools.getRiotAPIData() #webtools.getRiotData()
         
     for summoner in globals.summoners.values():
         kills = playerData[summoner.gameName]["kills"]
@@ -92,7 +92,7 @@ def scoreAdjust():
             summoner.money += vision - 20
     
     print_money()
-    return playerData
+    return playerData # return for display
 
 def mainProgram():
     # globals.initApp()
