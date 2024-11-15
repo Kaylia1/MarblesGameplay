@@ -1,4 +1,4 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.tkUtil as tkUtil
 import backendTools.webtools as webtools
 import backendTools.points as points
 import backendTools.globals as globals

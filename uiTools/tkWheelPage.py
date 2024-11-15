@@ -1,4 +1,4 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.tkUtil as tkUtil
 import random
 import tkinter as tk
 import time

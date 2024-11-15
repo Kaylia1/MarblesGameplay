@@ -1,5 +1,5 @@
-import tkTools.tkUtil as tkUtil
-import tkTools.tkAssignments as tkAssignments
+import uiTools.tkUtil as tkUtil
+import uiTools.tkAssignments as tkAssignments
 import tkinter as tk
 import backendTools.globals as globals
 

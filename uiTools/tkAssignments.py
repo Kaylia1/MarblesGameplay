@@ -1,5 +1,5 @@
 import tkinter as tk
-import tkTools.tkUtil as tkUtil
+import uiTools.tkUtil as tkUtil
 import backendTools.rules as rules
 import backendTools.globals as globals
 

@@ -5,6 +5,7 @@
 - tkinter `pip3 install tk`
 - requests `pip3 install requests`
 - PIL `pip3 install Pillow`
+- PyQt5 `pip3 install PyQt5`
 
 
 # Run Instructions 

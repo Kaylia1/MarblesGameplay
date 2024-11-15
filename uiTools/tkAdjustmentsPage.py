@@ -1,22 +1,22 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.tkUtil as tkUtil
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
-import tkTools.tkPickingPage as tkPickingPage
+import uiTools.tkPickingPage as tkPickingPage
 
 # is this actually less efficient since it is creating a whole new class that also has stat data?
 
 import backendTools.wheelMap as wheelMap
-import tkTools.tkUtil as tkUtil
-import tkTools.tkMoney as tkMoney
+import uiTools.tkUtil as tkUtil
+import uiTools.tkMoney as tkMoney
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
-import tkTools.tkWheelPage as tkWheelPage
+import uiTools.tkWheelPage as tkWheelPage
 
 class AdjustmentsPage(tkMoney.MoneyPage):
     def __init__(self, root):

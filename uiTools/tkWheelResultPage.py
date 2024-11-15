@@ -1,11 +1,11 @@
 import tkinter as tk
-import tkTools.tkUtil as tkUtil
-import tkTools.tkMoney as tkMoney
+import uiTools.tkUtil as tkUtil
+import uiTools.tkMoney as tkMoney
 import backendTools.rules as rules
 import backendTools.globals as globals
 import backendTools.wheelMap as wheelMap
 
-import tkTools.tkWheelPage as tkWheelPage # import wheel_result
+import uiTools.tkWheelPage as tkWheelPage # import wheel_result
 
 class WheelResultPage(tkMoney.MoneyPage):
     def __init__(self, root):
