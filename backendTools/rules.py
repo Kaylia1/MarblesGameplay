@@ -59,16 +59,24 @@ class Marble(MarbleAssignment):
 def isLevelAssignedPosition(level):
     return level == "1" or level == "3"
 
+marblesData = ""
 def readMarbles():    
-    lines = []
-    with open(MARBLES_OUTPUT, 'r') as file:
-        lines = file.readlines()
+    # lines = []
+    # with open(MARBLES_OUTPUT, 'r') as file:
+    #     lines = file.readlines()
+    print("READING")
+    # TODO bad practice and relies on hides happening before shows
+    lines = marblesData.strip().splitlines()
+    # print(lines)
 
     # Marbles output is in format marbleTitle | 0 | time, we only care about title
     # Parse the entire marbles output
     global marbles
     marbles = []
     for i, line in enumerate(lines):
+        if line.strip() == "": # skip whitespace lines
+            print("skipping whitespace line")
+            continue
         line = re.split(r"[ \t]+", line.strip())
         line.pop() # remove time data
         line.pop() # remove history placement data

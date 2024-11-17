@@ -22,7 +22,7 @@ class PostgamePage(tkUtil.Page):
 
         # Create header labels
         for col, header in enumerate(headers):
-            label = tk.Label(self.infoFrame, text=header, font=('Arial', 12, 'bold'))
+            label = tk.Label(self.infoFrame, text=header, font=('Arial', 14, 'bold'))
             label.grid(row=0, column=col, padx=10, pady=5)
             self.headers.append(label)
 
@@ -32,17 +32,17 @@ class PostgamePage(tkUtil.Page):
             self.info_labels[summonerName] = {}
 
             # Create labels for each column in the row
-            self.info_labels[summonerName]["name"] = tk.Label(self.infoFrame, text="")
+            self.info_labels[summonerName]["name"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["name"].grid(row=row, column=0, padx=10, pady=5)
-            self.info_labels[summonerName]["kills"] = tk.Label(self.infoFrame, text="")
+            self.info_labels[summonerName]["kills"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["kills"].grid(row=row, column=1, padx=10, pady=5)
-            self.info_labels[summonerName]["deaths"] = tk.Label(self.infoFrame, text="")
+            self.info_labels[summonerName]["deaths"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["deaths"].grid(row=row, column=2, padx=10, pady=5)
-            self.info_labels[summonerName]["assists"] = tk.Label(self.infoFrame, text="")
+            self.info_labels[summonerName]["assists"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["assists"].grid(row=row, column=3, padx=10, pady=5)
-            self.info_labels[summonerName]["vision"] = tk.Label(self.infoFrame, text="")
+            self.info_labels[summonerName]["vision"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["vision"].grid(row=row, column=4, padx=10, pady=5)
-            self.info_labels[summonerName]["support"] = tk.Label(self.infoFrame, text="")
+            self.info_labels[summonerName]["support"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["support"].grid(row=row, column=5, padx=10, pady=5)
 
     def update_data(self, playerData):
@@ -69,6 +69,7 @@ class PostgamePage(tkUtil.Page):
     def updateEarnings(self):
         # webtools.updateOPGG() # api does not rely on op gg
         playerData = points.scoreAdjust() # don't write to file until accepted by next button (homepage)
+        print(playerData)
         self.update_data(playerData) 
         
     def hide(self):
@@ -78,8 +79,9 @@ class PostgamePage(tkUtil.Page):
     
     def show(self):
         super().show()
-        self.infoFrame.pack(padx=10, pady=10)
+        self.infoFrame.place(x=350, y=250.0, anchor="w")
         self.updateEarnings()
+        print("Showing earnings")
 
 def createPostgamePage(root):
     homepage = PostgamePage(root)

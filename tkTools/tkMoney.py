@@ -19,15 +19,15 @@ class MoneyPage(tkAssignments.AssignmentsPage):
         
         headers = ["Name", "Money"]
         for col, header in enumerate(headers):
-            self.moneyLabels.append(tk.Label(self.moneyFrame, text=header, font=("Arial", 10, "bold"), anchor="w"))
+            self.moneyLabels.append(tk.Label(self.moneyFrame, text=header, font=("Arial", 24, "bold"), anchor="w"))
             self.moneyLabels[-1].grid(row=0, column=col, padx=5, pady=5, sticky="w")
 
         for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
             # key is summoner name
             # Display each attribute of the Summoner object in a new column
-            self.moneyLabels.append(tk.Label(self.moneyFrame, text=key))
+            self.moneyLabels.append(tk.Label(self.moneyFrame, text=key, font=("Arial", 24)))
             self.moneyLabels[-1].grid(row=row, column=0, padx=5, pady=5)
-            self.moneyLabels.append(tk.Label(self.moneyFrame, text="$"+str(summoner.money)))
+            self.moneyLabels.append(tk.Label(self.moneyFrame, text="$"+str(summoner.money), font=("Arial", 24)))
             self.moneyLabels[-1].grid(row=row, column=1, padx=5, pady=5)
         
         # self.canvas2 = tk.Canvas(self.root, width=200, height=200, bd=0, highlightthickness=0)

@@ -3,7 +3,7 @@ from tkinter import messagebox
 import tkTools.Assets.StyledButton as StyledButton
 from PIL import Image, ImageTk, ImageEnhance
 
-WIDTH = 1500
+WIDTH = 1800
 HEIGHT = 800
 
 root = None
@@ -23,7 +23,7 @@ def getLabelTxt(label):
 
 class Page:
     IMAGE_PATH = "marblesreviews.png"
-    IMAGE_SIZE = (1500, 800)
+    IMAGE_SIZE = (WIDTH, HEIGHT)
     processed_image = None
     
     def __init__(self, root, title, message):
@@ -31,7 +31,7 @@ class Page:
         self.frame = tk.Frame(root)
         
         # Title
-        self.title_label = tk.Label(self.frame, text=title, font=("Arial", 18, "bold"))
+        self.title_label = tk.Label(self.frame, text=title, font=("Arial", 24, "bold"))
         self.title_label.place(x=5.0, y=5.0, anchor="nw")
         
         # this messes up the wheel for some reason
@@ -42,7 +42,7 @@ class Page:
         self.label1.pack()
         
         # Message
-        self.message_label = tk.Label(self.frame, text=message, font=("Arial", 12),
+        self.message_label = tk.Label(self.frame, text=message, font=("Arial", 24),
                                 bg="lightblue", wraplength=200)
         self.message_label.pack(pady=5)
 

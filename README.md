@@ -7,6 +7,8 @@
 - PIL `pip3 install Pillow`
 
 
+pyinstaller --add-data "./marbles/*;." --onefile -w './marbles/tkGUI.py'
+
 # Run Instructions 
 cd into marbles top folder
 - python3 points.py

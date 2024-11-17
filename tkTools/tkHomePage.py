@@ -4,15 +4,16 @@ import backendTools.points as points
 import backendTools.globals as globals
 # import tkTools.Assets.StyledLabel as StyledLabel
 
+entered_text = ""
 class HomePage(tkUtil.Page):
     def __init__(self, root):
         super().__init__(root, "Home", "Homies, it's marblin time")
         
-        self.historicData = tk.Label(self.frame, text="Historic Data:", font=("Arial", 12))
-        self.historicData.place(x=tkUtil.WIDTH/2, y=100.0, anchor="center")
+        self.historicData = tk.Label(self.frame, text="Historic Data:", font=("Arial", 24))
+        self.historicData.place(x=tkUtil.WIDTH/2, y=70.0, anchor="center")
         
         
-        self.reminderMsg = tk.Label(self.frame, text="Did you finish copying marbles output to data/marbles_output.txt?", font=("Arial", 12))
+        self.reminderMsg = tk.Label(self.frame, text="Did you finish copying marbles output to data/marbles_output.txt?", font=("Arial", 24))
         self.reminderMsg.place(x=tkUtil.WIDTH/2, y=400.0, anchor="center")
         
         self.statsLabels = {}
@@ -20,6 +21,20 @@ class HomePage(tkUtil.Page):
         points.load_state()
         self.gridframe = tk.Frame(self.frame)
         self.init_labels()
+        
+        self.text_box = tk.Text(self.frame, wrap="word", font=("Arial", 12))
+        self.text_box.place(relx=0.05, rely=0.4, relwidth=0.9, relheight=0.5)
+        
+        self.isHidden = True
+    
+    def read_text(self):
+        # Get the text from the Text widget
+        import backendTools.rules
+        # start reading from first line
+        backendTools.rules.marblesData = self.text_box.get("1.0", tk.END).strip()  # Strip removes trailing newline
+        self.text_box.delete("1.0", tk.END)
+        print("Read Marble Text")
+        # print(entered_text)
     
     def init_labels(self):
         """Initializes and packs the header and summoner stat labels."""
@@ -28,17 +43,17 @@ class HomePage(tkUtil.Page):
         # Headers
         headers = ["Name", "Money", "Kills", "Deaths", "Assists"]
         for col, header in enumerate(headers):
-            label = tk.Label(self.gridframe, text=header, font=("Arial", 10, "bold"), anchor="w")
+            label = tk.Label(self.gridframe, text=header, font=("Arial", 14, "bold"), anchor="w")
             label.grid(row=0, column=col, padx=5, pady=5, sticky="w")
         
         # Initialize and place summoner stat labels
         for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
             self.statsLabels[key] = {
-                "name": tk.Label(self.gridframe, text=key),
-                "money": tk.Label(self.gridframe, text=f"${summoner.money}"),
-                "kills": tk.Label(self.gridframe, text=summoner.kills),
-                "deaths": tk.Label(self.gridframe, text=summoner.deaths),
-                "assists": tk.Label(self.gridframe, text=summoner.assists),
+                "name": tk.Label(self.gridframe, text=key, font=("Arial", 14)),
+                "money": tk.Label(self.gridframe, text=f"${summoner.money}", font=("Arial", 14)),
+                "kills": tk.Label(self.gridframe, text=summoner.kills, font=("Arial", 14)),
+                "deaths": tk.Label(self.gridframe, text=summoner.deaths, font=("Arial", 14)),
+                "assists": tk.Label(self.gridframe, text=summoner.assists, font=("Arial", 14)),
             }
             
             # Position each label in the grid
@@ -59,6 +74,9 @@ class HomePage(tkUtil.Page):
     def hide(self):
         super().hide()
         self.gridframe.place_forget()
+        if not self.isHidden: # was recently shown
+            self.read_text()
+        self.isHidden = True
     
     def show(self):
         super().show()
@@ -68,6 +86,7 @@ class HomePage(tkUtil.Page):
         # write game money adjustment to file
         output = points.map_to_json(globals.summoners)
         points.save_state(output)
+        self.isHidden = False
 
 def createHomePage(root):
     return HomePage(root)

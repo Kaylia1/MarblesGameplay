@@ -34,7 +34,7 @@ class DataApp():
             self.frames.append(frame)
             
             # Add a header label to the top of the frame
-            header = tk.Label(frame, text=self.headers[index], font=("Arial", 12, "bold"))
+            header = tk.Label(frame, text=self.headers[index], font=("Arial", 14, "bold"))
             header.grid(row=0, column=0, columnspan=4, pady=10)  # Adjust columnspan based on the number of columns
 
             
@@ -52,9 +52,9 @@ class DataApp():
         self.elements = []
         
         # Create header
-        headers = ["Champion", "Role", "Winrate", "Matches"]
+        headers = ["Champion", "Winrate", "Matches"]
         for col, header in enumerate(headers):
-            lbl = tk.Label(frame, text=header, font=('Arial', 10, 'bold'), borderwidth=1, relief="solid")
+            lbl = tk.Label(frame, text=header, font=('Arial', 14, 'bold'), borderwidth=1, relief="solid")
             lbl.grid(row=1, column=col, sticky="nsew")
             # self.elements.append(lbl)
 

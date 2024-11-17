@@ -1,32 +1,32 @@
 {
     "Adam": {
-        "money": 75,
-        "kills": 10,
-        "deaths": 8,
-        "assists": 2
+        "money": 145,
+        "kills": 16,
+        "deaths": 14,
+        "assists": 36
     },
     "Rage": {
-        "money": 7,
-        "kills": 5,
-        "deaths": 7,
-        "assists": 7
+        "money": 131,
+        "kills": 17,
+        "deaths": 13,
+        "assists": 39
     },
     "Kaylia": {
-        "money": 22,
-        "kills": 8,
-        "deaths": 6,
-        "assists": 8
+        "money": 164,
+        "kills": 30,
+        "deaths": 14,
+        "assists": 18
     },
     "Jon": {
-        "money": -17,
-        "kills": 4,
-        "deaths": 8,
-        "assists": 6
+        "money": 57,
+        "kills": 10,
+        "deaths": 18,
+        "assists": 26
     },
     "Irisu": {
-        "money": -4,
-        "kills": 4,
-        "deaths": 7,
-        "assists": 1
+        "money": 148,
+        "kills": 26,
+        "deaths": 11,
+        "assists": 17
     }
 }

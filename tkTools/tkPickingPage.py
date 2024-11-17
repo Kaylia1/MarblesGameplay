@@ -21,10 +21,10 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.curAssignments.place(x=0, y=90.0, anchor="w")
         
         self.entry = tk.Entry(self.frame, width=30)
-        self.entry.place(x=300, y=540.0, anchor="w")
+        self.entry.place(x=400, y=650.0, anchor="w")
         
         self.submit_button = tk.Button(self.frame, text="Submit", command=self.submit)
-        self.submit_button.place(x=500, y=540.0, anchor="w")
+        self.submit_button.place(x=600, y=650.0, anchor="w")
         # self.button_clicked = False
         self.button_pressed = tk.BooleanVar()
         self.entered_text = ""
@@ -36,7 +36,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
         
         self.top10Labels = []
         self.initTop10Marbles()
-        self.prompt = tk.Label(self.top10gridframe, text="", font=("Arial", 12))
+        self.prompt = tk.Label(self.top10gridframe, text="", font=("Arial", 14))
         self.prompt.grid(row=0, column=0, padx=5, pady=5, sticky="w") #.place(x=0, y=340.0, anchor="w")
         
         # Champ stats
@@ -49,7 +49,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
     def initTop10Marbles(self):
         self.top10gridframe = tk.Frame(self.root)
         for i in range(1, 11):
-            self.top10Labels.append(tk.Label(self.top10gridframe, text=str(i)+": "))
+            self.top10Labels.append(tk.Label(self.top10gridframe, text=str(i)+": ", font=("Arial", 12)))
             self.top10Labels[-1].grid(row=i, column=0, padx=5, pady=5, sticky="w")
 
     def updateTop10Marbles(self):
@@ -234,7 +234,7 @@ class PickingPage(tkAssignments.AssignmentsPage):
     
     def show_stat_frames(self):
         for i, frame in enumerate(self.stat_frames):
-            frame.place(x=320+210*i, y=100)
+            frame.place(x=460+260*i, y=150)
             
     def hide_stat_frames(self):
         for frame in self.stat_frames:
@@ -249,13 +249,13 @@ class PickingPage(tkAssignments.AssignmentsPage):
             self.stats_data_labels[frame] = []
             
             # Add a header label to the top of the frame
-            self.stats_title_labels.append(tk.Label(frame, text=globals.allSummoners[index], font=("Arial", 12, "bold")))
+            self.stats_title_labels.append(tk.Label(frame, text=globals.allSummoners[index], font=("Arial", 14, "bold")))
             self.stats_title_labels[-1].grid(row=0, column=0, columnspan=4, pady=10)  # Adjust columnspan based on the number of columns
             
             # Create header
-            headers = ["Champion", "Role", "Winrate", "Matches"]
+            headers = ["Champion", "Winrate", "Matches"]
             for col, header in enumerate(headers):
-                self.stats_col_title_labels.append(tk.Label(frame, text=header, font=('Arial', 10, 'bold'), borderwidth=1, relief="solid"))
+                self.stats_col_title_labels.append(tk.Label(frame, text=header, font=('Arial', 14, 'bold'), borderwidth=1, relief="solid"))
                 self.stats_col_title_labels[-1].grid(row=1, column=col, sticky="nsew")
 
     def create_table(self, frame, data):
@@ -273,20 +273,20 @@ class PickingPage(tkAssignments.AssignmentsPage):
                 continue
             
             obj = parseChampStats.winrates[key]
-            lbl1 = tk.Label(frame, text=champ, borderwidth=1, relief="solid")
+            lbl1 = tk.Label(frame, text=champ, borderwidth=1, relief="solid", font=('Arial', 14))
             lbl1.grid(row=row, column=0, sticky="nsew")
             self.stats_data_labels[frame].append(lbl1)
             
-            lbl2 = tk.Label(frame, text=role, borderwidth=1, relief="solid")
-            lbl2.grid(row=row, column=1, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl2)
+            # lbl2 = tk.Label(frame, text=role, borderwidth=1, relief="solid")
+            # lbl2.grid(row=row, column=1, sticky="nsew")
+            # self.stats_data_labels[frame].append(lbl2)
             
-            lbl3 = tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid")
-            lbl3.grid(row=row, column=2, sticky="nsew")
+            lbl3 = tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid", font=('Arial', 14))
+            lbl3.grid(row=row, column=1, sticky="nsew")
             self.stats_data_labels[frame].append(lbl3)
             
-            lbl4 = tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid")
-            lbl4.grid(row=row, column=3, sticky="nsew")
+            lbl4 = tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid", font=('Arial', 14))
+            lbl4.grid(row=row, column=2, sticky="nsew")
             self.stats_data_labels[frame].append(lbl4)
     
     # =================== CONTROL ==========================
