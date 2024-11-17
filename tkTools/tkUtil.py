@@ -22,7 +22,7 @@ def getLabelTxt(label):
 
 
 class Page:
-    IMAGE_PATH = "marblesreviews.png"
+    IMAGE_PATH = "images/marblesreviews.png"
     IMAGE_SIZE = (WIDTH, HEIGHT)
     processed_image = None
     

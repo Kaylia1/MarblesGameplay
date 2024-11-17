@@ -1,7 +1,12 @@
 ignore/
 
+build/
+dist/
+tkGUI.spec
+
 __pycache__/
 backendTools/__pycache__/
 tkTools/__pycache__/
+uiTools/__pycache__/
 
 saved_points_real.json

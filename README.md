@@ -5,13 +5,21 @@
 - tkinter `pip3 install tk`
 - requests `pip3 install requests`
 - PIL `pip3 install Pillow`
+- pip install dropbox
 
 
 pyinstaller --add-data "./marbles/*;." --onefile -w './marbles/tkGUI.py'
 
 # Run Instructions 
 cd into marbles top folder
-- python3 points.py
+- python3 .\tkGUI.py
+
+Only for developer mode so that it does not overwrite dropbox saved data
+- python3 .\tkGUI.py --mode dev
+
+# EXE generation
+- pip install pyinstaller
+- pyinstaller --onefile -w 'tkGUI.py'
 
 # Assumed Input Guidelines
 - marbles_output.txt is exactly copy-pasted from the Marbles on Stream game, and follows the exact format of data/MoneyMarbles.csv
