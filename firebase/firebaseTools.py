@@ -8,7 +8,7 @@ from pathlib import Path
 class FirebaseTools:
     def __init__(self):
         # service account name: firebase-adminsdk-w7dfa@marbles-dcc42.iam.gserviceaccount.com
-        self.service_key = Path(__file__).resolve().parent / "marbles-dcc42-firebase-adminsdk-w7dfa-2f077d8e73.json"
+        self.service_key = Path(__file__).resolve().parent.parent / "secrets/marbles-dcc42-cred.json"
 
         self.cred = credentials.Certificate(self.service_key)
         firebase_admin.initialize_app(self.cred)
