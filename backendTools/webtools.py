@@ -156,7 +156,9 @@ def getRiotAPIData():
                     "deaths": summoner["deaths"],
                     "assists": summoner["assists"],
                     "vision": summoner["visionScore"],
-                    "position": summoner["lane"]
+                    "position": summoner["lane"],
+                    "csPre10" : summoner["challenges"]["laneMinionsFirst10Minutes"],
+                    "jungleCsPre10" : summoner["challenges"]["jungleCsBefore10Minutes"]
                 }
                 isWin = summoner["win"]
     return playerData, isWin

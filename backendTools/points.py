@@ -67,15 +67,41 @@ def load_state(json_data):
 
     print("Loaded from data.")
 
+def findSupp(playerData):
+    lowestLaneCS = None
+    highestJungCS = None
+    support = None
+    jungler = None
+
+    for summoner in globals.summoners.values():
+        jungCS = playerData[summoner.name]["jungleCsPre10"]
+        laneCS = playerData[summoner.name]["csPre10"]
+
+        if highestJungCS == None:
+            highestJungCS = jungCS
+            jungler = summoner.name
+        elif lowestLaneCS == None:
+            lowestLaneCS = laneCS
+            support = summoner.name
+        elif jungCS > highestJungCS:
+            highestJungCS = jungCS
+            jungler = summoner.name
+        elif laneCS < lowestLaneCS:
+            lowestLaneCS = laneCS
+            support = summoner.name
+
+    return support
+
 def scoreAdjust():
     playerData, isWin = webtools.getRiotAPIData()
+    support = findSupp(playerData)
         
     for summoner in globals.summoners.values():
         kills = playerData[summoner.name]["kills"]
         deaths = playerData[summoner.name]["deaths"]
         assists = playerData[summoner.name]["assists"]
         vision = playerData[summoner.name]["vision"]
-        isSupp = playerData[summoner.name]["position"] == "SUPPORT"
+        isSupp = support == summoner.name
 
         if isWin:
             summoner.money += 30
@@ -92,4 +118,4 @@ def scoreAdjust():
             summoner.money += vision - 20
     
     print_money()
-    return playerData # return for display
+    return playerData, support # return for display

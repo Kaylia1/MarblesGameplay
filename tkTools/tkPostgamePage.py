@@ -45,7 +45,7 @@ class PostgamePage(tkUtil.Page):
             self.info_labels[summonerName]["support"] = tk.Label(self.infoFrame, text="", font=('Arial', 14))
             self.info_labels[summonerName]["support"].grid(row=row, column=5, padx=10, pady=5)
 
-    def update_data(self, playerData):
+    def update_data(self, playerData, support):
         """Updates existing labels with new data from playerData."""
         for row, (name, stats) in enumerate(playerData.items(), start=1):
             # Retrieve stats
@@ -53,7 +53,7 @@ class PostgamePage(tkUtil.Page):
             deaths = stats["deaths"]
             assists = stats["assists"]
             vision = stats["vision"]
-            is_supp = stats["position"] == "SUPPORT"
+            is_supp = support == stats["name"]
             
             # Update label text using config
             self.info_labels[name]["name"].config(text=name)
@@ -66,9 +66,9 @@ class PostgamePage(tkUtil.Page):
     # assume webbot always works lol
     def updateEarnings(self):
         # webtools.updateOPGG() # api does not rely on op gg
-        playerData = points.scoreAdjust() # don't write to file until accepted by next button (homepage)
+        playerData, support = points.scoreAdjust() # don't write to file until accepted by next button (homepage)
         print(playerData)
-        self.update_data(playerData) 
+        self.update_data(playerData, support) 
         
     def hide(self):
         super().hide()
