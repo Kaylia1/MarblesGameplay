@@ -5,18 +5,11 @@
 - tkinter `pip3 install tk`
 - requests `pip3 install requests`
 - PIL `pip3 install Pillow`
-- pip install dropbox
-- pip install firebase-admin
+- Firebase `pip install firebase-admin`
 
 # Discord bot dependencies
-- pip install discord.py
-- pip install python-dotenv
-
-# Discord version
-- pip install -U discord.py
-
-
-pyinstaller --add-data "./marbles/*;." --onefile -w './marbles/tkGUI.py'
+- Discord bot `pip install discord.py`
+- Env variables `pip install python-dotenv`
 
 # Run Instructions 
 cd into marbles top folder
@@ -28,6 +21,9 @@ Only for developer mode so that it does not overwrite dropbox saved data
 # EXE generation
 - pip install pyinstaller
 - pyinstaller --onefile -w 'tkGUI.py'
+
+
+pyinstaller --add-data "./marbles/*;." --onefile -w './marbles/tkGUI.py'
 
 # Discord bot commands
 note: change .env Discord token to change the discord bot target
