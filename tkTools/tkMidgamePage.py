@@ -2,6 +2,7 @@ import tkTools.tkUtil as tkUtil
 import backendTools.points as points
 import tkinter as tk
 import backendTools.globals as globals
+import firebase.firebaseTools as firebaseTools
 
 class MidgamePage(tkUtil.Page):
     def __init__(self, root):
@@ -19,7 +20,7 @@ class MidgamePage(tkUtil.Page):
         
         # write wheel adjustment money to file
         output = points.map_to_json(globals.summoners)
-        points.save_state(output)
+        firebaseTools.fb.storeData(output)
 
 def createMidgamePage(root):
     homepage = MidgamePage(root)

@@ -1,8 +1,9 @@
 import tkinter as tk
 class Summoner:
-    def __init__(self, name, gameName):
+    def __init__(self, name, gameName, altName=""):
         self.name = name
         self.gameName = gameName
+        self.altName = altName # if someone uses their alt account
         self.money = 0
         self.kills = 0
         self.deaths = 0
@@ -12,7 +13,7 @@ class Summoner:
 # Initialize summoners
 summoners = {
     "Adam": Summoner("Adam", "lnanity"),
-    "Rage": Summoner("Rage", "reverie"),
+    "Rage": Summoner("Rage", "reverie", "TheHerbanLegends"),
     "Kaylia": Summoner("Kaylia", "KayFish66"),
     "Jon": Summoner("Jon", "Jonpachiro"),
     "Irisu": Summoner("Irisu", "Nobunagaa"),
@@ -20,23 +21,3 @@ summoners = {
 
 allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"]
 ROLES = ["jungle", "support", "top", "mid", "bot"]
-
-def get_summoner_name_by_game_name(game_name):
-    for summoner in summoners.values():
-        if summoner.gameName == game_name:
-            return summoner.name
-    return None  # Return None if no matching gameName is found
-
-def inputSummoner(validSummoners=allSummoners):
-    while True:
-        name = input("Who? ").strip()
-        if name not in validSummoners:
-            print("Dumbass. Enter someone's name. Type it correctly.")
-            continue
-        return name
-
-globalRoot = None
-def initApp():
-    global globalRoot
-    globalRoot = tk.Tk()
-    globalRoot.withdraw()

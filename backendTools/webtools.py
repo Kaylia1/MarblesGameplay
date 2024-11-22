@@ -2,6 +2,8 @@
 import requests
 import json
 
+import backendTools.globals as globals
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -104,16 +106,17 @@ def getRiotData():
 
     playerData = {}
     for summoner in gameData["participants"]:
-        # this is hardcoded, should use summoners variable tbh
-        if summoner["summoner"]["game_name"] == "Nobunagaa" or summoner["summoner"]["game_name"] == "KayFish66" or summoner["summoner"]["game_name"] == "reverie" or summoner["summoner"]["game_name"] == "lnanity" or summoner["summoner"]["game_name"] == "Jonpachiro":
-            print("found "+summoner["summoner"]["game_name"]+"'s kda "+str(summoner["stats"]["kill"])+" "+str(summoner["stats"]["death"])+" "+str(summoner["stats"]["assist"])+" "+str(summoner["position"])+" vision:"+str(summoner["stats"]["vision_score"]))
-            playerData[summoner["summoner"]["game_name"]] = {
-                "kills": summoner["stats"]["kill"],
-                "deaths": summoner["stats"]["death"],
-                "assists": summoner["stats"]["assist"],
-                "vision": summoner["stats"]["vision_score"],
-                "position": summoner["position"]
-            }
+        for name, appSummoner in globals.summoners.items():
+            if summoner["riotIdGameName"] == appSummoner.gameName or summoner["riotIdGameName"] == appSummoner.altName:
+                print("found "+name+"'s kda "+str(summoner["stats"]["kill"])+" "+str(summoner["stats"]["death"])+" "+str(summoner["stats"]["assist"])+" "+str(summoner["position"])+" vision:"+str(summoner["stats"]["vision_score"]))
+                # TODO make this use name -> kda, pos
+                playerData[summoner["summoner"]["game_name"]] = {
+                    "kills": summoner["stats"]["kill"],
+                    "deaths": summoner["stats"]["death"],
+                    "assists": summoner["stats"]["assist"],
+                    "vision": summoner["stats"]["vision_score"],
+                    "position": summoner["position"]
+                }
     
     team = gameData["myData"]["team_key"] # either RED or BLUE
     firstTeam = gameData["teams"][0]["key"]
@@ -145,15 +148,16 @@ def getRiotAPIData():
     isWin = False
     for summoner in gameData["info"]["participants"]:
         # this is hardcoded, should use summoners variable tbh
-        if summoner["riotIdGameName"] == "Nobunagaa" or summoner["riotIdGameName"] == "KayFish66" or summoner["riotIdGameName"] == "reverie" or summoner["riotIdGameName"] == "lnanity" or summoner["riotIdGameName"] == "Jonpachiro":
-            print("found "+summoner["riotIdGameName"]+"'s kda "+str(summoner["kills"])+" "+str(summoner["deaths"])+" "+str(summoner["assists"])+" "+str(summoner["lane"])+" vision:"+str(summoner["visionScore"]))
-            playerData[summoner["riotIdGameName"]] = {
-                "kills": summoner["kills"],
-                "deaths": summoner["deaths"],
-                "assists": summoner["assists"],
-                "vision": summoner["visionScore"],
-                "position": summoner["lane"]
-            }
-            isWin = summoner["win"]
+        for name, appSummoner in globals.summoners.items():
+            if summoner["riotIdGameName"] == appSummoner.gameName or summoner["riotIdGameName"] == appSummoner.altName:
+                print("found "+name+"'s kda "+str(summoner["kills"])+" "+str(summoner["deaths"])+" "+str(summoner["assists"])+" "+str(summoner["lane"])+" vision:"+str(summoner["visionScore"]))
+                playerData[name] = {
+                    "kills": summoner["kills"],
+                    "deaths": summoner["deaths"],
+                    "assists": summoner["assists"],
+                    "vision": summoner["visionScore"],
+                    "position": summoner["lane"]
+                }
+                isWin = summoner["win"]
     return playerData, isWin
     

@@ -42,20 +42,20 @@ def summoner_to_json(summoner):
 def map_to_json(local_summoners):
     return {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
 
-def save_state(json_data):
+# def save_state(json_data):
     # print("Writing to file")
-    with open("saved_points.json", "w") as file:
-        json.dump(json_data, file, indent=4)
-    print("Points written to saved_points.json")
+    # with open("saved_points.json", "w") as file:
+    #     json.dump(json_data, file, indent=4)
+    # print("Points written to saved_points.json")
 
-def load_state():
-    print("Loading from file")
-    if not os.path.exists("saved_points.json"):
-        print("Could not open file, no data loaded (new session)?")
-        return
+def load_state(json_data):
+    # print("Loading from file")
+    # if not os.path.exists("saved_points.json"):
+    #     print("Could not open file, no data loaded (new session)?")
+    #     return
 
-    with open("saved_points.json", "r") as file:
-        json_data = json.load(file)
+    # with open("saved_points.json", "r") as file:
+    #     json_data = json.load(file)
 
     for name, data in json_data.items():
         if name in globals.summoners:
@@ -65,17 +65,17 @@ def load_state():
             summoner.deaths = data["deaths"]
             summoner.assists = data["assists"]
 
-    print("Loaded from file.")
+    print("Loaded from data.")
 
 def scoreAdjust():
-    playerData, isWin = webtools.getRiotAPIData() #webtools.getRiotData()
+    playerData, isWin = webtools.getRiotAPIData()
         
     for summoner in globals.summoners.values():
-        kills = playerData[summoner.gameName]["kills"]
-        deaths = playerData[summoner.gameName]["deaths"]
-        assists = playerData[summoner.gameName]["assists"]
-        vision = playerData[summoner.gameName]["vision"]
-        isSupp = playerData[summoner.gameName]["position"] == "SUPPORT"
+        kills = playerData[summoner.name]["kills"]
+        deaths = playerData[summoner.name]["deaths"]
+        assists = playerData[summoner.name]["assists"]
+        vision = playerData[summoner.name]["vision"]
+        isSupp = playerData[summoner.name]["position"] == "SUPPORT"
 
         if isWin:
             summoner.money += 30
@@ -93,87 +93,3 @@ def scoreAdjust():
     
     print_money()
     return playerData # return for display
-
-def mainProgram():
-    # globals.initApp()
-    # tkChampStats.init_app() # TODO ui
-
-    load_state()
-    
-    while True:
-        # ============ assigning roles state ============
-        while True:
-            start = input("Did you copy Marbles output into ./data/marbles_output.txt? (Y/N): ").strip().lower()
-            if start == 'y':
-                break
-        rules.assignMarbles()
-        
-        # ============== wheel state ====================
-        while True:
-            print_money()
-            
-            action = input("Action? B=bribe, W=wheel, C=continue").strip().lower()
-            # if(action == "."): # TODO UI
-            #     tkChampStats.update_app(rules.marbleChampStats())
-            if(action == "c"):
-                break
-            elif(action == "b"):
-                name, name2, amount = input("From who? To who? How much? ").split()
-                amount = int(amount)
-
-                if name not in globals.summoners or name2 not in globals.summoners:
-                    print("Dumbass. Enter someone's name. Type it correctly. (name) (name) (amount)")
-                    continue
-
-                send = globals.summoners[name]
-                receive = globals.summoners[name2]
-
-                send.money -= amount
-                receive.money += amount
-
-                print(f"{send.name} now has: ${send.money}")
-                print(f"{receive.name} now has: ${receive.money}")
-                print()
-            elif(action == "w"):
-                name = input("Who? ").strip()
-                if len(name) > 0 and name[0] == "c":
-                    print("Cancelling request.")
-                elif name not in globals.summoners:
-                    print("Dumbass. Enter someone's name. Type it correctly.")
-                    continue
-
-                summoner = globals.summoners[name]
-                if summoner.money >= 100:
-                    summoner.money -= 100
-                    print(f"{summoner.name} now has: ${summoner.money}")
-                else:
-                    print(f"{name} cannot afford to spin the wheel.")
-                    continue
-                print()
-                
-                # tkWheel.startApp()
-                # print("Wheel Result: "+str(tkWheel.wheelResult))
-                # wheelMap.lastSpinner = name
-                # wheelMap.wheel_map[tkWheel.wheelResult]()
-                # rules.currentMarbleAssignments()
-                # TODO ui
-        
-        output = map_to_json(globals.summoners)
-        save_state(output)
-        
-        # ============== game finished state ============
-        while True:
-            start = input("Did the game finish yet? (Y/N): ").strip().lower()
-            if start == 'y':
-                break
-        
-        webtools.updateOPGG()
-        
-        scoreAdjust()
-        
-        # Save state at end of each game
-        output = map_to_json(globals.summoners)
-        save_state(output)
-
-# if __name__ == "__main__":
-#     main()

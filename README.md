@@ -6,6 +6,14 @@
 - requests `pip3 install requests`
 - PIL `pip3 install Pillow`
 - pip install dropbox
+- pip install firebase-admin
+
+# Discord bot dependencies
+- pip install discord.py
+- pip install python-dotenv
+
+# Discord version
+- pip install -U discord.py
 
 
 pyinstaller --add-data "./marbles/*;." --onefile -w './marbles/tkGUI.py'
@@ -20,6 +28,14 @@ Only for developer mode so that it does not overwrite dropbox saved data
 # EXE generation
 - pip install pyinstaller
 - pyinstaller --onefile -w 'tkGUI.py'
+
+# Discord bot commands
+note: change .env Discord token to change the discord bot target
+- !isAlive: Hello World I am alive
+- !history: Money, historic KDA
+- !money: Money
+## TODOs:
+- !positions: Current marble assignments
 
 # Assumed Input Guidelines
 - marbles_output.txt is exactly copy-pasted from the Marbles on Stream game, and follows the exact format of data/MoneyMarbles.csv

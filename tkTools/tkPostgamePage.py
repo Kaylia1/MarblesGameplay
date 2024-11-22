@@ -47,7 +47,7 @@ class PostgamePage(tkUtil.Page):
 
     def update_data(self, playerData):
         """Updates existing labels with new data from playerData."""
-        for row, (gameName, stats) in enumerate(playerData.items(), start=1):
+        for row, (name, stats) in enumerate(playerData.items(), start=1):
             # Retrieve stats
             kills = stats["kills"]
             deaths = stats["deaths"]
@@ -55,15 +55,13 @@ class PostgamePage(tkUtil.Page):
             vision = stats["vision"]
             is_supp = stats["position"] == "SUPPORT"
             
-            summonerName = globals.get_summoner_name_by_game_name(gameName)
-            
             # Update label text using config
-            self.info_labels[summonerName]["name"].config(text=summonerName)
-            self.info_labels[summonerName]["kills"].config(text=kills)
-            self.info_labels[summonerName]["deaths"].config(text=deaths)
-            self.info_labels[summonerName]["assists"].config(text=assists)
-            self.info_labels[summonerName]["vision"].config(text=vision)
-            self.info_labels[summonerName]["support"].config(text="Yes" if is_supp else "No")
+            self.info_labels[name]["name"].config(text=name)
+            self.info_labels[name]["kills"].config(text=kills)
+            self.info_labels[name]["deaths"].config(text=deaths)
+            self.info_labels[name]["assists"].config(text=assists)
+            self.info_labels[name]["vision"].config(text=vision)
+            self.info_labels[name]["support"].config(text="Yes" if is_supp else "No")
     
     # assume webbot always works lol
     def updateEarnings(self):

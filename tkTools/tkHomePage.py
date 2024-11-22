@@ -3,6 +3,7 @@ import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
 # import tkTools.Assets.StyledLabel as StyledLabel
+import firebase.firebaseTools as firebaseTools
 
 entered_text = ""
 class HomePage(tkUtil.Page):
@@ -18,7 +19,7 @@ class HomePage(tkUtil.Page):
         
         self.statsLabels = {}
         
-        points.load_state()
+        points.load_state(firebaseTools.fb.loadData())
         self.gridframe = tk.Frame(self.frame)
         self.init_labels()
         
@@ -85,7 +86,7 @@ class HomePage(tkUtil.Page):
         
         # write game money adjustment to file
         output = points.map_to_json(globals.summoners)
-        points.save_state(output)
+        firebaseTools.fb.storeData(output)
         self.isHidden = False
 
 def createHomePage(root):
