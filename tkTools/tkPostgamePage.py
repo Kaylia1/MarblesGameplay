@@ -3,6 +3,7 @@ import backendTools.webtools as webtools
 import backendTools.points as points
 import backendTools.globals as globals
 import tkinter as tk
+import firebase.firebaseTools as firebaseTools
 
 class PostgamePage(tkUtil.Page):
     def __init__(self, root):
@@ -63,11 +64,13 @@ class PostgamePage(tkUtil.Page):
             self.info_labels[name]["vision"].config(text=vision)
             self.info_labels[name]["support"].config(text="Yes" if is_supp else "No")
     
-    # assume webbot always works lol
+    # Read data from riot and update db and display
     def updateEarnings(self):
-        # webtools.updateOPGG() # api does not rely on op gg
-        playerData = points.scoreAdjust() # don't write to file until accepted by next button (homepage)
-        print(playerData)
+        playerData = points.scoreAdjust()
+        
+        # Assume Riot API works, write to firebase immediately
+        output = points.map_to_json(globals.summoners)
+        firebaseTools.fb.storeData(output)
         self.update_data(playerData) 
         
     def hide(self):

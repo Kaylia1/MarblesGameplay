@@ -75,7 +75,7 @@ class HomePage(tkUtil.Page):
     def hide(self):
         super().hide()
         self.gridframe.place_forget()
-        if not self.isHidden: # was recently shown
+        if not self.isHidden: # read marble data upon click of next when homepage first goes from show->hide
             self.read_text()
         self.isHidden = True
     
@@ -85,8 +85,8 @@ class HomePage(tkUtil.Page):
         self.update_labels()
         
         # write game money adjustment to file
-        output = points.map_to_json(globals.summoners)
-        firebaseTools.fb.storeData(output)
+        # output = points.map_to_json(globals.summoners)
+        # firebaseTools.fb.storeData(output)
         self.isHidden = False
 
 def createHomePage(root):

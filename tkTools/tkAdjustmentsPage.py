@@ -1,16 +1,10 @@
 import tkTools.tkUtil as tkUtil
-import tkinter as tk
-import backendTools.points as points
-import backendTools.globals as globals
-import backendTools.rules as rules
-import backendTools.parseChampStats as parseChampStats
 import tkTools.tkPickingPage as tkPickingPage
-
-# is this actually less efficient since it is creating a whole new class that also has stat data?
-
 import backendTools.wheelMap as wheelMap
-import tkTools.tkUtil as tkUtil
-import tkTools.tkMoney as tkMoney
+import tkTools.uiMoney as uiMoney
+import tkTools.uiWinrates as uiWinrates
+import tkTools.uiAssignments as uiAssignments
+# import tkTools.tkMoney as tkMoney
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
@@ -18,7 +12,7 @@ import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
 import tkTools.tkWheelPage as tkWheelPage
 
-class AdjustmentsPage(tkMoney.MoneyPage):
+class AdjustmentsPage(tkUtil.Page):
     def __init__(self, root):
         super().__init__(root, "Wheel / Bribe Page", "huh")
         self.entry = tk.Entry(self.frame, width=30)
@@ -29,26 +23,19 @@ class AdjustmentsPage(tkMoney.MoneyPage):
         self.button_pressed = tk.StringVar()
         self.entered_text = ""
         
-        # Champ stats
-        self.stat_frames = []
-        self.stats_data_labels = {}
-        self.stats_title_labels = []
-        self.stats_col_title_labels = []
-        self.create_table_grids()
-        
         # bribery
         self.initBribery()
+        
+        # money, assignments, winrates items in display
+        self.moneyDisplay = uiMoney.Money(self.frame)
+        self.assignmentsDisplay = uiAssignments.Assignments(self.frame)
+
+        # put winrates on the bottom so it is ok if the ui is too large
+        self.winratesDisplay = uiWinrates.Winrates(self.frame)
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
-        super().updateAssignments(unpickedSummoners)
-        
-        keys = rules.marbleChampStats()
-        appData = []
-        for key in keys:
-            keys = parseChampStats.getChamps(key[0], key[1])
-            appData.append(keys)
-        for i, frame in enumerate(self.stat_frames):
-            self.create_table(frame, appData[i])
+        self.assignmentsDisplay.updateAssignmentLabels(unpickedSummoners)
+        self.winratesDisplay.updateWinrateGrid()
     
     def submit(self):
         self.button_pressed.set("button pressed")
@@ -62,67 +49,6 @@ class AdjustmentsPage(tkMoney.MoneyPage):
                 tkUtil.trigger_wheel_page()
                 break
         self.entry.delete(0, tk.END)
-        
-        
-        
-    # =================== STATISTICS ==========================
-    
-    def show_stat_frames(self):
-        for i, frame in enumerate(self.stat_frames):
-            frame.place(x=460+260*i, y=150)
-            
-    def hide_stat_frames(self):
-        for frame in self.stat_frames:
-            frame.place_forget()
-    
-    def create_table_grids(self):
-        for index in range(5):
-            # Create a frame for each summoner's stat grid
-            frame = tk.Frame(self.root, borderwidth=2, relief="solid")
-            # frame.grid(row=0, column=index, padx=5, pady=5, sticky="nsew")
-            self.stat_frames.append(frame)
-            self.stats_data_labels[frame] = []
-            
-            # Add a header label to the top of the frame
-            self.stats_title_labels.append(tk.Label(frame, text=globals.allSummoners[index], font=("Arial", 14, "bold")))
-            self.stats_title_labels[-1].grid(row=0, column=0, columnspan=4, pady=10)  # Adjust columnspan based on the number of columns
-            
-            # Create header
-            headers = ["Champion", "Winrate", "Matches"]
-            for col, header in enumerate(headers):
-                self.stats_col_title_labels.append(tk.Label(frame, text=header, font=('Arial', 14, 'bold'), borderwidth=1, relief="solid"))
-                self.stats_col_title_labels[-1].grid(row=1, column=col, sticky="nsew")
-
-    def create_table(self, frame, data):
-        for element in self.stats_data_labels[frame]:
-            if not element == None:
-                element.destroy()
-        self.stats_data_labels[frame] = []
-
-        # Insert data into grid
-        for row, (champ, role) in enumerate(data, start=2):
-            
-            # can display incomplete data in best-effort
-            key = (champ, role)
-            if(not key in parseChampStats.winrates):
-                continue
-            
-            obj = parseChampStats.winrates[key]
-            lbl1 = tk.Label(frame, text=champ, borderwidth=1, relief="solid", font=('Arial', 14))
-            lbl1.grid(row=row, column=0, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl1)
-            
-            # lbl2 = tk.Label(frame, text=role, borderwidth=1, relief="solid")
-            # lbl2.grid(row=row, column=1, sticky="nsew")
-            # self.stats_data_labels[frame].append(lbl2)
-            
-            lbl3 = tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid", font=('Arial', 14))
-            lbl3.grid(row=row, column=1, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl3)
-            
-            lbl4 = tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid", font=('Arial', 14))
-            lbl4.grid(row=row, column=2, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl4)
     
     # =================== BRIBE BUTTON ==========================
     def initBribery(self):
@@ -179,17 +105,25 @@ class AdjustmentsPage(tkMoney.MoneyPage):
         super().hide()
         self.frame.place_forget()
         self.bribeFrame.place_forget()
-        self.hide_stat_frames()
+        # self.hide_stat_frames()
+        
+        self.moneyDisplay.hide()
+        self.assignmentsDisplay.hide()
+        self.winratesDisplay.hide()
         
     def show(self):
         super().show()
         self.bribeFrame.place(x=800, y=600.0, anchor="w")
         
         # run main assignments program
-        # self.updateAssignments() # get data that pickingpage set
-        self.show_stat_frames()
         
         self.setMessageLabel("last wheel result:\n"+tkWheelPage.wheel_result)
+        
+        self.moneyDisplay.updateMoneyLabels()
+        self.moneyDisplay.show()
+        self.updateAssignments()
+        self.assignmentsDisplay.show()
+        self.winratesDisplay.show()
         
 
 def createAdjustmentsPage(root):
