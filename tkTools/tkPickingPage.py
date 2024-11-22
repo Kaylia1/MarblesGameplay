@@ -1,16 +1,17 @@
 import tkTools.tkUtil as tkUtil
-import tkTools.tkAssignments as tkAssignments
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
+import tkTools.uiWinrates as uiWinrates
+import tkTools.uiAssignments as uiAssignments
 
 # CUR_ASSIGNMENT_X_OFFSET = 300
 DEFAULT_MSG = "Homies, it's marblin time x2"
 
 
-class PickingPage(tkAssignments.AssignmentsPage):
+class PickingPage(tkUtil.Page):
     def __init__(self, root):
         super().__init__(root, "Picking Page", DEFAULT_MSG)
         self.state_queue = []
@@ -39,12 +40,12 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.prompt = tk.Label(self.top10gridframe, text="", font=("Arial", 14))
         self.prompt.grid(row=0, column=0, padx=5, pady=5, sticky="w") #.place(x=0, y=340.0, anchor="w")
         
-        # Champ stats
-        self.stat_frames = []
-        self.stats_data_labels = {}
-        self.stats_title_labels = []
-        self.stats_col_title_labels = []
-        self.create_table_grids()
+        self.assignmentsDisplay = uiAssignments.Assignments(self.frame)
+        self.winratesDisplay = uiWinrates.Winrates(self.frame)
+
+    def updateAssignments(self, unpickedSummoners=globals.allSummoners):
+        self.assignmentsDisplay.updateAssignmentLabels(unpickedSummoners)
+        self.winratesDisplay.updateWinrateGrid()
 
     def initTop10Marbles(self):
         self.top10gridframe = tk.Frame(self.root)
@@ -60,19 +61,6 @@ class PickingPage(tkAssignments.AssignmentsPage):
     def clearPrompts(self):
         # self.prompt.
         self.top10gridframe.place_forget()
-
-    def updateAssignments(self, unpickedSummoners=globals.allSummoners):
-        super().updateAssignments(unpickedSummoners)
-        
-        # champion winrate statistics
-        keys = rules.marbleChampStats()
-        appData = []
-        for key in keys:
-            keys = parseChampStats.getChamps(key[0], key[1])
-            appData.append(keys)
-        for i, frame in enumerate(self.stat_frames):
-            self.create_table(frame, appData[i])
-        
 
     # state machine, this needs to run really fast
     def updateSummonerMarbles(self):
@@ -230,64 +218,6 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.button_pressed.set(False)
         return val
         
-    # =================== STATISTICS ==========================
-    
-    def show_stat_frames(self):
-        for i, frame in enumerate(self.stat_frames):
-            frame.place(x=460+260*i, y=150)
-            
-    def hide_stat_frames(self):
-        for frame in self.stat_frames:
-            frame.place_forget()
-    
-    def create_table_grids(self):
-        for index in range(5):
-            # Create a frame for each summoner's stat grid
-            frame = tk.Frame(self.root, borderwidth=2, relief="solid")
-            # frame.grid(row=0, column=index, padx=5, pady=5, sticky="nsew")
-            self.stat_frames.append(frame)
-            self.stats_data_labels[frame] = []
-            
-            # Add a header label to the top of the frame
-            self.stats_title_labels.append(tk.Label(frame, text=globals.allSummoners[index], font=("Arial", 14, "bold")))
-            self.stats_title_labels[-1].grid(row=0, column=0, columnspan=4, pady=10)  # Adjust columnspan based on the number of columns
-            
-            # Create header
-            headers = ["Champion", "Winrate", "Matches"]
-            for col, header in enumerate(headers):
-                self.stats_col_title_labels.append(tk.Label(frame, text=header, font=('Arial', 14, 'bold'), borderwidth=1, relief="solid"))
-                self.stats_col_title_labels[-1].grid(row=1, column=col, sticky="nsew")
-
-    def create_table(self, frame, data):
-        for element in self.stats_data_labels[frame]:
-            if not element == None:
-                element.destroy()
-        self.stats_data_labels[frame] = []
-
-        # Insert data into grid
-        for row, (champ, role) in enumerate(data, start=2):
-            
-            # can display incomplete data in best-effort
-            key = (champ, role)
-            if(not key in parseChampStats.winrates):
-                continue
-            
-            obj = parseChampStats.winrates[key]
-            lbl1 = tk.Label(frame, text=champ, borderwidth=1, relief="solid", font=('Arial', 14))
-            lbl1.grid(row=row, column=0, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl1)
-            
-            # lbl2 = tk.Label(frame, text=role, borderwidth=1, relief="solid")
-            # lbl2.grid(row=row, column=1, sticky="nsew")
-            # self.stats_data_labels[frame].append(lbl2)
-            
-            lbl3 = tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid", font=('Arial', 14))
-            lbl3.grid(row=row, column=1, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl3)
-            
-            lbl4 = tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid", font=('Arial', 14))
-            lbl4.grid(row=row, column=2, sticky="nsew")
-            self.stats_data_labels[frame].append(lbl4)
     
     # =================== CONTROL ==========================
     
@@ -296,9 +226,9 @@ class PickingPage(tkAssignments.AssignmentsPage):
         self.state_queue = [["done"]]
         self.frame.place_forget()
         self.top10gridframe.place_forget()
-        self.hide_stat_frames()
         
-        
+        self.assignmentsDisplay.hide()
+        self.winratesDisplay.hide()
     
     def show(self):
         self.state_queue = [["show"]]
@@ -313,8 +243,10 @@ class PickingPage(tkAssignments.AssignmentsPage):
         super().show() # need to initialize marble data before showing assignments
         
         self.updateTop10Marbles()
-        self.show_stat_frames()
         self.updateSummonerMarbles() # main picking
+        
+        self.assignmentsDisplay.show()
+        self.winratesDisplay.show()
         
 
 def createPickingPage(root):

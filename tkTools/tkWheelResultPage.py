@@ -1,13 +1,13 @@
 import tkinter as tk
 import tkTools.tkUtil as tkUtil
-import tkTools.tkMoney as tkMoney
 import backendTools.rules as rules
 import backendTools.globals as globals
 import backendTools.wheelMap as wheelMap
-
 import tkTools.tkWheelPage as tkWheelPage # import wheel_result
+import tkTools.uiMoney as uiMoney
+import tkTools.uiAssignments as uiAssignments
 
-class WheelResultPage(tkMoney.MoneyPage):
+class WheelResultPage(tkUtil.Page):
     def __init__(self, root):
         super().__init__(root, "Wheel Result Page", "")
         
@@ -26,15 +26,26 @@ class WheelResultPage(tkMoney.MoneyPage):
             self.inputs[label_name]["poss"] = []
             self.inputs[label_name]["val"] = ""
         self.init_submit_button()
+        
+        self.moneyDisplay = uiMoney.Money(self.frame)
+        self.assignmentsDisplay = uiAssignments.Assignments(self.frame)
 
     def show(self):
         super().show()
         self.gen_from_inputs()
         self.setMessageLabel(tkWheelPage.wheel_result)
         self.next_button.config(state="disabled")
+        
+        self.moneyDisplay.updateMoneyLabels()
+        self.moneyDisplay.show()
+        self.assignmentsDisplay.updateAssignmentLabels()
+        self.assignmentsDisplay.show()
     
     # don't need to implement this since we are using the parent's frame
-    # def hide(self):
+    def hide(self):
+        super().hide()
+        self.moneyDisplay.hide()
+        self.assignmentsDisplay.hide()
     
     def get_possible_input(self, code): # TODO this should be a map tbh
         if code == "letter":
@@ -61,8 +72,6 @@ class WheelResultPage(tkMoney.MoneyPage):
             return []
     
     def gen_from_inputs(self):
-        self.updateAssignments()
-        
         # get possibilities and auto select if only one option
         # NOTE: assume wheel_map_inputs always returns a tuple with exact same number of values as label_names
         for i, label_name in enumerate(self.label_names):

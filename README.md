@@ -6,6 +6,7 @@
 - requests `pip3 install requests`
 - PIL `pip3 install Pillow`
 - Firebase `pip install firebase-admin`
+- Pygame `pip install pygame`
 
 # Discord bot dependencies
 - Discord bot `pip install discord.py`
@@ -15,7 +16,7 @@
 cd into marbles top folder
 - python3 .\tkGUI.py
 
-Only for developer mode so that it does not overwrite dropbox saved data
+Only for developer mode:
 - python3 .\tkGUI.py --mode dev
 
 # EXE generation

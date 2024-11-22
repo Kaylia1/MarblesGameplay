@@ -3,11 +3,11 @@ import tkTools.tkUtil as tkUtil
 import backendTools.rules as rules
 import backendTools.globals as globals
 
-class AssignmentsPage(tkUtil.Page):
-    def __init__(self, root, pageName, messageText):
-        super().__init__(root, pageName, messageText)
+class Assignments():
+    def __init__(self, root):
+        self.root = root
         
-        self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 24))
+        self.curAssignments = tk.Label(self.root, text="Current assignments:", font=("Arial", 24))
         self.curAssignments.place(x=0, y=90.0, anchor="w")
         
         self.gridframe = None # assignments grid
@@ -40,7 +40,7 @@ class AssignmentsPage(tkUtil.Page):
             self.assignmentLabels[key][self.headers[3]] = tk.Label(self.gridframe, text="", font=("Arial", 18))
             self.assignmentLabels[key][self.headers[3]].grid(row=row, column=3, padx=5, pady=5)
 
-    def updateAssignments(self, unpickedSummoners=globals.allSummoners):
+    def updateAssignmentLabels(self, unpickedSummoners=globals.allSummoners):
         for row, (key, summoner) in enumerate(globals.summoners.items(), start=1):
             # Update each attribute of the Summoner object
             bgd = "SystemButtonFace"
@@ -53,11 +53,9 @@ class AssignmentsPage(tkUtil.Page):
             # print(rules.marbles[summoner.curMarble].marbleDesc)
 
     def show(self):
-        super().show()
         print("UPDATING ASSIGNMENTS ")
-        self.updateAssignments()
+        # self.updateAssignmentLabels()
         self.gridframe.place(x=0, y=200.0, anchor="w")
     
     def hide(self):
-        super().hide()
         self.gridframe.place_forget()
