@@ -41,7 +41,7 @@ class PickingPage(tkUtil.Page):
         self.prompt.grid(row=0, column=0, padx=5, pady=5, sticky="w") #.place(x=0, y=340.0, anchor="w")
         
         self.assignmentsDisplay = uiAssignments.Assignments(self.frame)
-        self.winratesDisplay = uiWinrates.Winrates(self.frame)
+        self.winratesDisplay = uiWinrates.Winrates()
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
         self.assignmentsDisplay.updateAssignmentLabels(unpickedSummoners)
@@ -231,6 +231,8 @@ class PickingPage(tkUtil.Page):
         self.winratesDisplay.hide()
     
     def show(self):
+        self.winratesDisplay.assignMaster(self.frame)
+        
         self.state_queue = [["show"]]
         self.top10gridframe.place(x=0, y=350.0)
         # self.prompt.place(x=0, y=340.0, anchor="w")

@@ -67,6 +67,9 @@ async def on_message(message):
         await message.channel.send(toplaneQuotes.quotes[random_index])
     elif message.content.startswith('!assignments'):
         await sendingData.send_assignment_data(message.channel)
+    elif message.content.startswith('!winrate'):
+        if len(message.content.split(" "))>1:
+            await sendingData.send_winrate_data(message.channel, message.content.split(" ")[1])
     
     # do we want to support overriding the UI with the bot?
     # if client.user.mention in message.content:

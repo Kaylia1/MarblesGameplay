@@ -6,16 +6,23 @@ import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
 
 class Winrates():
-    def __init__(self, root):
-        self.root = root
-        
-        # Champ stats
-        self.stat_frames = []
-        self.stats_data_labels = {}
-        self.stats_title_labels = []
-        self.stats_col_title_labels = []
-        self.initWinrateGrid()
-        
+    _instance = None  # Singleton instance
+    appData = None
+
+    def __new__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super(Winrates, cls).__new__(cls)
+        return cls._instance
+
+    def __init__(self):
+        # Ensure the instance is initialized only once
+        if not hasattr(self, "initialized"):
+            # Champ stats
+            self.stat_frames = []
+            self.stats_data_labels = {}
+            self.stats_title_labels = []
+            self.stats_col_title_labels = []
+            self.initWinrateGrid()
         
     def show(self):
         for i, frame in enumerate(self.stat_frames):
@@ -25,11 +32,17 @@ class Winrates():
         for frame in self.stat_frames:
             frame.place_forget()
     
+    # place onto root
+    def assignMaster(self, root):
+        for i in range(len(globals.allSummoners)):
+            self.stat_frames[i].master = root
+    
     def initWinrateGrid(self):
-        for index in range(5):
+        for index in range(len(globals.allSummoners)):
             # Create a frame for each summoner's stat grid
-            frame = tk.Frame(self.root, borderwidth=2, relief="solid")
-            # frame.grid(row=0, column=index, padx=5, pady=5, sticky="nsew")
+            # no master frame until assigned
+            frame = tk.Frame(borderwidth=2, relief="solid")
+            
             self.stat_frames.append(frame)
             self.stats_data_labels[frame] = []
             
@@ -60,11 +73,11 @@ class Winrates():
             return bgd
         
         # read champ stats
-        appData = rules.marbleChampStats()
+        Winrates.appData = rules.marbleChampStats()
         
         # create table per person's assignment data
         for i, frame in enumerate(self.stat_frames):
-            data = appData[i]
+            data = Winrates.appData[i]
             for element in self.stats_data_labels[frame]:
                 if not element == None:
                     element.destroy()
@@ -85,3 +98,8 @@ class Winrates():
                 lbl4.config(bg=colorMatches(matches))
                 lbl4.grid(row=row, column=2, sticky="nsew")
                 self.stats_data_labels[frame].append(lbl4)
+    
+    @classmethod
+    def check_constructor_called(cls):
+        """Function to check if the constructor (__init__) has been called."""
+        return cls.initialized

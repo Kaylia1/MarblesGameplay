@@ -1,5 +1,6 @@
 import backendTools.globals as globals
 import backendTools.rules as rules
+import tkTools.uiWinrates as uiWinrates
 
 def align_columns(data):
     """Aligns columns with appropriate padding."""
@@ -61,4 +62,25 @@ async def send_assignment_data(channel):
         assignment_data.append([key, marble.position, marble.letter, marble.level])
     
     aligned_data = align_columns(assignment_data)
+    await channel.send(aligned_data)
+
+async def send_winrate_data(channel, summonerName):
+    """Send the assignment data in table format."""
+    if uiWinrates.Winrates.appData == None:
+        await channel.send("Winrates are not known yet!")
+        return
+    elif summonerName not in globals.allSummoners:
+        await channel.send("Bad summoner name input")
+        return
+
+    # Headers for the table
+    headers = ["Champ", "Winrate", "Matches"]
+    winrate_data = [headers]
+    
+    i = globals.allSummoners.index(summonerName) # TODO case sensitive
+    data = uiWinrates.Winrates.appData[i]
+    for i, (champ, winrate, matches) in enumerate(data):
+        winrate_data.append([champ, winrate, matches])
+    
+    aligned_data = align_columns(winrate_data)
     await channel.send(aligned_data)

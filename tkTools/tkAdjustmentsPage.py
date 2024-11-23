@@ -31,7 +31,7 @@ class AdjustmentsPage(tkUtil.Page):
         self.assignmentsDisplay = uiAssignments.Assignments(self.frame)
 
         # put winrates on the bottom so it is ok if the ui is too large
-        self.winratesDisplay = uiWinrates.Winrates(self.frame)
+        self.winratesDisplay = uiWinrates.Winrates()
 
     def updateAssignments(self, unpickedSummoners=globals.allSummoners):
         self.assignmentsDisplay.updateAssignmentLabels(unpickedSummoners)
@@ -113,6 +113,8 @@ class AdjustmentsPage(tkUtil.Page):
         
     def show(self):
         super().show()
+        self.winratesDisplay.assignMaster(self.frame)
+        
         self.bribeFrame.place(x=800, y=600.0, anchor="w")
         
         # run main assignments program
