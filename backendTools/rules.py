@@ -1,6 +1,7 @@
 import os
 import backendTools.globals as globals
 import re
+import backendTools.parseChampStats as parseChampStats
 # import tkChampStats
 
 MARBLES_OUTPUT = "./data/marbles_output.txt"
@@ -9,6 +10,7 @@ MARBLES_OPTIONS = "./data/MoneyMarbles.txt"
 marbles = []
 
 godScenario = False
+marblesExist = False
 
 GREEN_TXT_START = "\033[1;32;40m "
 DEF_TXT_END = " \033[0m"
@@ -61,10 +63,9 @@ def isLevelAssignedPosition(level):
 
 marblesData = ""
 def readMarbles():    
-    # lines = []
-    # with open(MARBLES_OUTPUT, 'r') as file:
-    #     lines = file.readlines()
+    global marblesExist
     print("READING")
+    
     # TODO bad practice and relies on hides happening before shows
     lines = marblesData.strip().splitlines()
     # print(lines)
@@ -87,13 +88,15 @@ def readMarbles():
         values = splitted[0].split(" ")
         name = values[0]
         marbles.append(Marble(name, line, level, i, values))
+    marblesExist = True
 
 def marbleChampStats():
     appData = []
+    # For each summoner, get the array of champs for them
     for summonerName in globals.allSummoners:
         letter = marbles[globals.summoners[summonerName].curMarble].letter
         role = marbles[globals.summoners[summonerName].curMarble].position
-        appData.append((letter, role))
+        appData.append(parseChampStats.getChamps(letter, role))
     return appData
 
 def currentMarbleAssignments(unpickedSummoners=list(globals.summoners.keys())):
@@ -301,11 +304,12 @@ def initGetBestMarbles():
 
 def assignMarbles():
     
-    global godScenario
+    global godScenario, marblesExist
     godScenario = False
     # Get the top marble for ea of 5 ppl.
     # Check if any person's top 1 is marble god
     readMarbles()
+    marblesExist = True
     
     # clear old assignments and get toppmost marble
     initGetBestMarbles()

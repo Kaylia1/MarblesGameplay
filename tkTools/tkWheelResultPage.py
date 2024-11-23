@@ -148,11 +148,3 @@ class WheelResultPage(tkUtil.Page):
 def createWheelResultPage(root):
     wheelpage = WheelResultPage(root)
     return wheelpage
-
-
-# Example arrays of possible strings
-# a_options = ["Option 1", "Option 2"]
-# b_options = ["a", "b", "c", "d"]  # Empty, so no entry will be created for b
-
-# # Run the GUI with example inputs
-# create_gui(a_options, b_options)

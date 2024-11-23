@@ -65,6 +65,8 @@ async def on_message(message):
     elif message.content.startswith('!top'):
         random_index = random.randint(0, len(toplaneQuotes.quotes) - 1)
         await message.channel.send(toplaneQuotes.quotes[random_index])
+    elif message.content.startswith('!assignments'):
+        await sendingData.send_assignment_data(message.channel)
     
     # do we want to support overriding the UI with the bot?
     # if client.user.mention in message.content:

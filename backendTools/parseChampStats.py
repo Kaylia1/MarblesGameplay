@@ -29,6 +29,7 @@ def constructWinrates():
                 allChamps.append(line.strip())
 
 def getChamps(char, role):
+    # if no letter restriction, return nothing
     if(len(char) != 1):
         return []
     
@@ -36,7 +37,12 @@ def getChamps(char, role):
     selectedChamps = allChamps[start:end+1]
     result = []
     for champ in selectedChamps:
-        result.append((champ, role))
+        # display incomplete data in best-effort
+        if not (champ, role) in winrates:
+            continue
+        result.append((champ, winrates[(champ, role)]["winrate"],  winrates[(champ, role)]["matches"]))
+    # largest winrates first
+    result.sort(reverse=True, key=lambda x: x[1])
     return result
 
 # for optimization, binary search for champs that start with that letter (try to make this extendable to substr)
@@ -50,7 +56,7 @@ def findChamp(char):
 
     # Find the index of the first string starting with the next character
     next_char = chr(ord(char) + 1)  # Increment character
-    end_index = bisect.bisect_left(allChamps, next_char) - 1
+    end_index = bisect.bisect_left(allChamps, next_char) - 1 # inclusive
 
     # Adjust start_index if it's out of bounds or doesn't match
     if start_index < len(allChamps) and allChamps[start_index][0].lower() == char:

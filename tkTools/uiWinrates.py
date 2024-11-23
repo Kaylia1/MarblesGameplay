@@ -44,12 +44,23 @@ class Winrates():
                 self.stats_col_title_labels[-1].grid(row=1, column=col, sticky="nsew")
 
     def updateWinrateGrid(self):
+        def colorWinrate(winrate):
+            bgd = "SystemButtonFace"
+            numeric_value = float(winrate.strip('%'))
+            if numeric_value > 48.0:
+                bgd = "#90EE90"
+            elif numeric_value < 35.0:
+                bgd = "#FF9999"
+            return bgd
+        def colorMatches(matches):
+            bgd = "SystemButtonFace"
+            numeric_value = int(matches.replace(',',''))
+            if numeric_value < 200:
+                bgd = "#FF9999"
+            return bgd
+        
         # read champ stats
-        keys = rules.marbleChampStats()
-        appData = []
-        for key in keys:
-            keys = parseChampStats.getChamps(key[0], key[1])
-            appData.append(keys)
+        appData = rules.marbleChampStats()
         
         # create table per person's assignment data
         for i, frame in enumerate(self.stat_frames):
@@ -59,27 +70,18 @@ class Winrates():
                     element.destroy()
             self.stats_data_labels[frame] = []
 
-            # Insert data into grid
-            for row, (champ, role) in enumerate(data, start=2):
-                
-                # can display incomplete data in best-effort
-                key = (champ, role)
-                if(not key in parseChampStats.winrates):
-                    continue
-                
-                obj = parseChampStats.winrates[key]
+            # Insert data into grid starting at row 2, since rows 0 and 1 are headers
+            for row, (champ, winrate, matches) in enumerate(data, start=2):
                 lbl1 = tk.Label(frame, text=champ, borderwidth=1, relief="solid", font=('Arial', 14))
                 lbl1.grid(row=row, column=0, sticky="nsew")
                 self.stats_data_labels[frame].append(lbl1)
                 
-                # lbl2 = tk.Label(frame, text=role, borderwidth=1, relief="solid")
-                # lbl2.grid(row=row, column=1, sticky="nsew")
-                # self.stats_data_labels[frame].append(lbl2)
-                
-                lbl3 = tk.Label(frame, text=obj["winrate"], borderwidth=1, relief="solid", font=('Arial', 14))
+                lbl3 = tk.Label(frame, text=winrate, borderwidth=1, relief="solid", font=('Arial', 14))
+                lbl3.config(bg=colorWinrate(winrate))
                 lbl3.grid(row=row, column=1, sticky="nsew")
                 self.stats_data_labels[frame].append(lbl3)
                 
-                lbl4 = tk.Label(frame, text=obj["matches"], borderwidth=1, relief="solid", font=('Arial', 14))
+                lbl4 = tk.Label(frame, text=matches, borderwidth=1, relief="solid", font=('Arial', 14))
+                lbl4.config(bg=colorMatches(matches))
                 lbl4.grid(row=row, column=2, sticky="nsew")
                 self.stats_data_labels[frame].append(lbl4)

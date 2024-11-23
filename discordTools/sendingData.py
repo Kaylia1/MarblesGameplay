@@ -1,4 +1,5 @@
 import backendTools.globals as globals
+import backendTools.rules as rules
 
 def align_columns(data):
     """Aligns columns with appropriate padding."""
@@ -41,6 +42,23 @@ async def send_money_data(channel):
     
     # Format the data into an aligned table string
     aligned_data = align_columns(money_data)
+    await channel.send(aligned_data)
+
+async def send_assignment_data(channel):
+    """Send the assignment data in table format."""
+    print(rules.marblesExist)
+    if not rules.marblesExist:
+        await channel.send("Marbles have not been assigned yet!")
+        return
+
+    # Headers for the table
+    headers = ["Name", "Position", "Letter", "Level"]
+    assignment_data = [headers]
+
+    # Iterate through summoners and their stats
+    for key, summoner in globals.summoners.items():
+        marble = rules.marbles[summoner.curMarble]
+        assignment_data.append([key, marble.position, marble.letter, marble.level])
     
-    # Send the formatted data to the Discord channel
+    aligned_data = align_columns(assignment_data)
     await channel.send(aligned_data)
