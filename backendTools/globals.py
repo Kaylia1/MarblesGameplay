@@ -21,3 +21,5 @@ summoners = {
 
 allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"]
 ROLES = ["jungle", "support", "top", "mid", "bot"]
+
+mode = ""

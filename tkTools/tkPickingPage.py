@@ -99,6 +99,7 @@ class PickingPage(tkUtil.Page):
         elif self.state == "top10swap":
             if self.checkSubmitted() and self.getNum09():
                 rules.top1Swaper(int(self.entered_text))
+                self.updateAssignments(self.unpickedSummoners)
                 self.state_queue.pop(0) # remove itself (top10swap)
 
                 # Check for paralysis
@@ -228,6 +229,8 @@ class PickingPage(tkUtil.Page):
         self.winratesDisplay.hide()
     
     def show(self):
+        self.state = "done"
+        self.pickState = "pickInit"
         self.winratesDisplay.assignMaster(self.frame)
         
         self.state_queue = [["show"]]

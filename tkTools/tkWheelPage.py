@@ -124,7 +124,7 @@ class WheelPage(tkUtil.Page):
                 current_angle_change = 1.0
         # Not sure why my calculation is so far off, probably to do with tkinter update delay
         # I'll just scale approximately
-        precomputed_seconds *= 6
+        precomputed_seconds *= 7
         print(f"Precomputed total wheel animation time: {precomputed_seconds:.2f} seconds")
         soundTools.wheel_nonblocking(soundTools.arcadeSound, soundTools.fanfareSound, total_time=precomputed_seconds)
         

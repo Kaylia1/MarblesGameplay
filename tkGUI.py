@@ -9,6 +9,7 @@ import tkTools.tkMidgamePage as tkMidgamePage
 import argparse
 import firebase.firebaseTools as firebaseTools
 import json
+import backendTools.globals as globals
 import discordBot # runs in background
 
 def init_tk():
@@ -49,8 +50,8 @@ def main():
     args = parser.parse_args()
     
     # Access the optional argument
-    mode = args.mode
-    print(f"Hello, {mode}!")
+    globals.mode = args.mode
+    print(f"Hello, {globals.mode}!")
     
     init_tk()
     parseChampStats.constructWinrates()

@@ -96,6 +96,7 @@ class WheelResultPage(tkUtil.Page):
             else:
                 self.inputs[label_name]["label"].place_forget()
                 self.inputs[label_name]["entry"].place_forget()
+                self.inputs[label_name]["entry"].delete("1.0", tk.END)
                 self.on_submit()
         self.submit_button.config(state="active")
 
