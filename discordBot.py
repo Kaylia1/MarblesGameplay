@@ -72,6 +72,8 @@ async def on_message(message):
     elif message.content.startswith('!winrate'):
         if len(message.content.split(" "))>1:
             await sendingData.send_winrate_data(message.channel, message.content.split(" ")[1])
+    elif message.content.startswith('!wheel'):
+        await sendingData.send_wheel_res_data(message.channel)
     elif message.author.name == "smolfroggo":
         if message.content.startswith('!page'):
             await message.channel.send(tkUtil.getCurPage())

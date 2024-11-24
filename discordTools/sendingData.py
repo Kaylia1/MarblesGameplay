@@ -1,6 +1,7 @@
 import backendTools.globals as globals
 import backendTools.rules as rules
 import tkTools.uiWinrates as uiWinrates
+import tkTools.tkWheelPage as tkWheelPage
 
 def align_columns(data):
     """Aligns columns with appropriate padding."""
@@ -24,6 +25,7 @@ async def send_help_info(channel):
                    ["!history", "Show cumulative money and kda"],
                    ["!money", "Show current money"],
                    ["!assignments", "Show current marble assignments"],
+                   ["!wheel", "Show last wheel result"],
                    ["!winrate <PlayerName>", "Show all possible winrates for that PlayerName's letter and role"],
                    ["!drink", "Show random quote about drinking"],
                    ["!top", "Show random quote disparaging top lane"],
@@ -78,6 +80,9 @@ async def send_assignment_data(channel):
     
     aligned_data = align_columns(assignment_data)
     await channel.send(aligned_data)
+
+async def send_wheel_res_data(channel):
+    await channel.send("Last wheel spin: "+tkWheelPage.wheel_result)
 
 async def send_winrate_data(channel, summonerName):
     """Send the assignment data in table format."""

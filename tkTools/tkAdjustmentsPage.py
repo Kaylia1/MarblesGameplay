@@ -89,7 +89,7 @@ class AdjustmentsPage(tkUtil.Page):
             if not (input3.isdigit() and int(input3) >= 0):
                 self.setMessageLabel("The 3rd input must be a non-negative number.")
             elif not (globals.summoners[input1[0].upper() + input1[1:].lower()].money>=int(input3)):
-                self.setMessageLabel("The 1st and 2nd input must be a valid person's name.")
+                self.setMessageLabel("You're too poor.")
             else:
                 print(f"Inputs are valid: {input1}, {input2}, {input3}")
                 globals.summoners[input1[0].upper() + input1[1:].lower()].money -= int(input3)
@@ -97,7 +97,7 @@ class AdjustmentsPage(tkUtil.Page):
                 self.setMessageLabel("Bribery accepted")
                 self.moneyDisplay.updateMoneyLabels()
         else:
-            self.setMessageLabel("The first two inputs must summoner names.")
+            self.setMessageLabel("The 1st and 2nd input must be valid people's names.")
     
     # =================== CONTROL ==========================
     
