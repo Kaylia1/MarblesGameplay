@@ -13,6 +13,16 @@ pages = []
 wheelPage = None
 wheelResPage = None
 
+pageDesc = {
+    "0": "Homepage",
+    "1": "Picking",
+    "2": "Adjustments",
+    "3": "Midgame",
+    "4": "Postgame",
+    "wheel": "Wheel",
+    "wheel res": "Wheel result"
+}
+
 
 def popup(title, msg):
     messagebox.showinfo(title, msg)
@@ -20,6 +30,9 @@ def popup(title, msg):
 def getLabelTxt(label):
     return label.cget("text")
 
+def getCurPage():
+    global curPage
+    return pageDesc[str(curPage)]
 
 class Page:
     IMAGE_PATH = "images/marblesreviews.png"
@@ -34,7 +47,6 @@ class Page:
         self.title_label = tk.Label(self.frame, text=title, font=("Arial", 24, "bold"))
         self.title_label.place(x=5.0, y=5.0, anchor="nw")
         
-        # this messes up the wheel for some reason
         self.setup_background_image()
         # create label and add resize image
         self.label1 = tk.Label(self.frame, image=Page.processed_image)
@@ -43,8 +55,8 @@ class Page:
         
         # Message
         self.message_label = tk.Label(self.frame, text=message, font=("Arial", 24),
-                                bg="lightblue", wraplength=200)
-        self.message_label.pack(pady=5)
+                                bg="lightblue", wraplength=800)
+        # self.message_label.pack(pady=5)
 
         # Next button in the bottom-right corner
         self.next_button = StyledButton.StyledButton(self.frame, text="Ok", font=("Arial", 12), 
@@ -120,13 +132,16 @@ def show_page(page_num):
     print("done with show page")
 
 def trigger_wheel_page():
-    print("TRIGGERING WHEEL")
+    global curPage
+    curPage = "wheel"
     for i, page in enumerate(pages):
         page.hide()
     wheelResPage.hide()
     wheelPage.show()
 
 def trigger_wheel_res_page():
+    global curPage
+    curPage = "wheel res"
     for i, page in enumerate(pages):
         page.hide()
     wheelPage.hide()

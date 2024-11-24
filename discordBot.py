@@ -21,7 +21,7 @@ import threading
 import data.dumbPosts.alcoholQuotes as alcoholQuotes
 import data.dumbPosts.toplaneQuotes as toplaneQuotes
 import random
-
+import time
 
 load_dotenv(dotenv_path="secrets/.env")
 readingMarbles = False
@@ -34,9 +34,9 @@ intents.message_content = True
 intents.guilds = True
 intents.reactions = True
 client = discord.Client(intents=intents)
+parseChampStats.constructWinrates() # Only necessary if not run alongside tkGUI.py
 
-parseChampStats.constructWinrates()
-
+startTime = 0
 
 @client.event
 async def on_ready():
@@ -54,6 +54,8 @@ async def on_message(message):
     # Respond to text messages
     if message.content.startswith('!isAlive'):
         await message.channel.send('Hello World! I am alive')
+    elif message.content.startswith('!help'):
+        await sendingData.send_help_info(message.channel)
     elif message.content.startswith('!history'):
         points.load_state(firebaseTools.fb.loadData())
         await sendingData.send_summoner_data(message.channel)
@@ -70,6 +72,16 @@ async def on_message(message):
     elif message.content.startswith('!winrate'):
         if len(message.content.split(" "))>1:
             await sendingData.send_winrate_data(message.channel, message.content.split(" ")[1])
+    elif message.author.name == "smolfroggo":
+        if message.content.startswith('!page'):
+            await message.channel.send(tkUtil.getCurPage())
+        elif message.content.startswith('!runtime'):
+            global startTime
+            endTime = time.time()
+            hours, rem = divmod(endTime - startTime, 3600)
+            minutes, seconds = divmod(rem, 60)
+            await message.channel.send(f"Elapsed time: {int(hours):02}:{int(minutes):02}:{seconds:.2f}")
+        
     
     # do we want to support overriding the UI with the bot?
     # if client.user.mention in message.content:
@@ -95,6 +107,8 @@ async def on_message(message):
 
 def start_discord_bot():
     """Function to start the Discord bot."""
+    global startTime
+    startTime = time.time()
     client.run(TOKEN)
 
 # Run the bot in a separate thread

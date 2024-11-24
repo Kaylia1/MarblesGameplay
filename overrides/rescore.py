@@ -8,6 +8,9 @@ import backendTools.globals as globals
 import firebase.firebaseTools as firebaseTools
 
 # neatly package the correct points methods as executable
+mypoints = firebaseTools.fb.loadData()
+points.load_state(mypoints)
+
 points.scoreAdjust()
 output = points.map_to_json(globals.summoners)
 firebaseTools.fb.storeData(output)

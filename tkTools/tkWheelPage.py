@@ -22,22 +22,13 @@ class WheelPage(tkUtil.Page):
         
         # Canvas for the wheel
         self.canvas = tk.Canvas(self.frame, width=600, height=600)
-        # self.canvas.pack(pady=20)
-        # self.canvas.place(x=450, y=100)  # Position at (450, 100) for center alignment
         
         # Label to display the selected option
-        # print("CREATING NEW LABEL")
-        self.label = tk.Label(self.frame, textvariable=self.selected_option, font=("Times", 12))
-        # self.label.pack(pady=10)
-        # self.label.place(x=750, y=720, anchor="center")  # Position centered below canvas
-        
+        self.label = tk.Label(self.frame, textvariable=self.selected_option, font=("Times", 18))
         
         # Button to spin the wheel
-        self.spin_button = tk.Button(self.frame, text="Spin the Wheel", command=self.spin_wheel, font=("Times", 16))
-        # self.spin_button.pack(pady=20)
-        # self.spin_button.place(x=750, y=760, anchor="center")  # Centered below the label
+        self.spin_button = tk.Button(self.frame, text="Spin the Wheel", command=self.spin_wheel, font=("Times", 18))
 
-        
         self.draw_wheel()  # Initial drawing of the wheel
         self.draw_pointer()  # Draw the fixed 
         self.wheelResult = ""

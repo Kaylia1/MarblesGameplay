@@ -50,11 +50,8 @@ class Assignments():
             self.assignmentLabels[key][self.headers[1]].config(text=rules.marbles[summoner.curMarble].position, bg=bgd)
             self.assignmentLabels[key][self.headers[2]].config(text=rules.marbles[summoner.curMarble].letter, bg=bgd)
             self.assignmentLabels[key][self.headers[3]].config(text=rules.marbles[summoner.curMarble].level, bg=bgd)
-            # print(rules.marbles[summoner.curMarble].marbleDesc)
 
     def show(self):
-        print("UPDATING ASSIGNMENTS ")
-        # self.updateAssignmentLabels()
         self.gridframe.place(x=0, y=200.0, anchor="w")
     
     def hide(self):

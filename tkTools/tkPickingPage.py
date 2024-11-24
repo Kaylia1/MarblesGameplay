@@ -26,19 +26,16 @@ class PickingPage(tkUtil.Page):
         
         self.submit_button = tk.Button(self.frame, text="Submit", command=self.submit)
         self.submit_button.place(x=600, y=650.0, anchor="w")
-        # self.button_clicked = False
         self.button_pressed = tk.BooleanVar()
         self.entered_text = ""
         
-        # self.reminderMsg = tk.Label(self.frame, text="Did you finish copying marbles output to data/marbles_output.txt?", font=("Arial", 12))
-        # self.reminderMsg.place(x=tkUtil.WIDTH/2, y=400.0, anchor="center")
         
         self.top10gridframe = None
         
         self.top10Labels = []
         self.initTop10Marbles()
         self.prompt = tk.Label(self.top10gridframe, text="", font=("Arial", 14))
-        self.prompt.grid(row=0, column=0, padx=5, pady=5, sticky="w") #.place(x=0, y=340.0, anchor="w")
+        self.prompt.grid(row=0, column=0, padx=5, pady=5, sticky="w")
         
         self.assignmentsDisplay = uiAssignments.Assignments(self.frame)
         self.winratesDisplay = uiWinrates.Winrates()
@@ -64,6 +61,13 @@ class PickingPage(tkUtil.Page):
 
     # state machine, this needs to run really fast
     def updateSummonerMarbles(self):
+        def finished():
+            self.setMessageLabel("All positions are assigned!")
+            self.done = True
+            self.next_button.config(state="active")
+            self.clearPrompts()
+            self.state_queue.append(["done"])
+        
         state_info = self.state_queue[0]
         self.state = state_info[0]
         
@@ -71,8 +75,6 @@ class PickingPage(tkUtil.Page):
         if self.state == "done":
             return
 
-        # print(self.state_queue)
-        
         # pick can only be marked done by itself
         if self.state != "pick" and self.state != "top10swap":
             self.state_queue.pop(0)
@@ -82,8 +84,7 @@ class PickingPage(tkUtil.Page):
             self.updateAssignments()
             
             if rules.godScenario:
-                self.setMessageLabel("Someone is God, further picking actions disallowed.")
-                self.state_queue.append(["done"])
+                finished()
                 return
             
             self.unpickedSummoners = list(globals.summoners.keys())
@@ -116,11 +117,7 @@ class PickingPage(tkUtil.Page):
                 self.state_queue.append(["mainPicking"])
             else:
                 # no more pickers, finish
-                self.setMessageLabel("All positions are assigned!")
-                self.done = True
-                self.next_button.config(state="active")
-                self.clearPrompts()
-                self.state_queue.append(["done"])
+                finished()
         
         # run once for each pick
         elif self.state == "pick":

@@ -1,4 +1,5 @@
 Kaylia Y Mid Lvl1	0	36.936455
+Rage PARALYZED Lvl0	0	40.56406
 Rage FREEDOM Lvl4	0	37.849072
 Adam E Jungle Lvl1	0	37.
 Adam I Top Lvl1	0	39.334377
@@ -32,7 +33,6 @@ Jon CHOOSES ALL LvlMARBLE GOD	0	40.429615
 Irisu K Mid Lvl1	0	40.456524
 Rage V Mid Lvl1	0	40.456524
 Irisu C Jungle Lvl1	0	40.48283
-Rage PARALYZED Lvl0	0	40.56406
 Kaylia E Mid Lvl1	0	40.754173
 Kaylia X Support Lvl1	0	40.857536
 Irisu S Jungle Lvl1	0	40.882957
@@ -100,6 +100,7 @@ Adam C Lvl2  	0	43.589249
 Kaylia C Support Lvl1	0	43.589249
 Irisu FREEDOM Lvl4	0	43.589249
 Adam W Mid Lvl1	0	43.614445
+Irisu CHOOSES ALL LvlMARBLE GOD	0	45.270569
 Irisu O Mid Lvl1	0	43.747673
 Adam FREEDOM Lvl4	0	43.772186
 Jon Jungle Lvl3	0	43.772186
@@ -169,7 +170,6 @@ Irisu B Support Lvl1	0	45.245068
 Irisu H Lvl2  	0	45.245068
 Adam J Bot Lvl1	0	45.245068
 Kaylia Jungle Lvl3	0	45.245068
-Irisu CHOOSES ALL LvlMARBLE GOD	0	45.270569
 Irisu FREEDOM Lvl4	0	45.270569
 Kaylia K Bot Lvl1	0	45.29607
 Jon Q Bot Lvl1	0	45.29607

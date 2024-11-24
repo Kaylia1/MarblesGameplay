@@ -16,6 +16,21 @@ def align_columns(data):
     table_str += "\n```"  # End the code block
     return table_str
 
+async def send_help_info(channel):
+    header_data = [
+                   ["Command", "Description"],
+                   ["!help", "List all public commands"],
+                   ["!isAlive", "Hello World! I am alive"],
+                   ["!history", "Show cumulative money and kda"],
+                   ["!money", "Show current money"],
+                   ["!assignments", "Show current marble assignments"],
+                   ["!winrate <PlayerName>", "Show all possible winrates for that PlayerName's letter and role"],
+                   ["!drink", "Show random quote about drinking"],
+                   ["!top", "Show random quote disparaging top lane"],
+                   ]
+    info = align_columns(header_data)
+    await channel.send(info)
+
 async def send_summoner_data(channel):
     """Send summoner data to the specified channel."""
     # Headers

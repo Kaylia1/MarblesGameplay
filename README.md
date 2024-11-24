@@ -12,6 +12,9 @@
 - Discord bot `pip install discord.py`
 - Env variables `pip install python-dotenv`
 
+Known issue with requiring audioops-lts on python>3.11
+`pip3 install audioop-lts`
+
 # Run Instructions 
 cd into marbles top folder
 - python3 .\tkGUI.py

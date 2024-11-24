@@ -86,16 +86,16 @@ class AdjustmentsPage(tkUtil.Page):
         self.money.delete(0, tk.END)
 
         if input1 in lowercase_summoners and input2 in lowercase_summoners:
-            if input3.isdigit() and int(input3) >= 0 and globals.summoners[input1[0].upper() + input1[1:].lower()].money>=int(input3):
+            if not (input3.isdigit() and int(input3) >= 0):
+                self.setMessageLabel("The 3rd input must be a non-negative number.")
+            elif not (globals.summoners[input1[0].upper() + input1[1:].lower()].money>=int(input3)):
+                self.setMessageLabel("The 1st and 2nd input must be a valid person's name.")
+            else:
                 print(f"Inputs are valid: {input1}, {input2}, {input3}")
-                # self.bribe_button.config(state=tk.DISABLED)  # Disable the submit button
-                
                 globals.summoners[input1[0].upper() + input1[1:].lower()].money -= int(input3)
                 globals.summoners[input2[0].upper() + input2[1:].lower()].money += int(input3)
                 self.setMessageLabel("Bribery accepted")
-                self.updateSummonerMoney()
-            else:
-                self.setMessageLabel("The third input must be a non-negative number.")
+                self.moneyDisplay.updateMoneyLabels()
         else:
             self.setMessageLabel("The first two inputs must summoner names.")
     
