@@ -61,14 +61,13 @@ class Marble(MarbleAssignment):
 def isLevelAssignedPosition(level):
     return level == "1" or level == "3"
 
-marblesData = ""
-def readMarbles():    
+# Sets the global marbles variable by parsing large text input
+# return True if successful or False if unsuccessful
+def readMarbles(marblesData):    
     global marblesExist
     print("READING")
     
-    # TODO bad practice and relies on hides happening before shows
     lines = marblesData.strip().splitlines()
-    # print(lines)
 
     # Marbles output is in format marbleTitle | 0 | time, we only care about title
     # Parse the entire marbles output
@@ -79,16 +78,23 @@ def readMarbles():
             print("skipping whitespace line")
             continue
         line = re.split(r"[ \t]+", line.strip())
+        if len(line) < 3:
+            return False
         line.pop() # remove time data
         line.pop() # remove history placement data
         line = " ".join(line)
         
         splitted = line.split("Lvl")
+        if len(splitted) < 2:
+            return False
         level = splitted[1]
         values = splitted[0].split(" ")
+        if len(values) < 1:
+            return False
         name = values[0]
         marbles.append(Marble(name, line, level, i, values))
     marblesExist = True
+    return True
 
 def marbleChampStats():
     appData = []
@@ -290,49 +296,21 @@ def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles, ui=False):
     
     updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole)
     
-
+# returns True on success or False on failure
 def initGetBestMarbles():
     global godScenario
+    # initialize god scenario as false at start of selection
     godScenario = False
     for summoner in globals.summoners.values():
         summoner.curMarble = getBestMarble(summoner.name)
+        if summoner.curMarble < 0: # Failed to parse for that name
+            return False
         if(marbles[summoner.curMarble].isMarbleGod()):
             print(summoner.name + " has won marble god!")
             godScenario = True
             assignMarblePlaceholders(summoner.name + " is the marble god")
-            return
-
-def assignMarbles():
-    
-    global godScenario, marblesExist
-    godScenario = False
-    # Get the top marble for ea of 5 ppl.
-    # Check if any person's top 1 is marble god
-    readMarbles()
-    marblesExist = True
-    
-    # clear old assignments and get toppmost marble
-    initGetBestMarbles()
-    
-    unpickedSummoners = list(globals.summoners.keys())
-    unpickedRoles = list(globals.ROLES)
-    currentMarbleAssignments(unpickedSummoners)
-    
-    top1Swap()
-    
-    # assign marbles via marble level and picking
-    # note: top 1 doesn't pick first ONLY if paralyzed
-    if(not marbles[0].level == "0"):
-        pick(marbles[0].name, False, unpickedSummoners, unpickedRoles)
-    while(len(unpickedSummoners)>0):
-        nextPickers, isParalyzed = getNextPicker(unpickedSummoners)
-        for picker in nextPickers:
-            print(unpickedRoles)
-            pick(picker, isParalyzed, unpickedSummoners, unpickedRoles)
-            
-    print("All positions are assigned:")
-    currentMarbleAssignments(unpickedSummoners)
-    
+            return True
+    return True # not marble god, exit normally
     
 # ====== wheel helper functions ======
 def getRole(role): # return summonerName

@@ -4,6 +4,7 @@ import backendTools.points as points
 import backendTools.globals as globals
 # import tkTools.Assets.StyledLabel as StyledLabel
 import firebase.firebaseTools as firebaseTools
+import backendTools.rules as rules
 
 entered_text = ""
 class HomePage(tkUtil.Page):
@@ -26,16 +27,18 @@ class HomePage(tkUtil.Page):
         self.text_box = tk.Text(self.frame, wrap="word", font=("Arial", 12))
         self.text_box.place(relx=0.05, rely=0.4, relwidth=0.9, relheight=0.5)
         
-        self.isHidden = True
+        # self.isHidden = True
     
     def read_text(self):
         # Get the text from the Text widget
-        import backendTools.rules
         # start reading from first line
-        backendTools.rules.marblesData = self.text_box.get("1.0", tk.END).strip()  # Strip removes trailing newline
-        self.text_box.delete("1.0", tk.END)
         print("Read Marble Text")
-        # print(entered_text)
+        marblesData = self.text_box.get("1.0", tk.END).strip()  # Strip removes trailing newline
+        self.text_box.delete("1.0", tk.END)
+        readStatus = rules.readMarbles(marblesData)
+        parseStatus = rules.initGetBestMarbles()
+        return readStatus and parseStatus
+        
     
     def init_labels(self):
         """Initializes and packs the header and summoner stat labels."""
@@ -75,9 +78,9 @@ class HomePage(tkUtil.Page):
     def hide(self):
         super().hide()
         self.gridframe.place_forget()
-        if not self.isHidden: # read marble data upon click of next when homepage first goes from show->hide
-            self.read_text()
-        self.isHidden = True
+        # if not self.isHidden: # read marble data upon click of next when homepage first goes from show->hide
+        #     self.read_text()
+        # self.isHidden = True
     
     def show(self):
         super().show()
@@ -87,7 +90,16 @@ class HomePage(tkUtil.Page):
         # write game money adjustment to file
         # output = points.map_to_json(globals.summoners)
         # firebaseTools.fb.storeData(output)
-        self.isHidden = False
+        # self.isHidden = False
+    
+    def handleNext(self):
+        print("Handling")
+        if self.read_text():
+            # Move on to next page
+            print("Successfully parsed input")
+            super().handleNext()
+        else:
+            self.setMessageLabel("Failed to parse marble input due to bad format")
 
 def createHomePage(root):
     return HomePage(root)

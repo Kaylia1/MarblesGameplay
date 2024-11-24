@@ -237,8 +237,8 @@ class PickingPage(tkUtil.Page):
         self.next_button.config(state="disabled")
         
         # run main assignments program
-        rules.readMarbles()
-        rules.initGetBestMarbles()
+        # rules.readMarbles()
+        # rules.initGetBestMarbles()
         super().show() # need to initialize marble data before showing assignments
         
         self.updateTop10Marbles()

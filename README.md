@@ -5,14 +5,14 @@
 - tkinter `pip3 install tk`
 - requests `pip3 install requests`
 - PIL `pip3 install Pillow`
-- Firebase `pip install firebase-admin`
-- Pygame `pip install pygame`
+- Firebase `pip3 install firebase-admin`
+- Pygame `pip3 install pygame`
 
 # Discord bot dependencies
-- Discord bot `pip install discord.py`
-- Env variables `pip install python-dotenv`
+- Discord bot `pip3 install discord.py`
+- Env variables `pip3 install python-dotenv`
 
-Known issue with requiring audioops-lts on python>3.11
+Known issue with discord bot requiring explicit installation of audioops-lts on python>3.11 as a dependency
 `pip3 install audioop-lts`
 
 # Run Instructions 
