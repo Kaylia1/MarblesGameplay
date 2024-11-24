@@ -4,6 +4,7 @@ import tkinter as tk
 import time
 import math
 import backendTools.wheelMap as wheelMap
+import backendTools.soundTools as soundTools
 
 # wheel page is responsible for making marble adjustments due to wheel
 wheel_result = ""
@@ -103,11 +104,31 @@ class WheelPage(tkUtil.Page):
         
         # Animation parameters
         random.seed(time.time())
-        total_spins = random.uniform(2.0, 4.5)  # Total spins
+        total_spins = random.uniform(2.5, 6.8)  # Total spins
         delay = 0.005  # Initial delay
         offset_angle = 0
         total_offset_angle = total_spins * 360
-        angle_change = 23
+        angle_change = 23 # speed: how many degrees to change per iter
+        
+        # Simulation of total animation time
+        precomputed_seconds = 0
+        current_angle_change = angle_change
+        sim_offset_angle = total_spins * 360
+        # Calculate total number of steps and cumulative time
+        while sim_offset_angle > 0:
+            # Add the delay for this step
+            precomputed_seconds += delay
+            sim_offset_angle -= current_angle_change
+            current_angle_change *= 0.99
+            if current_angle_change < 1.0:
+                current_angle_change = 1.0
+        # Not sure why my calculation is so far off, probably to do with tkinter update delay
+        # I'll just scale approximately
+        precomputed_seconds *= 6
+        print(f"Precomputed total wheel animation time: {precomputed_seconds:.2f} seconds")
+        soundTools.wheel_nonblocking(soundTools.arcadeSound, soundTools.fanfareSound, total_time=precomputed_seconds)
+        
+        
         while total_offset_angle > 0:
             total_offset_angle -= angle_change
             offset_angle = (offset_angle + angle_change) % 360
@@ -119,6 +140,7 @@ class WheelPage(tkUtil.Page):
             self.frame.update()
             time.sleep(delay)
             
+            # Decrease spin speed by 2% each time
             angle_change *= 0.99
             if(angle_change < 1):
                 angle_change = 1.0
