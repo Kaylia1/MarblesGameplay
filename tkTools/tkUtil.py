@@ -111,6 +111,7 @@ class Page:
 
 def next_page():
     global curPage
+    print("last page was: "+str(curPage))
     curPage = (curPage + 1)%len(pages)
     show_page(curPage)
 
@@ -119,6 +120,8 @@ def show_page(page_num):
     # Hide all pages
     wheelPage.hide()
     wheelResPage.hide()
+    global curPage
+    curPage = page_num
     for i, page in enumerate(pages):
         if not i == page_num:
             page.hide()
