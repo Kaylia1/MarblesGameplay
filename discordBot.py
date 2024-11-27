@@ -83,6 +83,15 @@ async def on_message(message):
             hours, rem = divmod(endTime - startTime, 3600)
             minutes, seconds = divmod(rem, 60)
             await message.channel.send(f"Elapsed time: {int(hours):02}:{int(minutes):02}:{seconds:.2f}")
+        elif message.content.startswith('!updatehash'):
+            file_path = "local_commit_hash.txt"
+            if os.path.exists(file_path):
+                # Open the file and read its contents
+                with open(file_path, 'r') as file:
+                    contents = file.read()
+                await message.channel.send(contents)
+            else:
+                await message.channel.send("No hash")
         
     
     # do we want to support overriding the UI with the bot?
