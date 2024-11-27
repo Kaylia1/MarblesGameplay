@@ -147,6 +147,7 @@ class WheelPage(tkUtil.Page):
         
         # Final selection
         final_choice = self.options[selected_index]
+        
         self.selected_option.set(f"Result: {final_choice}")
         
         print("Result: "+final_choice)

@@ -134,7 +134,9 @@ def marbleDec(args):
     if rules.godScenario:
         return
     victims = rules.getNoLetters()
-    changeLetter(victims, isRandom=True)
+    a = args[0] if len(args) > 0 else None
+    a = a[0].upper() + a[1:].lower()
+    changeLetter(victims, a, isRandom=True)
 
 def marbleLargeDec(args):
     if rules.godScenario:
