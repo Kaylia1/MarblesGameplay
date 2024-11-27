@@ -54,5 +54,5 @@ if "%REMOTE_COMMIT%"=="%LOCAL_COMMIT%" (
     echo Your local commit hash: %LOCAL_COMMIT%
     echo Saving the new commit hash locally...
     echo %REMOTE_COMMIT% > "%LOCAL_HASH_FILE%"
-    ./updateCode.bat
+    call updateCode.bat
 )

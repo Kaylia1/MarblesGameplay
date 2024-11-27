@@ -1,4 +1,6 @@
 :: Check for updates from git hash and update if available
-./updateCheck.bat
+call updateCheck.bat
 
+
+echo Starting!
 py ./main.py
