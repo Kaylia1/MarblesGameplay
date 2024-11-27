@@ -69,4 +69,3 @@ echo Cleaning up temporary files...
 rd /s /q "%DOWNLOAD_DIR%"
 
 echo Update completed successfully!
-pause
