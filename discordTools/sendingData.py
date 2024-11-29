@@ -26,6 +26,7 @@ async def send_help_info(channel):
                    ["!money", "Show current money"],
                    ["!assignments", "Show current marble assignments"],
                    ["!wheel", "Show last wheel result"],
+                   ["!vision", "Show summoner with best adjusted vision last game"],
                    ["!winrate <PlayerName>", "Show all possible winrates for that PlayerName's letter and role"],
                    ["!drink", "Show random quote about drinking"],
                    ["!top", "Show random quote disparaging top lane"],

@@ -21,6 +21,7 @@ import threading
 import data.dumbPosts.alcoholQuotes as alcoholQuotes
 import data.dumbPosts.toplaneQuotes as toplaneQuotes
 import random
+import backendTools.rules as rules
 import time
 
 load_dotenv(dotenv_path="secrets/.env")
@@ -69,6 +70,8 @@ async def on_message(message):
         await message.channel.send(toplaneQuotes.quotes[random_index])
     elif message.content.startswith('!assignments'):
         await sendingData.send_assignment_data(message.channel)
+    elif message.content.startswith('!vision'):
+        await message.channel.send("Summoner with the best adjusted vision last game was: "+rules.bestVision)
     elif message.content.startswith('!winrate'):
         if len(message.content.split(" "))>1:
             await sendingData.send_winrate_data(message.channel, message.content.split(" ")[1])
