@@ -24,5 +24,17 @@ quotes = [
     
     """Have you ever wished you could forget the time you tripped in front of your entire class in 8th grade? Alcohol can’t erase that, but it can make you forget the dumb things you did last night. The only catch is that your friends won’t forget and will remind you for the rest of your life.""",
     
-    """Your friends are drinking. The bartender is staring. The random guy you just met is offering you a shot. And what do you do? You embrace the moment. Why? Because saying no is hard, and saying yes is how you end up singing “Sweet Caroline” on a table while someone films it for TikTok."""
+    """Your friends are drinking. The bartender is staring. The random guy you just met is offering you a shot. And what do you do? You embrace the moment. Why? Because saying no is hard, and saying yes is how you end up singing “Sweet Caroline” on a table while someone films it for TikTok.""",
+
+    "Playing League of Legends sober feels like trying to jungle without Smite—it’s possible, but why would you do that? ",
+    "The sober mind is not equipped to handle League.",
+    "A little alcohol is like Smite for my patience—it secures my sanity and prevents a tilt Baron throw.",
+    
+    "I’m just here for the vibes, man. "
+    "Who cares about Nexus towers when you’ve got wine towers?",
+    
+    "Drinking and League go together because if I can’t carry the team, at least I can carry this beer. "
+    "Let’s face it—sometimes it’s not your mechanics, game knowledge, or shotcalling that’s holding you back. Sometimes your team is just a circus, and you’re the clown cleaning up after them. "
+    "When the mid-laner dives the enemy fountain 'for the memes,' the only thing I can carry is a cold one to drown my sorrow. "
+    "And guess what? This beer’s never blamed me for a bad call.",
 ]
