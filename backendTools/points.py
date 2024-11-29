@@ -6,6 +6,7 @@ import backendTools.webtools as webtools
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.wheelMap as wheelMap
+import random
 # import tkWheel
 # import tkChampStats
 
@@ -98,7 +99,8 @@ def findSupp(playerData):
 def scoreAdjust():
     playerData, isWin = webtools.getRiotAPIData()
     support = findSupp(playerData)
-        
+
+    bestVisionScore = 0
     for summoner in globals.summoners.values():
         kills = playerData[summoner.name]["kills"]
         deaths = playerData[summoner.name]["deaths"]
@@ -111,6 +113,7 @@ def scoreAdjust():
 
         if(isSupp):
             kills, assists = assists, kills
+            vision *= 0.6 # supp needs 15/0.6=25 vision score to avoid penalty
         summoner.kills += kills
         summoner.deaths += deaths
         summoner.assists += assists
@@ -119,6 +122,9 @@ def scoreAdjust():
             summoner.money -= 15
         elif(vision > 20):
             summoner.money += vision - 20
+        if vision > bestVisionScore or vision == bestVisionScore and random.randint(0, 1) == 0:
+            rules.bestVision = summoner.name
+            bestVisionScore = vision
     
     print_money()
     return playerData, support # return for display

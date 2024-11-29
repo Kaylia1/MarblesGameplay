@@ -61,7 +61,7 @@ class PostgamePage(tkUtil.Page):
             self.info_labels[name]["kills"].config(text=kills)
             self.info_labels[name]["deaths"].config(text=deaths)
             self.info_labels[name]["assists"].config(text=assists)
-            self.info_labels[name]["vision"].config(text=vision)
+            self.info_labels[name]["adjusted-vision"].config(text=vision)
             self.info_labels[name]["support"].config(text="Yes" if is_supp else "No")
     
     # Read data from riot and update db and display
