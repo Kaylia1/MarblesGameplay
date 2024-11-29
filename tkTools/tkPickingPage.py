@@ -18,6 +18,7 @@ class PickingPage(tkUtil.Page):
         self.state = "done"
         self.pickState = "pickInit"
         
+        # TODO refactor, this does not seem to show
         self.curAssignments = tk.Label(self.frame, text="Current assignments:", font=("Arial", 12))
         self.curAssignments.place(x=0, y=90.0, anchor="w")
         
@@ -55,6 +56,7 @@ class PickingPage(tkUtil.Page):
         for i in range(10):
             self.top10Labels[i].config(text=str(i)+": "+rules.marbles[i].marbleDesc)
     
+    
     def clearPrompts(self):
         # self.prompt.
         self.top10gridframe.place_forget()
@@ -67,6 +69,9 @@ class PickingPage(tkUtil.Page):
             self.next_button.config(state="active")
             self.clearPrompts()
             self.state_queue.append(["done"])
+            
+            # last update since no longer waiting for inputs
+            self.updateAssignments(self.unpickedSummoners)
         
         state_info = self.state_queue[0]
         self.state = state_info[0]
@@ -76,38 +81,76 @@ class PickingPage(tkUtil.Page):
             return
 
         # pick can only be marked done by itself
-        if self.state != "pick" and self.state != "top10swap":
+        if self.state != "pick" and self.state != "top10swap" and self.state != "visionSwap":
             self.state_queue.pop(0)
         
         if self.state == "show":
             # initial visualization of data
-            self.updateAssignments()
             
             if rules.godScenario:
                 finished()
                 return
             
+            self.waitingForInput = False
             self.unpickedSummoners = list(globals.summoners.keys())
             self.unpickedRoles = list(globals.ROLES)
+            self.pickState = "pickInit"
             
             self.entered_text = ""
             self.button_clicked = False
+            self.updateTop10Marbles()
             self.setMessageLabel("Enter a number 0-9")
             
             self.state_queue.append(["top10swap"])
         # wait for 0-9 for top 10 swapping
         elif self.state == "top10swap":
-            if self.checkSubmitted() and self.getNum09():
+            if self.checkSubmitted() and self.validateNum(0, 9):
+                # swap the marble indexes with the 0th index
                 rules.top1Swaper(int(self.entered_text))
-                self.updateAssignments(self.unpickedSummoners)
                 self.state_queue.pop(0) # remove itself (top10swap)
-
+                
                 # Check for paralysis
                 # # note: top 1 doesn't pick first ONLY if paralyzed
-                if(not rules.marbles[0].level == "0"):
+                # "picks" for the top 1
+                if(rules.marbles[0].level != "0"):
                     self.state_queue.append(["pick", rules.marbles[0].name, False])
                     self.pickState = "pickInit"
+                
+                if rules.bestVision != "":
+                    self.state_queue.append(["visionSwap"])
+                    self.visionSwapState = "visionSwapInit"
+                
                 self.state_queue.append(["mainPicking"])
+                
+        # update function for checking if valid swap for vision position
+        elif self.state == "visionSwap":
+            if self.visionSwapState == "visionSwapInit":
+                # assumes rules.bestVision never updates during picking phase
+                
+                # if top 1 was also best vision, "unpick" them
+                if rules.bestVision not in self.unpickedSummoners: # TODO unpickedSummoners should be a set
+                    self.unpickedSummoners.append(rules.bestVision)
+                
+                # top3 seperate variable from top5 since vision swapper can choose to be paralyzed? untested code
+                visionSwapOpts = 3
+                self.prompt.config(text="Pick a top "+str(visionSwapOpts)+" marble to swap with:")
+                self.top3 = rules.getTopSummonerMarbles(rules.bestVision, globals.summoners[rules.bestVision].curMarble - 1, self.unpickedRoles, "-1", visionSwapOpts) # -1 for start point to include current marble
+                self.setMessageLabel(rules.bestVision+" had the best vision last game! Pick amongst "+rules.bestVision+"'s top "+str(visionSwapOpts)+" marbles")
+                for i in range(10):
+                    if i < visionSwapOpts:
+                        self.top10Labels[i].config(text=str(i)+":"+rules.marbles[self.top3[i]].marbleDesc)
+                    else:
+                        self.top10Labels[i].config(text="")
+                self.visionSwapState = "visionSwapUpdate"
+            elif self.visionSwapState == "visionSwapUpdate":
+                if self.checkSubmitted() and self.validateNum(0, 2):
+                    self.state_queue.pop(0) # remove this sub state machine (visionSwap) to go back to main loop
+                    rules.bestVisionSwaper(self.top3[int(self.entered_text)])
+                    if(rules.marbles[globals.summoners[rules.bestVision].curMarble].level != "0"):
+                        self.state_queue.insert(0, ["pick", rules.bestVision, False]) # prioritize this
+                        self.pickState = "pickInit"
+                    # assign main loop earlier rather than here so that visionSwap can optionally be excluded
+    
         elif self.state == "mainPicking":
             if (len(self.unpickedSummoners)>0):
                 nextPickers, isParalyzed = rules.getNextPicker(self.unpickedSummoners)
@@ -166,13 +209,12 @@ class PickingPage(tkUtil.Page):
             elif self.pickState == "pickRoleFin":
                 print("picked role: "+self.pickedRole)
                 rules.updatePickList(self.unpickedSummoners, picker, self.unpickedRoles, self.pickedRole)
-                self.updateAssignments(self.unpickedSummoners)
                 self.pickState = "pickInit" # reset in case another pick call afterwards
                 self.state_queue.pop(0) # exit the picking substate machine
     
             # paralyzed, show top 5 marbles prompt
             elif self.pickState == "paralyzedInit":
-                self.top5 = rules.getTop5Marbles(picker, globals.summoners[picker].curMarble, self.unpickedRoles)
+                self.top5 = rules.getTopSummonerMarbles(picker, globals.summoners[picker].curMarble, self.unpickedRoles, "1", 5)
                 self.prompt.config(text="Paralyzed! Pick a marble 0-4")
                 self.setMessageLabel(picker+" is paralyzed.")
                 for i in range(10):
@@ -188,10 +230,21 @@ class PickingPage(tkUtil.Page):
                     self.pickState = "pickRoleInit"
         
         # if it needs input, update slowly
-        if self.state == "top10swap" or self.state == "pick" and (self.pickState == "pickRoleUpdate" or self.pickState == "paralyzedUpdate"):
+        if (
+            self.state == "top10swap"
+            or self.state == "visionSwap"
+            or self.state == "pick" and (self.pickState == "pickRoleUpdate" or self.pickState == "paralyzedUpdate")
+            ):
+            # previously was in self-updating state
+            if not self.waitingForInput:
+                # only update once when pausing for input
+                self.updateAssignments(self.unpickedSummoners)
             self.frame.after(100, self.updateSummonerMarbles)
+            self.waitingForInput = True
         else:
             self.updateSummonerMarbles()
+            self.waitingForInput = False
+            
         
     
     def getNum09(self): # TODO rename this to validate
@@ -202,6 +255,17 @@ class PickingPage(tkUtil.Page):
                 return True
             self.setMessageLabel("Cannot swap with God!")
         self.setMessageLabel("Enter a number 0-9")
+        self.animate_message(self.message_label)
+        return False
+    
+    def validateNum(self, start, end):
+        self.button_clicked = False
+        if self.entered_text.isdigit() and int(self.entered_text) >= start and int(self.entered_text) <= end:
+            if rules.marbles[int(self.entered_text)].level != "MARBLE GOD":
+                self.setMessageLabel(DEFAULT_MSG)
+                return True
+            self.setMessageLabel("Cannot swap with God!")
+        self.setMessageLabel("Enter a number "+str(start)+"-"+str(end))
         self.animate_message(self.message_label)
         return False
     
@@ -244,7 +308,6 @@ class PickingPage(tkUtil.Page):
         # rules.initGetBestMarbles()
         super().show() # need to initialize marble data before showing assignments
         
-        self.updateTop10Marbles()
         self.updateSummonerMarbles() # main picking
         
         self.assignmentsDisplay.show()

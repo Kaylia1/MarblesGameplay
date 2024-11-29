@@ -55,7 +55,7 @@ class Page:
         
         # Message
         self.message_label = tk.Label(self.frame, text=message, font=("Arial", 24),
-                                bg="lightblue", wraplength=800)
+                                bg="lightblue", wraplength=1000)
         # self.message_label.pack(pady=5)
 
         # Next button in the bottom-right corner

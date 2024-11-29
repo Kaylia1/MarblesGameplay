@@ -14,4 +14,4 @@ mypoints = firebaseTools.fb.loadData()
 print("Writing to file")
 with open("saved_points_real.json", "w") as file:
     json.dump(mypoints, file, indent=4)
-print("Points written to saved_points.json")
+print("Points written to saved_points_real.json")

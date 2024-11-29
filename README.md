@@ -60,7 +60,7 @@ note: change .env Discord token to change the discord bot target
 7: LEVEL ZERO MARBLE- really sorry. You are last pick, the group decides between
                       your top 5 Lvl1 marbles for that role
 
-        Pick order goes MARBLE GOD > WHEEL > RANK 1 > LEVELS 4, 3, 2, 1, 0
+        Pick order goes MARBLE GOD > WHEEL > RANK 1 > Vision Reward > LEVELS 4, 3, 2, 1, 0
                                 ties broken by marble placement 
         Kills:   $4
         Assists: $1
@@ -92,5 +92,6 @@ The rules for role assignments are as follows:
 
 # edge cases:
 - top 1 no longer picks first if they pick into paralysis
+- top 1 and vision reward can be the same person
 - "next marble of same marble level" is a marble in a placement larger than the current marble assignment, ie if after paralysis you get assigned your 3rd lvl1 marble, your next lvl1 marble would be your 4th lvl1 marble
 - marbles currently only supports 1 letter prefixes due to winrate logic

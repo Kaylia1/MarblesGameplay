@@ -64,6 +64,9 @@ def load_state(json_data):
             summoner.kills = data["kills"]
             summoner.deaths = data["deaths"]
             summoner.assists = data["assists"]
+        elif name == "special":
+            if "bestVision" in data:
+                rules.bestVision = data["bestVision"]
 
     print("Loaded from data.")
 

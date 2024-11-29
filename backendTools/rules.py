@@ -11,6 +11,7 @@ marbles = []
 
 godScenario = False
 marblesExist = False
+bestVision = ""
 
 GREEN_TXT_START = "\033[1;32;40m "
 DEF_TXT_END = " \033[0m"
@@ -175,22 +176,13 @@ def assignMarblePlaceholders(message):
 
 # for paralyzed states
 # input startPoint as the i of the current marble to find new marbles after it
-def getTop5Marbles(summonerName, startPoint, unpickedRoles):
+def getTopSummonerMarbles(summonerName, startPoint, unpickedRoles, level, numMarbles):
     nextPossibleMarble = startPoint
     possibleMarbles = []
-    for i in range(5):
-        nextPossibleMarble = getBestMarble(summonerName, "1", nextPossibleMarble+1, unpickedRoles)
+    for i in range(numMarbles):
+        nextPossibleMarble = getBestMarble(summonerName, level, nextPossibleMarble+1, unpickedRoles)
         possibleMarbles.append(nextPossibleMarble)
     return possibleMarbles
-
-def pickFromTop5Marbles(summonerName, top5marbles, ui=False):
-    while True:
-        marbleNum = myinput("Choose a marble 0-4 from the list")
-        if(not marbleNum.isdigit() or int(marbleNum) < 0 or int(marbleNum) > 4):
-            print("Invalid input, needs to be numeric value 0-4")
-            continue
-        setCurMarble(summonerName, top5marbles[int(marbleNum)])
-        break
 
 def setCurMarble(summonerName, marbleNum):
     globals.summoners[summonerName].curMarble = marbleNum
@@ -212,26 +204,6 @@ def printTop10Marbles():
     for i in range(10):
         print(str(i)+": "+marbles[i].marbleDesc)
 
-def top1Swap():
-    global marbles
-    # Top 1 can choose to swap marbles with any of the top 10 marbles
-    printTop10Marbles()
-    swapNum = 0
-    while True:
-        swapNum = myinput(marbles[0].name + " is top 1, enter the number 0-9 of the marble to swap with.")
-        try:
-            swapNum = int(swapNum)
-            if(swapNum > 9 or swapNum < 0):
-                print("That's not in the top 10, try again")
-                continue
-            elif(marbles[swapNum].level == "MARBLE GOD"):
-                print("Can't swap with God, try again")
-                continue
-            break
-        except ValueError:
-            print("That's not a valid integer, try again")
-    top1Swaper(swapNum) # TODO messy naming
-
 def top1Swaper(swapNum):
     # swap marble positions in ranking
     temp = marbles[swapNum]
@@ -246,55 +218,17 @@ def top1Swaper(swapNum):
     marbles[swapNum].placement = marbles[0].placement
     marbles[0].placement = tempPlacement
 
-# if no role assigned, user picks a role
-def pickRole(summonerName, unpickedRoles, ui=False):
-    global marbles
-    
-    # force assign this role
-    if(len(unpickedRoles)==1):
-        print("One role remaining. Forcibly assigning "+summonerName+" to "+unpickedRoles[0])
-        marbles[globals.summoners[summonerName].curMarble].position = unpickedRoles[0]
-        return unpickedRoles[0]
-    
-    # if(not marbles[globals.summoners[summonerName].curMarble].position in unpickedRoles):
-    if(marbles[globals.summoners[summonerName].curMarble].position==""):
-        # no role assigned yet, can pick own role, input role
-        while True:
-            print("Remaining roles:")
-            print(unpickedRoles) # TODO make this print nicer
-            role = myinput("Role for "+summonerName+"?").lower()
-            if not role in unpickedRoles:
-                print("That's not a valid role, try again")
-            else:
-                marbles[globals.summoners[summonerName].curMarble].position = role
-                return role
-    # elif(not marbles[globals.summoners[summonerName].curMarble].position in unpickedRoles):
-    #     # role assigned but taken, fetch next marble
-    return marbles[globals.summoners[summonerName].curMarble].position
+def bestVisionSwaper(marbleNum):
+    if bestVision == "":
+        print("WARN: No one has best vision")
+        return
+    # assign person with bestVision to the marble at swapNum
+    globals.summoners[bestVision].curMarble = marbleNum
 
 def updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole):
     unpickedSummoners.remove(picker)
     if(pickedRole in unpickedRoles):
         unpickedRoles.remove(pickedRole)
-
-def pick(picker, isParalyzed, unpickedSummoners, unpickedRoles, ui=False):
-    # print current state
-    if not ui:
-        currentMarbleAssignments(unpickedSummoners)
-    
-    # check if current role assignment is ok, else get new marble
-    updateBestMarble(unpickedSummoners, unpickedRoles)
-    
-    print("picker:"+picker) # TODO UI THIS
-    # if paralyzed, print next 5 lvl1 marbles of that person with avail roles
-    top5 = []
-    if isParalyzed:
-        top5 = getTop5Marbles(picker, globals.summoners[picker].curMarble, unpickedRoles)
-        printMarbles(top5) # TODO UI THIS
-        pickFromTop5Marbles(picker, top5, ui)
-    pickedRole = pickRole(picker, unpickedRoles, ui)
-    
-    updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole)
     
 # returns True on success or False on failure
 def initGetBestMarbles():
