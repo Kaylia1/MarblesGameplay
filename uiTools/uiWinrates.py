@@ -4,6 +4,7 @@ import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
+import uiTools.Assets.StyledButton as StyledButton
 
 class Winrates():
     _instance = None  # Singleton instance
@@ -23,19 +24,25 @@ class Winrates():
             self.stats_title_labels = []
             self.stats_col_title_labels = []
             self.initWinrateGrid()
-        
+    
     def show(self):
         for i, frame in enumerate(self.stat_frames):
             frame.place(x=460+260*i, y=150)
+        self.toggle_button.place(x=460, y=120.0, anchor="w")  # Adjust the y-position above the grid
             
-    def hide(self):
+    def hideFrames(self):
         for frame in self.stat_frames:
             frame.place_forget()
+
+    def hide(self):
+        self.toggle_button.place_forget()
+        self.hideFrames()
     
     # place onto root
     def assignMaster(self, root):
         for i in range(len(globals.allSummoners)):
             self.stat_frames[i].master = root
+        self.toggle_button.master = root
     
     def initWinrateGrid(self):
         for index in range(len(globals.allSummoners)):
@@ -55,6 +62,20 @@ class Winrates():
             for col, header in enumerate(headers):
                 self.stats_col_title_labels.append(tk.Label(frame, text=header, font=('Arial', 14, 'bold'), borderwidth=1, relief="solid"))
                 self.stats_col_title_labels[-1].grid(row=1, column=col, sticky="nsew")
+        
+        # Button to toggle grid visibility
+        self.toggle_button = StyledButton.StyledButton(text="Hide Stats", command=self.toggle_grid, bg="#eeeeee")
+        
+    def toggle_grid(self):
+        # Toggle visibility of the grid
+        if len(self.stat_frames) == 0:
+            return
+        if self.stat_frames[0].winfo_ismapped():  # Check if the grid is currently shown
+            self.hideFrames()
+            self.toggle_button.config(text="Show stats")
+        else:
+            self.show()
+            self.toggle_button.config(text="Hide stats")
 
     def updateWinrateGrid(self):
         def colorWinrate(winrate):

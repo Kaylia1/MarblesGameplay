@@ -101,6 +101,10 @@ class Page:
 
         # Start the sliding animation
         slide()
+    
+    def setNextButtonState(self, state):
+        self.next_button.set_active(is_active=state)
+            
 
     def show(self):
         self.frame.pack(fill="both", expand=True)

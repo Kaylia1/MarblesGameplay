@@ -156,7 +156,7 @@ class WheelPage(uiPage.Page):
         global wheel_result
         wheel_result = final_choice
         
-        self.next_button.config(state="active")
+        self.setNextButtonState(True)
 
     def hide(self):
         super().hide()
@@ -173,7 +173,7 @@ class WheelPage(uiPage.Page):
         global wheel_result
         wheel_result = ""
         self.setMessageLabel("spinner: "+wheelMap.lastSpinner)
-        self.next_button.config(state="disabled")
+        self.setNextButtonState(False)
         
         self.canvas.place(x=450, y=100) 
         self.label.place(x=750, y=720, anchor="center")

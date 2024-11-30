@@ -34,7 +34,7 @@ class WheelResultPage(uiPage.Page):
         super().show()
         self.gen_from_inputs()
         self.setMessageLabel(uiWheelPage.wheel_result)
-        self.next_button.config(state="disabled")
+        self.setNextButtonState(False)
         
         self.moneyDisplay.updateMoneyLabels()
         self.moneyDisplay.show()
@@ -130,7 +130,7 @@ class WheelResultPage(uiPage.Page):
         
         if totalOk:
             self.submit_button.config(state="disabled") # prevent excess submissions for a bit(?)
-            self.next_button.config(state="active")
+            self.setNextButtonState(True)
             # TODO wheel map call
             # construct params
             if not rules.godScenario:

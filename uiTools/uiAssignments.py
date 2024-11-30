@@ -18,7 +18,6 @@ class Assignments():
         
         self.initAssignmentLabels()
         
-        
     def initAssignmentLabels(self):
         self.gridframe = tk.Frame(self.root)
         self.headers = ["Name", "Position", "Letter", "Level"]

@@ -66,7 +66,7 @@ class PickingPage(uiPage.Page):
         def finished():
             self.setMessageLabel("All positions are assigned!")
             self.done = True
-            self.next_button.config(state="active")
+            self.setNextButtonState(True)
             self.clearPrompts()
             self.state_queue.insert(0, ["done"]) # done prioritizes over everything
             
@@ -307,7 +307,8 @@ class PickingPage(uiPage.Page):
         self.top10gridframe.place(x=0, y=350.0)
         # self.prompt.place(x=0, y=340.0, anchor="w")
         self.done = False
-        self.next_button.config(state="disabled")
+        print("disabling next button")
+        self.setNextButtonState(False)
         
         # run main assignments program
         # rules.readMarbles()
