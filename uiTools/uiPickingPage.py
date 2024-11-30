@@ -68,10 +68,10 @@ class PickingPage(uiPage.Page):
             self.done = True
             self.next_button.config(state="active")
             self.clearPrompts()
-            self.state_queue.append(["done"])
+            self.state_queue.insert(0, ["done"]) # done prioritizes over everything
             
             # last update since no longer waiting for inputs
-            self.updateAssignments(self.unpickedSummoners)
+            self.updateAssignments([]) # all summoners are picked
         
         state_info = self.state_queue[0]
         self.state = state_info[0]
@@ -86,15 +86,15 @@ class PickingPage(uiPage.Page):
         
         if self.state == "show":
             # initial visualization of data
-            
-            if rules.godScenario:
-                finished()
-                return
-            
             self.waitingForInput = False
             self.unpickedSummoners = list(globals.summoners.keys())
             self.unpickedRoles = list(globals.ROLES)
             self.pickState = "pickInit"
+            
+            # top 1 is marble god
+            if rules.godScenario:
+                finished()
+                return
             
             self.entered_text = ""
             self.button_clicked = False
@@ -146,6 +146,12 @@ class PickingPage(uiPage.Page):
                 if self.checkSubmitted() and self.validateNum(0, 2):
                     self.state_queue.pop(0) # remove this sub state machine (visionSwap) to go back to main loop
                     rules.bestVisionSwaper(self.top3[int(self.entered_text)])
+                    
+                    # check if best vision swapper chose to become god
+                    if rules.godScenario:
+                        finished()
+                        return
+                    
                     if(rules.marbles[globals.summoners[rules.bestVision].curMarble].level != "0"):
                         self.state_queue.insert(0, ["pick", rules.bestVision, False]) # prioritize this
                         self.pickState = "pickInit"

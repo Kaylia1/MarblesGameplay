@@ -43,14 +43,17 @@ def main():
         "--mode",  # Argument flag
         type=str,  # Expected type
         help="Y (optional)",  # Description
-        default="Guest"  # Default value if not provided
+        default="guest"  # Default value if not provided
     )
     
     # Parse the arguments
     args = parser.parse_args()
     
     # Access the optional argument
-    globals.mode = args.mode
+    if args.mode.lower().startswith("dev"):
+        globals.mode = "dev"
+    else: 
+        globals.mode = "guest"
     print(f"Hello, {globals.mode}!")
     
     init_tk()

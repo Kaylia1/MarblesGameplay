@@ -5,6 +5,7 @@ import backendTools.globals as globals
 # import uiTools.Assets.StyledLabel as StyledLabel
 import firebase.firebaseTools as firebaseTools
 import backendTools.rules as rules
+import random
 
 entered_text = ""
 class HomePage(uiPage.Page):
@@ -87,8 +88,16 @@ class HomePage(uiPage.Page):
         self.gridframe.place(x=uiPage.WIDTH/2, y=200.0, anchor="center")
         self.update_labels()
         
+        # if in developer mode, instantly load marble data
+        if globals.mode == "dev":
+            import data.randomizeMarblesDebug as randomizeMarblesDebug
+            lines = randomizeMarblesDebug.randomize_lines("./data/marbles_output.txt")
+            marble_text = "\n".join(lines)
+            self.text_box.insert("1.0", marble_text)
+            
+        
     def handleNext(self):
-        print("Handling")
+        print("Handling inputted marbles data")
         if self.read_text():
             # Move on to next page
             print("Successfully parsed input")

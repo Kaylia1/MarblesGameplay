@@ -43,15 +43,15 @@ class Page:
         self.root = root
         self.frame = tk.Frame(root)
         
-        # Title
-        self.title_label = tk.Label(self.frame, text=title, font=("Arial", 24, "bold"))
-        self.title_label.place(x=5.0, y=5.0, anchor="nw")
-        
         self.setup_background_image()
         # create label and add resize image
         self.label1 = tk.Label(self.frame, image=Page.processed_image)
         self.label1.image = Page.processed_image
         self.label1.pack()
+        
+        # Title
+        self.title_label = tk.Label(self.frame, text=title, font=("Arial", 24, "bold"))
+        self.title_label.place(x=5.0, y=5.0, anchor="nw")
         
         # Message
         self.message_label = tk.Label(self.frame, text=message, font=("Arial", 24),
@@ -69,7 +69,9 @@ class Page:
         if Page.processed_image is None:
             image = Image.open(Page.IMAGE_PATH)
             enhancer = ImageEnhance.Brightness(image)
-            faded_image = enhancer.enhance(0.5)
+            faded_image = enhancer.enhance(1.4) # inc brightness
+            saturation_enhancer = ImageEnhance.Color(faded_image)
+            faded_image = saturation_enhancer.enhance(0.4) # dec saturation
             resize_image = faded_image.resize(Page.IMAGE_SIZE)
             Page.processed_image = ImageTk.PhotoImage(resize_image)
 

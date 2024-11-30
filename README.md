@@ -17,25 +17,14 @@ Known issue with discord bot requiring explicit installation of audioops-lts on 
 
 # Run Instructions 
 cd into marbles top folder
-- python3 .\tkGUI.py
+- python3 .\main.py
 
 Only for developer mode:
-- python3 .\tkGUI.py --mode dev
-
-# EXE generation
-- pip install pyinstaller
-- pyinstaller --onefile -w 'tkGUI.py'
-
-
-pyinstaller --add-data "./marbles/*;." --onefile -w './marbles/tkGUI.py'
+- python3 .\main.py --mode dev
 
 # Discord bot commands
 note: change .env Discord token to change the discord bot target
-- !isAlive: Hello World I am alive
-- !history: Money, historic KDA
-- !money: Money
-## TODOs:
-- !positions: Current marble assignments
+- !help to display all public commands
 
 # Assumed Input Guidelines
 - marbles_output.txt is exactly copy-pasted from the Marbles on Stream game, and follows the exact format of data/MoneyMarbles.csv

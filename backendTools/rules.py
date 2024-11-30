@@ -224,6 +224,10 @@ def bestVisionSwaper(marbleNum):
         return
     # assign person with bestVision to the marble at swapNum
     globals.summoners[bestVision].curMarble = marbleNum
+    if marbles[marbleNum].isMarbleGod():
+        global godScenario
+        godScenario = True
+        assignMarblePlaceholders(bestVision + " is the marble god")
 
 def updatePickList(unpickedSummoners, picker, unpickedRoles, pickedRole):
     unpickedSummoners.remove(picker)
