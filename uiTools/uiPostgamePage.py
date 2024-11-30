@@ -82,6 +82,7 @@ class PostgamePage(uiPage.Page):
         super().show()
         self.infoFrame.place(x=350, y=250.0, anchor="w")
         self.updateEarnings()
+        globals.totalGames += 1
         print("Showing earnings")
 
 def createPostgamePage(root):

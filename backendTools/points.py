@@ -44,6 +44,7 @@ def summoner_to_json(summoner):
 def map_to_json(local_summoners):
     fbData = {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
     fbData["special"] =  {"bestVision": rules.bestVision} # assume bestVision updated  in postgame properly
+    fbData["overall"] = globals.totalGames
     return fbData
 
 # read fb data
@@ -58,6 +59,9 @@ def load_state(json_data):
         elif name == "special":
             if "bestVision" in data:
                 rules.bestVision = data["bestVision"]
+        elif name == "overall":
+            if "games" in data:
+                globals.totalGames = data["games"]
 
     print("Loaded from data.")
 

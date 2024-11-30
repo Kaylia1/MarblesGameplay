@@ -1,4 +1,20 @@
 @echo off
+
+:: remove excess files or files in case of renaming
+set "parent_dir=./"
+cd "%parent_dir%" || exit /b
+:: preserve update scripts and secrets folder
+for /f "delims=" %%i in ('dir /b /a-d') do (
+    if /i not "%%i"=="run.bat" if /i not "%%i"=="updateCheck.bat" if /i not "%%i"=="updateCode.bat" (
+        del "%%i"
+    )
+)
+for /d %%i in (*) do (
+    if /i not "%%i"=="secrets" (
+        rmdir /s /q "%%i"
+    )
+)
+
 :: Get the directory where this batch file is located
 set SCRIPT_DIR=%~dp0
 cd /d "%SCRIPT_DIR%"
