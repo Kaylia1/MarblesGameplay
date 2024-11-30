@@ -26,6 +26,7 @@ class Winrates():
             self.initWinrateGrid()
     
     def show(self):
+        self.toggle_button.config(text="Hide stats")
         for i, frame in enumerate(self.stat_frames):
             frame.place(x=460+260*i, y=150)
         self.toggle_button.place(x=460, y=120.0, anchor="w")  # Adjust the y-position above the grid
@@ -64,8 +65,8 @@ class Winrates():
                 self.stats_col_title_labels[-1].grid(row=1, column=col, sticky="nsew")
         
         # Button to toggle grid visibility
-        self.toggle_button = StyledButton.StyledButton(text="Hide Stats", command=self.toggle_grid, bg="#eeeeee")
-        
+        self.toggle_button = StyledButton.StyledButton(text="Hide Stats", command=self.toggle_grid, bg="#eeeeee", activeforeground="#000000")
+    
     def toggle_grid(self):
         # Toggle visibility of the grid
         if len(self.stat_frames) == 0:
@@ -75,7 +76,7 @@ class Winrates():
             self.toggle_button.config(text="Show stats")
         else:
             self.show()
-            self.toggle_button.config(text="Hide stats")
+           
 
     def updateWinrateGrid(self):
         def colorWinrate(winrate):

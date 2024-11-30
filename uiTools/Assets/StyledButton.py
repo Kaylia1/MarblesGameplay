@@ -1,14 +1,14 @@
 import tkinter as tk
 
 class StyledButton(tk.Button):
-    def __init__(self, parent=None, text="Button", bg="#4CAF50", **kwargs):
+    def __init__(self, parent=None, text="Button", bg="#4CAF50", activeforeground="#ffffff", **kwargs):
         # Set up the default styling parameters
         default_style = {
             "font": ("Helvetica", 12, "bold"),
-            "fg": "white",
+            "fg": activeforeground,
             "bg": bg,
             "activebackground": "#45a049",
-            "activeforeground": "#ffffff",
+            "activeforeground": activeforeground,
             "relief": "raised",
             "bd": 3,
             "padx": 10,

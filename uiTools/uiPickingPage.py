@@ -302,12 +302,12 @@ class PickingPage(uiPage.Page):
         self.state = "done"
         self.pickState = "pickInit"
         self.winratesDisplay.assignMaster(self.frame)
+        # self.winratesDisplay.defaultShow()
         
         self.state_queue = [["show"]]
         self.top10gridframe.place(x=0, y=350.0)
         # self.prompt.place(x=0, y=340.0, anchor="w")
         self.done = False
-        print("disabling next button")
         self.setNextButtonState(False)
         
         # run main assignments program
