@@ -23,12 +23,13 @@ async def send_help_info(channel):
                    ["!help", "List all public commands"],
                    ["!isAlive", "Hello World! I am alive"],
                    ["!games", "Show total number of games played"],
-                   ["!history", "Show cumulative money and kda"],
+                   ["!history", "Show cumulative money and kda + vision"],
+                   ["!stats", "Show average kda+vision across games"],
                    ["!money", "Show current money"],
                    ["!assignments", "Show current marble assignments"],
                    ["!wheel", "Show last wheel result"],
                    ["!vision", "Show summoner with best adjusted vision last game"],
-                   ["!champstats <PlayerName>", "Show all possible winrates for that PlayerName's letter and role"],
+                   ["!champstats <Name>", "Show all possible winrates for Name's letter and role"],
                    ["!drink", "Show random quote about drinking"],
                    ["!top", "Show random quote disparaging top lane"],
                    ]
@@ -38,14 +39,14 @@ async def send_help_info(channel):
 async def send_summoner_data(channel):
     """Send summoner data to the specified channel."""
     # Headers
-    headers = ["Name", "Money", "Kills", "Deaths", "Assists"]
+    headers = ["Name", "Money", "Kills", "Deaths", "Assists", "Vision"]
     
     summonerData = [headers]
     
     # Iterate through summoners and their stats
     for key, summoner in globals.summoners.items():
         # Format summoner data as a string
-        summonerData.append([key, summoner.money, summoner.kills, summoner.deaths, summoner.assists])   #f"{key} | ${summoner.money} | {summoner.kills} | {summoner.deaths} | {summoner.assists}")
+        summonerData.append([key, summoner.money, summoner.kills, summoner.deaths, summoner.assists, summoner.vision])   #f"{key} | ${summoner.money} | {summoner.kills} | {summoner.deaths} | {summoner.assists}")
 
     aligned_data = align_columns(summonerData)
     await channel.send(aligned_data)
@@ -105,4 +106,22 @@ async def send_winrate_data(channel, summonerName):
         winrate_data.append([champ, winrate, matches])
     
     aligned_data = align_columns(winrate_data)
+    await channel.send(aligned_data)
+
+async def send_stats(channel):
+    """Send average summoner data to the specified channel."""
+    # Headers
+    headers = ["Name", "Kills", "Deaths", "Assists", "Vision"]
+    
+    summonerData = [headers]
+    games = globals.totalGames
+    if games <= 0:
+        await channel.send("Zero games recorded.")
+    
+    # Iterate through summoners and their stats
+    for key, summoner in globals.summoners.items():
+        # Format summoner data as a string
+        summonerData.append([key, summoner.kills/games, summoner.deaths/games, summoner.assists/games, summoner.vision/games])   #f"{key} | ${summoner.money} | {summoner.kills} | {summoner.deaths} | {summoner.assists}")
+
+    aligned_data = align_columns(summonerData)
     await channel.send(aligned_data)

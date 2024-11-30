@@ -8,6 +8,7 @@ class Summoner:
         self.kills = 0
         self.deaths = 0
         self.assists = 0
+        self.vision = 0
         self.curMarble = 0
 
 # Initialize summoners
@@ -19,7 +20,7 @@ summoners = {
     "Irisu": Summoner("Irisu", "Nobunagaa"),
 }
 
-allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"]
+allSummoners = ["Adam", "Rage", "Kaylia", "Jon", "Irisu"] # TODO refactor get rid of this
 ROLES = ["jungle", "support", "top", "mid", "bot"]
 
 totalGames = 0

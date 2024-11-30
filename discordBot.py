@@ -77,6 +77,8 @@ async def on_message(message):
     elif message.content.startswith('!champstats'):
         if len(message.content.split(" "))>1:
             await sendingData.send_winrate_data(message.channel, message.content.split(" ")[1])
+    elif message.content.startswith('!stats'):
+        await sendingData.send_stats(message.channel)
     elif message.content.startswith('!wheel'):
         await sendingData.send_wheel_res_data(message.channel)
     elif message.author.name == "smolfroggo":

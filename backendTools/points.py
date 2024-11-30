@@ -37,7 +37,8 @@ def summoner_to_json(summoner):
         "money": summoner.money,
         "kills": summoner.kills,
         "deaths": summoner.deaths,
-        "assists": summoner.assists
+        "assists": summoner.assists,
+        "vision": summoner.vision
     }
 
 # construct fb data to store in cloud
@@ -56,6 +57,7 @@ def load_state(json_data):
             summoner.kills = data["kills"]
             summoner.deaths = data["deaths"]
             summoner.assists = data["assists"]
+            summoner.vision = data["vision"]
         elif name == "special":
             if "bestVision" in data:
                 rules.bestVision = data["bestVision"]
@@ -110,6 +112,7 @@ def scoreAdjust():
         summoner.kills += kills
         summoner.deaths += deaths
         summoner.assists += assists
+        summoner.vision += vision
         
         if(isSupp):
             vision *= 0.6 # supp needs 15/0.6=25 vision score to avoid penalty
