@@ -22,6 +22,7 @@ async def send_help_info(channel):
                    ["Command", "Description"],
                    ["!help", "List all public commands"],
                    ["!isAlive", "Hello World! I am alive"],
+                   ["!games", "Show total number of games played"],
                    ["!history", "Show cumulative money and kda"],
                    ["!money", "Show current money"],
                    ["!assignments", "Show current marble assignments"],

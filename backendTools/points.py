@@ -44,7 +44,7 @@ def summoner_to_json(summoner):
 def map_to_json(local_summoners):
     fbData = {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
     fbData["special"] =  {"bestVision": rules.bestVision} # assume bestVision updated  in postgame properly
-    fbData["overall"] = globals.totalGames
+    fbData["overall"] = {"games": globals.totalGames}
     return fbData
 
 # read fb data
@@ -91,6 +91,8 @@ def findSupp(playerData):
     return support
 
 def scoreAdjust():
+    globals.totalGames += 1
+    
     playerData, isWin = webtools.getRiotAPIData()
     support = findSupp(playerData)
 

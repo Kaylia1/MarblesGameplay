@@ -57,6 +57,8 @@ async def on_message(message):
         await message.channel.send('Hello World! I am alive')
     elif message.content.startswith('!help'):
         await sendingData.send_help_info(message.channel)
+    elif message.content.startswith('!games'):
+        await message.channel.send('Total games played:'+str(globals.totalGames))
     elif message.content.startswith('!history'):
         points.load_state(firebaseTools.fb.loadData())
         await sendingData.send_summoner_data(message.channel)
