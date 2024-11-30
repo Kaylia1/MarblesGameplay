@@ -111,17 +111,22 @@ def scoreAdjust():
         if isWin:
             summoner.money += 30
 
-        if(isSupp):
-            kills, assists = assists, kills
-            vision *= 0.6 # supp needs 15/0.6=25 vision score to avoid penalty
         summoner.kills += kills
         summoner.deaths += deaths
         summoner.assists += assists
-        summoner.money += kills * KILLVALUE - deaths * DEATHVALUE + assists * ASSISTVALUE
+        
+        if(isSupp):
+            vision *= 0.6 # supp needs 15/0.6=25 vision score to avoid penalty
+            summoner.money += assists * KILLVALUE - deaths * DEATHVALUE + kills * ASSISTVALUE
+        else:
+            summoner.money += kills * KILLVALUE - deaths * DEATHVALUE + assists * ASSISTVALUE
+        
         if(vision < 15):
             summoner.money -= 15
         elif(vision > 20):
             summoner.money += vision - 20
+        
+        # best adjusted vision or random tiebreak
         if vision > bestVisionScore or vision == bestVisionScore and random.randint(0, 1) == 0:
             rules.bestVision = summoner.name
             bestVisionScore = vision

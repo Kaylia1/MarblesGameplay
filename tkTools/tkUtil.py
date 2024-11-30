@@ -132,8 +132,6 @@ def show_page(page_num):
     # animate any new messages
     pages[page_num].animate_message(pages[page_num].message_label)
     
-    print("done with show page")
-
 def trigger_wheel_page():
     global curPage
     curPage = "wheel"
