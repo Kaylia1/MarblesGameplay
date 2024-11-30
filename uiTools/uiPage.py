@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import tkTools.Assets.StyledButton as StyledButton
+import uiTools.Assets.StyledButton as StyledButton
 from PIL import Image, ImageTk, ImageEnhance
 
 WIDTH = 1800

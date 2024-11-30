@@ -1,17 +1,17 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
-import tkTools.uiWinrates as uiWinrates
-import tkTools.uiAssignments as uiAssignments
+import uiTools.uiWinrates as uiWinrates
+import uiTools.uiAssignments as uiAssignments
 
 # CUR_ASSIGNMENT_X_OFFSET = 300
 DEFAULT_MSG = "Homies, it's marblin time x2"
 
 
-class PickingPage(tkUtil.Page):
+class PickingPage(uiPage.Page):
     def __init__(self, root):
         super().__init__(root, "Picking Page", DEFAULT_MSG)
         self.state_queue = []

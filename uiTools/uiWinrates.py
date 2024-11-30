@@ -1,4 +1,4 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals

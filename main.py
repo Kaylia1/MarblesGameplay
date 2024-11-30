@@ -1,11 +1,11 @@
 import tkinter as tk
-import tkTools.tkUtil as tkUtil
-import tkTools.tkHomePage as tkHomePage, tkTools.tkPostgamePage as tkPostgamePage
-import tkTools.tkPickingPage as tkPickingPage, tkTools.tkAdjustmentsPage as tkAdjustmentsPage
+import uiTools.uiPage as uiPage
+import uiTools.uiHomePage as uiHomePage, uiTools.uiPostgamePage as uiPostgamePage
+import uiTools.uiPickingPage as uiPickingPage, uiTools.uiAdjustmentsPage as uiAdjustmentsPage
 import backendTools.parseChampStats as parseChampStats
-import tkTools.tkWheelPage as tkWheelPage
-import tkTools.tkWheelResultPage as tkWheelResultPage
-import tkTools.tkMidgamePage as tkMidgamePage
+import uiTools.uiWheelPage as uiWheelPage
+import uiTools.uiWheelResultPage as uiWheelResultPage
+import uiTools.uiMidgamePage as uiMidgamePage
 import argparse
 import firebase.firebaseTools as firebaseTools
 import json
@@ -13,27 +13,27 @@ import backendTools.globals as globals
 import discordBot # runs in background
 
 def init_tk():
-    tkUtil.root = tk.Tk()
-    tkUtil.root.title("ITS MARBLIN TIME")
-    tkUtil.root.protocol("WM_DELETE_WINDOW", on_close)
-    tkUtil.root.geometry(str(tkUtil.WIDTH)+"x"+str(tkUtil.HEIGHT))
+    uiPage.root = tk.Tk()
+    uiPage.root.title("ITS MARBLIN TIME")
+    uiPage.root.protocol("WM_DELETE_WINDOW", on_close)
+    uiPage.root.geometry(str(uiPage.WIDTH)+"x"+str(uiPage.HEIGHT))
     
-    homePage = tkHomePage.createHomePage(tkUtil.root)
-    pickingPage = tkPickingPage.createPickingPage(tkUtil.root)
-    adjustmentsPage = tkAdjustmentsPage.createAdjustmentsPage(tkUtil.root)
+    homePage = uiHomePage.createHomePage(uiPage.root)
+    pickingPage = uiPickingPage.createPickingPage(uiPage.root)
+    adjustmentsPage = uiAdjustmentsPage.createAdjustmentsPage(uiPage.root)
     
-    tkUtil.wheelPage = tkWheelPage.createWheelPage(tkUtil.root)
-    tkUtil.wheelResPage = tkWheelResultPage.createWheelResultPage(tkUtil.root)
+    uiPage.wheelPage = uiWheelPage.createWheelPage(uiPage.root)
+    uiPage.wheelResPage = uiWheelResultPage.createWheelResultPage(uiPage.root)
     
-    midGamePage = tkMidgamePage.createMidgamePage(tkUtil.root)
-    postGamePage = tkPostgamePage.createPostgamePage(tkUtil.root)
-    tkUtil.pages = [homePage, pickingPage, adjustmentsPage, midGamePage, postGamePage]
-    tkUtil.curPage = 0
+    midGamePage = uiMidgamePage.createMidgamePage(uiPage.root)
+    postGamePage = uiPostgamePage.createPostgamePage(uiPage.root)
+    uiPage.pages = [homePage, pickingPage, adjustmentsPage, midGamePage, postGamePage]
+    uiPage.curPage = 0
 
 
 def on_close():
-    tkUtil.root.quit()
-    tkUtil.root.destroy()
+    uiPage.root.quit()
+    uiPage.root.destroy()
 
 def main():
     parser = argparse.ArgumentParser(description="Script that accepts an optional argument.")
@@ -57,10 +57,10 @@ def main():
     parseChampStats.constructWinrates()
     
     # Start with the first page
-    tkUtil.show_page(tkUtil.curPage)
+    uiPage.show_page(uiPage.curPage)
 
     # Run the application
-    tkUtil.root.mainloop()
+    uiPage.root.mainloop()
     
     print("mainloop exited")
     

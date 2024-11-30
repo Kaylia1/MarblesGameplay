@@ -1,4 +1,4 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import random
 import tkinter as tk
 import time
@@ -9,7 +9,7 @@ import backendTools.soundTools as soundTools
 # wheel page is responsible for making marble adjustments due to wheel
 wheel_result = ""
 
-class WheelPage(tkUtil.Page):
+class WheelPage(uiPage.Page):
 
     def __init__(self, root):
         super().__init__(root, "Wheel of fortune", "")
@@ -180,7 +180,7 @@ class WheelPage(tkUtil.Page):
         self.spin_button.place(x=750, y=760, anchor="center")
     
     def handleNext(self):
-        tkUtil.trigger_wheel_res_page()
+        uiPage.trigger_wheel_res_page()
 
 def createWheelPage(root):
     wheelpage = WheelPage(root)

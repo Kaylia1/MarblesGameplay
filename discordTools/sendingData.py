@@ -1,7 +1,7 @@
 import backendTools.globals as globals
 import backendTools.rules as rules
-import tkTools.uiWinrates as uiWinrates
-import tkTools.tkWheelPage as tkWheelPage
+import uiTools.uiWinrates as uiWinrates
+import uiTools.uiWheelPage as uiWheelPage
 
 def align_columns(data):
     """Aligns columns with appropriate padding."""
@@ -83,7 +83,7 @@ async def send_assignment_data(channel):
     await channel.send(aligned_data)
 
 async def send_wheel_res_data(channel):
-    await channel.send("Last wheel spin: "+tkWheelPage.wheel_result)
+    await channel.send("Last wheel spin: "+uiWheelPage.wheel_result)
 
 async def send_winrate_data(channel, summonerName):
     """Send the assignment data in table format."""

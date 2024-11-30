@@ -1,11 +1,11 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import backendTools.webtools as webtools
 import backendTools.points as points
 import backendTools.globals as globals
 import tkinter as tk
 import firebase.firebaseTools as firebaseTools
 
-class PostgamePage(tkUtil.Page):
+class PostgamePage(uiPage.Page):
     def __init__(self, root):
         super().__init__(root, "Post-Game", "ggs")
         

@@ -1,22 +1,22 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
-# import tkTools.Assets.StyledLabel as StyledLabel
+# import uiTools.Assets.StyledLabel as StyledLabel
 import firebase.firebaseTools as firebaseTools
 import backendTools.rules as rules
 
 entered_text = ""
-class HomePage(tkUtil.Page):
+class HomePage(uiPage.Page):
     def __init__(self, root):
         super().__init__(root, "Home", "Homies, it's marblin time")
         
         self.historicData = tk.Label(self.frame, text="Historic Data:", font=("Arial", 24))
-        self.historicData.place(x=tkUtil.WIDTH/2, y=70.0, anchor="center")
+        self.historicData.place(x=uiPage.WIDTH/2, y=70.0, anchor="center")
         
         
         self.reminderMsg = tk.Label(self.frame, text="Did you finish copying marbles output to data/marbles_output.txt?", font=("Arial", 24))
-        self.reminderMsg.place(x=tkUtil.WIDTH/2, y=400.0, anchor="center")
+        self.reminderMsg.place(x=uiPage.WIDTH/2, y=400.0, anchor="center")
         
         self.statsLabels = {}
         
@@ -84,14 +84,9 @@ class HomePage(tkUtil.Page):
     
     def show(self):
         super().show()
-        self.gridframe.place(x=tkUtil.WIDTH/2, y=200.0, anchor="center")
+        self.gridframe.place(x=uiPage.WIDTH/2, y=200.0, anchor="center")
         self.update_labels()
         
-        # write game money adjustment to file
-        # output = points.map_to_json(globals.summoners)
-        # firebaseTools.fb.storeData(output)
-        # self.isHidden = False
-    
     def handleNext(self):
         print("Handling")
         if self.read_text():

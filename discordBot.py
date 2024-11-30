@@ -4,14 +4,14 @@ import os
 import discord
 from dotenv import load_dotenv
 
-import tkTools.tkUtil as tkUtil
-import tkTools.tkHomePage as tkHomePage, tkTools.tkPostgamePage as tkPostgamePage
-import tkTools.tkPickingPage as tkPickingPage, tkTools.tkAdjustmentsPage as tkAdjustmentsPage
+import uiTools.uiPage as uiPage
+import uiTools.uiHomePage as uiHomePage, uiTools.uiPostgamePage as uiPostgamePage
+import uiTools.uiPickingPage as uiPickingPage, uiTools.uiAdjustmentsPage as uiAdjustmentsPage
 import backendTools.parseChampStats as parseChampStats
-import tkTools.tkWheelPage as tkWheelPage
-import tkTools.tkWheelResultPage as tkWheelResultPage
-import tkTools.tkMidgamePage as tkMidgamePage
-import tkTools.tkUtil as tkUtil
+import uiTools.uiWheelPage as uiWheelPage
+import uiTools.uiWheelResultPage as uiWheelResultPage
+import uiTools.uiMidgamePage as uiMidgamePage
+import uiTools.uiPage as uiPage
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
@@ -79,7 +79,7 @@ async def on_message(message):
         await sendingData.send_wheel_res_data(message.channel)
     elif message.author.name == "smolfroggo":
         if message.content.startswith('!page'):
-            await message.channel.send(tkUtil.getCurPage())
+            await message.channel.send(uiPage.getCurPage())
         elif message.content.startswith('!runtime'):
             global startTime
             endTime = time.time()

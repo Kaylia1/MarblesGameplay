@@ -1,4 +1,4 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import tkinter as tk
 import backendTools.globals as globals
 
@@ -31,7 +31,7 @@ class Money():
         name = ""
         for i in range(2, len(self.moneyLabels)):
             if(i%2==0):
-                name = tkUtil.getLabelTxt(self.moneyLabels[i])
+                name = uiPage.getLabelTxt(self.moneyLabels[i])
             else:
                 self.moneyLabels[i].config(text="$"+str(globals.summoners[name].money))
     

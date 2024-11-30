@@ -10,7 +10,7 @@ tkGUI.spec
 
 __pycache__/
 backendTools/__pycache__/
-tkTools/__pycache__/
+uiTools/__pycache__/
 uiTools/__pycache__/
 uiTools/Assets/__pycache__/
 uiTools/Util/__pycache__/

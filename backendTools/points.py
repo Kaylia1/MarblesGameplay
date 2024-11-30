@@ -40,24 +40,14 @@ def summoner_to_json(summoner):
         "assists": summoner.assists
     }
 
+# construct fb data to store in cloud
 def map_to_json(local_summoners):
-    return {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
+    fbData = {name: summoner_to_json(summoner) for name, summoner in local_summoners.items()}
+    fbData["special"] =  {"bestVision": rules.bestVision} # assume bestVision updated  in postgame properly
+    return fbData
 
-# def save_state(json_data):
-    # print("Writing to file")
-    # with open("saved_points.json", "w") as file:
-    #     json.dump(json_data, file, indent=4)
-    # print("Points written to saved_points.json")
-
+# read fb data
 def load_state(json_data):
-    # print("Loading from file")
-    # if not os.path.exists("saved_points.json"):
-    #     print("Could not open file, no data loaded (new session)?")
-    #     return
-
-    # with open("saved_points.json", "r") as file:
-    #     json_data = json.load(file)
-
     for name, data in json_data.items():
         if name in globals.summoners:
             summoner = globals.summoners[name]

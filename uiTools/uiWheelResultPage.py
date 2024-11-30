@@ -1,13 +1,13 @@
 import tkinter as tk
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import backendTools.rules as rules
 import backendTools.globals as globals
 import backendTools.wheelMap as wheelMap
-import tkTools.tkWheelPage as tkWheelPage # import wheel_result
-import tkTools.uiMoney as uiMoney
-import tkTools.uiAssignments as uiAssignments
+import uiTools.uiWheelPage as uiWheelPage # import wheel_result
+import uiTools.uiMoney as uiMoney
+import uiTools.uiAssignments as uiAssignments
 
-class WheelResultPage(tkUtil.Page):
+class WheelResultPage(uiPage.Page):
     def __init__(self, root):
         super().__init__(root, "Wheel Result Page", "")
         
@@ -33,7 +33,7 @@ class WheelResultPage(tkUtil.Page):
     def show(self):
         super().show()
         self.gen_from_inputs()
-        self.setMessageLabel(tkWheelPage.wheel_result)
+        self.setMessageLabel(uiWheelPage.wheel_result)
         self.next_button.config(state="disabled")
         
         self.moneyDisplay.updateMoneyLabels()
@@ -75,7 +75,7 @@ class WheelResultPage(tkUtil.Page):
         # get possibilities and auto select if only one option
         # NOTE: assume wheel_map_inputs always returns a tuple with exact same number of values as label_names
         for i, label_name in enumerate(self.label_names):
-            key_str = wheelMap.wheel_map_inputs[tkWheelPage.wheel_result][i]
+            key_str = wheelMap.wheel_map_inputs[uiWheelPage.wheel_result][i]
             self.inputs[label_name]["poss"] = self.get_possible_input(key_str)
             poss_inputs_str = ", ".join(self.inputs[label_name]["poss"])
             print(poss_inputs_str)
@@ -137,13 +137,13 @@ class WheelResultPage(tkUtil.Page):
                 wheel_params = []
                 for label_name in self.label_names:
                     wheel_params.append(self.inputs[label_name]["val"])
-                wheelMap.wheel_map[tkWheelPage.wheel_result](wheel_params)
+                wheelMap.wheel_map[uiWheelPage.wheel_result](wheel_params)
             
             # once valid input, go next immediately
             self.handleNext()
         
     def handleNext(self):
-        tkUtil.show_page(2)
+        uiPage.show_page(2)
 
 
 def createWheelResultPage(root):

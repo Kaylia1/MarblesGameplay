@@ -1,18 +1,18 @@
-import tkTools.tkUtil as tkUtil
-import tkTools.tkPickingPage as tkPickingPage
+import uiTools.uiPage as uiPage
+import uiTools.uiPickingPage as uiPickingPage
 import backendTools.wheelMap as wheelMap
-import tkTools.uiMoney as uiMoney
-import tkTools.uiWinrates as uiWinrates
-import tkTools.uiAssignments as uiAssignments
-# import tkTools.tkMoney as tkMoney
+import uiTools.uiMoney as uiMoney
+import uiTools.uiWinrates as uiWinrates
+import uiTools.uiAssignments as uiAssignments
+# import uiTools.tkMoney as tkMoney
 import tkinter as tk
 import backendTools.points as points
 import backendTools.globals as globals
 import backendTools.rules as rules
 import backendTools.parseChampStats as parseChampStats
-import tkTools.tkWheelPage as tkWheelPage
+import uiTools.uiWheelPage as uiWheelPage
 
-class AdjustmentsPage(tkUtil.Page):
+class AdjustmentsPage(uiPage.Page):
     def __init__(self, root):
         super().__init__(root, "Wheel / Bribe Page", "huh")
         self.entry = tk.Entry(self.frame, width=30)
@@ -46,7 +46,7 @@ class AdjustmentsPage(tkUtil.Page):
             if(self.entered_text.lower() == summonerName.lower() and globals.summoners[(self.entered_text[0].upper() + self.entered_text[1:].lower())].money >= 100):
                 wheelMap.lastSpinner = self.entered_text[0].upper() + self.entered_text[1:].lower() # TODO bad coding practice to manually make first letter uppercase
                 globals.summoners[wheelMap.lastSpinner].money -= 100
-                tkUtil.trigger_wheel_page()
+                uiPage.trigger_wheel_page()
                 break
         self.entry.delete(0, tk.END)
     
@@ -119,7 +119,7 @@ class AdjustmentsPage(tkUtil.Page):
         
         # run main assignments program
         
-        self.setMessageLabel("last wheel result:\n"+tkWheelPage.wheel_result)
+        self.setMessageLabel("last wheel result:\n"+uiWheelPage.wheel_result)
         
         self.moneyDisplay.updateMoneyLabels()
         self.moneyDisplay.show()

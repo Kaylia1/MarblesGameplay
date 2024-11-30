@@ -1,15 +1,15 @@
-import tkTools.tkUtil as tkUtil
+import uiTools.uiPage as uiPage
 import backendTools.points as points
 import tkinter as tk
 import backendTools.globals as globals
 import firebase.firebaseTools as firebaseTools
 
-class MidgamePage(tkUtil.Page):
+class MidgamePage(uiPage.Page):
     def __init__(self, root):
         super().__init__(root, "Mid-Game", "good luck mates")
         
         self.reminderMsg = tk.Label(self.frame, text="Did the game finish?", font=("Arial", 12))
-        self.reminderMsg.place(x=tkUtil.WIDTH/2, y=400.0, anchor="center")
+        self.reminderMsg.place(x=uiPage.WIDTH/2, y=400.0, anchor="center")
         
     def hide(self):
         super().hide()
